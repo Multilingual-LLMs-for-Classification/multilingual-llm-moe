@@ -1,0 +1,62 @@
+{
+    "finance": {
+        "sentiment_analysis": [
+            "sentiment",
+            "feeling",
+            "opinion",
+            "positive",
+            "negative",
+            "mood"
+        ],
+        "risk_assessment": [
+            "risk",
+            "assess",
+            "evaluate",
+            "danger",
+            "safety",
+            "exposure"
+        ],
+        "price_prediction": [
+            "price",
+            "predict",
+            "forecast",
+            "future",
+            "estimate",
+            "projection"
+        ],
+        "fraud_detection": [
+            "fraud",
+            "detect",
+            "suspicious",
+            "illegal",
+            "fake",
+            "scam"
+        ]
+    },    
+    "general": {
+        "question_answering": [
+            "what",
+            "how",
+            "why",
+            "when",
+            "where",
+            "who",
+            "which"
+        ],
+        "text_summarization": [
+            "summary",
+            "summarize",
+            "brief",
+            "key points",
+            "overview"
+        ],
+        "classification": [
+            "classify",
+            "category",
+            "type",
+            "kind",
+            "sort",
+            "group"
+        ]
+    }
+}
