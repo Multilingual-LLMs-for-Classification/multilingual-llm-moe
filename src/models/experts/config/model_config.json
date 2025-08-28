@@ -10,12 +10,5 @@
             "model_name": "FacebookAI/xlm-roberta-large",
             "download_if_missing": true
         }
-    },
-    "healthcare": {
-        "diagnosis_support": {
-            "model_type": "huggingface",
-            "model_name": "microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract",
-            "download_if_missing": true
-        }
     }
 }

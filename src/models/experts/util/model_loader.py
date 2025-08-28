@@ -185,7 +185,6 @@ class ModelLoader:
     def download_all_models(self):
         """Download all configured models"""
         print("Downloading all configured models...")
-        print(f"Base directory: {self.models_base_dir}")
         
         for domain, tasks in self.config.items():
             print(f"\nProcessing {domain.upper()} domain:")
