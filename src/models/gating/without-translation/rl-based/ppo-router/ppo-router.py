@@ -10,6 +10,8 @@ from pathlib import Path
 import re
 import fasttext
 import requests
+import json
+from prompts_multilingual import test_prompts
 
 # Add project root to Python path
 project_root = Path(__file__).parents[6]  # Go up 6 levels to reach project root
@@ -266,14 +268,190 @@ class DomainClassifier:
         
         return max(scores, key=scores.get)
 
-# 3. Task Expert Models
+# 3. Task Classification Module with PPO
+class TaskClassifier:
+    def __init__(self, domain_tasks):
+        self.domain_tasks = domain_tasks
+        self.task_pipelines = {}
+        self.ppo_agents = {}
+        self._initialize_task_classifiers()
+    
+    def _initialize_task_classifiers(self):
+        for domain, tasks in self.domain_tasks.items():
+            # Create ML classifier for each domain
+            self.task_pipelines[domain] = self._create_task_pipeline(domain, tasks)
+            
+            # Create PPO agent for task routing optimization
+            num_tasks = len(tasks)
+            self.ppo_agents[domain] = PPOAgent(state_dim=15, action_dim=num_tasks)
+    
+    def _create_task_pipeline(self, domain, tasks):
+        # Create task-specific training data
+        training_data = self._create_task_training_data(domain, tasks)
+        
+        pipeline = Pipeline([
+            ('tfidf', TfidfVectorizer(max_features=500, ngram_range=(1, 2))),
+            ('classifier', MultinomialNB(alpha=0.1))
+        ])
+        
+        if training_data:
+            texts, labels = zip(*training_data)
+            pipeline.fit(texts, labels)
+        
+        return pipeline
+    
+    def _create_task_training_data(self, domain, tasks):
+        # Generate task-specific training data
+        task_samples = {
+            'sentiment_analysis': [
+                "analyze sentiment of this text", "what's the mood of this review",
+                "positive or negative opinion", "emotional tone analysis",
+                "how does this make you feel", "determine the sentiment",
+                "is this positive or negative", "sentiment classification"
+            ],
+            'news_classification': [
+                "classify this news article", "what category is this news",
+                "categorize this headline", "what type of news is this",
+                "classify this media report", "what topic does this article cover",
+                "determine news category", "news article classification"
+            ],
+            'question_answering': [
+                "what is the answer", "can you explain", "help me understand",
+                "provide information about"
+            ],
+            'text_summarization': [
+                "summarize this document", "brief overview of", "key points summary",
+                "condensed version of text"
+            ],
+            'classification': [
+                "classify this item", "categorize the document", "sort into groups",
+                "organize by type"
+            ]
+        }
+        
+        training_data = []
+        for task in tasks:
+            if task in task_samples:
+                for sample in task_samples[task]:
+                    training_data.append((sample, task))
+        
+        return training_data
+    
+    def classify_task(self, text, domain, use_ppo=False):
+        print(f"Classifying task for domain: {domain} with PPO: {use_ppo}")
+        if use_ppo:
+            return self._ppo_task_classification(text, domain)
+        else:
+            return self._ml_task_classification(text, domain)
+    
+    def _ml_task_classification(self, text, domain):
+        """Traditional ML task classification"""
+        if domain not in self.task_pipelines:
+            return list(self.domain_tasks[domain].keys())[0]
+        
+        try:
+            pipeline = self.task_pipelines[domain]
+            prediction = pipeline.predict([text])[0]
+            return prediction
+        except:
+            return list(self.domain_tasks[domain].keys())[0]
+    
+    def _ppo_task_classification(self, text, domain):
+        """PPO-enhanced task classification"""
+        features = self._extract_task_features(text, domain)
+        print(f"Extracted features: {features}")
+        agent = self.ppo_agents[domain]
+        
+        task_idx, confidence = agent.get_action(features)
+        print(f"PPO selected task index: {task_idx} with confidence {confidence:.4f}")
+        task_names = list(self.domain_tasks[domain].keys())
+        print(f"Available tasks: {task_names}")
+        
+        if task_idx < len(task_names):
+            return task_names[task_idx]
+        else:
+            return task_names[0]
+    
+    def _extract_task_features(self, text, domain):
+        """Extract features for PPO task classification"""
+        features = np.zeros(15)
+        text_lower = text.lower()
+        
+        # Basic text features
+        features[0] = len(text) / 1000  # Normalized length
+        features[1] = len(text.split()) / 50  # Normalized word count
+        features[2] = 1.0 if '?' in text else 0.0  # Question indicator
+        
+        # Task-specific keyword features
+        # task_keywords = {
+        #     'sentiment': ['sentiment', 'feeling', 'opinion', 'positive', 'negative'],
+        #     'risk': ['risk', 'danger', 'safety', 'assess', 'evaluate'],
+        #     'prediction': ['predict', 'forecast', 'estimate', 'future'],
+        #     'detection': ['detect', 'find', 'identify', 'discover'],
+        #     'question': ['what', 'how', 'why', 'when', 'where'],
+        #     'summary': ['summary', 'brief', 'overview', 'key points'],
+        #     'classification': ['classify', 'categorize', 'sort', 'group']
+        # }
+        task_keywords = {
+            'sentiment': ['sentiment', 'feeling', 'opinion', 'positive', 'negative', 'mood', 'emotion'],
+            'news': ['news', 'headline', 'article', 'press', 'media', 'report', 'story'],
+            'classification': ['classify', 'categorize', 'sort', 'group', 'category', 'type'],
+            'question': ['what', 'how', 'why', 'when', 'where', 'who', 'which'],
+            'summary': ['summary', 'brief', 'overview', 'key points', 'summarize'],
+            'analysis': ['analyze', 'analysis', 'examine', 'evaluate', 'assess'],
+            'financial': ['stock', 'market', 'price', 'investment', 'trading', 'finance']
+        }
+        
+        feature_idx = 3
+        for category, keywords in task_keywords.items():
+            score = sum(1 for kw in keywords if kw in text_lower) / len(keywords)
+            features[feature_idx] = score
+            feature_idx += 1
+        
+        # Domain-specific features
+        if domain == 'finance':
+            finance_kw = ['market', 'stock', 'investment', 'trading', 'financial']
+            features[10] = sum(1 for kw in finance_kw if kw in text_lower) / len(finance_kw)
+        
+        # Additional contextual features
+        features[11] = text.count('!') / max(len(text), 1)  # Exclamation density
+        features[12] = text.count('.') / max(len(text), 1)  # Period density
+        features[13] = len([w for w in text.split() if w.isupper()]) / max(len(text.split()), 1)  # Caps ratio
+        features[14] = len(set(text.lower().split())) / max(len(text.split()), 1)  # Unique word ratio
+        
+        return features
+    
+    def train_ppo_agent(self, domain, training_data):
+        """Train PPO agent for specific domain"""
+        agent = self.ppo_agents[domain]
+        task_names = list(self.domain_tasks[domain].keys())
+        
+        for epoch in range(50):
+            for sample in training_data:
+                if sample['domain'] == domain:
+                    text = sample['prompt']
+                    correct_task = sample['task']
+                    
+                    features = self._extract_task_features(text, domain)
+                    predicted_idx, action_prob = agent.get_action(features)
+                    
+                    correct_idx = task_names.index(correct_task) if correct_task in task_names else 0
+                    reward = 1.0 if predicted_idx == correct_idx else -0.5
+                    
+                    agent.store_transition(features, predicted_idx, reward, action_prob)
+            
+            if epoch % 10 == 0:
+                loss = agent.update()
+                print(f"Domain {domain} - Epoch {epoch}, Loss: {loss:.4f}")
+
+# 4. Task Expert Models
 class TaskExpert:
     def __init__(self, task_name):
         self.task_name = task_name
         
     def predict(self, text):
         # In production, this would be your actual trained model
-        confidence = random.uniform(0.6, 0.95)
+        confidence = random.uniform(0.1, 0.2)
         prediction = f"{self.task_name}_result"
         return prediction, confidence
 
@@ -382,95 +560,41 @@ class PPOAgent:
 # 6. Complete Prompt Routing System
 class PromptRoutingSystem:
     def __init__(self):
-        
         config_path = Path(__file__).parents[4] / "experts" / "config"
         
-        self.language_detector = LanguageDetector()
-        self.domain_classifier = DomainClassifier()
+        # Initialize components
+        self.language_detector = LanguageDetector()  # FastText-based
+        self.domain_classifier = DomainClassifier()  # ML-based
         self.model_loader = ModelLoader(config_path / "model_config.json")
         self.domain_tasks = DomainTaskLoader(config_path / "domain_tasks.json")
         
         # Initialize task classifier with PPO
-        # self.task_classifier = TaskClassifier(self.domain_tasks.domain_tasks)
+        self.task_classifier = TaskClassifier(self.domain_tasks.domain_tasks)
         
         # Download models and initialize experts
-        
         print("Checking and downloading models if needed...")
         self.model_loader.download_all_models()
         
-        # Initialize task experts
         self.experts = {}
         for domain, tasks in self.domain_tasks.items():
             self.experts[domain] = {}
             for task in tasks.keys():
                 self.experts[domain][task] = TaskExpert(task)
         
-        # Initialize RL agents for each domain
-        self.routing_agents = {}
-        for domain in self.domain_tasks.keys():
-            num_tasks = len(self.domain_tasks[domain])
-            self.routing_agents[domain] = PPOAgent(state_dim=10, action_dim=num_tasks)
+        # Use PPO agents from task classifier
+        self.routing_agents = self.task_classifier.ppo_agents
     
-    def extract_features(self, prompt):
-        """Extract features from prompt for RL state"""
-        features = np.zeros(10)
-        prompt_lower = prompt.lower()
-        
-        # Basic features
-        features[0] = min(len(prompt) / 1000, 1.0)  # Length
-        features[1] = 1.0 if '?' in prompt else 0.0  # Question
-        features[2] = min(len(prompt.split()) / 50, 1.0)  # Word count
-        
-        # Domain-specific keywords
-        finance_kw = ['market', 'stock', 'price', 'trading', 'investment']
-        tech_kw = ['code', 'AI', 'algorithm', 'software', 'programming']
-        health_kw = ['patient', 'medical', 'treatment', 'symptom']
-        
-        features[3] = sum(1 for kw in finance_kw if kw in prompt_lower) / len(finance_kw)
-        features[4] = sum(1 for kw in tech_kw if kw in prompt_lower) / len(tech_kw)
-        features[5] = sum(1 for kw in health_kw if kw in prompt_lower) / len(health_kw)
-        
-        # Task indicators
-        features[6] = 1.0 if any(w in prompt_lower for w in ['analyze', 'sentiment']) else 0.0
-        features[7] = 1.0 if any(w in prompt_lower for w in ['predict', 'forecast']) else 0.0
-        features[8] = 1.0 if any(w in prompt_lower for w in ['generate', 'create', 'write']) else 0.0
-        features[9] = 1.0 if any(w in prompt_lower for w in ['detect', 'find', 'debug']) else 0.0
-        
-        return features
-    
-    def classify_task(self, prompt, domain):
-        """Classify task within domain using keyword matching"""
-        prompt_lower = prompt.lower()
-        task_scores = {}
-        
-        for task, keywords in self.domain_tasks[domain].items():
-            score = sum(1 for keyword in keywords if keyword in prompt_lower)
-            task_scores[task] = score
-        
-        if max(task_scores.values()) > 0:
-            return max(task_scores, key=task_scores.get)
-        else:
-            return list(self.domain_tasks[domain].keys())[0]
-    
-    def route_prompt(self, prompt, use_rl=False):
-        """Route prompt through the pipeline"""
-        # Step 1: Language Detection
+    def route_prompt(self, prompt, use_ppo=False):
+        # Step 1: FastText Language Detection
         language = self.language_detector.detect_language(prompt)
-        print(f"Detected language: {language}")
-        print("Promt: ", prompt)
         
-        # Step 2: Domain Classification
+        # Step 2: ML-based Domain Classification
         domain = self.domain_classifier.classify_domain(prompt)
+        domain_probs = self.domain_classifier.get_domain_probabilities(prompt)
         
-        # Step 3: Task Classification
-        if use_rl:
-            features = self.extract_features(prompt)
-            agent = self.routing_agents[domain]
-            task_idx, routing_confidence = agent.get_action(features)
-            task = list(self.domain_tasks[domain].keys())[task_idx]
-        else:
-            task = self.classify_task(prompt, domain)
-            routing_confidence = 0.8  # Default confidence
+        # Step 3: PPO-enhanced Task Classification
+        task = self.task_classifier.classify_task(prompt, domain, use_ppo=use_ppo)
+        print(f"task: {task}")
         
         # Step 4: Expert Processing
         expert = self.experts[domain][task]
@@ -480,57 +604,31 @@ class PromptRoutingSystem:
             'input': prompt,
             'language': language,
             'domain': domain,
+            'domain_probabilities': domain_probs,
             'task': task,
             'result': result,
-            'routing_confidence': routing_confidence,
             'expert_confidence': expert_confidence,
             'routing_path': f"{language} → {domain} → {task}"
         }
     
-    def train_agents(self, training_data, epochs=50):
-        """Train the RL routing agents"""
-        print(f"Training routing agents for {epochs} epochs...")
-        
-        for epoch in range(epochs):
-            for sample in training_data:
-                prompt = sample['prompt']
-                correct_domain = sample['domain']
-                correct_task = sample['task']
-                
-                # Only train if domain classification is correct
-                predicted_domain = self.domain_classifier.classify_domain(prompt)
-                if predicted_domain == correct_domain:
-                    features = self.extract_features(prompt)
-                    agent = self.routing_agents[correct_domain]
-                    
-                    correct_task_idx = list(self.domain_tasks[correct_domain].keys()).index(correct_task)
-                    predicted_task_idx, action_prob = agent.get_action(features)
-                    
-                    reward = 1.0 if predicted_task_idx == correct_task_idx else -0.5
-                    agent.store_transition(features, predicted_task_idx, reward, action_prob)
-            
-            # Update agents periodically
-            if epoch % 10 == 0:
-                for domain, agent in self.routing_agents.items():
-                    loss = agent.update()
-                print(f"Epoch {epoch} completed")
-        
-        print("Training completed!")
+    def train_ppo_agents(self, training_data):
+        """Train all PPO agents"""
+        for domain in self.domain_tasks.keys():
+            print(f"Training PPO agent for {domain} domain...")
+            self.task_classifier.train_ppo_agent(domain, training_data)
     
-    def batch_process(self, prompts, use_rl=False):
+    def batch_process(self, prompts, use_ppo=False):
         """Process multiple prompts"""
         results = []
         for prompt in prompts:
-            result = self.route_prompt(prompt, use_rl=use_rl)
+            result = self.route_prompt(prompt, use_ppo=use_ppo)
             results.append(result)
         return results
     
     def get_system_stats(self):
         """Get system statistics"""
         total_tasks = sum(len(tasks) for tasks in self.domain_tasks.values())
-        
-        # Fix: Get supported languages from the new FastText detector
-        supported_languages = len(self.language_detector.language_mapping) if hasattr(self.language_detector, 'language_mapping') else 4
+        supported_languages = len(self.language_detector.language_mapping)
         
         return {
             'total_domains': len(self.domain_tasks),
@@ -570,96 +668,17 @@ if __name__ == "__main__":
     # Sample training data
     training_data = create_sample_training_data()
     
-    # Optional: Train the RL agents
-    train_rl = input("\nWould you like to train RL agents? (y/n): ").lower() == 'y'
+    # Optional: Train the PPO agents
+    train_rl = input("\nWould you like to train PPO agents? (y/n): ").lower() == 'y'
     if train_rl:
-        system.train_agents(training_data, epochs=20)
-    
-    # Test prompts
-    # test_prompts = [
-    #     "Hello, how are you today?",                     # English
-    #     "Hallo, wie geht es dir heute?",                # German  
-    #     "Hola, ¿cómo estás hoy?",                      # Spanish
-    #     "Bonjour, comment allez-vous aujourd'hui?",     # French
-    #     "こんにちは、今日はいかがですか？",                    # Japanese
-    #     "你好，你今天怎么样？"                              # Chinese
-    # ]
-    
-    test_prompts = [
-        # ---------------- ENGLISH ----------------
-        "Analyze recent stock market volatility and its impact on portfolio risk.",  # English • Finance
-        "Estimate next quarter's revenue and profit margins for Tesla.",             # English • Finance
-        "Which trading strategy works best under high market volatility?",           # English • Finance
-        "Run sentiment analysis on this earnings report excerpt.",                   # English • Finance
-
-        "Explain this concept in simple terms.",                                     # English • General
-        "What is the difference between RAM and storage?",                           # English • General
-        "Why does this error occur? Please help me fix it.",                         # English • General
-        "Give me a summary of the main points in this article.",                     # English • General
-
-        # ---------------- GERMAN ----------------
-        "Analysiere die aktuelle Börsenvolatilität und das Portfoliorisiko.",        # German • Finance
-        "Schätze den Kurs der Apple-Aktie und die erwartete Rendite fürs nächste Quartal.",  # German • Finance
-        "Welche Trading-Strategie eignet sich bei hoher Marktvolatilität?",          # German • Finance
-        "Führe eine Finanzanalyse von Umsatz und Gewinn durch.",                     # German • Finance
-
-        "Erkläre dieses Konzept in einfachen Worten.",                               # German • General
-        "Was ist der Unterschied zwischen RAM und Speicher?",                        # German • General
-        "Warum tritt dieser Fehler auf? Bitte um Hilfe.",                            # German • General
-        "Gib mir eine Zusammenfassung der wichtigsten Punkte.",                      # German • General
-
-        # ---------------- SPANISH ----------------
-        "Analiza la volatilidad del mercado de acciones y el riesgo de la cartera.", # Spanish • Finance
-        "Estima el precio de la acción de Apple y el retorno esperado para el próximo trimestre.",  # Spanish • Finance
-        "¿Qué estrategia de trading recomiendas en periodos de alta volatilidad?",   # Spanish • Finance
-        "Realiza un análisis financiero de los ingresos y beneficios trimestrales.", # Spanish • Finance
-
-        "Explica este concepto en términos sencillos.",                               # Spanish • General
-        "¿Cuál es la diferencia entre la memoria RAM y el almacenamiento?",          # Spanish • General
-        "¿Por qué ocurre este error? Ayúdame a solucionarlo.",                        # Spanish • General
-        "Dame un resumen de los puntos principales del artículo.",                    # Spanish • General
-
-        # ---------------- FRENCH ----------------
-        "Analyse la volatilité du marché boursier et le risque du portefeuille.",     # French • Finance
-        "Estime le prix de l’action Apple et le rendement attendu au prochain trimestre.",  # French • Finance
-        "Quelle stratégie de trading convient en période de forte volatilité ?",      # French • Finance
-        "Réalise une analyse financière des revenus et des profits trimestriels.",    # French • Finance
-
-        "Explique ce concept en termes simples.",                                     # French • General
-        "Quelle est la différence entre la RAM et le stockage ?",                     # French • General
-        "Pourquoi cette erreur se produit-elle ? Aide-moi à la corriger.",            # French • General
-        "Donne un résumé des points essentiels de cet article.",                      # French • General
-
-        # ---------------- JAPANESE ----------------
-        "株式市場のボラティリティを分析し、ポートフォリオのリスクを評価してください。",    # Japanese • Finance
-        "アップルの株価見通しと次四半期の想定リターンを教えてください。",              # Japanese • Finance
-        "高いボラティリティ環境で有効なトレーディング戦略は何ですか？",                 # Japanese • Finance
-        "四半期の売上高と利益について金融分析をまとめてください。",                     # Japanese • Finance
-
-        "この概念をわかりやすく説明してください。",                                   # Japanese • General
-        "RAM とストレージの違いは何ですか？",                                         # Japanese • General
-        "なぜこのエラーが発生しますか？ 解決方法を教えてください。",                    # Japanese • General
-        "この記事の要点を要約してください。",                                         # Japanese • General
-
-        # ---------------- CHINESE (Simplified) ----------------
-        "请分析股票市场的波动并评估投资组合风险。",                                     # Chinese • Finance
-        "请估计苹果公司下季度的股价与预期回报。",                                       # Chinese • Finance
-        "在高波动行情下，推荐一套有效的交易策略。",                                     # Chinese • Finance
-        "请对本季度的营收和利润做金融分析。",                                           # Chinese • Finance
-
-        "请用简单的方式解释这个概念。",                                                # Chinese • General
-        "RAM 和存储有什么区别？",                                                     # Chinese • General
-        "为什么会出现这个错误？请帮我解决。",                                          # Chinese • General
-        "请总结这篇文章的要点。",                                                      # Chinese • General
-    ]
-
+        system.train_ppo_agents(training_data)  # Use new training method
     
     print(f"\nTesting with {len(test_prompts)} sample prompts...")
     print("=" * 70)
     
-    # Process prompts
+    # Process prompts with PPO
     for i, prompt in enumerate(test_prompts, 1):
-        result = system.route_prompt(prompt, use_rl=train_rl)
+        result = system.route_prompt(prompt, use_ppo=train_rl)
         print(f"Test {i}: {prompt}")
         print(f"Route: {result['routing_path']}")
         print(f"Result: {result['result']}")
@@ -667,8 +686,8 @@ if __name__ == "__main__":
         print()
     
     # Batch processing example
-    print("Batch processing all test prompts...")
-    batch_results = system.batch_process(test_prompts, use_rl=train_rl)
+    # print("Batch processing all test prompts...")
+    # batch_results = system.batch_process(test_prompts, use_ppo=train_rl)
     
-    print(f"Successfully processed {len(batch_results)} prompts")
-    print("\nSystem ready for production use!")
+    # print(f"Successfully processed {len(batch_results)} prompts")
+    # print("\nSystem ready for production use!")
