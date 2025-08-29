@@ -1,0 +1,14 @@
+{
+    "finance": {
+        "sentiment_analysis": ["sentiment", "feeling", "opinion", "positive", "negative", "mood", "analyze", "emotion", "review"],
+        "news_classification": ["news", "headline", "article", "classify", "category", "topic", "press", "media", "report"]
+    },    
+    "general": {
+        "question_answering": [
+            "what", "how", "why", "when", "where", "who", "which"],
+        "text_summarization": [
+            "summary", "summarize", "brief", "key points", "overview"],
+        "classification": [
+            "classify", "category", "type", "kind", "sort", "group"]
+    }
+}
