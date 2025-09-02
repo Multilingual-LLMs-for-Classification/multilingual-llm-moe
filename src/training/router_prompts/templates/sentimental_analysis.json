@@ -1,0 +1,457 @@
+[
+  {
+    "id": "en-1",
+    "lang": "english",
+    "template": "Based on the following review, what star rating (1–5) should be given?\nReview: {review_text}"
+  },
+  {
+    "id": "en-2",
+    "lang": "english",
+    "template": "Read this review and decide how many stars out of five it deserves:\n{review_text}"
+  },
+  {
+    "id": "en-3",
+    "lang": "english",
+    "template": "If you were the customer writing this review, how many stars would you give?\n{review_text}"
+  },
+  {
+    "id": "en-4",
+    "lang": "english",
+    "template": "Summarize this review into a star rating from 1 (worst) to 5 (best):\n{review_text}"
+  },
+  {
+    "id": "en-5",
+    "lang": "english",
+    "template": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\n{review_text}"
+  },
+  {
+    "id": "en-6",
+    "lang": "english",
+    "template": "Determine the likely star rating given by the reviewer of the following text:\n{review_text}"
+  },
+  {
+    "id": "en-7",
+    "lang": "english",
+    "template": "Without explanation, provide the star rating (1–5) that matches this review:\n{review_text}"
+  },
+  {
+    "id": "en-8",
+    "lang": "english",
+    "template": "Convert the sentiment of this review into a 1–5 star rating:\n{review_text}"
+  },
+  {
+    "id": "en-9",
+    "lang": "english",
+    "template": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\n{review_text}"
+  },
+  {
+    "id": "en-10",
+    "lang": "english",
+    "template": "Q: How many stars would you assign to this review?\nA:\nReview: {review_text}"
+  },
+  {
+    "id": "en-11",
+    "lang": "english",
+    "template": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\n{review_text}"
+  },
+  {
+    "id": "en-12",
+    "lang": "english",
+    "template": "Rate this review objectively on a 1–5 star scale:\n{review_text}"
+  },
+  {
+    "id": "en-13",
+    "lang": "english",
+    "template": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\n{review_text}"
+  },
+  {
+    "id": "en-14",
+    "lang": "english",
+    "template": "I have the following customer review. Can you assign it a rating between 1 and 5 stars?\n{review_text}"
+  },
+  {
+    "id": "en-15",
+    "lang": "english",
+    "template": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\n{review_text}"
+  },
+
+  {
+    "id": "es-1",
+    "lang": "spanish",
+    "template": "Según la siguiente reseña, ¿qué calificación por estrellas (1–5) corresponde?\nReseña: {review_text}"
+  },
+  {
+    "id": "es-2",
+    "lang": "spanish",
+    "template": "Lee esta reseña y decide cuántas estrellas de cinco merece:\n{review_text}"
+  },
+  {
+    "id": "es-3",
+    "lang": "spanish",
+    "template": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\n{review_text}"
+  },
+  {
+    "id": "es-4",
+    "lang": "spanish",
+    "template": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\n{review_text}"
+  },
+  {
+    "id": "es-5",
+    "lang": "spanish",
+    "template": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\n{review_text}"
+  },
+  {
+    "id": "es-6",
+    "lang": "spanish",
+    "template": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\n{review_text}"
+  },
+  {
+    "id": "es-7",
+    "lang": "spanish",
+    "template": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\n{review_text}"
+  },
+  {
+    "id": "es-8",
+    "lang": "spanish",
+    "template": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\n{review_text}"
+  },
+  {
+    "id": "es-9",
+    "lang": "spanish",
+    "template": "Nuestro sistema necesita saber la calificación por estrellas de esta reseña de producto. Proporciona una puntuación entre 1 y 5:\n{review_text}"
+  },
+  {
+    "id": "es-10",
+    "lang": "spanish",
+    "template": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: {review_text}"
+  },
+  {
+    "id": "es-11",
+    "lang": "spanish",
+    "template": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\n{review_text}"
+  },
+  {
+    "id": "es-12",
+    "lang": "spanish",
+    "template": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\n{review_text}"
+  },
+  {
+    "id": "es-13",
+    "lang": "spanish",
+    "template": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\n{review_text}"
+  },
+  {
+    "id": "es-14",
+    "lang": "spanish",
+    "template": "Tengo la siguiente reseña de cliente. ¿Puedes asignarle una calificación entre 1 y 5 estrellas?\n{review_text}"
+  },
+  {
+    "id": "es-15",
+    "lang": "spanish",
+    "template": "Piensa en las calificaciones típicas de Amazon. ¿Cuál (1–5) es la más probable para esta reseña?\n{review_text}"
+  },
+
+  {
+    "id": "fr-1",
+    "lang": "french",
+    "template": "D’après l’avis ci-dessous, quelle note sur 5 étoiles faut-il attribuer ?\nAvis : {review_text}"
+  },
+  {
+    "id": "fr-2",
+    "lang": "french",
+    "template": "Lisez cet avis et décidez combien d’étoiles sur cinq il mérite :\n{review_text}"
+  },
+  {
+    "id": "fr-3",
+    "lang": "french",
+    "template": "Si vous étiez le client ayant écrit cet avis, combien d’étoiles donneriez-vous ?\n{review_text}"
+  },
+  {
+    "id": "fr-4",
+    "lang": "french",
+    "template": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\n{review_text}"
+  },
+  {
+    "id": "fr-5",
+    "lang": "french",
+    "template": "Sur une échelle de 1 à 5 étoiles, 1 étant très mauvais et 5 excellent, quelle note correspond à cet avis ?\n{review_text}"
+  },
+  {
+    "id": "fr-6",
+    "lang": "french",
+    "template": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\n{review_text}"
+  },
+  {
+    "id": "fr-7",
+    "lang": "french",
+    "template": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\n{review_text}"
+  },
+  {
+    "id": "fr-8",
+    "lang": "french",
+    "template": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\n{review_text}"
+  },
+  {
+    "id": "fr-9",
+    "lang": "french",
+    "template": "Notre système doit connaître la note en étoiles de cet avis produit. Donnez une note entre 1 et 5 :\n{review_text}"
+  },
+  {
+    "id": "fr-10",
+    "lang": "french",
+    "template": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : {review_text}"
+  },
+  {
+    "id": "fr-11",
+    "lang": "french",
+    "template": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\n{review_text}"
+  },
+  {
+    "id": "fr-12",
+    "lang": "french",
+    "template": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\n{review_text}"
+  },
+  {
+    "id": "fr-13",
+    "lang": "french",
+    "template": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\n{review_text}"
+  },
+  {
+    "id": "fr-14",
+    "lang": "french",
+    "template": "J’ai l’avis client suivant. Pouvez-vous lui attribuer une note entre 1 et 5 étoiles ?\n{review_text}"
+  },
+  {
+    "id": "fr-15",
+    "lang": "french",
+    "template": "Pensez aux notes typiques sur Amazon. Laquelle (1–5) cet avis recevrait-il le plus probablement ?\n{review_text}"
+  },
+
+  {
+    "id": "de-1",
+    "lang": "german",
+    "template": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: {review_text}"
+  },
+  {
+    "id": "de-2",
+    "lang": "german",
+    "template": "Lies diese Rezension und entscheide, wie viele von fünf Sternen sie verdient:\n{review_text}"
+  },
+  {
+    "id": "de-3",
+    "lang": "german",
+    "template": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\n{review_text}"
+  },
+  {
+    "id": "de-4",
+    "lang": "german",
+    "template": "Fasse diese Rezension in eine Sternebewertung von 1 (schlecht) bis 5 (sehr gut) zusammen:\n{review_text}"
+  },
+  {
+    "id": "de-5",
+    "lang": "german",
+    "template": "Auf einer Skala von 1 bis 5 Sternen – 1 = miserabel, 5 = ausgezeichnet – welche Bewertung passt zu dieser Rezension?\n{review_text}"
+  },
+  {
+    "id": "de-6",
+    "lang": "german",
+    "template": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\n{review_text}"
+  },
+  {
+    "id": "de-7",
+    "lang": "german",
+    "template": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\n{review_text}"
+  },
+  {
+    "id": "de-8",
+    "lang": "german",
+    "template": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\n{review_text}"
+  },
+  {
+    "id": "de-9",
+    "lang": "german",
+    "template": "Unser System benötigt die Sternebewertung für diese Produktrezension. Bitte gib eine Bewertung zwischen 1 und 5 an:\n{review_text}"
+  },
+  {
+    "id": "de-10",
+    "lang": "german",
+    "template": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: {review_text}"
+  },
+  {
+    "id": "de-11",
+    "lang": "german",
+    "template": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\n{review_text}"
+  },
+  {
+    "id": "de-12",
+    "lang": "german",
+    "template": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\n{review_text}"
+  },
+  {
+    "id": "de-13",
+    "lang": "german",
+    "template": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\n{review_text}"
+  },
+  {
+    "id": "de-14",
+    "lang": "german",
+    "template": "Ich habe folgende Kundenrezension. Kannst du eine Bewertung zwischen 1 und 5 Sternen vergeben?\n{review_text}"
+  },
+  {
+    "id": "de-15",
+    "lang": "german",
+    "template": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\n{review_text}"
+  },
+
+  {
+    "id": "ja-1",
+    "lang": "japanese",
+    "template": "次のレビューに基づいて、何段階中（1～5）の星評価を付けますか？\nレビュー: {review_text}"
+  },
+  {
+    "id": "ja-2",
+    "lang": "japanese",
+    "template": "このレビューを読んで、5段階中いくつの星が妥当か判断してください。\n{review_text}"
+  },
+  {
+    "id": "ja-3",
+    "lang": "japanese",
+    "template": "あなたがこのレビューを書いた顧客だとしたら、星はいくつ付けますか？\n{review_text}"
+  },
+  {
+    "id": "ja-4",
+    "lang": "japanese",
+    "template": "このレビューを要約して、1（最低）～5（最高）の星評価にしてください。\n{review_text}"
+  },
+  {
+    "id": "ja-5",
+    "lang": "japanese",
+    "template": "1～5の星評価で、1は最悪・5は最高とした場合、このレビューにはどの評価が当てはまりますか？\n{review_text}"
+  },
+  {
+    "id": "ja-6",
+    "lang": "japanese",
+    "template": "次の文章を書いたレビュアーが付けたであろう星評価を推定してください。\n{review_text}"
+  },
+  {
+    "id": "ja-7",
+    "lang": "japanese",
+    "template": "説明なしで、このレビューに対応する星評価（1～5）を答えてください。\n{review_text}"
+  },
+  {
+    "id": "ja-8",
+    "lang": "japanese",
+    "template": "このレビューの感情を、1～5の星評価に変換してください。\n{review_text}"
+  },
+  {
+    "id": "ja-9",
+    "lang": "japanese",
+    "template": "本システムでは次の商品のレビューの星評価が必要です。1～5のいずれかで回答してください。\n{review_text}"
+  },
+  {
+    "id": "ja-10",
+    "lang": "japanese",
+    "template": "Q: このレビューには星いくつを付けますか？\nA:\nレビュー: {review_text}"
+  },
+  {
+    "id": "ja-11",
+    "lang": "japanese",
+    "template": "このレビューを次のいずれかのカテゴリに分類してください：★1、★2、★3、★4、★5。\n{review_text}"
+  },
+  {
+    "id": "ja-12",
+    "lang": "japanese",
+    "template": "このレビューを客観的に1～5の星で評価してください。\n{review_text}"
+  },
+  {
+    "id": "ja-13",
+    "lang": "japanese",
+    "template": "これがAmazonのレビューだと仮定して、最もありそうな星評価（5段階）はどれですか？\n{review_text}"
+  },
+  {
+    "id": "ja-14",
+    "lang": "japanese",
+    "template": "次の顧客レビューがあります。1～5の範囲で星評価を付けてください。\n{review_text}"
+  },
+  {
+    "id": "ja-15",
+    "lang": "japanese",
+    "template": "一般的なAmazonの星評価を考えて、このレビューはどの（1～5）を最も受け取りそうですか？\n{review_text}"
+  },
+
+  {
+    "id": "zh-1",
+    "lang": "chinese",
+    "template": "根据以下评论，该评价应打多少星（1–5）？\n评论：{review_text}"
+  },
+  {
+    "id": "zh-2",
+    "lang": "chinese",
+    "template": "阅读这条评论，判断它在五颗星中应得多少星：\n{review_text}"
+  },
+  {
+    "id": "zh-3",
+    "lang": "chinese",
+    "template": "如果你是写下这条评论的用户，你会给出几星？\n{review_text}"
+  },
+  {
+    "id": "zh-4",
+    "lang": "chinese",
+    "template": "将这条评论概括为一个1（最差）到5（最好）的星级评分：\n{review_text}"
+  },
+  {
+    "id": "zh-5",
+    "lang": "chinese",
+    "template": "在1到5星的尺度上，1代表很差、5代表非常好，这条评论最合适的评分是多少？\n{review_text}"
+  },
+  {
+    "id": "zh-6",
+    "lang": "chinese",
+    "template": "判断以下文本的作者最可能给出的星级评分：\n{review_text}"
+  },
+  {
+    "id": "zh-7",
+    "lang": "chinese",
+    "template": "无需解释，直接给出与这条评论相符的星级（1–5）：\n{review_text}"
+  },
+  {
+    "id": "zh-8",
+    "lang": "chinese",
+    "template": "将这条评论的情感转换为1–5星的评分：\n{review_text}"
+  },
+  {
+    "id": "zh-9",
+    "lang": "chinese",
+    "template": "系统需要知道这条商品评论的星级评分。请给出1到5之间的分数：\n{review_text}"
+  },
+  {
+    "id": "zh-10",
+    "lang": "chinese",
+    "template": "问：你会给这条评论打几星？\n答：\n评论：{review_text}"
+  },
+  {
+    "id": "zh-11",
+    "lang": "chinese",
+    "template": "将这条评论分类为以下之一：1星、2星、3星、4星、5星。\n{review_text}"
+  },
+  {
+    "id": "zh-12",
+    "lang": "chinese",
+    "template": "请客观地在1–5星的尺度上为这条评论打分：\n{review_text}"
+  },
+  {
+    "id": "zh-13",
+    "lang": "chinese",
+    "template": "假设这是亚马逊上的评论。它最可能得到的评分（满分5星）是多少？\n{review_text}"
+  },
+  {
+    "id": "zh-14",
+    "lang": "chinese",
+    "template": "我有以下用户评论。请为其在1到5星之间打分：\n{review_text}"
+  },
+  {
+    "id": "zh-15",
+    "lang": "chinese",
+    "template": "参考亚马逊的常见星级，哪一个（1–5）最可能与这条评论相符？\n{review_text}"
+  }
+]
