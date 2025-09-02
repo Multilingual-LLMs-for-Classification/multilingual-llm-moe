@@ -463,22 +463,29 @@ class TaskClassifier:
     
     def load_models(self):
         """Load all task classification models"""
-        # Load ML pipelines
-        for domain in self.domain_tasks.keys():
+        all_ok = True
+
+        # Load ML pipelines and make sure PPO agents exist before loading weights
+        for domain, tasks in self.domain_tasks.items():
+            # 1) pipeline
             pipeline_path = self.models_dir / f"{domain}_task_pipeline.joblib"
             if os.path.exists(pipeline_path):
                 self.task_pipelines[domain] = joblib.load(pipeline_path)
                 print(f"✅ Task pipeline for {domain} loaded from: {pipeline_path}")
             else:
                 print(f"⚠️ No saved task pipeline found for {domain}")
-                return False
-        
-        # Load PPO agents
-        for domain in self.domain_tasks.keys():
+                all_ok = False
+
+            # 2) ensure PPO agent exists (needed even to attempt loading)
+            if domain not in self.ppo_agents:
+                self.ppo_agents[domain] = PPOAgent(state_dim=15, action_dim=len(tasks))
+
+            # 3) try to load PPO models
             if not self.ppo_agents[domain].load_model(domain):
-                return False
-        
-        return True
+                all_ok = False
+
+        return all_ok
+
     
     def _initialize_task_classifiers(self):
         # Try to load existing models first
@@ -1071,7 +1078,8 @@ class PromptRoutingSystem:
 # 7. Utility Functions
 def create_sample_training_data():
     """Create sample training data aligned with new tasks"""
-    return [
+    data = []
+    data += [
         # Finance - Sentiment Analysis
         {'prompt': 'Analyze sentiment from the latest quarterly earnings report', 'domain': 'finance', 'task': 'sentiment_analysis'},
         {'prompt': 'What is the sentiment regarding Tesla new product launch', 'domain': 'finance', 'task': 'sentiment_analysis'},
@@ -1114,6 +1122,240 @@ def create_sample_training_data():
         {'prompt': 'Sort these items by category', 'domain': 'general', 'task': 'classification'},
         {'prompt': 'Organize these documents by type', 'domain': 'general', 'task': 'classification'},
     ]
+    
+    data += [
+        # Finance - Sentiment Analysis
+        {'prompt': '最新の四半期決算書の感情を分析してください', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'テスラの新製品発表に対する市場のセンチメントは？', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'この市場分析レポートの感情的なトーンを判定して', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'この金融ニュースはポジティブかネガティブか', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'この決算発表のセンチメントを評価して', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'この株式レポートのムードは？', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '株価パフォーマンスに関する意見は好意的か否定的か', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '市況ニュースの感情トーンを解析して', 'domain': 'finance', 'task': 'sentiment_analysis'},
+
+        # Finance - News Classification
+        {'prompt': 'このビジネスニュースの見出しを適切なセクターに分類して', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'この金融記事を業種別にカテゴリ分けして', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'この経済レポートはどのカテゴリに属しますか', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'このマーケットアップデートを金融セクター別に分類して', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'この金融記事はどのタイプのニュースですか', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'この見出しをビジネスセクター別に分類して', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': '市場に関するこの報道を分類してください', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'この記事のニュースカテゴリを決定してください', 'domain': 'finance', 'task': 'news_classification'},
+
+        # General - Question Answering
+        {'prompt': 'フランスの首都はどこですか', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'この概念を説明してもらえますか', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'このトピックについて理解を助けて', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'RAMとストレージの違いは何ですか', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'なぜこのエラーが発生するのですか', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'このプロセスはどのように動作しますか', 'domain': 'general', 'task': 'question_answering'},
+
+        # General - Text Summarization
+        {'prompt': 'この研究論文を要約してください', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': '重要なポイントを教えて', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'このドキュメントの概要を短く示してください', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'このテキストを簡潔にまとめてください', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'この記事の主なポイントを挙げてください', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': '重要情報のサマリーをください', 'domain': 'general', 'task': 'text_summarization'},
+
+        # General - Classification
+        {'prompt': 'これらの文書を種類ごとに分類して', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'この項目をグループにカテゴリ分けして', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'これらの項目をカテゴリ別に並べ替えて', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'これらの文書を種類別に整理して', 'domain': 'general', 'task': 'classification'},
+    ]
+
+    # -------------------------
+    # Chinese (Simplified, zh-CN)
+    # -------------------------
+    data += [
+        # Finance - Sentiment Analysis
+        {'prompt': '分析最新季度财报的情感倾向', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '特斯拉新品发布的市场情绪如何', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '判定这份市场分析报告的情感基调', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '这条金融新闻是正面还是负面', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '评估这份财报的情绪', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '这篇股票评论的整体情绪是什么', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '对股票表现的观点是积极还是消极', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '分析这则市况新闻的情绪', 'domain': 'finance', 'task': 'sentiment_analysis'},
+
+        # Finance - News Classification
+        {'prompt': '将这条商业新闻标题归入正确的行业板块', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': '按行业类型对这篇金融文章分类', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': '这份经济报告属于哪个类别', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': '按金融板块对这则市场更新进行分类', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': '这篇金融文章属于哪类新闻', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': '将这个标题按商业板块进行分类', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': '请对这篇关于市场的报道进行分类', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': '确定这篇文章的新闻类别', 'domain': 'finance', 'task': 'news_classification'},
+
+        # General - Question Answering
+        {'prompt': '法国的首都是哪里', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': '能解释一下这个概念吗', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': '帮我理解这个主题', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': '内存与存储有什么区别', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': '为什么会出现这个错误', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': '这个流程是如何工作的', 'domain': 'general', 'task': 'question_answering'},
+
+        # General - Text Summarization
+        {'prompt': '请总结这篇研究论文', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': '告诉我关键要点', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': '简要概述这份文档', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': '将这段文字精炼为摘要', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': '列出这篇文章的主要要点', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': '给出重要信息的总结', 'domain': 'general', 'task': 'text_summarization'},
+
+        # General - Classification
+        {'prompt': '按类型分类这些文档', 'domain': 'general', 'task': 'classification'},
+        {'prompt': '将此项目归类到相应组别', 'domain': 'general', 'task': 'classification'},
+        {'prompt': '按类别对这些项目排序', 'domain': 'general', 'task': 'classification'},
+        {'prompt': '按类型整理这些文档', 'domain': 'general', 'task': 'classification'},
+    ]
+
+    # -------------------------
+    # Spanish (es)
+    # -------------------------
+    data += [
+        # Finance - Sentiment Analysis
+        {'prompt': 'Analiza el sentimiento del último informe trimestral de resultados', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '¿Cuál es el sentimiento del mercado sobre el lanzamiento del nuevo producto de Tesla?', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Determina el tono emocional de este informe de análisis de mercado', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '¿Esta noticia financiera es positiva o negativa?', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Evalúa el sentimiento de este reporte de ganancias', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': '¿Cuál es el estado de ánimo de esta reseña financiera?', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'La opinión sobre el desempeño de la acción es positiva o negativa', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Analiza el tono emocional de esta noticia de mercado', 'domain': 'finance', 'task': 'sentiment_analysis'},
+
+        # Finance - News Classification
+        {'prompt': 'Clasifica este titular de negocios en su sector correcto', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Categoriza este artículo financiero por industria', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': '¿A qué categoría pertenece este informe económico?', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Clasifica esta actualización de mercado por sector financiero', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': '¿Qué tipo de noticia es este artículo financiero?', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Categoriza este titular por sector empresarial', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Clasifica este reporte de los mercados', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Determina la categoría de noticias de este artículo', 'domain': 'finance', 'task': 'news_classification'},
+
+        # General - Question Answering
+        {'prompt': '¿Cuál es la capital de Francia?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': '¿Puedes explicar este concepto?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'Ayúdame a entender este tema', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': '¿Cuál es la diferencia entre RAM y almacenamiento?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': '¿Por qué ocurre este error?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': '¿Cómo funciona este proceso?', 'domain': 'general', 'task': 'question_answering'},
+
+        # General - Text Summarization
+        {'prompt': 'Resume este artículo de investigación', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Dame un resumen con los puntos clave', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Breve visión general de este documento', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Versión condensada de este texto', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Puntos principales de este artículo', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Resumen de la información importante', 'domain': 'general', 'task': 'text_summarization'},
+
+        # General - Classification
+        {'prompt': 'Clasifica estos documentos por tipo', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'Categoriza este elemento en grupos', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'Ordena estos elementos por categoría', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'Organiza estos documentos por tipo', 'domain': 'general', 'task': 'classification'},
+    ]
+
+    # -------------------------
+    # French (fr)
+    # -------------------------
+    data += [
+        # Finance - Sentiment Analysis
+        {'prompt': 'Analyse le sentiment du dernier rapport trimestriel de résultats', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Quel est le sentiment du marché concernant le lancement du nouveau produit de Tesla ?', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Détermine le ton émotionnel de ce rapport d’analyse de marché', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Cet article financier est-il positif ou négatif ?', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Évalue le sentiment de ce communiqué de résultats', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Quel est l’état d’esprit de cette revue financière ?', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'L’avis sur la performance de l’action est-il positif ou négatif ?', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Analyse le ton émotionnel de cette actualité de marché', 'domain': 'finance', 'task': 'sentiment_analysis'},
+
+        # Finance - News Classification
+        {'prompt': 'Classe ce titre économique dans le bon secteur', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Catégorise cet article financier par industrie', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'À quelle catégorie appartient ce rapport économique ?', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Classe cette mise à jour de marché par secteur financier', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'De quel type de nouvelle s’agit-il pour cet article financier ?', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Catégorise ce titre par secteur d’activité', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Classe ce reportage sur les marchés', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Détermine la catégorie d’actualité de cet article', 'domain': 'finance', 'task': 'news_classification'},
+
+        # General - Question Answering
+        {'prompt': 'Quelle est la capitale de la France ?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'Peux-tu expliquer ce concept ?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'Aide-moi à comprendre ce sujet', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'Quelle est la différence entre la RAM et le stockage ?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'Pourquoi cette erreur se produit-elle ?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'Comment fonctionne ce processus ?', 'domain': 'general', 'task': 'question_answering'},
+
+        # General - Text Summarization
+        {'prompt': 'Résume cet article de recherche', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Donne-moi les points clés', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Brève vue d’ensemble de ce document', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Version condensée de ce texte', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Points principaux de cet article', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Résumé des informations importantes', 'domain': 'general', 'task': 'text_summarization'},
+
+        # General - Classification
+        {'prompt': 'Classe ces documents par type', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'Catégorise cet élément en groupes', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'Trie ces éléments par catégorie', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'Organise ces documents par type', 'domain': 'general', 'task': 'classification'},
+    ]
+
+    # -------------------------
+    # German (de)
+    # -------------------------
+    data += [
+        # Finance - Sentiment Analysis
+        {'prompt': 'Analysiere die Stimmung im neuesten Quartalsbericht', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Wie ist die Marktstimmung zum neuen Tesla-Produktlaunch?', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Bestimme den emotionalen Ton dieses Marktanalyseberichts', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Ist dieser Finanzartikel positiv oder negativ?', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Beurteile die Stimmung dieser Ergebnisveröffentlichung', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Welche Stimmung hat diese Finanzrezension?', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Ist die Meinung zur Aktienperformance eher positiv oder negativ?', 'domain': 'finance', 'task': 'sentiment_analysis'},
+        {'prompt': 'Analysiere die emotionale Tonalität dieser Marktnachricht', 'domain': 'finance', 'task': 'sentiment_analysis'},
+
+        # Finance - News Classification
+        {'prompt': 'Ordne diese Wirtschafts-Schlagzeile dem richtigen Sektor zu', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Kategorisiere diesen Finanzartikel nach Branche', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Zu welcher Kategorie gehört dieser Wirtschaftsbericht?', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Klassifiziere dieses Marktupdate nach Finanzsektor', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Um welche Art von Nachricht handelt es sich bei diesem Finanzartikel?', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Kategorisiere diese Schlagzeile nach Geschäftssektor', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Klassifiziere diesen Bericht über die Märkte', 'domain': 'finance', 'task': 'news_classification'},
+        {'prompt': 'Bestimme die Nachrichtenkategorie dieses Artikels', 'domain': 'finance', 'task': 'news_classification'},
+
+        # General - Question Answering
+        {'prompt': 'Was ist die Hauptstadt von Frankreich?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'Kannst du dieses Konzept erklären?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'Hilf mir, dieses Thema zu verstehen', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'Was ist der Unterschied zwischen RAM und Speicher?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'Warum tritt dieser Fehler auf?', 'domain': 'general', 'task': 'question_answering'},
+        {'prompt': 'Wie funktioniert dieser Prozess?', 'domain': 'general', 'task': 'question_answering'},
+
+        # General - Text Summarization
+        {'prompt': 'Fasse dieses Forschungspapier zusammen', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Nenne mir die wichtigsten Punkte', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Kurze Übersicht über dieses Dokument', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Verdichte diesen Text zu einer Zusammenfassung', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Hauptpunkte dieses Artikels', 'domain': 'general', 'task': 'text_summarization'},
+        {'prompt': 'Zusammenfassung der wichtigsten Informationen', 'domain': 'general', 'task': 'text_summarization'},
+
+        # General - Classification
+        {'prompt': 'Klassifiziere diese Dokumente nach Typ', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'Ordne dieses Element Gruppen zu', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'Sortiere diese Elemente nach Kategorie', 'domain': 'general', 'task': 'classification'},
+        {'prompt': 'Organisiere diese Dokumente nach Typ', 'domain': 'general', 'task': 'classification'},
+    ]
+    
+    return data
 
 
 # 8. Usage Example and Testing
@@ -1140,18 +1382,177 @@ if __name__ == "__main__":
     print(f"\nTesting with {len(test_prompts)} sample prompts...")
     print("=" * 70)
     
-    # Process prompts with PPO
-    for i, prompt in enumerate(test_prompts, 1):
-        result = system.route_prompt(prompt, use_ppo=train_rl)
-        print(f"Test {i}: {prompt}")
-        print(f"Route: {result['routing_path']}")
-        # print(f"Result: {result['result']}")
-        # print(f"Confidence: {result['expert_confidence']:.3f}")
+    from collections import Counter, defaultdict
+
+    # Build confusion matrices (ground-truth vs predicted)
+    domain_labels = sorted({item['domain'] for item in test_prompts if isinstance(item, dict) and 'domain' in item})
+    task_labels   = sorted({item['task']   for item in test_prompts if isinstance(item, dict) and 'task'   in item})
+
+    cm_domain = Counter()   # (gt_domain, pred_domain)
+    cm_task   = Counter()   # (gt_task,   pred_task)
+
+    # Also compute per-language breakdown using detected language
+    per_lang_total = Counter()
+    per_lang_exact = Counter()
+    per_lang_dom   = Counter()
+    per_lang_task  = Counter()
+
+    # Re-run lightweight pass just to populate CM + per-language (no prints)
+    for item in test_prompts:
+        if not isinstance(item, dict):
+            continue
+        text      = item['prompt']
+        gt_domain = item['domain']
+        gt_task   = item['task']
+
+        result      = system.route_prompt(text, use_ppo=train_rl)
+        pred_domain = result['domain']
+        pred_task   = result['task']
+        lang_tag    = result.get('language', '?')
+
+        cm_domain[(gt_domain, pred_domain)] += 1
+        cm_task[(gt_task, pred_task)]       += 1
+
+        per_lang_total[lang_tag] += 1
+        dom_ok  = (pred_domain == gt_domain)
+        task_ok = (pred_task   == gt_task)
+        both_ok = dom_ok and task_ok
+        per_lang_dom[lang_tag]   += int(dom_ok)
+        per_lang_task[lang_tag]  += int(task_ok)
+        per_lang_exact[lang_tag] += int(both_ok)
+
+    def _compute_prf_bal_kappa(cm: Counter, labels):
+        """Return dict with macro/micro/weighted P/R/F1, balanced acc, and Cohen's kappa."""
+        # Per-class tallies
+        support = {c: 0 for c in labels}         # GT count per class (row sums)
+        pred_tot = {c: 0 for c in labels}        # Pred count per class (col sums)
+        tp = {c: cm[(c, c)] for c in labels}
+        for g in labels:
+            support[g] = sum(cm[(g, p)] for p in labels)
+        for p in labels:
+            pred_tot[p] = sum(cm[(g, p)] for g in labels)
+
+        total = sum(support.values()) if support else 0
+        # Per-class precision/recall/F1
+        precisions, recalls, f1s, weights = [], [], [], []
+        recalls_only = []  # for balanced accuracy (mean recall)
+        micro_tp = sum(tp.values())
+        micro_fp = sum(pred_tot[c] - tp[c] for c in labels)
+        micro_fn = sum(support[c] - tp[c] for c in labels)
+
+        for c in labels:
+            p = tp[c] / pred_tot[c] if pred_tot[c] > 0 else 0.0
+            r = tp[c] / support[c]  if support[c]  > 0 else 0.0
+            f = (2*p*r/(p+r)) if (p+r) > 0 else 0.0
+            precisions.append(p); recalls.append(r); f1s.append(f); recalls_only.append(r)
+            weights.append(support[c] / total if total else 0.0)
+
+        macro_p = sum(precisions)/len(labels) if labels else 0.0
+        macro_r = sum(recalls)/len(labels)    if labels else 0.0
+        macro_f1 = sum(f1s)/len(labels)       if labels else 0.0
+        weighted_f1 = sum(w*f for w, f in zip(weights, f1s)) if labels else 0.0
+        balanced_acc = sum(recalls_only)/len(labels) if labels else 0.0
+
+        micro_p = micro_tp / (micro_tp + micro_fp) if (micro_tp + micro_fp) > 0 else 0.0
+        micro_r = micro_tp / (micro_tp + micro_fn) if (micro_tp + micro_fn) > 0 else 0.0
+        micro_f1 = (2*micro_p*micro_r/(micro_p+micro_r)) if (micro_p + micro_r) > 0 else 0.0
+        accuracy = micro_tp / total if total else 0.0  # same as micro-F1 for single-label multi-class
+
+        # Cohen's kappa
+        # Pe = sum over classes of (row_prob * col_prob)
+        pe = sum((support[c]/total) * (pred_tot[c]/total) for c in labels) if total else 0.0
+        kappa = (accuracy - pe) / (1 - pe) if (1 - pe) > 0 else 0.0
+
+        return {
+            'accuracy': accuracy,
+            'macro_p': macro_p, 'macro_r': macro_r, 'macro_f1': macro_f1,
+            'micro_p': micro_p, 'micro_r': micro_r, 'micro_f1': micro_f1,
+            'weighted_f1': weighted_f1,
+            'balanced_acc': balanced_acc,
+            'kappa': kappa,
+            'support': support,
+            'pred_tot': pred_tot,
+            'total': total,
+        }
+
+    def _pct(x): return f"{x*100:6.2f}%"
+
+    def _print_confusion(cm: Counter, labels, title):
+        print(title)
+        if not labels:
+            print("  (no labels)\n"); return
+        header = "      " + " ".join(f"{lbl:>14}" for lbl in labels)
+        print(header)
+        for gt in labels:
+            row = [f"{gt:>6}"]
+            for pr in labels:
+                row.append(f"{cm[(gt, pr)]:>14}")
+            print(" ".join(row))
         print()
-    
-    # Batch processing example
-    # print("Batch processing all test prompts...")
-    # batch_results = system.batch_process(test_prompts, use_ppo=train_rl)
-    
-    # print(f"Successfully processed {len(batch_results)} prompts")
-    # print("\nSystem ready for production use!")
+
+    # Compute metrics
+    dom_metrics  = _compute_prf_bal_kappa(cm_domain, domain_labels)
+    task_metrics = _compute_prf_bal_kappa(cm_task,   task_labels)
+
+    # Print extras
+    print("\nADDITIONAL METRICS")
+    print("=" * 80)
+    print("Domain classification:")
+    print(f"  Accuracy           : {_pct(dom_metrics['accuracy'])}")
+    print(f"  Macro  P/R/F1      : {_pct(dom_metrics['macro_p'])} / {_pct(dom_metrics['macro_r'])} / {_pct(dom_metrics['macro_f1'])}")
+    print(f"  Micro  P/R/F1      : {_pct(dom_metrics['micro_p'])} / {_pct(dom_metrics['micro_r'])} / {_pct(dom_metrics['micro_f1'])}")
+    print(f"  Weighted F1        : {_pct(dom_metrics['weighted_f1'])}")
+    print(f"  Balanced accuracy  : {_pct(dom_metrics['balanced_acc'])}")
+    print(f"  Cohen's kappa (κ)  : {_pct(dom_metrics['kappa'])}")
+
+    print("\nTask classification:")
+    print(f"  Accuracy           : {_pct(task_metrics['accuracy'])}")
+    print(f"  Macro  P/R/F1      : {_pct(task_metrics['macro_p'])} / {_pct(task_metrics['macro_r'])} / {_pct(task_metrics['macro_f1'])}")
+    print(f"  Micro  P/R/F1      : {_pct(task_metrics['micro_p'])} / {_pct(task_metrics['micro_r'])} / {_pct(task_metrics['micro_f1'])}")
+    print(f"  Weighted F1        : {_pct(task_metrics['weighted_f1'])}")
+    print(f"  Balanced accuracy  : {_pct(task_metrics['balanced_acc'])}")
+    print(f"  Cohen's kappa (κ)  : {_pct(task_metrics['kappa'])}")
+
+    # Confusion matrices
+    _print_confusion(cm_domain, domain_labels, title="\nDomain Confusion Matrix (GT rows × Pred cols)")
+    _print_confusion(cm_task,   task_labels,   title="Task Confusion Matrix (GT rows × Pred cols)")
+
+    # Per-language breakdown
+    if per_lang_total:
+        print("Per-language breakdown (using detected language):")
+        print("-" * 80)
+        print(f"{'lang':>6} | {'n':>4} | {'domain acc':>12} | {'task acc':>10} | {'exact acc':>10}")
+        for lg in sorted(per_lang_total):
+            n_l = per_lang_total[lg]
+            dom_acc_l  = per_lang_dom[lg]   / n_l if n_l else 0.0
+            task_acc_l = per_lang_task[lg]  / n_l if n_l else 0.0
+            exact_l    = per_lang_exact[lg] / n_l if n_l else 0.0
+            print(f"{lg:>6} | {n_l:>4} | {_pct(dom_acc_l):>12} | {_pct(task_acc_l):>10} | {_pct(exact_l):>10}")
+
+    # Optional: keep a metrics dict around for later programmatic comparison
+    metrics = {
+        'n': n,
+        'exact_acc': exact_acc,
+        'domain_acc': domain_acc,
+        'task_acc_uncond': task_acc_uncond,
+        'task_acc_cond': task_acc_cond,
+        'domain': dom_metrics,
+        'task': task_metrics,
+        'per_domain': {
+            d: {
+                'n': per_domain_total[d],
+                'domain_acc': per_domain_domain_correct[d] / per_domain_total[d] if per_domain_total[d] else 0.0,
+                'task_acc':   per_domain_task_correct[d]   / per_domain_total[d] if per_domain_total[d] else 0.0,
+                'exact_acc':  per_domain_exact_correct[d]  / per_domain_total[d] if per_domain_total[d] else 0.0,
+            } for d in per_domain_total
+        },
+        'per_language': {
+            lg: {
+                'n': per_lang_total[lg],
+                'domain_acc': per_lang_dom[lg]   / per_lang_total[lg] if per_lang_total[lg] else 0.0,
+                'task_acc':   per_lang_task[lg]  / per_lang_total[lg] if per_lang_total[lg] else 0.0,
+                'exact_acc':  per_lang_exact[lg] / per_lang_total[lg] if per_lang_total[lg] else 0.0,
+            } for lg in per_lang_total
+        }
+    }
+    # You can serialize `metrics` later to JSON and compare runs (e.g., translation on/off).
