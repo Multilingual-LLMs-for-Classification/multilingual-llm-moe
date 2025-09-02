@@ -2,4 +2,9 @@ structure.sh
 sentiment_analysis/
 risk_assessment/
 **/rl-based/models/
-__pycache__/
+**/__pycache__/
+**/with-translation/models/
+**/translate-then-classify-router/models/
+.pkl
+.cpython-310.pyc
+
