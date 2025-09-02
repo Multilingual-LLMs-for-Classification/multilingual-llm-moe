@@ -462,23 +462,33 @@ class TaskClassifier:
             agent.save_model(domain)
     
     def load_models(self):
-        """Load all task classification models"""
-        # Load ML pipelines
-        for domain in self.domain_tasks.keys():
+        """
+        Load all task classification models.
+
+        FIX: ensure PPO agents exist before calling .load_model(domain) to avoid KeyError.
+        Also, aggregate success instead of early-returning on first miss.
+        """
+        all_ok = True
+
+        for domain, tasks in self.domain_tasks.items():
+            # 1) Load pipeline if present
             pipeline_path = self.models_dir / f"{domain}_task_pipeline.joblib"
             if os.path.exists(pipeline_path):
                 self.task_pipelines[domain] = joblib.load(pipeline_path)
                 print(f"✅ Task pipeline for {domain} loaded from: {pipeline_path}")
             else:
-                print(f"⚠️ No saved task pipeline found for {domain}")
-                return False
-        
-        # Load PPO agents
-        for domain in self.domain_tasks.keys():
+                print(f"⚠ No saved task pipeline found for {domain}")
+                all_ok = False
+
+            # 2) Ensure PPO agent exists before loading weights
+            if domain not in self.ppo_agents:
+                self.ppo_agents[domain] = PPOAgent(state_dim=15, action_dim=len(tasks))
+
+            # 3) Try to load PPO weights
             if not self.ppo_agents[domain].load_model(domain):
-                return False
-        
-        return True
+                all_ok = False
+
+        return all_ok
     
     def _initialize_task_classifiers(self):
         # Try to load existing models first
@@ -797,7 +807,6 @@ class EnhancedPPOAgent:
         
         return action.item(), action_log_prob.item()
 
-
 # 5. PPO Agent for Task Routing
 class PPOAgent:
     def __init__(self, state_dim, action_dim, lr=3e-4):
@@ -961,7 +970,6 @@ class PPOAgent:
         self.action_probs = []
         
         return advantages.abs().mean().item()
-
 
 # 6. Complete Prompt Routing System
 class PromptRoutingSystem:
