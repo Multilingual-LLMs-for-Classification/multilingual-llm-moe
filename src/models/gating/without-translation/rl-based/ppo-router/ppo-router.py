@@ -473,19 +473,18 @@ class TaskClassifier:
                 self.task_pipelines[domain] = joblib.load(pipeline_path)
                 print(f"✅ Task pipeline for {domain} loaded from: {pipeline_path}")
             else:
-                print(f"⚠️ No saved task pipeline found for {domain}")
+                print(f"⚠ No saved task pipeline found for {domain}")
                 all_ok = False
 
-            # 2) ensure PPO agent exists (needed even to attempt loading)
+            # 2) Ensure PPO agent exists before loading weights
             if domain not in self.ppo_agents:
                 self.ppo_agents[domain] = PPOAgent(state_dim=15, action_dim=len(tasks))
 
-            # 3) try to load PPO models
+            # 3) Try to load PPO weights
             if not self.ppo_agents[domain].load_model(domain):
                 all_ok = False
 
         return all_ok
-
     
     def _initialize_task_classifiers(self):
         # Try to load existing models first
@@ -804,7 +803,6 @@ class EnhancedPPOAgent:
         
         return action.item(), action_log_prob.item()
 
-
 # 5. PPO Agent for Task Routing
 class PPOAgent:
     def __init__(self, state_dim, action_dim, lr=3e-4):
@@ -968,7 +966,6 @@ class PPOAgent:
         self.action_probs = []
         
         return advantages.abs().mean().item()
-
 
 # 6. Complete Prompt Routing System
 class PromptRoutingSystem:
