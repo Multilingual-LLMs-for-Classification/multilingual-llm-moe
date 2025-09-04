@@ -152,306 +152,230 @@
   },
 
   {
-    "id": "fr-1",
-    "lang": "french",
-    "template": "Classez le titre suivant dans une seule catégorie parmi : Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls. Renvoyez une étiquette unique.\nTitre : {review_text}"
+    "id": "tr-1",
+    "lang": "turkish",
+    "template": "Aşağıdaki haber başlığını şu etiketlerden tam olarak birine sınıflandırın: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\nBaşlık: {review_text}"
   },
   {
-    "id": "fr-2",
-    "lang": "french",
-    "template": "Quel unique libellé convient le mieux ? Choix : Tax & Accounting ; Business & Management ; Finance ; Industry ; Technology ; Government & Controls.\n{review_text}"
+    "id": "tr-2",
+    "lang": "turkish",
+    "template": "Bu başlık için en uygun tek kategoriyi seçin. Seçenekler: Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
   },
   {
-    "id": "fr-3",
-    "lang": "french",
-    "template": "Attribuez un seul label au titre (Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls) :\n{review_text}"
+    "id": "tr-3",
+    "lang": "turkish",
+    "template": "Başlığa bir etiket atayın (Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls):\n{review_text}"
   },
   {
-    "id": "fr-4",
-    "lang": "french",
-    "template": "Lisez le titre et retournez uniquement un label parmi {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls} :\n{review_text}"
+    "id": "tr-4",
+    "lang": "turkish",
+    "template": "Başlığı okuyun ve yalnızca şu kümeden bir etiket döndürün {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}:\n{review_text}"
   },
   {
-    "id": "fr-5",
-    "lang": "french",
-    "template": "Décidez de la rubrique appropriée pour ce titre. Options : Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
+    "id": "tr-5",
+    "lang": "turkish",
+    "template": "Bu başlık için uygun bölümü belirleyin. Seçenekler: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
   },
   {
-    "id": "fr-6",
-    "lang": "french",
-    "template": "Classification à étiquette unique. Retournez exactement l’un de : Tax & Accounting | Business & Management | Finance | Industry | Technology | Government & Controls.\n{review_text}"
+    "id": "tr-6",
+    "lang": "turkish",
+    "template": "Tek etiket sınıflandırması. Şunlardan tam olarak birini döndürün: Tax & Accounting | Business & Management | Finance | Industry | Technology | Government & Controls.\n{review_text}"
   },
   {
-    "id": "fr-7",
-    "lang": "french",
-    "template": "Sélectionnez le meilleur thème pour ce titre à partir de cette taxonomie (utilisez l’intitulé exact) : Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
+    "id": "tr-7",
+    "lang": "turkish",
+    "template": "Başlık için en uygun konuyu seçin (tam adları kullanın): Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
   },
   {
-    "id": "fr-8",
-    "lang": "french",
-    "template": "Faites correspondre le titre à une seule catégorie (sans explication). Labels : Tax & Accounting ; Business & Management ; Finance ; Industry ; Technology ; Government & Controls.\n{review_text}"
+    "id": "tr-8",
+    "lang": "turkish",
+    "template": "Başlığı tek bir kategoriye eşleştirin (açıklama yok). Etiketler: Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
   },
   {
-    "id": "fr-9",
-    "lang": "french",
-    "template": "Identifiez la rubrique principale du titre. Choisissez une seule : Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls.\n{review_text}"
+    "id": "tr-9",
+    "lang": "turkish",
+    "template": "Başlığın ana kategorisini belirleyin. Sadece birini seçin: Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls.\n{review_text}"
   },
   {
-    "id": "fr-10",
-    "lang": "french",
-    "template": "Q : Quelle catégorie décrit le mieux ce titre ?\nOptions : Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls\nR :\n{review_text}"
+    "id": "tr-10",
+    "lang": "turkish",
+    "template": "S: Bu başlığı en iyi hangi kategori açıklar?\nSeçenekler: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls\nC:\n{review_text}"
   },
   {
-    "id": "fr-11",
-    "lang": "french",
-    "template": "Classez le sujet du titre avec l’ensemble → {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls} :\n{review_text}"
+    "id": "tr-11",
+    "lang": "turkish",
+    "template": "Başlığı şu küme ile sınıflandırın → {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}:\n{review_text}"
   },
   {
-    "id": "fr-12",
-    "lang": "french",
-    "template": "Retournez un label unique (issu de l’ensemble fourni) correspondant au titre :\n{review_text}"
+    "id": "tr-12",
+    "lang": "turkish",
+    "template": "Verilen kümeden yalnızca bir etiket döndürün:\n{review_text}"
   },
   {
-    "id": "fr-13",
-    "lang": "french",
-    "template": "Pensez aux rubriques économiques/professionnelles. Placez ce titre dans exactement une : Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
+    "id": "tr-13",
+    "lang": "turkish",
+    "template": "Tipik iş haber bölümlerini düşünün. Bu başlığı tam olarak birine yerleştirin: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
   },
   {
-    "id": "fr-14",
-    "lang": "french",
-    "template": "Choisissez un label canonique pour ce titre (libellé exact) : Tax & Accounting ; Business & Management ; Finance ; Industry ; Technology ; Government & Controls.\n{review_text}"
+    "id": "tr-14",
+    "lang": "turkish",
+    "template": "Bu başlık için bir kanonik etiket seçin (tam yazımı kullanın): Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
   },
   {
-    "id": "fr-15",
-    "lang": "french",
-    "template": "Parmi les six catégories {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}, choisissez la meilleure correspondance :\n{review_text}"
-  },
-
-  {
-    "id": "de-1",
-    "lang": "german",
-    "template": "Ordne die folgende Schlagzeile genau einer Kategorie zu: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls. Gib nur ein Label aus.\nSchlagzeile: {review_text}"
-  },
-  {
-    "id": "de-2",
-    "lang": "german",
-    "template": "Welche einzelne Kategorie passt am besten? Auswahl: Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
-  },
-  {
-    "id": "de-3",
-    "lang": "german",
-    "template": "Weise der Schlagzeile ein einziges Label zu (Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls):\n{review_text}"
-  },
-  {
-    "id": "de-4",
-    "lang": "german",
-    "template": "Lies die Schlagzeile und gib genau ein Label aus der Menge {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls} zurück:\n{review_text}"
-  },
-  {
-    "id": "de-5",
-    "lang": "german",
-    "template": "Bestimme das passende Ressort. Optionen: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
-  },
-  {
-    "id": "de-6",
-    "lang": "german",
-    "template": "Eindeutige Klassifikation. Gib genau eines von: Tax & Accounting | Business & Management | Finance | Industry | Technology | Government & Controls zurück.\n{review_text}"
-  },
-  {
-    "id": "de-7",
-    "lang": "german",
-    "template": "Wähle das bestpassende Thema aus dieser Taxonomie (exakte Bezeichnung verwenden): Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
-  },
-  {
-    "id": "de-8",
-    "lang": "german",
-    "template": "Ordne die Schlagzeile ohne Begründung einer einzigen Kategorie zu. Labels: Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
-  },
-  {
-    "id": "de-9",
-    "lang": "german",
-    "template": "Bestimme die Hauptkategorie der Schlagzeile. Wähle nur eine: Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls.\n{review_text}"
-  },
-  {
-    "id": "de-10",
-    "lang": "german",
-    "template": "F: Welche Kategorie beschreibt die Schlagzeile am besten?\nOptionen: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls\nA:\n{review_text}"
-  },
-  {
-    "id": "de-11",
-    "lang": "german",
-    "template": "Klassifiziere das Thema der Schlagzeile mit diesem Label-Set → {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}:\n{review_text}"
-  },
-  {
-    "id": "de-12",
-    "lang": "german",
-    "template": "Gib ein einziges Label (aus dem angegebenen Set) zurück, das zur Schlagzeile passt:\n{review_text}"
-  },
-  {
-    "id": "de-13",
-    "lang": "german",
-    "template": "Denke an typische Wirtschaftsressorts. Ordne diese Schlagzeile genau einem zu: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
-  },
-  {
-    "id": "de-14",
-    "lang": "german",
-    "template": "Wähle ein kanonisches Label für diese Schlagzeile (exakte Schreibweise): Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
-  },
-  {
-    "id": "de-15",
-    "lang": "german",
-    "template": "Wähle aus den sechs Kategorien {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls} die beste Übereinstimmung:\n{review_text}"
+    "id": "tr-15",
+    "lang": "turkish",
+    "template": "Altı kategoriden {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls} en uygun olanını seçin:\n{review_text}"
   },
 
   {
-    "id": "ja-1",
-    "lang": "japanese",
-    "template": "次のニュース見出しを、次のいずれか1つのカテゴリに分類してください：Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls（英語ラベルで出力）。\n見出し：{review_text}"
+    "id": "da-1",
+    "lang": "danish",
+    "template": "Klassificér følgende nyhedsoverskrift i præcis én kategori fra dette sæt: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\nOverskrift: {review_text}"
   },
   {
-    "id": "ja-2",
-    "lang": "japanese",
-    "template": "最も適切なカテゴリを1つ選んでください（英語ラベル）：Tax & Accounting／Business & Management／Finance／Industry／Technology／Government & Controls。\n{review_text}"
+    "id": "da-2",
+    "lang": "danish",
+    "template": "Hvilken enkelt kategori passer bedst til denne overskrift? Vælg én: Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
   },
   {
-    "id": "ja-3",
-    "lang": "japanese",
-    "template": "見出しに対してラベルを1つだけ割り当ててください：Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls。\n{review_text}"
+    "id": "da-3",
+    "lang": "danish",
+    "template": "Tildel overskriften ét label (Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls):\n{review_text}"
   },
   {
-    "id": "ja-4",
-    "lang": "japanese",
-    "template": "見出しを読み、{Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls} から1つだけ（英語表記）出力してください。\n{review_text}"
+    "id": "da-4",
+    "lang": "danish",
+    "template": "Læs overskriften og returnér kun ét label fra {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}:\n{review_text}"
   },
   {
-    "id": "ja-5",
-    "lang": "japanese",
-    "template": "この見出しに最もふさわしい欄を決めてください。選択肢：Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls。\n{review_text}"
+    "id": "da-5",
+    "lang": "danish",
+    "template": "Afgør hvilken sektion denne overskrift hører til. Muligheder: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
   },
   {
-    "id": "ja-6",
-    "lang": "japanese",
-    "template": "単一ラベル分類。必ず次のうち1つのみを返してください：Tax & Accounting | Business & Management | Finance | Industry | Technology | Government & Controls。\n{review_text}"
+    "id": "da-6",
+    "lang": "danish",
+    "template": "Enkelt-label klassifikation. Returnér præcis én af: Tax & Accounting | Business & Management | Finance | Industry | Technology | Government & Controls.\n{review_text}"
   },
   {
-    "id": "ja-7",
-    "lang": "japanese",
-    "template": "以下のタクソノミーから最適なトピックを選択（英語ラベルのまま）：Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls。\n{review_text}"
+    "id": "da-7",
+    "lang": "danish",
+    "template": "Vælg det bedst egnede emne til overskriften fra denne taksonomi: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
   },
   {
-    "id": "ja-8",
-    "lang": "japanese",
-    "template": "説明なしで、次のラベルから1つだけ返してください：Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls。\n{review_text}"
+    "id": "da-8",
+    "lang": "danish",
+    "template": "Knyt overskriften til én kategori (ingen forklaring). Labels: Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
   },
   {
-    "id": "ja-9",
-    "lang": "japanese",
-    "template": "この見出しの主要カテゴリを1つ選んでください（英語ラベル）：Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls。\n{review_text}"
+    "id": "da-9",
+    "lang": "danish",
+    "template": "Identificér hovedkategorien for overskriften. Vælg kun én: Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls.\n{review_text}"
   },
   {
-    "id": "ja-10",
-    "lang": "japanese",
-    "template": "Q: この見出しを最もよく表すカテゴリは？\n選択肢：Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls\nA:\n{review_text}"
+    "id": "da-10",
+    "lang": "danish",
+    "template": "Spørgsmål: Hvilken kategori beskriver denne overskrift bedst?\nValgmuligheder: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls\nSvar:\n{review_text}"
   },
   {
-    "id": "ja-11",
-    "lang": "japanese",
-    "template": "この見出しを次の集合で分類してください → {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}。\n{review_text}"
+    "id": "da-11",
+    "lang": "danish",
+    "template": "Klassificér overskriftens emne med dette sæt → {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}:\n{review_text}"
   },
   {
-    "id": "ja-12",
-    "lang": "japanese",
-    "template": "与えられた集合から1つのカテゴリ（英語ラベル）だけを返してください：\n{review_text}"
+    "id": "da-12",
+    "lang": "danish",
+    "template": "Returnér et enkelt label (fra det angivne sæt), der passer til overskriften:\n{review_text}"
   },
   {
-    "id": "ja-13",
-    "lang": "japanese",
-    "template": "一般的なビジネスニュースの区分を想定し、次のいずれか1つに当てはめてください：Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls。\n{review_text}"
+    "id": "da-13",
+    "lang": "danish",
+    "template": "Tænk på typiske erhvervsnyhedssektioner. Placer denne overskrift i præcis én: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
   },
   {
-    "id": "ja-14",
-    "lang": "japanese",
-    "template": "この見出しに対する正規ラベル（英語表記）を1つ選んでください：Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls。\n{review_text}"
+    "id": "da-14",
+    "lang": "danish",
+    "template": "Vælg et kanonisk label til denne overskrift (brug den nøjagtige formulering): Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
   },
   {
-    "id": "ja-15",
-    "lang": "japanese",
-    "template": "6つのカテゴリ {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls} から最も適切なものを選択してください：\n{review_text}"
+    "id": "da-15",
+    "lang": "danish",
+    "template": "Blandt de seks kategorier {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}, vælg den bedste match:\n{review_text}"
   },
 
   {
-    "id": "zh-1",
-    "lang": "chinese",
-    "template": "将以下新闻标题归入下列标签中的一个（请用英文标签返回）：Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls。\n标题：{review_text}"
+    "id": "pl-1",
+    "lang": "polish",
+    "template": "Skategoryzuj poniższy nagłówek do dokładnie jednej kategorii z zestawu: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\nNagłówek: {review_text}"
   },
   {
-    "id": "zh-2",
-    "lang": "chinese",
-    "template": "选择最匹配的单一类别（返回英文标签）：Tax & Accounting；Business & Management；Finance；Industry；Technology；Government & Controls。\n{review_text}"
+    "id": "pl-2",
+    "lang": "polish",
+    "template": "Która pojedyncza kategoria najlepiej pasuje do tego nagłówka? Wybierz jedną: Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
   },
   {
-    "id": "zh-3",
-    "lang": "chinese",
-    "template": "为该标题分配一个标签（仅一项）：Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls。\n{review_text}"
+    "id": "pl-3",
+    "lang": "polish",
+    "template": "Przypisz nagłówkowi jedną etykietę (Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls):\n{review_text}"
   },
   {
-    "id": "zh-4",
-    "lang": "chinese",
-    "template": "阅读标题，并仅从 {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls} 中输出一个标签：\n{review_text}"
+    "id": "pl-4",
+    "lang": "polish",
+    "template": "Przeczytaj nagłówek i zwróć tylko jedną etykietę spośród {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}:\n{review_text}"
   },
   {
-    "id": "zh-5",
-    "lang": "chinese",
-    "template": "判断该标题应归入哪个版块。选项：Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls。\n{review_text}"
+    "id": "pl-5",
+    "lang": "polish",
+    "template": "Zdecyduj, do której sekcji należy ten nagłówek. Opcje: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
   },
   {
-    "id": "zh-6",
-    "lang": "chinese",
-    "template": "单标签分类：从 Tax & Accounting | Business & Management | Finance | Industry | Technology | Government & Controls 中返回且仅返回一个：\n{review_text}"
+    "id": "pl-6",
+    "lang": "polish",
+    "template": "Klasyfikacja jednokrotna. Zwróć dokładnie jedną z: Tax & Accounting | Business & Management | Finance | Industry | Technology | Government & Controls.\n{review_text}"
   },
   {
-    "id": "zh-7",
-    "lang": "chinese",
-    "template": "在以下分类体系中（保持英文标签）为该标题选择最合适的一项：Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls。\n{review_text}"
+    "id": "pl-7",
+    "lang": "polish",
+    "template": "Wybierz najlepiej dopasowany temat dla nagłówka z tej taksonomii: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
   },
   {
-    "id": "zh-8",
-    "lang": "chinese",
-    "template": "无需解释，直接输出单个类别。可选标签：Tax & Accounting；Business & Management；Finance；Industry；Technology；Government & Controls。\n{review_text}"
+    "id": "pl-8",
+    "lang": "polish",
+    "template": "Przypisz nagłówek do jednej kategorii (bez wyjaśnień). Etykiety: Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
   },
   {
-    "id": "zh-9",
-    "lang": "chinese",
-    "template": "确定该新闻标题的主要主题（英文标签，单选）：Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls。\n{review_text}"
+    "id": "pl-9",
+    "lang": "polish",
+    "template": "Zidentyfikuj główną kategorię nagłówka. Wybierz tylko jedną: Tax & Accounting / Business & Management / Finance / Industry / Technology / Government & Controls.\n{review_text}"
   },
   {
-    "id": "zh-10",
-    "lang": "chinese",
-    "template": "问：该标题最适合哪个类别？\n选项：Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls\n答：\n{review_text}"
+    "id": "pl-10",
+    "lang": "polish",
+    "template": "P: Która kategoria najlepiej opisuje ten nagłówek?\nOpcje: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls\nO:\n{review_text}"
   },
   {
-    "id": "zh-11",
-    "lang": "chinese",
-    "template": "使用该标签集合对标题分类 → {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}。\n{review_text}"
+    "id": "pl-11",
+    "lang": "polish",
+    "template": "Skategoryzuj temat nagłówka używając tego zestawu → {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}:\n{review_text}"
   },
   {
-    "id": "zh-12",
-    "lang": "chinese",
-    "template": "从给定集合中返回一个且仅一个标签（英文）：\n{review_text}"
+    "id": "pl-12",
+    "lang": "polish",
+    "template": "Zwróć jedną etykietę (z podanego zestawu), która pasuje do nagłówka:\n{review_text}"
   },
   {
-    "id": "zh-13",
-    "lang": "chinese",
-    "template": "参考常见商业新闻版块，将该标题放入以下之一（英文标签）：Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls。\n{review_text}"
+    "id": "pl-13",
+    "lang": "polish",
+    "template": "Pomyśl o typowych sekcjach wiadomości biznesowych. Umieść ten nagłówek dokładnie w jednej: Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls.\n{review_text}"
   },
   {
-    "id": "zh-14",
-    "lang": "chinese",
-    "template": "为该标题选择一个规范化的英文标签：Tax & Accounting；Business & Management；Finance；Industry；Technology；Government & Controls。\n{review_text}"
+    "id": "pl-14",
+    "lang": "polish",
+    "template": "Wybierz kanoniczną etykietę dla tego nagłówka (użyj dokładnego brzmienia): Tax & Accounting; Business & Management; Finance; Industry; Technology; Government & Controls.\n{review_text}"
   },
   {
-    "id": "zh-15",
-    "lang": "chinese",
-    "template": "在六个类别 {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls} 中选择与标题最匹配的一项：\n{review_text}"
+    "id": "pl-15",
+    "lang": "polish",
+    "template": "Spośród sześciu kategorii {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls} wybierz najlepiej pasującą:\n{review_text}"
   }
 ]

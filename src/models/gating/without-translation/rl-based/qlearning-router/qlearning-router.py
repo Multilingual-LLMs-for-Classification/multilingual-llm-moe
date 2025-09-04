@@ -16,14 +16,16 @@ random.seed(42)
 np.random.seed(42)
 torch.manual_seed(42)
 
-# Adjust this path to where your training folder is
 DATA_DIR = Path("../../../../../training/router_prompts/data")
-
 MAX_TOKENS = 128
 BATCH_SIZE = 16
 LR = 1e-5
-EPOCHS = 1
+EPOCHS = 5
 VAL_EVERY = 200
+
+EPS_START = 0.2
+EPS_END = 0.01
+EPS_DECAY = 10000
 
 # ----------------------
 # Dataset Preparation
@@ -104,57 +106,75 @@ class XLMREncoder(nn.Module):
         return cls_emb
 
 
-class TaskClassifier(nn.Module):
-    def __init__(self, in_dim, num_classes=2):
+class QRouter(nn.Module):
+    def __init__(self, in_dim, num_tasks=2):
         super().__init__()
-        self.classifier = nn.Linear(in_dim, num_classes)
+        self.net = nn.Sequential(
+            nn.Linear(in_dim, in_dim),
+            nn.ReLU(),
+            nn.Linear(in_dim, num_tasks)
+        )
 
     def forward(self, h):
-        return self.classifier(h)
+        return self.net(h)  # Q-values per task
 
 # ----------------------
-# Trainer
+# Q-learning Trainer
 # ----------------------
-class TaskTrainer:
-    def __init__(self, enc, clf, lr, id2task):
-        self.enc, self.clf = enc.to(DEVICE), clf.to(DEVICE)
-        self.opt = optim.Adam(list(enc.parameters()) + list(clf.parameters()), lr=lr)
-        self.ce = nn.CrossEntropyLoss()
+class QTrainer:
+    def __init__(self, enc, router, lr, num_tasks, id2task,
+                 e0=EPS_START, e1=EPS_END, decay=EPS_DECAY):
+        self.enc, self.router = enc.to(DEVICE), router.to(DEVICE)
+        self.opt = optim.Adam(list(enc.parameters()) + list(router.parameters()), lr=lr)
+        self.num_tasks = num_tasks
+        self.mse = nn.MSELoss()
+        self.e0, self.e1, self.dec, self.step = e0, e1, decay, 0
         self.id2task = id2task
 
+    def epsilon(self):
+        t = min(self.step / self.dec, 1)
+        return self.e0 + (self.e1 - self.e0) * t
+
     def step_batch(self, batch):
-        x, y, _, _ = batch
-        x, y = x.to(DEVICE), y.to(DEVICE)
+        x, true_task, _, _ = batch
+        x, true_task = x.to(DEVICE), true_task.to(DEVICE)
+
+        # Encode
         h = self.enc(x)
-        logits = self.clf(h)
-        loss = self.ce(logits, y)
+        q_values = self.router(h)  # [batch, num_tasks]
+
+        # Epsilon-greedy action
+        if random.random() < self.epsilon():
+            actions = torch.randint(0, self.num_tasks, (len(x),), device=DEVICE)
+        else:
+            actions = q_values.argmax(dim=-1)
+
+        # Reward = 1 if action == true_task else 0
+        rewards = (actions == true_task).float()
+
+        # Q-values for taken actions
+        q_taken = q_values[range(len(x)), actions]
+
+        # Loss = MSE(Q(s,a), reward)
+        loss = self.mse(q_taken, rewards)
+
+        # Backprop
         self.opt.zero_grad()
         loss.backward()
-        nn.utils.clip_grad_norm_(list(self.enc.parameters()) + list(self.clf.parameters()), 1.0)
+        nn.utils.clip_grad_norm_(list(self.enc.parameters()) + list(self.router.parameters()), 1.0)
         self.opt.step()
+        self.step += 1
         return loss.item()
 
     @torch.no_grad()
-    def evaluate(self, loader):
-        self.enc.eval(); self.clf.eval()
-        yt, yp = [], []
-        for xb, yb, _, _ in loader:
-            xb, yb = xb.to(DEVICE), yb.to(DEVICE)
-            h = self.enc(xb)
-            preds = self.clf(h).argmax(-1)
-            yt += yb.cpu().tolist()
-            yp += preds.cpu().tolist()
-        acc = sum(int(a == b) for a, b in zip(yt, yp)) / len(yt)
-        return acc
-
-    @torch.no_grad()
     def evaluate_and_save(self, loader, out_file):
-        self.enc.eval(); self.clf.eval()
+        self.enc.eval(); self.router.eval()
         rows = []
         for xb, yb, texts, langs in loader:
             xb, yb = xb.to(DEVICE), yb.to(DEVICE)
             h = self.enc(xb)
-            preds = self.clf(h).argmax(-1)
+            q_values = self.router(h)
+            preds = q_values.argmax(-1)
             for true, pred, text, lang in zip(yb.cpu().tolist(), preds.cpu().tolist(), texts, langs):
                 rows.append({
                     "text": text,
@@ -163,7 +183,6 @@ class TaskTrainer:
                     "pred_task": self.id2task[pred],
                 })
 
-        # Save predictions
         df = pd.DataFrame(rows)
         df.to_csv(out_file, index=False)
         print(f"Predictions saved to {out_file}")
@@ -194,7 +213,7 @@ if __name__ == "__main__":
     tokenizer = XLMRobertaTokenizer.from_pretrained("xlm-roberta-base")
 
     # 1. Prepare unified dataset
-    unified_path = DATA_DIR / "unified.csv"
+    unified_path = "unified.csv"
     combined = prepare_unified_dataset(
         DATA_DIR / "news.json", DATA_DIR / "ratings.json", unified_path
     )
@@ -206,23 +225,20 @@ if __name__ == "__main__":
     id2task = {v: k for k, v in task_map.items()}
 
     train_ds = UnifiedDataset(train_df, tokenizer, MAX_TOKENS, task_map)
-    val_ds   = UnifiedDataset(val_df, tokenizer, MAX_TOKENS, task_map)
     test_ds  = UnifiedDataset(test_df, tokenizer, MAX_TOKENS, task_map)
 
     train_loader = torch.utils.data.DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True)
-    val_loader   = torch.utils.data.DataLoader(val_ds, batch_size=BATCH_SIZE)
     test_loader  = torch.utils.data.DataLoader(test_ds, batch_size=BATCH_SIZE)
 
     # 3. Models
     enc = XLMREncoder()
-    clf = TaskClassifier(enc.out_dim, num_classes=len(task_map))
+    router = QRouter(enc.out_dim, num_tasks=len(task_map))
 
-    trainer = TaskTrainer(enc, clf, LR, id2task)
+    trainer = QTrainer(enc, router, LR, num_tasks=len(task_map), id2task=id2task)
 
     # 4. Training
-    print("Training Task Classifier...")
+    print("Training Q-learning Router...")
     it = iter(train_loader)
-    best = 0
     for step in range(EPOCHS * len(train_loader)):
         try:
             batch = next(it)
@@ -233,14 +249,7 @@ if __name__ == "__main__":
         loss = trainer.step_batch(batch)
 
         if step % VAL_EVERY == 0 and step > 0:
-            acc = trainer.evaluate(val_loader)
-            print(f"Step {step}, loss={loss:.4f}, val_acc={acc:.4f}")
-            if acc > best:
-                best = acc
-                torch.save({
-                    "enc": enc.state_dict(),
-                    "clf": clf.state_dict(),
-                }, DATA_DIR / "task_classifier.pt")
+            print(f"Step {step}, Q-loss={loss:.4f}")
 
     # 5. Save predictions + print detailed accuracy
-    trainer.evaluate_and_save(test_loader, "predictions.csv")
+    trainer.evaluate_and_save(test_loader, "predictions_qlearning.csv")

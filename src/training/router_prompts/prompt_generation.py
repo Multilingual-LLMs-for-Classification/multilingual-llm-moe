@@ -37,13 +37,13 @@ TEMPLATES_FILE_DEFAULT = os.path.join("templates", "star_rating.json")
 OUTPUT_FILE_DEFAULT = "generated_prompts_news.json"
 
 SUPPORTED_LANG_KEYS = {
-    # canonical -> "english" | "spanish" | "french" | "german" | "japanese" | "chinese"
+    # canonical -> "english" | "spanish" | "french" | "german" | "japanese" | "chinese" | "turkish"
     "en": "english", "eng": "english", "english": "english",
     "es": "spanish", "spa": "spanish", "spanish": "spanish",
     "fr": "french",  "fra": "french", "fre": "french", "french": "french",
     "de": "german",  "ger": "german", "deu": "german", "german": "german",
     "ja": "japanese","jpn": "japanese","jp": "japanese","japanese": "japanese",
-    "zh": "chinese", "chi": "chinese","zho": "chinese","cn": "chinese","chinese": "chinese",
+    "zh": "chinese", "chi": "chinese","zho": "chinese","cn": "chinese","chinese": "chinese", "turkish": "turkish", "danish": "danish", "polish": "polish"
 }
 
 # reviewer_id prefixes to language (Amazon-style rows)
