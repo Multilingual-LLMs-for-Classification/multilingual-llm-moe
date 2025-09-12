@@ -6,7 +6,8 @@ import pandas as pd
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from transformers import XLMRobertaTokenizer, XLMRobertaModel
+# from transformers import XLMRobertaTokenizer, XLMRobertaModel
+from transformers import BertTokenizer, BertModel
 
 # ----------------------
 # Global Settings
@@ -20,7 +21,7 @@ DATA_DIR = Path("../../../../../training/router_prompts/data")
 MAX_TOKENS = 128
 BATCH_SIZE = 16
 LR = 1e-5
-EPOCHS = 5
+EPOCHS = 1
 VAL_EVERY = 200
 
 EPS_START = 0.2
@@ -30,7 +31,7 @@ EPS_DECAY = 10000
 # ----------------------
 # Dataset Preparation
 # ----------------------
-def prepare_unified_dataset(news_json_path, rating_json_path, out_csv):
+def prepare_unified_dataset(news_json_path, rating_json_path, esci_json_path, out_csv):
     # Load news dataset
     news_df = pd.read_json(news_json_path)
     news_df = news_df[["prompt", "template_lang"]].rename(
@@ -44,9 +45,16 @@ def prepare_unified_dataset(news_json_path, rating_json_path, out_csv):
         columns={"prompt": "text", "language_column": "language"}
     )
     rating_df["task"] = "rating"
+    
+    # Load esci dataset
+    esci_df = pd.read_json(esci_json_path)
+    esci_df = esci_df[["prompt", "language_column"]].rename(
+        columns={"prompt": "text", "language_column": "language"}
+    )
+    esci_df["task"] = "esci"
 
-    # Join both
-    combined = pd.concat([news_df, rating_df], ignore_index=True)
+    # Join
+    combined = pd.concat([news_df, rating_df, esci_df], ignore_index=True)
     combined.to_csv(out_csv, index=False)
     print(f"Unified dataset saved to {out_csv}, shape={combined.shape}")
     return combined
@@ -73,7 +81,7 @@ class UnifiedDataset(torch.utils.data.Dataset):
         self.df = df.reset_index(drop=True)
         self.tokenizer = tokenizer
         self.max_len = max_len
-        self.task_map = task_map or {"rating": 0, "news": 1}
+        self.task_map = task_map or {"rating": 0, "news": 1, "esci": 2}
 
     def __len__(self):
         return len(self.df)
@@ -97,7 +105,8 @@ class UnifiedDataset(torch.utils.data.Dataset):
 class XLMREncoder(nn.Module):
     def __init__(self, model_name="xlm-roberta-base"):
         super().__init__()
-        self.model = XLMRobertaModel.from_pretrained(model_name)
+        # self.model = XLMRobertaModel.from_pretrained(model_name)
+        self.model = BertModel.from_pretrained(model_name)
         self.out_dim = self.model.config.hidden_size
 
     def forward(self, x):
@@ -210,22 +219,25 @@ class QTrainer:
 # Main
 # ----------------------
 if __name__ == "__main__":
-    tokenizer = XLMRobertaTokenizer.from_pretrained("xlm-roberta-base")
+    tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
+    # tokenizer = XLMRobertaTokenizer.from_pretrained("xlm-roberta-base")
 
     # 1. Prepare unified dataset
     unified_path = "unified.csv"
     combined = prepare_unified_dataset(
-        DATA_DIR / "news.json", DATA_DIR / "ratings.json", unified_path
+        DATA_DIR / "news.json", DATA_DIR / "ratings.json", DATA_DIR / "esci_with_prompts.json", unified_path
     )
 
     # 2. Split data
     train_df, val_df, test_df = split_unified(combined)
 
-    task_map = {"rating": 0, "news": 1}
+    task_map = {"rating": 0, "news": 1, "esci": 2}
     id2task = {v: k for k, v in task_map.items()}
 
     train_ds = UnifiedDataset(train_df, tokenizer, MAX_TOKENS, task_map)
-    test_ds  = UnifiedDataset(test_df, tokenizer, MAX_TOKENS, task_map)
+    test_ds  = UnifiedDataset("./test.json", tokenizer, MAX_TOKENS, task_map)
+    
+    # test_ds  = UnifiedDataset(test_df, tokenizer, MAX_TOKENS, task_map)
 
     train_loader = torch.utils.data.DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True)
     test_loader  = torch.utils.data.DataLoader(test_ds, batch_size=BATCH_SIZE)
