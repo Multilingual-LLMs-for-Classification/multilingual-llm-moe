@@ -1,0 +1,20 @@
+[
+  {
+    "template_id": "en-11",
+    "template_lang": "english",
+    "template_text": "Classify the topic of the headline using this label set → {Tax & Accounting, Business & Management, Finance, Industry, Technology, Government & Controls}:\n{review_text}",
+    "prompt": "You are an expert named-entity recognition (NER) system. Recognize entities of these types: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nReturn a JSON array.\nEach element must contain:\n- text: exact substring from the sentence\n- type: one of {entity_types_list}\n- start: starting character offset (inclusive)\n- end: ending character offset (exclusive)\n\nSentence:\n\nUNB+UNOC:300+IA1234567890:1234567890+IA9876543210:9876543210+161223:1230+000+EA+UNH+SHP+20121212121212:1234567890+SHP:D:9B:UN:EAN008:2:200+IA1234567890+IA9876543456BGM+220+345678901234567890+161223+1230+1234567890X+233NAD+BY+9876543210+123 Main Street+London+EC3A 8DS+UK+GB+8888888888888NAD+SU+1234567890+030 Campbell Motorway+London+E14 5JP+UK+GB+8888888888888NAD+DP+1234567890+3512 West 12th Street+New York+NY+10011+US+1+8888888888888LIN+1+1234567890+20+1+EA+100.00+100.00+20230114+19270614LIN+2+2345678901+30+1+EA+200.00+200.80+20230114+19270614LIN+3+3456789012+40+1+EA+300.0less00+300.0\n\nOutput only valid JSON array. No explanations or extra keys.",
+    "review_text": "A new funding tool - Crowdfunding",
+    "review_id": null,
+    "product_id": null,
+    "reviewer_id": null,
+    "stars": null,
+    "product_category": null,
+    "sentiment": null,
+    "language_column": "English",
+    "generic_id": "Turkey-5527",
+    "generic_label": "[{"start": 310, "end": 331, "label": "street_address"}]",
+    "source_csv": "/home/cse/Desktop/multilingual-llm-moe/data/train_news_headlines.csv",
+    "row_index": 0
+  }
+]
