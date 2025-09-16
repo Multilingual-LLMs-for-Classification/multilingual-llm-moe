@@ -7,4 +7,5 @@ risk_assessment/
 **/translate-then-classify-router/models/
 .pkl
 .cpython-310.pyc
+**.pt
 
