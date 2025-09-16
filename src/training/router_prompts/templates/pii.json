@@ -1,0 +1,7 @@
+[
+  {
+    "id": "en-1",
+    "lang": "english",
+    "template": "You are an expert named-entity recognition (NER) system. Recognize entities of these types: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nReturn a JSON array.\nEach element must contain:\n- text: exact substring from the sentence\n- type: one of {entity_types_list}\n- start: starting character offset (inclusive)\n- end: ending character offset (exclusive)\n\nSentence:\n\n{{RAW_TEXT}}\n\nOutput only valid JSON array. No explanations or extra keys."
+  }
+]
