@@ -726,15 +726,19 @@ class QLearningTaskClassifier:
         return ok
 
 # 4) TASK EXPERTS (unchanged stub)
-class TaskExpert:
-    def __init__(self, task_name):
-        self.task_name = task_name
-    def predict(self, text):
-        confidence = random.uniform(0.1, 0.2)
-        prediction = f"{self.task_name}_result"
-        return prediction, confidence
+# class TaskExpert:
+#     def __init__(self, task_name):
+#         self.task_name = task_name
+#     def predict(self, text):
+#         confidence = random.uniform(0.1, 0.2)
+#         prediction = f"{self.task_name}_result"
+#         return prediction, confidence
 
 # 5) COMPLETE PROMPT ROUTING SYSTEM (now uses QLearningTaskClassifier + Transformer Domain CLS)
+
+from src.models.experts.llms.task_expert import TaskExpert, TaskExpertConfig
+from src.models.experts.llms.expert_pool import LLMAdapterPool
+
 class PromptRoutingSystem:
     def __init__(self):
         config_path = Path(__file__).parents[4] / "experts" / "config"
@@ -773,12 +777,24 @@ class PromptRoutingSystem:
         print("Checking and downloading models if needed...")
         self.model_loader.download_all_models()
         
-        # Instantiate experts per domain/task
+        # Shared pool (one per process) + registry path
+        self.expert_registry_path = config_path / "experts_registry.json"
+        self.expert_pool = LLMAdapterPool(self.expert_registry_path)
+        
+        # Instantiate experts per domain/task using the registry
         self.experts = {}
         for domain, tasks in self.domain_tasks.items():
             self.experts[domain] = {}
             for task in tasks.keys():
-                self.experts[domain][task] = TaskExpert(task)
+                self.experts[domain][task] = TaskExpert(
+                    TaskExpertConfig(
+                        domain=domain,
+                        task=task,
+                        registry_path=str(self.expert_registry_path),
+                        generation=None  # or per-task overrides dict
+                    ),
+                    pool=self.expert_pool
+                )
     
     def save_all_models(self):
         print("💾 Saving all models...")
@@ -810,6 +826,8 @@ class PromptRoutingSystem:
         task = self.task_classifier.classify_task(prompt, domain)
         # 4) Expert
         expert = self.experts[domain][task]
+        
+        # print("Prompt:", prompt)
         result, expert_confidence = expert.predict(prompt)
         
         output = {
@@ -819,10 +837,10 @@ class PromptRoutingSystem:
             'domain_probabilities': domain_probs,
             'task': task,
             'result': result,
-            # 'expert_confidence': expert_confidence,
+            'expert_confidence': expert_confidence,
             'routing_path': f"{language} → {domain} → {task}"
         }
-        print("Routing Result:", output)
+        # print("Routing Result:", expert_confidence, output['routing_path'])
         return output
     
     def batch_process(self, prompts: List[str]) -> List[Dict]:
@@ -903,7 +921,7 @@ def load_prompts_from_csv(path="unified.csv"):
         return [row for row in reader]
     
 if __name__ == "__main__":
-    with open("test1.json", "r", encoding="utf-8") as f:
+    with open("test.json", "r", encoding="utf-8") as f:
         test_prompts = json.load(f)
 
     print("Initializing Prompt Routing System (Q-learning router + Transformer Domain CLS)...")
@@ -916,14 +934,14 @@ if __name__ == "__main__":
     print(f"Available domains: {stats['domains']}")
 
     # Load training data
-    with open("train1.json", "r", encoding="utf-8") as f:
+    with open("train.json", "r", encoding="utf-8") as f:
         training_data = json.load(f)
 
     # ---- Train Domain Classifier (Transformer) ----
     # Start frozen for speed; if you want more accuracy, set freeze_encoder=False or increase epochs.
     system.train_domain_classifier(
         training_data,
-        epochs=3,
+        epochs=1,
         batch_size=32,
         lr=2e-5,
         freeze_encoder=True,   # flip to False to fine-tune encoder as well
@@ -955,12 +973,14 @@ if __name__ == "__main__":
         text      = item['prompt']
         gt_domain = item['domain']
         gt_task   = item['task']
+        
+        print("Expected:", item['label'])
 
         result      = system.route_prompt(text)
         pred_domain = result['domain']
         pred_task   = result['task']
         lang_tag    = result.get('language', '?')
-        print(gt_task, pred_task, lang_tag)
+        # print(gt_task, pred_task, lang_tag)
 
         cm_domain[(gt_domain, pred_domain)] += 1
         cm_task[(gt_task, pred_task)]       += 1

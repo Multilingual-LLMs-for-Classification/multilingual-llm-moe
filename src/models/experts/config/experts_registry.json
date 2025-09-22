@@ -1,0 +1,38 @@
+{
+  "default_generation": {
+    "max_new_tokens": 256,
+    "temperature": 0.2,
+    "top_p": 0.9,
+    "repetition_penalty": 1.05
+  },
+  "base_models": {
+    "llama-2-7b-hf": {
+      "hf_name": "meta-llama/Llama-2-7b-hf",
+      "load_in_4bit": true,
+      "device_map": "auto"
+    }
+  },
+  "tasks": {
+    "finance/rating": {
+      "base_model_key": "llama-2-7b-hf",
+      "adapter_name": "fin-sentiment",
+      "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/",
+      "template_path": "src/models/experts/llms/templates/finance__sentiment_analysis.txt",
+      "label_set": ["1","2","3","4","5"],
+      "strict_label_decoding": true,
+      "generation": { "max_new_tokens": 2, "temperature": 0.0, "top_p": 1.0 }
+    },
+    "finance/news": {
+      "base_model_key": "llama-2-7b-hf",
+      "adapter_name": "fin-news-cls",
+      "adapter_path": "src/models/experts/llms/adapters/finance/news_classification/llama-2-7b-hf/",
+      "template_path": "src/models/experts/llms/templates/finance__news_classification.txt"
+    },
+    "general/text_summarization": {
+      "base_model_key": "llama-2-7b-hf",
+      "adapter_name": "fin-news-cls",
+      "adapter_path": "src/models/experts/llms/adapters/finance/news_classification/llama-2-7b-hf/",
+      "template_path": "src/models/experts/llms/templates/finance__news_classification.txt"
+    }
+  }
+}
