@@ -923,6 +923,9 @@ def load_prompts_from_csv(path="unified.csv"):
 if __name__ == "__main__":
     with open("test.json", "r", encoding="utf-8") as f:
         test_prompts = json.load(f)
+        
+    TEST_N = 100
+    test_prompts = test_prompts[:TEST_N]
 
     print("Initializing Prompt Routing System (Q-learning router + Transformer Domain CLS)...")
     system = PromptRoutingSystem()

@@ -1,6 +1,7 @@
 # src/models/experts/llms/expert_pool.py
 from __future__ import annotations
 import json
+import re
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 
@@ -41,7 +42,7 @@ class LLMAdapterPool:
             self.cfg = json.load(f)
 
         self.base_models: Dict[str, Dict] = {}   # key -> {"model":..., "tok":..., "adapters_loaded": set(), "active": str|None}
-        self.default_gen = self.cfg.get("default_generation", {"max_new_tokens": 256})
+        self.default_gen = self.cfg.get("default_generation", {"max_new_tokens": 4})
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # ---------- Base models ---------- #
@@ -157,7 +158,43 @@ class LLMAdapterPool:
 
         # template = self.get_task_template(task_key)
         # text = template.replace("{{input}}", prompt) if template else prompt
-        text = prompt
+        text = f"""<|system|>
+            You are a rating pre-processor and executor. The task is KNOWN to be `rating`.
+
+            Input format:
+            A free-form string (RAW_INPUT) may include:
+            • a user instruction (e.g., “Convert the sentiment … rate 1-5”)
+            • the actual product review (possibly with a short title before a colon)
+            • optional metadata like “(Category: …)”
+
+            Your job:
+            1) Remove the instruction/meta part and keep only the actual review.
+            2) Extract title (if short phrase before first colon) and review text.
+            3) Remove trailing parenthetical metadata like “(Category: …)”.
+            4) Infer or preserve language.
+            5) Apply the rating card below and output ONLY a single digit 1-5.
+
+            [RATING_TASK_SYSTEM_CARD]
+            You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+            1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive.
+
+            Instruction: Rate this review with a number from 1-5. Output ONLY the number (no explanation).
+            [/RATING_TASK_SYSTEM_CARD]
+
+            <|user|>
+            # RAW_INPUT
+            {prompt}
+
+            # DO
+            1) Strip instruction/meta from RAW_INPUT.
+            2) Extract the review content (title + text).
+            3) Apply the rating card and output ONLY 1-5.
+
+            # CONSTRAINTS
+            - Output ONLY a single integer 1-5.
+            - No JSON, labels, or commentary.
+
+            <|assistant|>"""
 
         inputs = tok(text, return_tensors="pt").to(model.device)
         gen_cfg = self.default_generation_config()
@@ -170,7 +207,13 @@ class LLMAdapterPool:
             return_dict_in_generate=True,
             output_scores=True
         )
-        decoded = tok.decode(out.sequences[0], skip_special_tokens=True)
+        # decoded = tok.decode(out.sequences[0], skip_special_tokens=True)
+        gen_ids = out.sequences[0]
+        prompt_len = inputs["input_ids"].shape[1]
+        new_tokens = gen_ids[prompt_len:]
+        decoded = tok.decode(new_tokens, skip_special_tokens=True)
+        m = re.search(r"\b([1-5])\b", decoded)
+        clean = m.group(1) if m else "" 
 
         # A lightweight confidence proxy: average of top-token probs of generated tokens
         conf = 0.0
@@ -179,4 +222,4 @@ class LLMAdapterPool:
             probs = [F.softmax(s[0], dim=-1).max().item() for s in out.scores]
             if probs:
                 conf = float(sum(probs) / len(probs))
-        return decoded, conf
+        return clean, conf
