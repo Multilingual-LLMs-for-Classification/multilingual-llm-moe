@@ -2,6 +2,526 @@
   {
     "id": "en-1",
     "lang": "english",
-    "template": "You are an expert named-entity recognition (NER) system. Recognize entities of these types: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nReturn a JSON array.\nEach element must contain:\n- text: exact substring from the sentence\n- type: one of {entity_types_list}\n- start: starting character offset (inclusive)\n- end: ending character offset (exclusive)\n\nSentence:\n\n{{RAW_TEXT}}\n\nOutput only valid JSON array. No explanations or extra keys."
+    "template": "You are an expert PII classifier.\n\nRecognize entities of these types: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nInstructions:\n- Use ONLY substrings and occurrence_ids from `PII Word Counts`.\n- Judge each occurrence independently.\n- Output a JSON array of objects: substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nReturn valid JSON only."
+  },
+  {
+    "id": "en-2",
+    "lang": "english",
+    "template": "Act as a PII occurrence classifier (no span offsets; use given substrings only).\n\nEntity types: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nRules:\n- Evaluate each (substring, occurrence_id) in context.\n- If not PII, set category=null and is_pii=false.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nOutput: JSON array only."
+  },
+  {
+    "id": "en-3",
+    "lang": "english",
+    "template": "Multilingual PII decision per occurrence for routing.\n\nAllowed categories: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nGuidelines:\n- One decision per tuple.\n- Choose the most specific category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nReturn ONLY a JSON array with keys substring, occurrence_id, is_pii, category."
+  },
+  {
+    "id": "en-4",
+    "lang": "english",
+    "template": "Router training prompt: classify each candidate occurrence into a PII category.\n\nCategories: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nEmit JSON array only: each item has substring, occurrence_id, is_pii, category."
+  },
+  {
+    "id": "en-5",
+    "lang": "english",
+    "template": "Determine PII categories for the listed occurrences.\n\nTaxonomy: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nProduce only valid JSON array of substring, occurrence_id, is_pii, category."
+  },
+  {
+    "id": "en-6",
+    "lang": "english",
+    "template": "Classify provided substrings by occurrence using the fixed taxonomy.\n\nTaxonomy: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nReturn JSON array; no explanations."
+  },
+  {
+    "id": "en-7",
+    "lang": "english",
+    "template": "PII labeling by occurrence (context-aware, no offsets).\n\nTypes: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nOutput strictly a JSON array of objects: substring, occurrence_id, is_pii, category."
+  },
+  {
+    "id": "en-8",
+    "lang": "english",
+    "template": "Your task is to decide whether each candidate occurrence is PII and, if so, assign a category.\n\nCategory set: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nOutput JSON array only."
+  },
+  {
+    "id": "en-9",
+    "lang": "english",
+    "template": "Evaluate PII per occurrence for expert routing.\n\nUse these categories: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nReturn only a JSON array; non-PII must have category=null."
+  },
+  {
+    "id": "en-10",
+    "lang": "english",
+    "template": "Occurrence-aware PII classification.\n\nAllowed types: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nRespond with a JSON array of objects (substring, occurrence_id, is_pii, category)."
+  },
+  {
+    "id": "en-11",
+    "lang": "english",
+    "template": "Decide PII for each (substring, occurrence_id) using the text for context.\n\nCategories: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nOutput: JSON array only; no prose."
+  },
+  {
+    "id": "en-12",
+    "lang": "english",
+    "template": "Per-occurrence PII judgment; do not invent substrings.\n\nCategory list: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nReturn only valid JSON array."
+  },
+  {
+    "id": "en-13",
+    "lang": "english",
+    "template": "Map each candidate occurrence to a PII category or mark as not PII.\n\nChoose from: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nOutput must be a JSON array; nothing else."
+  },
+  {
+    "id": "en-14",
+    "lang": "english",
+    "template": "Evaluate candidates against the fixed PII taxonomy.\n\nTaxonomy: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nAnswer with JSON array only."
+  },
+  {
+    "id": "en-15",
+    "lang": "english",
+    "template": "Minimal JSON labeling for router training.\n\nPII categories: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\n\nReturn ONLY a JSON array with substring, occurrence_id, is_pii, category."
+  },
+  {
+    "id": "nl-1",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Beoordeel elke occurrence afzonderlijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-2",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Evalueer elke occurrence onafhankelijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-3",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Beoordeel elke occurrence afzonderlijk.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-4",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Evalueer elke occurrence onafhankelijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-5",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Beoordeel elke occurrence afzonderlijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-6",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Evalueer elke occurrence onafhankelijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-7",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Beoordeel elke occurrence afzonderlijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-8",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Evalueer elke occurrence onafhankelijk.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-9",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Beoordeel elke occurrence afzonderlijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-10",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Evalueer elke occurrence onafhankelijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-11",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Beoordeel elke occurrence afzonderlijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-12",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Evalueer elke occurrence onafhankelijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-13",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Beoordeel elke occurrence afzonderlijk.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-14",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Evalueer elke occurrence onafhankelijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "nl-15",
+    "lang": "dutch",
+    "template": "Je bent een systeem voor PII-classificatie.\n\n- Geen uitleg; alleen geldige JSON-array.\n- Gebruik ALLEEN de substrings en occurrence_ids uit `PII Word Counts`.\n- Beoordeel elke occurrence afzonderlijk.\n- Uitvoer: een JSON-array met objecten substring, occurrence_id, is_pii, category.\n- Categorieën: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGeef alleen een geldige JSON-array terug."
+  },
+  {
+    "id": "fr-1",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Évaluez chaque occurrence séparément.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-2",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Jugez chaque occurrence indépendamment.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-3",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Évaluez chaque occurrence séparément.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-4",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Jugez chaque occurrence indépendamment.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-5",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Évaluez chaque occurrence séparément.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-6",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Jugez chaque occurrence indépendamment.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-7",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Évaluez chaque occurrence séparément.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-8",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Jugez chaque occurrence indépendamment.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-9",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Évaluez chaque occurrence séparément.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-10",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Jugez chaque occurrence indépendamment.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-11",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Évaluez chaque occurrence séparément.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-12",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Jugez chaque occurrence indépendamment.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-13",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Évaluez chaque occurrence séparément.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-14",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Jugez chaque occurrence indépendamment.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "fr-15",
+    "lang": "france",
+    "template": "Vous êtes un système expert de classification PII.\n\n- Aucune explication ; renvoyez seulement un tableau JSON valide.\n- Utilisez UNIQUEMENT les sous-chaînes et occurrence_ids de `PII Word Counts`.\n- Évaluez chaque occurrence séparément.\n- Sortie : un tableau JSON d’objets substring, occurrence_id, is_pii, category.\n- Catégories : account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRetournez uniquement un tableau JSON valide."
+  },
+  {
+    "id": "de-1",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Beurteile jedes Vorkommen unabhängig.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-2",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Bewerte jede Vorkommnis einzeln.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-3",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Beurteile jedes Vorkommen unabhängig.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-4",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Bewerte jede Vorkommnis einzeln.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-5",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Beurteile jedes Vorkommen unabhängig.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-6",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Bewerte jede Vorkommnis einzeln.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-7",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Beurteile jedes Vorkommen unabhängig.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-8",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Bewerte jede Vorkommnis einzeln.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-9",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Beurteile jedes Vorkommen unabhängig.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-10",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Bewerte jede Vorkommnis einzeln.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-11",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Beurteile jedes Vorkommen unabhängig.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-12",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Bewerte jede Vorkommnis einzeln.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-13",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Beurteile jedes Vorkommen unabhängig.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-14",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Bewerte jede Vorkommnis einzeln.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "de-15",
+    "lang": "german",
+    "template": "Du bist ein System zur Klassifizierung personenbezogener Informationen (PII).\n\n- Keine Erklärungen; nur gültiges JSON-Array.\n- Verwende NUR Substrings und occurrence_ids aus `PII Word Counts`.\n- Beurteile jedes Vorkommen unabhängig.\n- Ausgabe: JSON-Array mit Objekten substring, occurrence_id, is_pii, category.\n- Kategorien: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nGib nur ein gültiges JSON-Array zurück."
+  },
+  {
+    "id": "it-1",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Valuta ogni occorrenza separatamente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-2",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Giudica ogni occorrenza in modo indipendente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-3",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Valuta ogni occorrenza separatamente.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-4",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Giudica ogni occorrenza in modo indipendente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-5",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Valuta ogni occorrenza separatamente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-6",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Giudica ogni occorrenza in modo indipendente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-7",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Valuta ogni occorrenza separatamente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-8",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Giudica ogni occorrenza in modo indipendente.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-9",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Valuta ogni occorrenza separatamente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-10",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Giudica ogni occorrenza in modo indipendente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-11",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Valuta ogni occorrenza separatamente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-12",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Giudica ogni occorrenza in modo indipendente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-13",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Valuta ogni occorrenza separatamente.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-14",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Giudica ogni occorrenza in modo indipendente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "it-15",
+    "lang": "italian",
+    "template": "Sei un sistema esperto di classificazione PII.\n\n- Nessuna spiegazione; solo un array JSON valido.\n- Usa SOLO le sottostringhe e gli occurrence_id presenti in `PII Word Counts`.\n- Valuta ogni occorrenza separatamente.\n- Output: un array JSON di oggetti substring, occurrence_id, is_pii, category.\n- Categorie: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nRestituisci solo un array JSON valido."
+  },
+  {
+    "id": "es-1",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Evalúa cada ocurrencia por separado.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-2",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Juzga cada ocurrencia de forma independiente.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-3",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Evalúa cada ocurrencia por separado.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-4",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Juzga cada ocurrencia de forma independiente.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-5",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Evalúa cada ocurrencia por separado.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-6",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Juzga cada ocurrencia de forma independiente.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-7",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Evalúa cada ocurrencia por separado.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-8",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Juzga cada ocurrencia de forma independiente.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-9",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Evalúa cada ocurrencia por separado.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-10",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Juzga cada ocurrencia de forma independiente.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-11",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Evalúa cada ocurrencia por separado.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-12",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Juzga cada ocurrencia de forma independiente.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-13",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Evalúa cada ocurrencia por separado.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-14",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Juzga cada ocurrencia de forma independiente.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "es-15",
+    "lang": "spanish",
+    "template": "Eres un sistema experto de clasificación de PII.\n\n- Sin explicaciones; devuelve solo un arreglo JSON válido.\n- Usa SOLO las subcadenas y occurrence_ids de `PII Word Counts`.\n- Evalúa cada ocurrencia por separado.\n- Salida: un arreglo JSON de objetos substring, occurrence_id, is_pii, category.\n- Categorías: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nDevuelve únicamente un arreglo JSON válido."
+  },
+  {
+    "id": "sv-1",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Bedöm varje förekomst separat.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-2",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Utvärdera varje förekomst individuellt.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-3",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Bedöm varje förekomst separat.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-4",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Utvärdera varje förekomst individuellt.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-5",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Bedöm varje förekomst separat.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-6",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Utvärdera varje förekomst individuellt.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-7",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Bedöm varje förekomst separat.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-8",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Utvärdera varje förekomst individuellt.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-9",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Bedöm varje förekomst separat.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-10",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Utvärdera varje förekomst individuellt.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-11",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Bedöm varje förekomst separat.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-12",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Utvärdera varje förekomst individuellt.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-13",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Bedöm varje förekomst separat.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-14",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Utvärdera varje förekomst individuellt.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
+  },
+  {
+    "id": "sv-15",
+    "lang": "swedish",
+    "template": "Du är ett system för klassificering av PII.\n\n- Inga förklaringar; returnera endast en giltig JSON-array.\n- Använd ENDAST strängarna och occurrence_id i `PII Word Counts`.\n- Bedöm varje förekomst separat.\n- Utdata: en JSON-array med objekt substring, occurrence_id, is_pii, category.\n- Kategorier: account_pin, api_key, bank_routing_number, bban, company, credit_card_number, credit_card_security_code, customer_id, date, date_of_birth, date_time, driver_license_number, email, employee_id, first_name, iban, ipv4, ipv6, last_name, local_latlng, name, passport_number, password, phone_number, ssn, street_address, swift_bic_code, time, user_name.\n\nDomain: {{domain}}\nLanguage: {{language}}\nGenerated Text:\n\"\"\"\n{{generated_text}}\n\"\"\"\nPII Word Counts (tuples of (substring, occurrence_id)):\n{{pii_word_counts}}\nReturnera endast en giltig JSON-array."
   }
 ]
