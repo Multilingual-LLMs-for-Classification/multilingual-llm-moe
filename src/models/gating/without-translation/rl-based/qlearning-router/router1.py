@@ -743,7 +743,6 @@ class PromptRoutingSystem:
     def __init__(self):
         config_path = Path(__file__).parents[4] / "experts" / "config"
         
-        # Initialize components
         self.language_detector = LanguageDetector()
         self.domain_classifier = DomainClassifier(
             model_name="xlm-roberta-base",
@@ -816,7 +815,7 @@ class PromptRoutingSystem:
         self.task_classifier.train(training_data, val_split=0.1)
         self.task_classifier.save_models()
     
-    def route_prompt(self, prompt: str) -> Dict:
+    def route_prompt(self, prompt: str, classification_text: str) -> Dict:
         # 1) Language
         language = self.language_detector.detect_language(prompt)
         # 2) Domain
@@ -828,7 +827,7 @@ class PromptRoutingSystem:
         expert = self.experts[domain][task]
         
         # print("Prompt:", prompt)
-        result, expert_confidence = expert.predict(prompt)
+        result, expert_confidence = expert.predict(classification_text, prompt)
         
         output = {
             'input': prompt,
@@ -921,11 +920,12 @@ def load_prompts_from_csv(path="unified.csv"):
         return [row for row in reader]
     
 if __name__ == "__main__":
-    with open("test.json", "r", encoding="utf-8") as f:
+    with open("test1.json", "r", encoding="utf-8") as f:
         test_prompts = json.load(f)
         
-    TEST_N = 100
+    TEST_N = 15
     test_prompts = test_prompts[:TEST_N]
+    # test_prompts = test_prompts[-TEST_N:]
 
     print("Initializing Prompt Routing System (Q-learning router + Transformer Domain CLS)...")
     system = PromptRoutingSystem()
@@ -937,17 +937,19 @@ if __name__ == "__main__":
     print(f"Available domains: {stats['domains']}")
 
     # Load training data
-    with open("train.json", "r", encoding="utf-8") as f:
+    with open("train1.json", "r", encoding="utf-8") as f:
         training_data = json.load(f)
+        
+    # TRAIN_N = 1000
+    # training_data = training_data[:TRAIN_N]
 
     # ---- Train Domain Classifier (Transformer) ----
-    # Start frozen for speed; if you want more accuracy, set freeze_encoder=False or increase epochs.
     system.train_domain_classifier(
         training_data,
         epochs=1,
         batch_size=32,
         lr=2e-5,
-        freeze_encoder=True,   # flip to False to fine-tune encoder as well
+        freeze_encoder=True,
         class_weighting=True
     )
 
@@ -964,6 +966,7 @@ if __name__ == "__main__":
     task_labels   = sorted({item['task']   for item in test_prompts if isinstance(item, dict) and 'task'   in item})
     cm_domain = Counter()
     cm_task   = Counter()
+    cm_expert = Counter()
 
     per_lang_total = Counter()
     per_lang_dom   = Counter()
@@ -973,20 +976,23 @@ if __name__ == "__main__":
     for item in test_prompts:
         if not isinstance(item, dict):
             continue
-        text      = item['prompt']
+        prompt      = item['prompt']
+        text = item['classification_text']
         gt_domain = item['domain']
         gt_task   = item['task']
+        gt_label  = item['label']
         
         print("Expected:", item['label'])
 
-        result      = system.route_prompt(text)
+        result      = system.route_prompt(prompt, text)
         pred_domain = result['domain']
         pred_task   = result['task']
         lang_tag    = result.get('language', '?')
-        # print(gt_task, pred_task, lang_tag)
+        pred_label  = result['result']
 
         cm_domain[(gt_domain, pred_domain)] += 1
         cm_task[(gt_task, pred_task)]       += 1
+        cm_expert[(gt_label, pred_label)] += 1
 
         per_lang_total[lang_tag] += 1
         dom_ok  = (pred_domain == gt_domain)
@@ -998,6 +1004,8 @@ if __name__ == "__main__":
 
     dom_metrics  = _compute_prf_bal_kappa(cm_domain, domain_labels)
     task_metrics = _compute_prf_bal_kappa(cm_task,   task_labels)
+    expert_labels = sorted({item['label'] for item in test_prompts if isinstance(item, dict)})
+    expert_metrics = _compute_prf_bal_kappa(cm_expert, expert_labels)
 
     print("\nADDITIONAL METRICS")
     print("=" * 80)
@@ -1031,3 +1039,13 @@ if __name__ == "__main__":
             task_acc_l = per_lang_task[lg]  / n_l if n_l else 0.0
             exact_l    = per_lang_exact[lg] / n_l if n_l else 0.0
             print(f"{lg:>6} | {n_l:>4} | {_pct(dom_acc_l):>12} | {_pct(task_acc_l):>10} | {_pct(exact_l):>10}")
+
+    print("\nExpert (final output) classification:")
+    print(f"  Accuracy           : {_pct(expert_metrics['accuracy'])}")
+    print(f"  Macro  P/R/F1      : {_pct(expert_metrics['macro_p'])} / {_pct(expert_metrics['macro_r'])} / {_pct(expert_metrics['macro_f1'])}")
+    print(f"  Micro  P/R/F1      : {_pct(expert_metrics['micro_p'])} / {_pct(expert_metrics['micro_r'])} / {_pct(expert_metrics['micro_f1'])}")
+    print(f"  Weighted F1        : {_pct(expert_metrics['weighted_f1'])}")
+    print(f"  Balanced accuracy  : {_pct(expert_metrics['balanced_acc'])}")
+    print(f"  Cohen's kappa (κ)  : {_pct(expert_metrics['kappa'])}")
+
+    _print_confusion(cm_expert, expert_labels, title="Expert Output Confusion Matrix (GT rows × Pred cols)")

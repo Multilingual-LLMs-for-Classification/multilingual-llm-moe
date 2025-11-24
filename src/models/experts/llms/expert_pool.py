@@ -81,10 +81,12 @@ class LLMAdapterPool:
 
         if adapter_name in slot["adapters_loaded"]:
             return
-
-        # Load/attach adapter (idempotent)
-        adapter_path = Path(__file__).parent / "adapters" / "finance" / "news_classification" / "llama-2-7b-hf"
-        print("adapter_path:", adapter_path)
+        root = Path(__file__).parents[4]
+        adapter_path = (root / adapter_path).resolve()
+        # adapter_dir = Path(adapter_path).expanduser().resolve()
+        # adapter_path = str(adapter_dir)
+        print("Resolved adapter_path:", adapter_path)
+        
         if hasattr(model, "load_adapter"):
             model.load_adapter(adapter_path, adapter_name=adapter_name)
         else:
@@ -140,11 +142,14 @@ class LLMAdapterPool:
         return slot["model"], slot["tok"]
 
     def get_task_template(self, task_key: str) -> Optional[str]:
+        
         tcfg = self.cfg["tasks"].get(task_key, {})
         tpath = tcfg.get("template_path")
+        
         if not tpath:
             return None
-        p = Path(tpath)
+        
+        p = Path(__file__).parents[4] / tpath
         if p.exists():
             return p.read_text(encoding="utf-8")
         return None
@@ -153,48 +158,15 @@ class LLMAdapterPool:
         return GenerationConfig(**self.default_gen)
 
     @torch.inference_mode()
-    def generate(self, task_key: str, prompt: str, **gen_overrides) -> Tuple[str, float]:
+    def generate(self, task_key: str, classification_text: str, prompt: str, **gen_overrides) -> Tuple[str, float]:
         model, tok = self.ensure_task_ready(task_key)
 
-        # template = self.get_task_template(task_key)
-        # text = template.replace("{{input}}", prompt) if template else prompt
-        text = f"""<|system|>
-            You are a rating pre-processor and executor. The task is KNOWN to be `rating`.
-
-            Input format:
-            A free-form string (RAW_INPUT) may include:
-            • a user instruction (e.g., “Convert the sentiment … rate 1-5”)
-            • the actual product review (possibly with a short title before a colon)
-            • optional metadata like “(Category: …)”
-
-            Your job:
-            1) Remove the instruction/meta part and keep only the actual review.
-            2) Extract title (if short phrase before first colon) and review text.
-            3) Remove trailing parenthetical metadata like “(Category: …)”.
-            4) Infer or preserve language.
-            5) Apply the rating card below and output ONLY a single digit 1-5.
-
-            [RATING_TASK_SYSTEM_CARD]
-            You are an expert at analyzing product reviews and assigning star ratings from 1-5.
-            1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive.
-
-            Instruction: Rate this review with a number from 1-5. Output ONLY the number (no explanation).
-            [/RATING_TASK_SYSTEM_CARD]
-
-            <|user|>
-            # RAW_INPUT
-            {prompt}
-
-            # DO
-            1) Strip instruction/meta from RAW_INPUT.
-            2) Extract the review content (title + text).
-            3) Apply the rating card and output ONLY 1-5.
-
-            # CONSTRAINTS
-            - Output ONLY a single integer 1-5.
-            - No JSON, labels, or commentary.
-
-            <|assistant|>"""
+        template = self.get_task_template(task_key)
+        if template:
+            text = template.replace("{{input}}", classification_text)
+        else:
+            print("################")
+            text = prompt
 
         inputs = tok(text, return_tensors="pt").to(model.device)
         gen_cfg = self.default_generation_config()
@@ -212,8 +184,10 @@ class LLMAdapterPool:
         prompt_len = inputs["input_ids"].shape[1]
         new_tokens = gen_ids[prompt_len:]
         decoded = tok.decode(new_tokens, skip_special_tokens=True)
+        print("decoded: ", decoded)
         m = re.search(r"\b([1-5])\b", decoded)
         clean = m.group(1) if m else "" 
+        print("Clean: ", clean)
 
         # A lightweight confidence proxy: average of top-token probs of generated tokens
         conf = 0.0
@@ -223,3 +197,140 @@ class LLMAdapterPool:
             if probs:
                 conf = float(sum(probs) / len(probs))
         return clean, conf
+
+
+    # @torch.inference_mode()
+    # def generate(self, task_key: str, prompt: str, **gen_overrides) -> Tuple[str, float]:
+    #     """
+    #     Clean, robust generation pipeline for rating tasks:
+    #     1. Use the LLM to extract the true review text from the raw prompt.
+    #     2. Feed the clean review into a minimal 1–5 rating instruction.
+    #     3. Generate with strict decoding that only accepts digits 1–5.
+    #     """
+    #     import re
+    #     import torch.nn.functional as F
+
+    #     # --------------------------------------------------
+    #     # 1. Load model + adapter
+    #     # --------------------------------------------------
+    #     model, tok = self.ensure_task_ready(task_key)
+
+    #     # --------------------------------------------------
+    #     # 2. LLM-based extraction of the actual review
+    #     # --------------------------------------------------
+    #     def extract_review_llm(raw_prompt: str) -> str:
+    #         """
+    #         Use the same LLM to extract ONLY the clean review text.
+    #         This handles multilingual text, titles, instructions, metadata.
+    #         """
+    #         extraction_prompt = f"""
+    #             <s>[INST] <<SYS>>
+    #             You extract ONLY the actual product review from mixed user prompts.
+
+    #             Rules:
+    #             - Remove instructions like “rate from 1–5”, “assign stars”, etc.
+    #             - Remove Q/A wrappers or markers like “P:”, “Q:”, “R:”.
+    #             - Remove category metadata in parentheses.
+    #             - Preserve the actual review title and content.
+    #             - Return ONLY the clean review, nothing else.
+    #             <</SYS>>
+
+    #             User Prompt:
+    #             {raw_prompt}
+
+    #             Extracted Review:
+    #             [/INST]
+    #         """
+
+    #         inputs = tok(extraction_prompt, return_tensors="pt").to(model.device)
+
+    #         out = model.generate(
+    #             **inputs,
+    #             max_new_tokens=128,
+    #             temperature=0.1,
+    #             top_p=0.9
+    #         )
+
+    #         # decode only generated portion
+    #         gen_ids = out[0]
+    #         decoded = tok.decode(gen_ids, skip_special_tokens=True).strip()
+
+    #         # Typically the LLM answer is the last lines -> clean extraction
+    #         return decoded.strip()
+
+    #     review = extract_review_llm(prompt)
+    #     print("LLM Extracted Review:", review)
+
+    #     # --------------------------------------------------
+    #     # 3. Build clean rating prompt (no numeric pollution)
+    #     # --------------------------------------------------
+    #     rating_prompt = f"""
+    #         <s>[INST] <<SYS>>
+    #         You are an expert product review rating model.
+
+    #         Rate a review from 1 to 5:
+    #         1 = very negative
+    #         2 = negative
+    #         3 = neutral
+    #         4 = positive
+    #         5 = very positive
+
+    #         Respond ONLY with the rating (1–5).
+    #         No words, no punctuation, no explanations.
+    #         <</SYS>>
+
+    #         Review:
+    #         {review}
+    #         [/INST]
+    #     """
+
+    #     # --------------------------------------------------
+    #     # 4. Tokenize
+    #     # --------------------------------------------------
+    #     inputs = tok(rating_prompt, return_tensors="pt").to(model.device)
+
+    #     # --------------------------------------------------
+    #     # 5. Generation config
+    #     # --------------------------------------------------
+    #     gen_cfg = self.default_generation_config()
+    #     gen_cfg.max_new_tokens = gen_overrides.get("max_new_tokens", 8)
+    #     gen_cfg.temperature = gen_overrides.get("temperature", 0.1)
+    #     gen_cfg.top_p = gen_overrides.get("top_p", 0.95)
+
+    #     # --------------------------------------------------
+    #     # 6. Generate output
+    #     # --------------------------------------------------
+    #     out = model.generate(
+    #         **inputs,
+    #         generation_config=gen_cfg,
+    #         return_dict_in_generate=True,
+    #         output_scores=True
+    #     )
+
+    #     # --------------------------------------------------
+    #     # 7. Decode ONLY generated tokens
+    #     # --------------------------------------------------
+    #     gen_ids = out.sequences[0]
+    #     prompt_len = inputs["input_ids"].shape[1]
+    #     new_tokens = gen_ids[prompt_len:]
+    #     decoded = tok.decode(new_tokens, skip_special_tokens=True).strip()
+    #     print("DEBUG raw decoded:", repr(decoded))
+
+    #     # --------------------------------------------------
+    #     # 8. STRICT rating extraction: allow only digits 1–5
+    #     # --------------------------------------------------
+    #     m = re.search(r"\b([1-5])\b", decoded)
+    #     clean = m.group(1) if m else ""
+
+    #     # --------------------------------------------------
+    #     # 9. Confidence estimate (optional)
+    #     # --------------------------------------------------
+    #     conf = 0.0
+    #     if out.scores:
+    #         probs = [F.softmax(s[0], dim=-1).max().item() for s in out.scores]
+    #         if probs:
+    #             conf = float(sum(probs) / len(probs))
+
+    #     return clean, conf
+
+
