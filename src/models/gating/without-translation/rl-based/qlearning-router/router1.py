@@ -1,21 +1,21 @@
-# Multi-Stage Prompt Routing System with Q-Learning and Transformer-based Domain Classifier 
-
 import os
-import csv
 import sys
-import re
+import csv
 import json
 import random
-import requests
-import numpy as np
-import pandas as pd
 from pathlib import Path
+from typing import Dict, List
 from collections import Counter
-from typing import Dict, List, Tuple
 
-# Reproducibility
-random.seed(42)
-np.random.seed(42)
+import numpy as np
+import requests
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+import fasttext
+from torch.utils.data import Dataset, DataLoader
+from transformers import AutoTokenizer, AutoModel, logging as hf_logging
 
 project_root = Path(__file__).parents[6]
 sys.path.insert(0, str(project_root))
@@ -23,20 +23,14 @@ sys.path.insert(0, str(project_root))
 from src.models.experts.util.domain_task_loader import DomainTaskLoader
 from src.models.experts.util.model_loader import ModelLoader
 
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.utils.data import Dataset, DataLoader
-
-from transformers import AutoTokenizer, AutoModel, logging as hf_logging
 hf_logging.set_verbosity_error()
-
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-# 1) LANGUAGE DETECTION (unchanged, FastText-based)
-import fasttext
+random.seed(42)
+np.random.seed(42)
 
+# 1) LANGUAGE DETECTION (unchanged, FastText-based)
 class LanguageDetector:
     def __init__(self):
         self.model_path = Path(__file__).parent.parent / "models" / "lid.176.bin"
@@ -776,7 +770,6 @@ class PromptRoutingSystem:
         print("Checking and downloading models if needed...")
         self.model_loader.download_all_models()
         
-        # Shared pool (one per process) + registry path
         self.expert_registry_path = config_path / "experts_registry.json"
         self.expert_pool = LLMAdapterPool(self.expert_registry_path)
         
@@ -816,19 +809,18 @@ class PromptRoutingSystem:
         self.task_classifier.save_models()
     
     def route_prompt(self, prompt: str, classification_text: str) -> Dict:
-        # 1) Language
+
         language = self.language_detector.detect_language(prompt)
-        # 2) Domain
         domain = self.domain_classifier.classify_domain(prompt)
         domain_probs = self.domain_classifier.get_domain_probabilities(prompt)
-        # 3) Task via Q-learning router
         task = self.task_classifier.classify_task(prompt, domain)
-        # 4) Expert
         expert = self.experts[domain][task]
-        
-        # print("Prompt:", prompt)
-        result, expert_confidence = expert.predict(classification_text, prompt)
-        
+
+        result, expert_confidence = expert.predict(
+            classification_text,
+            prompt,
+            language
+        )
         output = {
             'input': prompt,
             'language': language,
@@ -839,12 +831,7 @@ class PromptRoutingSystem:
             'expert_confidence': expert_confidence,
             'routing_path': f"{language} → {domain} → {task}"
         }
-        # print("Routing Result:", expert_confidence, output['routing_path'])
         return output
-    
-    def batch_process(self, prompts: List[str]) -> List[Dict]:
-        return [self.route_prompt(p) for p in prompts]
-    
     def get_system_stats(self):
         total_tasks = sum(len(tasks) for tasks in self.domain_tasks.values())
         supported_languages = len(self.language_detector.language_mapping)
@@ -854,11 +841,6 @@ class PromptRoutingSystem:
             'supported_languages': supported_languages,
             'domains': list(self.domain_tasks.keys())
         }
-
-# 6) TRAINING DATA (same helper interface as before; you already load train.json)
-def create_sample_training_data():
-    """Placeholder kept for compatibility; you load train.json in __main__."""
-    return []
 
 # 7) MAIN: wiring + evaluation (as in your harness)
 def _pct(x): return f"{x*100:6.2f}%"
@@ -923,7 +905,7 @@ if __name__ == "__main__":
     with open("test1.json", "r", encoding="utf-8") as f:
         test_prompts = json.load(f)
         
-    TEST_N = 15
+    TEST_N = 10
     test_prompts = test_prompts[:TEST_N]
     # test_prompts = test_prompts[-TEST_N:]
 

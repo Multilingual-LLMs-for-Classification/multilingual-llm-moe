@@ -22,7 +22,8 @@
       "base_model_key": "llama-2-7b-hf",
       "adapter_name": "fin-sentiment",
       "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/",
-      "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/template.txt",
+      "expert_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/SentimentAnalysisExpert",
+      "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/template.json",
       "label_set": ["1","2","3","4","5"],
       "strict_label_decoding": true,
       "generation": { "max_new_tokens": 4, "temperature": 0.0, "top_p": 1.0 }
@@ -31,6 +32,7 @@
       "base_model_key": "google/gemma-7b",
       "adapter_name": "fin-news-cls",
       "adapter_path": "src/models/experts/llms/adapters/finance/news_classification/gemma-7b",
+      "expert_path": "src/models/experts/llms/adapters/finance/news_classification/NewsClassificationExpert",
       "template_path": "src/models/experts/llms/adapters/finance/news_classification/template.txt"
     },
     "general/text_summarization": {
