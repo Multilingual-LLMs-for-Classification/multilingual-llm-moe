@@ -1,5 +1,5 @@
 structure.sh
-sentiment_analysis/
+# sentiment_analysis/
 risk_assessment/
 **/rl-based/models/
 **/__pycache__/
@@ -8,4 +8,4 @@ risk_assessment/
 .pkl
 .cpython-310.pyc
 **.pt
-
+**.pth

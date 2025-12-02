@@ -105,6 +105,7 @@ def merge(product_path: str, news_path: str, out_path: Optional[str] = None, dom
             continue
         merged.append({
             "prompt":   render_prompt(r),
+            "classification_text":  r.get("review_text") or "",
             "language": normalize_language(r.get("language_column")),
             "task":     "rating",
             "domain":   domain,
@@ -119,6 +120,7 @@ def merge(product_path: str, news_path: str, out_path: Optional[str] = None, dom
             continue
         merged.append({
             "prompt":   render_prompt(r),
+            "classification_text":  r.get("review_text") or "",
             "language": normalize_language(r.get("language_column")),
             "task":     "news",
             "domain":   domain,
