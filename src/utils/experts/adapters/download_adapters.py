@@ -378,6 +378,10 @@ def get_storage_provider(name: str, credentials: Optional[Dict[str, Any]] = None
 
 def load_adapter_sync_config(config_path: Path) -> AdapterSyncConfig:
     data = _load_structured_file(config_path)
+    if "provider" not in data and any(isinstance(v, dict) for v in data.values()):
+        raise ValueError(
+            "Top-level config must contain 'provider' unless loaded via section helper"
+        )
     provider = data.get("provider")
     if not provider:
         raise ValueError("Config missing 'provider'")
@@ -502,4 +506,3 @@ __all__ = [
     "load_adapter_sync_config",
     "StorageProvider",
 ]
-

@@ -12,13 +12,23 @@ artifacts between the local repository and remote storage providers.
 - `experts/adapters/upload_adapters.py` – Discovers local adapters, builds
   upload configs, and exports adapter directories to the configured provider.
   Reuses the same provider registry defined in the download module.
+- `datasets/download_datasets.py` – Reuses the adapter download plumbing to
+  fetch dataset archives and extract them under the repository `data/` folder.
+- `datasets/upload_datasets.py` – Mirrors the upload helpers so local datasets
+  can be exported to remote storage when needed.
 - `__init__.py` – Convenience exports for the public utility surface.
 
 ## Configuration
 
-Adapter sync behaviour is driven by `config/adapter_storage.json` at the
-repository root.  The file specifies the storage provider, credentials, and
-artifact mappings.  Example (Google Drive):
+Adapter sync behaviour is driven by configuration files in the repository
+`config/` directory.  Two templates are provided:
+
+- `config/adapter_storage.json` – maps remote adapter artifacts to
+  `src/models/experts/llms/adapters/`.
+- `config/dataset_storage.json` – maps dataset archives to the repository
+  `data/` folder.
+
+Both follow the same schema; an example Google Drive entry looks like:
 
 ```json
 {
@@ -44,6 +54,7 @@ To download or upload adapters, use the shell wrappers in `scripts/`:
 bash scripts/download_adapters.sh          # uses config/adapter_storage.json
 bash scripts/upload_adapters.sh            # uploads using the same config
 bash scripts/download_adapters.sh custom.json
+bash scripts/download_datasets.sh          # populates ./data from dataset config
 ```
 
 For local mirrors, switch `provider` to `local` and set `credentials.base_path`

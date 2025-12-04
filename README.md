@@ -104,10 +104,11 @@ native text, preserving language-specific signals throughout the routing process
    - Use the script section in `router1.py` (`python router1.py`) with appropriate JSON/CSV inputs to
      reproduce evaluation metrics and confusion matrices.
 
-### Adapter synchronization
+### Adapter & dataset synchronization
 
-The repository does not store QLoRA adapters directly. Use the helper scripts to
-fetch or publish adapters based on `config/adapter_storage.json`:
+The repository does not store QLoRA adapters or large datasets directly. Use
+the helper scripts to fetch or publish artifacts based on configuration files
+inside `config/`:
 
 ```bash
 # Download adapters defined in config/adapter_storage.json
@@ -118,6 +119,12 @@ bash scripts/upload_adapters.sh
 
 # Override the config path if needed
 bash scripts/download_adapters.sh path/to/custom_config.json
+
+# Download datasets into the ./data folder
+bash scripts/download_datasets.sh config/dataset_storage.json
+
+# Upload datasets back to remote storage
+bash scripts/upload_datasets.sh config/dataset_storage.json
 ```
 
 ## Roadmap

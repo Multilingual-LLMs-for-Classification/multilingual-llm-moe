@@ -1,0 +1,37 @@
+{
+  "download": {
+    "provider": "google_drive",
+    "credentials": {
+      "service_account_file": "./service-account.json",
+      "scopes": [
+        "https://www.googleapis.com/auth/drive.file"
+      ]
+    },
+    "artifacts": [
+      {
+        "name": "evaluation-dataset",
+        "source": "<REPLACE_WITH_DOWNLOAD_FILE_ID>",
+        "destination": "evaluation",
+        "unpack": true
+      }
+    ]
+  },
+  "upload": {
+    "provider": "google_drive",
+    "credentials": {
+      "service_account_file": "./service-account.json",
+      "parent_folder_id": "<REPLACE_WITH_UPLOAD_FOLDER_ID>",
+      "scopes": [
+        "https://www.googleapis.com/auth/drive.file"
+      ]
+    },
+    "artifacts": [
+      {
+        "name": "evaluation-dataset",
+        "source": "evaluation",
+        "destination": "datasets/evaluation",
+        "unpack": true
+      }
+    ]
+  }
+}

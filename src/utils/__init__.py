@@ -19,6 +19,17 @@ from .experts.adapters.upload_adapters import (
     upload_adapters_from_config,
     discover_local_adapters,
 )
+from .datasets.download_datasets import (
+    DEFAULT_DATA_ROOT,
+    download_datasets,
+    download_datasets_from_config,
+)
+from .datasets.upload_datasets import (
+    build_dataset_upload_config,
+    upload_datasets,
+    upload_datasets_from_config,
+    discover_local_datasets,
+)
 
 __all__ = [
     "AdapterArtifact",
@@ -32,4 +43,11 @@ __all__ = [
     "upload_adapters",
     "upload_adapters_from_config",
     "discover_local_adapters",
+    "DEFAULT_DATA_ROOT",
+    "download_datasets",
+    "download_datasets_from_config",
+    "build_dataset_upload_config",
+    "upload_datasets",
+    "upload_datasets_from_config",
+    "discover_local_datasets",
 ]
