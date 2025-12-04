@@ -3,6 +3,7 @@ import random
 from dataclasses import dataclass
 from typing import Optional, Dict
 import importlib
+import inspect
 from pathlib import Path
 from .expert_pool import LLMAdapterPool
 
@@ -41,7 +42,24 @@ class TaskExpert:
         try:
             module = importlib.import_module(module_path)
             cls = getattr(module, class_name)
-            self.cleaner = cls()
+
+            cleaner_kwargs = {
+                "adapter_name": tcfg.get("adapter_name"),
+                "adapter_path": tcfg.get("adapter_path"),
+                "task_key": self.task_key,
+                "task_config": tcfg,
+            }
+
+            signature_params = inspect.signature(cls).parameters
+            supported_kwargs = {
+                key: value for key, value in cleaner_kwargs.items()
+                if key in signature_params and value is not None
+            }
+
+            try:
+                self.cleaner = cls(**supported_kwargs)
+            except TypeError:
+                self.cleaner = cls()
         except Exception as e:
             print(f"[WARNING] No cleanup expert for {self.task_key}: {e}")
         # ------------------------------------------------------------------

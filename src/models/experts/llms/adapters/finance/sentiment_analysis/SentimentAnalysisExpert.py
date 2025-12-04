@@ -1,30 +1,30 @@
+from __future__ import annotations
+
 import re
+from typing import Callable, Dict
+
+
+def _default_cleaner(raw: str) -> str:
+    match = re.search(r"\b([1-5])\b", raw)
+    return match.group(1) if match else ""
+
+
+def _llama_cleaner(raw: str) -> str:
+    cleaned = raw.replace("⭐", "").replace("stars", "").strip()
+    return _default_cleaner(cleaned)
+
+
+ADAPTER_CLEANERS: Dict[str, Callable[[str], str]] = {
+    "llama-2-7b-hf": _llama_cleaner,
+}
+
 
 class SentimentAnalysisExpert:
-    """
-    Cleanup utility for sentiment-analysis outputs.
+    """Adapter-aware cleaner for sentiment analysis outputs."""
 
-    This expert extracts a valid star-rating (1-5) from
-    a raw model-generated string.
-    """
+    def __init__(self, adapter_name: str | None = None, **_: object) -> None:
+        self.adapter_name = adapter_name
 
     def clean_output(self, raw: str) -> str:
-        """
-        Extract a single digit between 1 and 5 from the raw model output.
-
-        The method searches the text for an isolated digit 1-5 using a
-        regular expression. If found, it returns the digit as a string.
-        If no valid rating is found, an empty string is returned.
-
-        Parameters
-        ----------
-        raw : str
-            The raw output text produced by the LLM.
-
-        Returns
-        -------
-        str
-            A single character ("1"…"5") if detected, otherwise "".
-        """
-        m = re.search(r"\b([1-5])\b", raw)
-        return m.group(1) if m else ""
+        cleaner = ADAPTER_CLEANERS.get(self.adapter_name, _default_cleaner)
+        return cleaner(raw or "")
