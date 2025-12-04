@@ -104,6 +104,22 @@ native text, preserving language-specific signals throughout the routing process
    - Use the script section in `router1.py` (`python router1.py`) with appropriate JSON/CSV inputs to
      reproduce evaluation metrics and confusion matrices.
 
+### Adapter synchronization
+
+The repository does not store QLoRA adapters directly. Use the helper scripts to
+fetch or publish adapters based on `config/adapter_storage.json`:
+
+```bash
+# Download adapters defined in config/adapter_storage.json
+bash scripts/download_adapters.sh
+
+# Upload local adapters using the same config
+bash scripts/upload_adapters.sh
+
+# Override the config path if needed
+bash scripts/download_adapters.sh path/to/custom_config.json
+```
+
 ## Roadmap
 
 - Expand language mappings to additional locales and improve fallback heuristics.

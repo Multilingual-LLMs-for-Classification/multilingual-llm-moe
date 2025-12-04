@@ -1,0 +1,24 @@
+{
+  "provider": "google_drive",
+  "credentials": {
+    "service_account_file": "./service-account.json",
+    "parent_folder_id": "<REPLACE_WITH_FOLDER_ID>",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive.file"
+    ]
+  },
+  "artifacts": [
+    {
+      "name": "finance-news-mistral",
+      "source": "<REPLACE_WITH_FILE_ID>",
+      "destination": "finance/news_classification/mistral",
+      "unpack": true
+    },
+    {
+      "name": "finance-sentiment-falcon",
+      "source": "<REPLACE_WITH_FILE_ID>",
+      "destination": "finance/sentiment_analysis/falcon",
+      "unpack": true
+    }
+  ]
+}
