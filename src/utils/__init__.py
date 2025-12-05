@@ -23,6 +23,7 @@ from .datasets.download_datasets import (
     DEFAULT_DATA_ROOT,
     download_datasets,
     download_datasets_from_config,
+    load_dataset_sync_config, 
 )
 from .datasets.upload_datasets import (
     build_dataset_upload_config,
@@ -39,6 +40,7 @@ __all__ = [
     "download_adapters_from_config",
     "get_storage_provider",
     "load_adapter_sync_config",
+    "load_dataset_sync_config",
     "build_upload_config",
     "upload_adapters",
     "upload_adapters_from_config",

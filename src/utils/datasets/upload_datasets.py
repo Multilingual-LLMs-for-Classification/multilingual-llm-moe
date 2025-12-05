@@ -8,6 +8,7 @@ from typing import Iterable, Optional
 from ..experts.adapters.download_adapters import AdapterArtifact, AdapterSyncConfig
 from ..experts.adapters.upload_adapters import upload_adapters
 from .download_datasets import DEFAULT_DATA_ROOT, load_dataset_sync_config
+import shutil
 
 
 def discover_local_datasets(root: Path = DEFAULT_DATA_ROOT) -> Iterable[Path]:
@@ -45,7 +46,7 @@ def upload_datasets_from_config(
     config = load_dataset_sync_config(config_path, section="upload")
     return upload_datasets(
         config,
-        adapters_root=datasets_root,
+        datasets_root=datasets_root,
         remote_prefix=remote_prefix,
     )
 
@@ -56,6 +57,23 @@ def upload_datasets(
     datasets_root: Path = DEFAULT_DATA_ROOT,
     remote_prefix: Optional[Path] = None,
 ) -> list[Path]:
+    print("here")
+
+    # Zip folders if source is a directory
+    for artifact in config.artifacts:
+        local_path = datasets_root / artifact.source
+        if local_path.is_dir():
+            zip_path = datasets_root / f"{artifact.source}.zip"
+            shutil.make_archive(
+                base_name=str(zip_path.with_suffix('')),
+                format='zip',
+                root_dir=local_path.parent,
+                base_dir=local_path.name
+            )
+            # Update source to point to zip
+            artifact.source = str(zip_path.relative_to(datasets_root))
+
+
     return upload_adapters(
         config,
         adapters_root=datasets_root,

@@ -2,7 +2,7 @@
   "download": {
     "provider": "google_drive",
     "credentials": {
-      "service_account_file": "./service-account.json",
+      "service_account_file": "service-account.json",
       "scopes": [
         "https://www.googleapis.com/auth/drive.file"
       ]
@@ -19,8 +19,8 @@
   "upload": {
     "provider": "google_drive",
     "credentials": {
-      "service_account_file": "./service-account.json",
-      "parent_folder_id": "<REPLACE_WITH_UPLOAD_FOLDER_ID>",
+      "service_account_file": "service-account.json",
+      "parent_folder_id": "15hldwt3XwGZmyYwF8F-xHCVkEYUzKGxi",
       "scopes": [
         "https://www.googleapis.com/auth/drive.file"
       ]
@@ -28,9 +28,9 @@
     "artifacts": [
       {
         "name": "evaluation-dataset",
-        "source": "evaluation",
-        "destination": "datasets/evaluation",
-        "unpack": true
+        "source": "test",
+        "destination": "evaluation",
+        "unpack": false
       }
     ]
   }
