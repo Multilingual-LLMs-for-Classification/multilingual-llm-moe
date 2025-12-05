@@ -1,19 +1,20 @@
 """Utilities for pulling QLoRA adapter artifacts from remote storage.
 
 This module implements a configurable download pipeline that can ingest adapter
-artifacts stored on external providers (e.g., Google Drive, local mirrors) and
-materialise them inside the repository's `adapters/` directory structure.
+artifacts stored on external providers (e.g., Google Drive via the ``gdrive``
+CLI, local mirrors) and materialise them inside the repository's
+``adapters/`` directory structure.
 
-The downloader is driven by a declarative configuration file so that open-source
-consumers can mount their own storage endpoints without modifying code.  A sample
-JSON configuration looks like:
+The downloader is driven by a declarative configuration file so that
+open-source consumers can mount their own storage endpoints without modifying
+code.  A minimal JSON configuration using the gdrive CLI looks like:
 
 ```
 {
-  "provider": "google_drive",
+  "provider": "gdrive_cli",
   "credentials": {
-    "service_account_file": "./service-account.json",
-    "parent_folder_id": "1AbCdEf..."   // optional, used for uploads
+    "binary": "gdrive",
+    "parent_folder_id": "1AbCdEf..."  // optional, used for uploads
   },
   "artifacts": [
     {
@@ -33,15 +34,15 @@ need to be declared once.
 from __future__ import annotations
 
 import json
+import shlex
 import shutil
+import subprocess
 import tempfile
 import zipfile
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
-
-import requests
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -188,14 +189,27 @@ class LocalStorageProvider(StorageProvider):
         return target_dir
 
 
-class GoogleDriveStorageProvider(StorageProvider):
-    """Provider implementation backed by Google Drive."""
+class GoogleDriveCLIStorageProvider(StorageProvider):
+    """Storage provider backed by the `gdrive` command-line client.
 
-    DOWNLOAD_URL = "https://drive.google.com/uc?export=download"
+    Authentication is delegated to the user.  Run ``gdrive about`` once the
+    CLI is installed to complete the OAuth flow and cache credentials locally.
+    """
 
     def __init__(self, credentials: Optional[Dict[str, Any]] = None) -> None:
         super().__init__(credentials)
-        self._drive_service = None
+        binary = self.credentials.get("binary", "gdrive")
+        resolved = shutil.which(str(binary))
+        if not resolved:
+            raise FileNotFoundError(
+                f"gdrive CLI not found: expected '{binary}'. Install it from "
+                "https://github.com/prasmussen/gdrive or adjust the 'binary' "
+                "credential."
+            )
+        self.binary = resolved
+        self.download_args = list(self.credentials.get("download_args", []))
+        self.upload_args = list(self.credentials.get("upload_args", []))
+        self.parent_folder_id = self.credentials.get("parent_folder_id")
 
     # Download ---------------------------------------------------------------
     def download_artifact(
@@ -206,15 +220,36 @@ class GoogleDriveStorageProvider(StorageProvider):
         destination_path = (target_root / artifact.destination).resolve()
         destination_path.parent.mkdir(parents=True, exist_ok=True)
 
-        if artifact.unpack:
-            with tempfile.TemporaryDirectory() as tmpdir:
-                archive_path = Path(tmpdir) / f"{artifact.name}.zip"
-                self._download_google_drive_file(artifact.source, archive_path)
-                _extract_archive(archive_path, destination_path)
-            return destination_path
+        with tempfile.TemporaryDirectory() as tmpdir_name:
+            tmpdir = Path(tmpdir_name)
+            before = set(tmpdir.iterdir()) if tmpdir.exists() else set()
+            cmd = [self.binary, "download", "--path", str(tmpdir)]
+            cmd.extend(self.download_args)
+            cmd.append(artifact.source)
+            self._run_cli(cmd, "download")
 
-        self._download_google_drive_file(artifact.source, destination_path)
-        return destination_path
+            downloaded = [p for p in tmpdir.iterdir() if p not in before]
+            if not downloaded:
+                raise RuntimeError(
+                    f"gdrive download for artifact '{artifact.name}' produced no files"
+                )
+            downloaded.sort(key=lambda p: p.stat().st_mtime)
+            materialised = downloaded[-1]
+
+            if artifact.unpack:
+                _extract_archive(materialised, destination_path)
+                return destination_path
+
+            if materialised.is_dir():
+                shutil.copytree(materialised, destination_path, dirs_exist_ok=True)
+                return destination_path
+
+            if destination_path.exists() and destination_path.is_dir():
+                target_file = destination_path / materialised.name
+            else:
+                target_file = destination_path
+            shutil.copy2(materialised, target_file)
+            return target_file
 
     # Upload ---------------------------------------------------------------
     def upload_directory(
@@ -225,141 +260,224 @@ class GoogleDriveStorageProvider(StorageProvider):
         archive_format: str = "zip",
         remote_prefix: Optional[Path] = None,
     ) -> Path:
-        service = self._ensure_drive_service()
-        parent_folder_id = self.credentials.get("parent_folder_id")
-        if not parent_folder_id:
+        if archive_format is None:
+            raise ValueError("gdrive uploads require an archive format (zip recommended)")
+
+        if not self.parent_folder_id:
             raise ValueError(
-                "Google Drive upload requires 'parent_folder_id' in credentials"
+                "gdrive upload requires 'parent_folder_id' in credentials"
             )
 
-        target_parts: Iterable[str]
-        if remote_prefix:
-            target_parts = (*remote_prefix.parts, *remote_path.parts[:-1])
-        else:
-            target_parts = remote_path.parts[:-1]
+        if not local_dir.is_dir():
+            raise ValueError(f"Expected directory to upload, got {local_dir}")
 
-        parent_id = parent_folder_id
-        for part in target_parts:
-            parent_id = self._ensure_folder(service, parent_id, part)
+        archive_stem = "__".join(
+            [*remote_prefix.parts] if remote_prefix else []
+            + list(remote_path.parts)
+        ) or remote_path.name
 
-        file_name = remote_path.name
-        if archive_format:
-            file_name = f"{file_name}.{archive_format}"
-            with tempfile.TemporaryDirectory() as tmpdir:
-                tmp_base = Path(tmpdir) / local_dir.name
-                shutil.copytree(local_dir, tmp_base)
-                archive_path = Path(tmpdir) / file_name
+        archive_name = f"{archive_stem}.{archive_format}"
+
+        with tempfile.TemporaryDirectory() as tmpdir_name:
+            tmpdir = Path(tmpdir_name)
+            tmp_base = tmpdir / local_dir.name
+            shutil.copytree(local_dir, tmp_base)
+            archive_path = tmpdir / archive_name
+            shutil.make_archive(
+                base_name=str(archive_path.with_suffix("")),
+                format=archive_format,
+                root_dir=tmp_base.parent,
+                base_dir=tmp_base.name,
+            )
+
+            cmd = [self.binary, "upload", "--name", archive_name, "-p", self.parent_folder_id]
+            cmd.extend(self.upload_args)
+            cmd.append(str(archive_path))
+            self._run_cli(cmd, "upload")
+
+        return Path(archive_name)
+
+    # Helpers ---------------------------------------------------------------
+    def _run_cli(self, cmd: List[str], action: str) -> None:
+        try:
+            subprocess.run(cmd, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        except subprocess.CalledProcessError as exc:  # pragma: no cover - depends on CLI availability
+            stdout = exc.stdout.decode("utf-8", errors="ignore") if exc.stdout else ""
+            stderr = exc.stderr.decode("utf-8", errors="ignore") if exc.stderr else ""
+            raise RuntimeError(
+                f"gdrive {action} command failed (exit {exc.returncode}).\n"
+                f"stdout: {stdout}\n"
+                f"stderr: {stderr}"
+            ) from exc
+
+
+
+class ShellCommandStorageProvider(StorageProvider):
+    """Delegate downloads/uploads to user-defined shell commands.
+
+    Provide commands via credentials:
+
+    - ``download_command``: string or list executed for downloads.
+    - ``upload_command``: string or list executed for uploads.
+
+    Placeholders (expanded using ``str.format``):
+
+    Download → ``{source}``, ``{name}``, ``{destination}``, ``{destination_dir}``, ``{tmp_dir}``
+    Upload → ``{source_dir}``, ``{archive_path}``, ``{remote_path}``, ``{remote_name}``,
+    ``{tmp_dir}``, ``{archive_format}``
+    """
+
+    def __init__(self, credentials: Optional[Dict[str, Any]] = None) -> None:
+        super().__init__(credentials)
+        self.download_command = self._normalise_command(
+            self.credentials.get("download_command")
+        )
+        self.upload_command = self._normalise_command(
+            self.credentials.get("upload_command")
+        )
+        self._placeholder_values = {
+            key: value
+            for key, value in (self.credentials or {}).items()
+            if isinstance(value, (str, int, float, bool))
+        }
+
+    def download_artifact(
+        self,
+        artifact: AdapterArtifact,
+        target_root: Path,
+    ) -> Path:
+        if not self.download_command:
+            raise NotImplementedError(
+                "Shell provider requires 'download_command' for downloads"
+            )
+
+        destination_path = (target_root / artifact.destination).resolve()
+        destination_path.parent.mkdir(parents=True, exist_ok=True)
+
+        with tempfile.TemporaryDirectory() as tmpdir_name:
+            tmpdir = Path(tmpdir_name)
+            command = self._expand_command(
+                self.download_command,
+                source=artifact.source,
+                name=artifact.name,
+                destination=str(destination_path),
+                destination_dir=str(destination_path.parent),
+                tmp_dir=str(tmpdir),
+            )
+            self._run_cli(command, "download")
+
+            produced = self._determine_output(destination_path, tmpdir)
+            if artifact.unpack:
+                if produced.resolve() == destination_path.resolve():
+                    return destination_path
+                if produced.is_dir():
+                    shutil.copytree(produced, destination_path, dirs_exist_ok=True)
+                    return destination_path
+                _extract_archive(produced, destination_path)
+                return destination_path
+
+            if produced == destination_path:
+                return destination_path
+            if produced.is_dir():
+                shutil.copytree(produced, destination_path, dirs_exist_ok=True)
+                return destination_path
+
+            final_path = destination_path
+            if destination_path.exists() and destination_path.is_dir():
+                final_path = destination_path / produced.name
+            shutil.copy2(produced, final_path)
+            return final_path
+
+    def upload_directory(
+        self,
+        local_dir: Path,
+        remote_path: Path,
+        *,
+        archive_format: str = "zip",
+        remote_prefix: Optional[Path] = None,
+    ) -> Path:
+        if not self.upload_command:
+            raise NotImplementedError(
+                "Shell provider requires 'upload_command' for uploads"
+            )
+        if not local_dir.is_dir():
+            raise ValueError(f"Expected directory to upload, got {local_dir}")
+
+        with tempfile.TemporaryDirectory() as tmpdir_name:
+            tmpdir = Path(tmpdir_name)
+            archive_name = remote_path.name
+            if remote_prefix:
+                archive_name = "__".join((*remote_prefix.parts, remote_path.name))
+            archive_name = (
+                f"{archive_name}.{archive_format}"
+                if archive_format
+                else archive_name
+            )
+
+            archive_path = tmpdir / archive_name
+            if archive_format:
                 shutil.make_archive(
                     base_name=str(archive_path.with_suffix("")),
                     format=archive_format,
-                    root_dir=tmp_base.parent,
-                    base_dir=tmp_base.name,
+                    root_dir=local_dir.parent,
+                    base_dir=local_dir.name,
                 )
-                media_path = archive_path
-        else:
-            raise ValueError("Google Drive upload currently requires an archive format")
+            else:
+                shutil.copytree(local_dir, archive_path)
 
-        from googleapiclient.http import MediaFileUpload  # type: ignore
-
-        file_metadata = {"name": file_name, "parents": [parent_id]}
-        media = MediaFileUpload(str(media_path), resumable=True)
-
-        existing_id = self._find_existing_file(service, parent_id, file_name)
-        if existing_id:
-            service.files().update(fileId=existing_id, media_body=media).execute()
-            return Path(file_name)
-
-        service.files().create(body=file_metadata, media_body=media, fields="id").execute()
-        return Path(file_name)
-
-    # Helper methods -------------------------------------------------------
-    def _download_google_drive_file(self, file_id: str, destination: Path) -> None:
-        session = requests.Session()
-        response = session.get(self.DOWNLOAD_URL, params={"id": file_id}, stream=True)
-        token = _extract_confirm_token(response.headers)
-        if token:
-            response = session.get(
-                self.DOWNLOAD_URL,
-                params={"id": file_id, "confirm": token},
-                stream=True,
+            command = self._expand_command(
+                self.upload_command,
+                source_dir=str(local_dir),
+                archive_path=str(archive_path),
+                remote_path=str(remote_path),
+                remote_name=remote_path.name,
+                tmp_dir=str(tmpdir),
+                archive_format=archive_format,
             )
-        _save_response_content(response, destination)
+            self._run_cli(command, "upload")
 
-    def _ensure_drive_service(self):
-        if self._drive_service is not None:
-            return self._drive_service
+        return Path(archive_name)
 
+    @staticmethod
+    def _normalise_command(command: Optional[Any]) -> Optional[List[str]]:
+        if command is None:
+            return None
+        if isinstance(command, str):
+            return shlex.split(command)
+        if isinstance(command, (list, tuple)):
+            return [str(part) for part in command]
+        raise TypeError("Shell provider commands must be strings or sequences of strings")
+
+    def _expand_command(self, command: List[str], **kwargs: Any) -> List[str]:
+        context = {**self._placeholder_values, **kwargs}
+        return [part.format(**context) for part in command]
+
+    @staticmethod
+    def _run_cli(command: List[str], action: str) -> None:
         try:
-            from google.oauth2.service_account import Credentials  # type: ignore
-            from googleapiclient.discovery import build  # type: ignore
-        except ImportError as exc:  # pragma: no cover - optional dependency
-            raise ImportError(
-                "google-api-python-client and google-auth are required for "
-                "Google Drive uploads"
+            subprocess.run(command, check=True)
+        except subprocess.CalledProcessError as exc:  # pragma: no cover - depends on external tool
+            raise RuntimeError(
+                f"Shell provider {action} command failed with exit code {exc.returncode}."
             ) from exc
 
-        scopes = self.credentials.get(
-            "scopes",
-            ["https://www.googleapis.com/auth/drive.file"],
-        )
-
-        if "service_account_file" in self.credentials:
-            creds = Credentials.from_service_account_file(
-                self.credentials["service_account_file"], scopes=scopes
-            )
-        elif "service_account_info" in self.credentials:
-            creds = Credentials.from_service_account_info(
-                self.credentials["service_account_info"], scopes=scopes
-            )
-        else:
-            raise ValueError(
-                "Google Drive credentials must include 'service_account_file' "
-                "or 'service_account_info'"
-            )
-
-        self._drive_service = build("drive", "v3", credentials=creds, cache_discovery=False)
-        return self._drive_service
-
-    def _ensure_folder(self, service, parent_id: str, name: str) -> str:
-        query = (
-            f"'{parent_id}' in parents and name = '{name}' and "
-            "mimeType = 'application/vnd.google-apps.folder' and trashed = false"
-        )
-        response = (
-            service.files()
-            .list(q=query, spaces="drive", fields="files(id, name)", pageSize=1)
-            .execute()
-        )
-        files = response.get("files", [])
-        if files:
-            return files[0]["id"]
-
-        file_metadata = {
-            "name": name,
-            "mimeType": "application/vnd.google-apps.folder",
-            "parents": [parent_id],
-        }
-        folder = service.files().create(body=file_metadata, fields="id").execute()
-        return folder["id"]
-
-    def _find_existing_file(self, service, parent_id: str, name: str) -> Optional[str]:
-        query = (
-            f"'{parent_id}' in parents and name = '{name}' and trashed = false"
-        )
-        response = (
-            service.files()
-            .list(q=query, spaces="drive", fields="files(id, name)", pageSize=1)
-            .execute()
-        )
-        files = response.get("files", [])
-        if files:
-            return files[0]["id"]
-        return None
+    @staticmethod
+    def _determine_output(destination_path: Path, tmpdir: Path) -> Path:
+        if destination_path.exists():
+            return destination_path
+        if not tmpdir.exists():
+            raise RuntimeError("Shell download command produced no output")
+        candidates = list(tmpdir.iterdir())
+        if not candidates:
+            raise RuntimeError("Shell download command produced no files")
+        candidates.sort(key=lambda p: p.stat().st_mtime)
+        return candidates[-1]
 
 
 PROVIDER_REGISTRY = {
     "local": LocalStorageProvider,
-    "google_drive": GoogleDriveStorageProvider,
+    "gdrive_cli": GoogleDriveCLIStorageProvider,
+    "shell": ShellCommandStorageProvider,
 }
 
 
@@ -461,30 +579,6 @@ def download_adapters(
 # ---------------------------------------------------------------------------
 # Helper utilities
 # ---------------------------------------------------------------------------
-
-
-def _extract_confirm_token(headers: Dict[str, str]) -> Optional[str]:
-    for key, value in headers.items():
-        if key.lower().startswith("set-cookie") and "download_warning" in value:
-            parts = value.split(";")
-            for part in parts:
-                if part.strip().startswith("download_warning"):
-                    _, token = part.split("=", 1)
-                    return token
-    return None
-
-
-def _save_response_content(response, destination: Path, chunk_size: int = 32 * 1024) -> None:
-    if response.status_code != 200:
-        raise RuntimeError(
-            f"Failed to download artifact (status={response.status_code}): {response.text[:200]}"
-        )
-
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    with destination.open("wb") as f:
-        for chunk in response.iter_content(chunk_size=chunk_size):
-            if chunk:  # filter out keep-alive chunks
-                f.write(chunk)
 
 
 def _extract_archive(archive_path: Path, destination_dir: Path) -> None:

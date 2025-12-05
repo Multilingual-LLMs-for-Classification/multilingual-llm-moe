@@ -1,11 +1,17 @@
 {
   "download": {
-    "provider": "google_drive",
+    "provider": "shell",
     "credentials": {
-      "service_account_file": "service-account.json",
-      "scopes": [
-        "https://www.googleapis.com/auth/drive.file"
-      ]
+      "download_command": [
+        "bash",
+        "scripts/providers/download_dataset.sh",
+        "{source}",
+        "{destination_dir}",
+        "{destination}",
+        "{tmp_dir}",
+        "{download_parent_id}"
+      ],
+      "download_parent_id": "<REPLACE_WITH_DOWNLOAD_FOLDER_ID>"
     },
     "artifacts": [
       {
@@ -17,13 +23,18 @@
     ]
   },
   "upload": {
-    "provider": "google_drive",
+    "provider": "shell",
     "credentials": {
-      "service_account_file": "service-account.json",
-      "parent_folder_id": "15hldwt3XwGZmyYwF8F-xHCVkEYUzKGxi",
-      "scopes": [
-        "https://www.googleapis.com/auth/drive.file"
-      ]
+      "upload_command": [
+        "bash",
+        "scripts/providers/upload_dataset.sh",
+        "{source_dir}",
+        "{remote_path}",
+        "{archive_path}",
+        "{tmp_dir}",
+        "{upload_parent_id}"
+      ],
+      "upload_parent_id": "15hldwt3XwGZmyYwF8F-xHCVkEYUzKGxi"
     },
     "artifacts": [
       {

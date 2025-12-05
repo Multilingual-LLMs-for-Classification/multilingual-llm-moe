@@ -1,10 +1,19 @@
 {
-  "provider": "google_drive",
+  "provider": "shell",
   "credentials": {
-    "service_account_file": "./service-account.json",
-    "parent_folder_id": "<REPLACE_WITH_FOLDER_ID>",
-    "scopes": [
-      "https://www.googleapis.com/auth/drive.file"
+    "download_command": [
+      "bash",
+      "scripts/providers/download_adapter.sh",
+      "{source}",
+      "{destination_dir}",
+      "{name}"
+    ],
+    "upload_command": [
+      "bash",
+      "scripts/providers/upload_adapter.sh",
+      "{source_dir}",
+      "{remote_path}",
+      "{archive_path}"
     ]
   },
   "artifacts": [

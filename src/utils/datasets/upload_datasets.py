@@ -8,6 +8,7 @@ from typing import Iterable, Optional
 from ..experts.adapters.download_adapters import AdapterArtifact, AdapterSyncConfig
 from ..experts.adapters.upload_adapters import upload_adapters
 from .download_datasets import DEFAULT_DATA_ROOT, load_dataset_sync_config
+
 import shutil
 
 
@@ -57,9 +58,7 @@ def upload_datasets(
     datasets_root: Path = DEFAULT_DATA_ROOT,
     remote_prefix: Optional[Path] = None,
 ) -> list[Path]:
-    print("here")
-
-    # Zip folders if source is a directory
+    # Zip folders if source is a directory so uploads work with archive-based providers.
     for artifact in config.artifacts:
         local_path = datasets_root / artifact.source
         if local_path.is_dir():

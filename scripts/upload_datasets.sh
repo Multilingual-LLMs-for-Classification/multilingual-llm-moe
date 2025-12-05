@@ -2,7 +2,8 @@
 set -euo pipefail
 
 CONFIG_PATH=${1:-"config/dataset_storage.json"}
-python - <<'PY'
+
+python - "$CONFIG_PATH" <<'PY'
 import sys
 from pathlib import Path
 
@@ -13,4 +14,3 @@ print(f"Uploading datasets using {config_path}...")
 upload_datasets_from_config(config_path)
 print("✅ Dataset upload completed")
 PY
-"$CONFIG_PATH"

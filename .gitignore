@@ -10,3 +10,4 @@ risk_assessment/
 **.pt
 **.pth
 service-account.json
+**/.venv/

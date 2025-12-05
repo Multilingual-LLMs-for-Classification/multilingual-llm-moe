@@ -2,6 +2,7 @@
 set -euo pipefail
 
 CONFIG_PATH=${1:-"config/adapter_storage.json"}
+
 python - <<'PY'
 import sys
 from pathlib import Path
@@ -13,4 +14,3 @@ print(f"Uploading adapters using {config_path}...")
 upload_adapters_from_config(config_path)
 print("✅ Upload completed")
 PY
-"$CONFIG_PATH"

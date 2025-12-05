@@ -2,6 +2,7 @@
 set -euo pipefail
 
 CONFIG_PATH=${1:-"config/dataset_storage.json"}
+
 python - <<'PY'
 import sys
 from pathlib import Path
@@ -13,4 +14,3 @@ print(f"Downloading datasets using {config_path}...")
 download_datasets_from_config(config_path)
 print("✅ Dataset download completed")
 PY
-"$CONFIG_PATH"
