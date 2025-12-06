@@ -22,9 +22,9 @@ model_names = [
 
 num_llms = len(model_names)
 
-test_csv_path = "../fyp_multilingual_Text_classification/data/test_subset_final.csv"
+test_csv_path = "../../data/Amazon/test_subset_final.csv"
 output_csv_test = "llm_test_outputs.csv"
-policy_path = "ppo_router_policy_multilang.pth"
+policy_path = "ppo_router_policy_round5.pth"
 
 # -----------------------------
 # Load test data
@@ -61,7 +61,7 @@ def run_single(pipeline, row):
         action = dist.sample().item()
 
     # 3. Run LLM
-    pred_rating, decoded_output, prompt_used, llm_name_used = pipeline.llm_system.run(
+    pred_rating, decoded_output, prompt_used, llm_name_used, cleaned_output = pipeline.llm_system.run(
         action, row['review_body'], row['language']
     )
 

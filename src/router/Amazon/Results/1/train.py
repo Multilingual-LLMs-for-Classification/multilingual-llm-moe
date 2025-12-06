@@ -12,8 +12,8 @@ import re
 # ------------------------------
 # Language-specific prompts
 # ------------------------------
-
 PROMPTS = {
+
     "en": (
         "You are a strict rating classifier. Read the English review and output ONLY a single "
         "integer from 1 to 5. No words. No explanations. No punctuation.\n"
@@ -85,7 +85,6 @@ class PPOPolicy(nn.Module):
 # ------------------------------
 # PPO Agent
 # ------------------------------
-
 class PPOAgent:
     def __init__(self, state_dim, num_llms, lr=3e-4, gamma=0.99, clip_eps=0.2):
         self.policy = PPOPolicy(state_dim, num_llms)
@@ -298,7 +297,6 @@ if __name__ == "__main__":
     pipeline = RoutingPipeline(agent, llm_system, state_dim)
 
     output_csv_path = "llm_outputs.csv"
-    
     if not os.path.exists(output_csv_path):
         with open(output_csv_path, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
