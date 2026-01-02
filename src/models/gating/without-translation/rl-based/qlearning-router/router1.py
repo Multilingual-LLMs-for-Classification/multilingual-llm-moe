@@ -895,17 +895,172 @@ def _print_confusion(cm: Counter, labels: List[str], title: str):
             row.append(f"{cm[(gt, pr)]:>22}")
         print(" ".join(row))
     print()
+# Helper function to determine which expert/model was used
+def _get_expert_used(language: str, domain: str, task: str) -> str:
+    """
+    Determine which base model/expert was used based on language.
+    Returns: 'llama-2-7b-hf' or 'aya-23' for rating task, or base model name for others.
+    """
+    if domain == "finance" and task == "rating":
+        # Check language_mapping from registry
+        european_langs = ["english", "german", "spanish", "french"]
+        asian_langs = ["japanese", "chinese"]
+
+        if language in european_langs:
+            return "llama-2-7b-hf"
+        elif language in asian_langs:
+            return "aya-23"
+        else:
+            return "llama-2-7b-hf"  # default
+    else:
+        # For other tasks, return default model
+        # Could extend this logic for other tasks if they have language_mapping
+        return "default"
+
+def _print_expert_selection_summary(per_lang_total: Counter, per_lang_expert: Dict[str, str]):
+    """Print which expert/model was selected for each language"""
+    print("\nEXPERT/MODEL SELECTION BY LANGUAGE")
+    print("=" * 80)
+
+    # Group by expert
+    expert_langs = {}
+    for lang, expert in per_lang_expert.items():
+        if expert not in expert_langs:
+            expert_langs[expert] = []
+        expert_langs[expert].append(lang)
+
+    # Define language groups
+    groups = {
+        "llama-2-7b-hf": ("European", ["english", "german", "spanish", "french"]),
+        "aya-23": ("Asian", ["japanese", "chinese"])
+    }
+
+    total_samples = sum(per_lang_total.values())
+
+    for expert, (group_name, expected_langs) in groups.items():
+        if expert in expert_langs:
+            print(f"\nLanguage Group: {group_name} ({expert})")
+            print("-" * 80)
+
+            group_total = 0
+            for lang in sorted(expected_langs):
+                if lang in per_lang_total:
+                    count = per_lang_total[lang]
+                    print(f"  {lang:<12} : {count:>4} samples")
+                    group_total += count
+
+            pct = (group_total / total_samples * 100) if total_samples > 0 else 0
+            print(f"  {'Total':<12} : {group_total:>4} samples ({pct:.1f}%)")
+
+    print("\n" + "=" * 80 + "\n")
+
+
+def _print_expert_performance(per_expert_cm: Dict[str, Counter],
+                               per_lang_total: Counter,
+                               per_lang_expert: Dict[str, str],
+                               per_lang_correct: Counter,
+                               expert_labels: List[str]):
+    """Print performance metrics broken down by expert/model"""
+    print("\nPERFORMANCE BY EXPERT/MODEL")
+    print("=" * 80)
+
+    # Group languages by expert
+    expert_to_langs = {}
+    for lang, expert in per_lang_expert.items():
+        if expert not in expert_to_langs:
+            expert_to_langs[expert] = []
+        expert_to_langs[expert].append(lang)
+
+    for expert in sorted(per_expert_cm.keys()):
+        langs = sorted(expert_to_langs.get(expert, []))
+
+        if not langs:
+            continue
+
+        print(f"\n{expert} (Languages: {', '.join(langs)})")
+        print("-" * 80)
+
+        # Calculate metrics for this expert
+        cm = per_expert_cm[expert]
+        metrics = _compute_prf_bal_kappa(cm, expert_labels)
+
+        # Total samples for this expert
+        total = sum(per_lang_total[lang] for lang in langs)
+
+        print(f"  Samples      : {total}")
+        print(f"  Accuracy     : {_pct(metrics['accuracy'])}")
+        print(f"  Macro F1     : {_pct(metrics['macro_f1'])}")
+        print(f"  Weighted F1  : {_pct(metrics['weighted_f1'])}")
+
+        # Per-language breakdown for this expert
+        print(f"\n  Per-language performance:")
+        for lang in langs:
+            if lang in per_lang_total:
+                n = per_lang_total[lang]
+                correct = per_lang_correct.get(lang, 0)
+                acc = correct / n if n > 0 else 0.0
+                print(f"    {lang:<12} : Accuracy = {_pct(acc)}, Samples = {n}")
+
+    print("\n" + "=" * 80 + "\n")
+
+
+def _print_language_group_comparison(per_expert_cm: Dict[str, Counter],
+                                      per_lang_expert: Dict[str, str],
+                                      expert_labels: List[str]):
+    """Compare European vs Asian language group performance"""
+    print("\nLANGUAGE GROUP COMPARISON")
+    print("=" * 80)
+
+    # Calculate metrics for each group
+    groups = {}
+    for expert in ["llama-2-7b-hf", "aya-23"]:
+        if expert in per_expert_cm:
+            metrics = _compute_prf_bal_kappa(per_expert_cm[expert], expert_labels)
+            groups[expert] = metrics
+
+    if len(groups) == 2:
+        print(f"\n{'Metric':<25} {'European (llama-2)':<20} {'Asian (aya-23)':<20} {'Difference':<15}")
+        print("-" * 80)
+
+        metrics_to_compare = [
+            ('Accuracy', 'accuracy'),
+            ('Macro F1', 'macro_f1'),
+            ('Weighted F1', 'weighted_f1'),
+            ('Balanced Accuracy', 'balanced_acc')
+        ]
+
+        for label, key in metrics_to_compare:
+            euro_val = groups.get("llama-2-7b-hf", {}).get(key, 0.0)
+            asian_val = groups.get("aya-23", {}).get(key, 0.0)
+            diff = euro_val - asian_val
+
+            print(f"{label:<25} {_pct(euro_val):<20} {_pct(asian_val):<20} {diff*100:+.1f}pp")
+
+    print("\n" + "=" * 80 + "\n")
+
+
+def _print_expert_confusion_matrices(per_expert_cm: Dict[str, Counter],
+                                      expert_labels: List[str]):
+    """Print separate confusion matrices for each expert"""
+    print("\nCONFUSION MATRICES BY EXPERT/MODEL")
+    print("=" * 80)
+
+    for expert in sorted(per_expert_cm.keys()):
+        cm = per_expert_cm[expert]
+        _print_confusion(cm, expert_labels, title=f"\n{expert} Confusion Matrix (GT rows × Pred cols)")
+
+    print("=" * 80 + "\n")
 
 def load_prompts_from_csv(path="unified.csv"):
     with open(path, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         return [row for row in reader]
-    
+
 if __name__ == "__main__":
-    with open("test1.json", "r", encoding="utf-8") as f:
+    with open("test2.json", "r", encoding="utf-8") as f:
         test_prompts = json.load(f)
         
-    TEST_N = 10
+    TEST_N = 1020
     test_prompts = test_prompts[:TEST_N]
     # test_prompts = test_prompts[-TEST_N:]
 
@@ -955,6 +1110,13 @@ if __name__ == "__main__":
     per_lang_task  = Counter()
     per_lang_exact = Counter()
 
+    # NEW: Track expert/model usage
+    per_expert_total = Counter()
+    per_expert_correct = Counter()
+    per_expert_cm = {}
+    per_lang_expert = {}
+    per_lang_correct = Counter()
+
     for item in test_prompts:
         if not isinstance(item, dict):
             continue
@@ -963,7 +1125,7 @@ if __name__ == "__main__":
         gt_domain = item['domain']
         gt_task   = item['task']
         gt_label  = item['label']
-        
+
         print("Expected:", item['label'])
 
         result      = system.route_prompt(prompt, text)
@@ -972,11 +1134,29 @@ if __name__ == "__main__":
         lang_tag    = result.get('language', '?')
         pred_label  = result['result']
 
+        # NEW: Determine which expert was used
+        expert_key = _get_expert_used(lang_tag, pred_domain, pred_task)
+
+        # Track per-expert statistics
+        per_expert_total[expert_key] += 1
+        is_correct = (pred_label == gt_label)
+        if is_correct:
+            per_expert_correct[expert_key] += 1
+
+        # Track per-expert confusion matrix
+        if expert_key not in per_expert_cm:
+            per_expert_cm[expert_key] = Counter()
+        per_expert_cm[expert_key][(gt_label, pred_label)] += 1
+
+        # Track which expert was used for each language
+        per_lang_expert[lang_tag] = expert_key
+
         cm_domain[(gt_domain, pred_domain)] += 1
         cm_task[(gt_task, pred_task)]       += 1
         cm_expert[(gt_label, pred_label)] += 1
 
         per_lang_total[lang_tag] += 1
+        per_lang_correct[lang_tag] += int(is_correct)
         dom_ok  = (pred_domain == gt_domain)
         task_ok = (pred_task   == gt_task)
         both_ok = dom_ok and task_ok
@@ -1031,3 +1211,9 @@ if __name__ == "__main__":
     print(f"  Cohen's kappa (κ)  : {_pct(expert_metrics['kappa'])}")
 
     _print_confusion(cm_expert, expert_labels, title="Expert Output Confusion Matrix (GT rows × Pred cols)")
+
+    # NEW: Add expert-based visualizations
+    _print_expert_selection_summary(per_lang_total, per_lang_expert)
+    _print_expert_performance(per_expert_cm, per_lang_total, per_lang_expert, per_lang_correct, expert_labels)
+    _print_language_group_comparison(per_expert_cm, per_lang_expert, expert_labels)
+    _print_expert_confusion_matrices(per_expert_cm, expert_labels)
