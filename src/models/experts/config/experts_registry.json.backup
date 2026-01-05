@@ -1,0 +1,80 @@
+{
+  "default_generation": {
+    "max_new_tokens": 256,
+    "temperature": 0.2,
+    "top_p": 0.9,
+    "repetition_penalty": 1.05
+  },
+  "base_models": {
+    "llama-2-7b-hf": {
+      "hf_name": "meta-llama/Llama-2-7b-hf",
+      "load_in_4bit": true,
+      "device_map": "auto"
+    },
+    "google/gemma-7b": {
+      "hf_name": "google/gemma-7b",
+      "load_in_4bit": true,
+      "device_map": "auto"
+    },
+    "aya-23": {
+      "hf_name": "CohereForAI/aya-23-8B",
+      "load_in_4bit": true,
+      "device_map": "auto"
+    }
+  },
+  "tasks": {
+    "finance/rating": {
+      "base_model_key": "llama-2-7b-hf",
+      "adapter_name": "fin-sentiment",
+      "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/",
+      "expert_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/SentimentAnalysisExpert",
+      "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/template.json",
+      "label_set": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "strict_label_decoding": true,
+      "generation": {
+        "max_new_tokens": 4,
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "language_mapping": {
+        "european": {
+          "languages": [
+            "english",
+            "german",
+            "spanish",
+            "french"
+          ],
+          "base_model_key": "llama-2-7b-hf",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/"
+        },
+        "asian": {
+          "languages": [
+            "japanese",
+            "chinese"
+          ],
+          "base_model_key": "aya-23",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/aya-23/"
+        }
+      }
+    },
+    "finance/news": {
+      "base_model_key": "google/gemma-7b",
+      "adapter_name": "fin-news-cls",
+      "adapter_path": "src/models/experts/llms/adapters/finance/news_classification/gemma-7b",
+      "expert_path": "src/models/experts/llms/adapters/finance/news_classification/NewsClassificationExpert",
+      "template_path": "src/models/experts/llms/adapters/finance/news_classification/template.txt"
+    },
+    "general/text_summarization": {
+      "base_model_key": "llama-2-7b-hf",
+      "adapter_name": "fin-news-cls",
+      "adapter_path": "src/models/experts/llms/adapters/finance/news_classification/llama-2-7b-hf/",
+      "template_path": "src/models/experts/llms/templates/finance__news_classification.txt"
+    }
+  }
+}

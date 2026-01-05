@@ -46,12 +46,13 @@ class TaskExpert:
             print(f"[WARNING] No cleanup expert for {self.task_key}: {e}")
         # ------------------------------------------------------------------
 
-    def predict(self, classification_text: str, prompt: str, language: str = "en"):
+    def predict(self, classification_text: str, review_title: str, prompt: str, language: str = "en"):
 
         overrides = self.cfg.generation or {}
         raw_output, conf = self.pool.generate(
             self.task_key,
             classification_text,
+            review_title,
             prompt,
             language=language,
             **overrides
@@ -69,4 +70,4 @@ class TaskExpert:
         if conf == 0.0:
             conf = random.uniform(0.16, 0.18)
 
-        return cleaned, conf
+        return cleaned, conf, raw_output

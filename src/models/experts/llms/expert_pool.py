@@ -42,18 +42,76 @@ class LLMAdapterPool:
             self.cfg = json.load(f)
 
         self.base_models: Dict[str, Dict] = {}   # key -> {"model":..., "tok":..., "adapters_loaded": set(), "active": str|None}
+        self.model_access_times: Dict[str, float] = {}  # Track last access time for LRU eviction
+        self.max_loaded_models: int = 1  # Maximum models to keep in GPU memory
         self.default_gen = self.cfg.get("default_generation", {"max_new_tokens": 4})
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    # ---------- Memory Management ---------- #
+    def _update_access_time(self, base_key: str):
+        """Update the last access time for a model (for LRU tracking)."""
+        import time
+        self.model_access_times[base_key] = time.time()
+
+    def _get_lru_model(self) -> Optional[str]:
+        """Get the least recently used model key."""
+        if not self.model_access_times:
+            return None
+        return min(self.model_access_times.items(), key=lambda x: x[1])[0]
+
+    def _unload_base_model(self, base_key: str):
+        """Unload a base model from GPU memory to free up space."""
+        if base_key not in self.base_models:
+            return
+
+        print(f"[Memory Management] Unloading model '{base_key}' from GPU...")
+
+        # Move model to CPU to free GPU memory
+        self.base_models[base_key]["model"].cpu()
+
+        # Delete from cache
+        del self.base_models[base_key]
+        if base_key in self.model_access_times:
+            del self.model_access_times[base_key]
+
+        # Force garbage collection
+        import gc
+        gc.collect()
+        torch.cuda.empty_cache()
+
+        print(f"✓ Model '{base_key}' unloaded successfully")
+
+    def _ensure_memory_available(self, base_key_to_load: str):
+        """Ensure sufficient memory is available before loading a new model."""
+        # Count currently loaded models
+        loaded_count = len(self.base_models)
+
+        # If we're at capacity and need to load a new model
+        if loaded_count >= self.max_loaded_models and base_key_to_load not in self.base_models:
+            # Unload LRU model(s)
+            while len(self.base_models) >= self.max_loaded_models:
+                lru_key = self._get_lru_model()
+                if lru_key:
+                    self._unload_base_model(lru_key)
+                else:
+                    break
 
     # ---------- Base models ---------- #
     def _load_base_if_needed(self, base_key: str):
         if base_key in self.base_models:
+            # Model already loaded, just update access time
+            self._update_access_time(base_key)
             return
+
+        # Ensure memory is available before loading new model
+        self._ensure_memory_available(base_key)
+
         base = self.cfg["base_models"][base_key]
         hf_name = base["hf_name"]
         load_in_4bit = bool(base.get("load_in_4bit", False))
         device_map = base.get("device_map", "auto")
 
+        print(f"[LLMAdapterPool] Loading base model: {base_key} ({hf_name})")
         tok = AutoTokenizer.from_pretrained(hf_name, use_fast=True)
         bnb_kw = _maybe_bnb_quant(load_in_4bit)
         model = AutoModelForCausalLM.from_pretrained(
@@ -69,6 +127,8 @@ class LLMAdapterPool:
             "adapters_loaded": set(),
             "active": None
         }
+        # Mark as recently used
+        self._update_access_time(base_key)
 
     # ---------- Adapters ---------- #
     def _ensure_adapter(self, base_key: str, adapter_name: str, adapter_path: str):
@@ -119,20 +179,71 @@ class LLMAdapterPool:
         slot["active"] = adapter_name
 
     # ---------- Public API ---------- #
-    def ensure_task_ready(self, task_key: str) -> Tuple[AutoModelForCausalLM, AutoTokenizer]:
+    def _resolve_base_model_for_language(self, task_key: str, language: Optional[str]) -> Tuple[str, Optional[str], Optional[str]]:
+        """
+        Resolve which base model, adapter, and template to use based on language mapping.
+        Returns: (base_model_key, adapter_path, template_path)
+        """
+        tcfg = self.cfg["tasks"].get(task_key)
+        if not tcfg:
+            raise ValueError(f"Task {task_key} not found in registry")
+
+        # Default: use task's base_model_key, adapter_path, and template_path
+        default_base = tcfg.get("base_model_key")
+        default_adapter = tcfg.get("adapter_path")
+        default_template = tcfg.get("template_path")
+
+        # Check if task has language_mapping
+        lang_mapping = tcfg.get("language_mapping")
+        if not lang_mapping or not language:
+            return default_base, default_adapter, default_template
+
+        # Normalize language (e.g., 'english' detected by FastText)
+        lang_normalized = language.lower()
+
+        # Priority 1: Check for direct per-language mapping
+        if lang_normalized in lang_mapping:
+            lang_cfg = lang_mapping[lang_normalized]
+            # Check if it's a per-language entry (no "languages" key)
+            if "languages" not in lang_cfg:
+                base_key = lang_cfg.get("base_model_key", default_base)
+                adapter_path = lang_cfg.get("adapter_path", default_adapter)
+                template_path = lang_cfg.get("template_path", default_template)
+                print(f"[LLMAdapterPool] Language '{language}' → per-language mapping → model '{base_key}'")
+                return base_key, adapter_path, template_path
+
+        # Priority 2: Find which group contains this language
+        for group_name, group_cfg in lang_mapping.items():
+            if lang_normalized in group_cfg.get("languages", []):
+                base_key = group_cfg.get("base_model_key", default_base)
+                adapter_path = group_cfg.get("adapter_path", default_adapter)
+                template_path = group_cfg.get("template_path", default_template)
+                print(f"[LLMAdapterPool] Language '{language}' → group '{group_name}' → model '{base_key}'")
+                return base_key, adapter_path, template_path
+
+        # Priority 3: Fallback to default if language not in any group
+        print(f"[LLMAdapterPool] Language '{language}' not in mapping, using default '{default_base}'")
+        return default_base, default_adapter, default_template
+
+    def ensure_task_ready(self, task_key: str, language: Optional[str] = None) -> Tuple[AutoModelForCausalLM, AutoTokenizer]:
         """
         task_key: 'domain/task' (e.g., 'finance/sentiment_analysis')
+        language: detected language (e.g., 'english', 'japanese') for language-based model selection
         Returns model (with active adapter set) and tokenizer.
         """
         tcfg = self.cfg["tasks"].get(task_key)
         if tcfg is None:
             raise KeyError(f"Task '{task_key}' not found in experts_registry.json")
 
-        base_key = tcfg["base_model_key"]
+        # Resolve base model, adapter, and template based on language
+        base_key, adapter_path, _ = self._resolve_base_model_for_language(task_key, language)
         self._load_base_if_needed(base_key)
 
+        # Update access time since we're using this model
+        self._update_access_time(base_key)
+
         adapter_name = tcfg.get("adapter_name")
-        adapter_path = tcfg.get("adapter_path")
+        # Use resolved adapter_path from language mapping if available
         if adapter_name and adapter_path:
             self._ensure_adapter(base_key, adapter_name, adapter_path)
             self._activate_adapter(base_key, adapter_name)
@@ -156,7 +267,26 @@ class LLMAdapterPool:
 
         if p.suffix == ".json":
             return json.loads(p.read_text(encoding="utf-8"))
-        
+
+        return p.read_text(encoding="utf-8")
+
+    def get_task_template_for_language(self, task_key: str, language: Optional[str] = None) -> Optional[str]:
+        """
+        Load template for specific language, respecting language_mapping overrides.
+        Returns the template content (dict if JSON, string if text file).
+        """
+        _, _, tpath = self._resolve_base_model_for_language(task_key, language)
+
+        if not tpath:
+            return None
+
+        p = Path(__file__).parents[4] / tpath
+        if not p.exists():
+            return None
+
+        if p.suffix == ".json":
+            return json.loads(p.read_text(encoding="utf-8"))
+
         return p.read_text(encoding="utf-8")
 
     def default_generation_config(self) -> GenerationConfig:
@@ -167,22 +297,27 @@ class LLMAdapterPool:
         self,
         task_key: str,
         classification_text: str,
+        review_title: str,
         prompt: str,
         language: str = "english",
         **gen_overrides
         ) -> Tuple[str, float]:
-        
-        model, tok = self.ensure_task_ready(task_key)
-        template = self.get_task_template(task_key)
+
+        # Pass language to ensure_task_ready for language-based model selection
+        model, tok = self.ensure_task_ready(task_key, language=language)
+        template = self.get_task_template_for_language(task_key, language)
 
         if isinstance(template, dict):
             # normalize language key
             lang_key = language.lower()
             if lang_key not in template:
                 lang_key = "english"
-            text = template[lang_key].replace("{{input}}", classification_text)
+            # Truncate inputs to match run_lora_star.py
+            truncated_text = str(classification_text).replace('\n', ' ').strip()[:400]
+            truncated_title = str(review_title).replace('\n', ' ').strip()[:80]
+            text = template[lang_key].replace("{{input}}", truncated_text).replace("{{review_title}}", truncated_title)
         else:
-            text = template.replace("{{input}}", classification_text)
+            text = template.replace("{{input}}", classification_text).replace("{{review_title}}", review_title)
 
         inputs = tok(text, return_tensors="pt").to(model.device)
         gen_cfg = self.default_generation_config()

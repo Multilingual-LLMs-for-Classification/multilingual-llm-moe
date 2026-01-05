@@ -1,0 +1,304 @@
+nohup: ignoring input
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Initializing Prompt Routing System (Q-learning router + Transformer Domain CLS)...
+✅ FastText language model loaded
+Created/verified domain directory: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/finance
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/task_routers_qlearning
+Checking and downloading models if needed...
+Downloading all configured models...
+
+Processing FINANCE domain:
+Domain directory: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/finance
+  Checking sentiment_analysis...
+    Task directory: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/finance/sentiment_analysis
+Ensuring model availability for finance/sentiment_analysis
+_check_huggingface_model initiated...
+Cache directory for finance/sentiment_analysis: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/finance/sentiment_analysis
+    ✓ sentiment_analysis model ready
+[WARNING] No expert_path defined for general/text_summarization
+System initialized with 2 domains and 3 tasks
+Supported languages: 6
+Available domains: ['finance', 'general']
+Training Domain Classifier (Transformer)...
+[DomainCLS] epoch 1/1 | train_loss=0.0000 | val_acc=1.0000
+✅ Domain classifier training finished. Best val_acc=1.0000
+✅ Domain classifier saved to: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/domain_xlmr/domain_cls.pt
+Training QRouter for domain 'finance'   | samples=8190 tasks=2
+  Epoch 1/1 finished for domain 'finance'
+  → Validation accuracy for domain 'finance': 1.0000
+⚠️ No labeled items for domain 'general', skipping training.
+✅ Q-learning routers saved to: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/task_routers_qlearning
+💾 Saving all models...
+✅ Domain classifier saved to: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers saved to: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/task_routers_qlearning
+✅ All models saved successfully!
+
+Testing with 1020 sample prompts...
+======================================================================
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:09<00:09,  9.96s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:13<00:00,  6.12s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:13<00:00,  6.70s/it]
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:10,  3.42s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:07<00:07,  3.91s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:12<00:04,  4.11s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  2.91s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  3.27s/it]
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:10<00:10, 10.08s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:13<00:00,  5.97s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:13<00:00,  6.59s/it]
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:10,  3.54s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:07<00:07,  3.69s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:11<00:04,  4.05s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:12<00:00,  2.86s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:12<00:00,  3.21s/it]
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:09<00:09,  9.47s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  5.71s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  6.27s/it]
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:10,  3.41s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:06<00:06,  3.33s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:09<00:02,  2.93s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.01s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.43s/it]
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.65s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.89s/it]
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.72s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.18s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:03,  3.21s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.36s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.43s/it]
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.53s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.48s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.94s/it]
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.55s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.39s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.40s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.69s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.89s/it]
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'aya-23'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.04s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  4.72s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  5.07s/it]
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:10,  3.46s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:06<00:06,  3.39s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:09<00:03,  3.29s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:11<00:00,  2.41s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:11<00:00,  2.76s/it]
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'aya-23'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.95s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  3.79s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.26s/it]
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.82s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.64s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.51s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.74s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.99s/it]
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'aya-23'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'aya-23'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.50s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.14s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.49s/it]
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:10,  3.44s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:06<00:06,  3.16s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:02,  2.84s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  1.97s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.38s/it]
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.11s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.33s/it]
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.52s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.41s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:03,  3.29s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.43s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.50s/it]
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.20s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  3.82s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.33s/it]
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.70s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:05,  2.55s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.45s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.72s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.94s/it]
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'aya-23'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.08s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  3.73s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.08s/it]
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:10,  3.47s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:06<00:06,  3.21s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:09<00:02,  2.89s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.01s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.41s/it]
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'aya-23'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.49s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.67s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.95s/it]
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.52s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.16s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.43s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.89s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.98s/it]
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.90s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.77s/it]
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:09,  3.10s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:06<00:06,  3.10s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:02,  2.85s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  1.96s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.33s/it]
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.59s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.55s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.85s/it]
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'aya-23'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.06s/it]

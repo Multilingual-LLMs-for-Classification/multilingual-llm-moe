@@ -1,0 +1,2191 @@
+nohup: ignoring input
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Initializing Prompt Routing System (Q-learning router + Transformer Domain CLS)...
+✅ FastText language model loaded
+Created/verified domain directory: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/finance
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/task_routers_qlearning
+Checking and downloading models if needed...
+Downloading all configured models...
+
+Processing FINANCE domain:
+Domain directory: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/finance
+  Checking sentiment_analysis...
+    Task directory: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/finance/sentiment_analysis
+Ensuring model availability for finance/sentiment_analysis
+_check_huggingface_model initiated...
+Cache directory for finance/sentiment_analysis: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/finance/sentiment_analysis
+    ✓ sentiment_analysis model ready
+[WARNING] No expert_path defined for general/text_summarization
+System initialized with 2 domains and 3 tasks
+Supported languages: 6
+Available domains: ['finance', 'general']
+Training Domain Classifier (Transformer)...
+[DomainCLS] epoch 1/1 | train_loss=0.0000 | val_acc=1.0000
+✅ Domain classifier training finished. Best val_acc=1.0000
+✅ Domain classifier saved to: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/domain_xlmr/domain_cls.pt
+Training QRouter for domain 'finance'   | samples=8190 tasks=2
+  Epoch 1/1 finished for domain 'finance'
+  → Validation accuracy for domain 'finance': 1.0000
+⚠️ No labeled items for domain 'general', skipping training.
+✅ Q-learning routers saved to: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/task_routers_qlearning
+💾 Saving all models...
+✅ Domain classifier saved to: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers saved to: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/models/task_routers_qlearning
+✅ All models saved successfully!
+
+Testing with 1020 sample prompts...
+======================================================================
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.70s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.85s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.13s/it]
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'chinese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'japanese' → group 'asian' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 4
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'spanish' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+Expected: 2
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 5
+[LLMAdapterPool] Language 'english' → group 'european' → model 'llama-2-7b-hf'
+Expected: 3
+[LLMAdapterPool] Language 'german' → group 'european' → model 'llama-2-7b-hf'
+Expected: 1
+[LLMAdapterPool] Language 'french' → group 'european' → model 'llama-2-7b-hf'
+
+ADDITIONAL METRICS
+================================================================================
+Domain classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+Task classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+Domain Confusion Matrix (GT rows × Pred cols)
+                     finance
+finance                   1020
+
+Task Confusion Matrix (GT rows × Pred cols)
+                      rating
+rating                   1020
+
+Language list (detected): ['chinese', 'english', 'french', 'german', 'japanese', 'spanish']
+Per-language breakdown (using detected language):
+--------------------------------------------------------------------------------
+  lang |    n |   domain acc |   task acc |  exact acc
+chinese |  171 |      100.00% |    100.00% |    100.00%
+english |  176 |      100.00% |    100.00% |    100.00%
+french |  139 |      100.00% |    100.00% |    100.00%
+german |  166 |      100.00% |    100.00% |    100.00%
+japanese |  169 |      100.00% |    100.00% |    100.00%
+spanish |  199 |      100.00% |    100.00% |    100.00%
+
+Expert (final output) classification:
+  Accuracy           :  61.96%
+  Macro  P/R/F1      :  62.18% /  61.96% /  62.03%
+  Micro  P/R/F1      :  61.96% /  61.96% /  61.96%
+  Weighted F1        :  62.03%
+  Balanced accuracy  :  61.96%
+  Cohen's kappa (κ)  :  52.45%
+Expert Output Confusion Matrix (GT rows × Pred cols)
+                           1                      2                      3                      4                      5
+     1                    151                     45                      8                      0                      0
+     2                     34                    117                     43                     10                      0
+     3                     16                     48                    106                     31                      3
+     4                      4                      8                     50                    104                     38
+     5                      1                      1                      3                     45                    154
+
+
+EXPERT/MODEL SELECTION BY LANGUAGE
+================================================================================
+
+Language Group: European (llama-2-7b-hf)
+--------------------------------------------------------------------------------
+  english      :  176 samples
+  french       :  139 samples
+  german       :  166 samples
+  spanish      :  199 samples
+  Total        :  680 samples (66.7%)
+
+================================================================================
+
+
+PERFORMANCE BY EXPERT/MODEL
+================================================================================
+
+llama-2-7b-hf (Languages: chinese, english, french, german, japanese, spanish)
+--------------------------------------------------------------------------------
+  Samples      : 1020
+  Accuracy     :  61.96%
+  Macro F1     :  62.03%
+  Weighted F1  :  62.03%
+
+  Per-language performance:
+    chinese      : Accuracy =  52.63%, Samples = 171
+    english      : Accuracy =  67.61%, Samples = 176
+    french       : Accuracy =  64.03%, Samples = 139
+    german       : Accuracy =  65.66%, Samples = 166
+    japanese     : Accuracy =  63.31%, Samples = 169
+    spanish      : Accuracy =  59.30%, Samples = 199
+
+================================================================================
+
+
+LANGUAGE GROUP COMPARISON
+================================================================================
+
+================================================================================
+
+
+CONFUSION MATRICES BY EXPERT/MODEL
+================================================================================
+
+llama-2-7b-hf Confusion Matrix (GT rows × Pred cols)
+                           1                      2                      3                      4                      5
+     1                    151                     45                      8                      0                      0
+     2                     34                    117                     43                     10                      0
+     3                     16                     48                    106                     31                      3
+     4                      4                      8                     50                    104                     38
+     5                      1                      1                      3                     45                    154
+
+================================================================================
+
+
+✅ CSV file saved to: predictions_with_raw_responses.csv
+   Total rows: 1020

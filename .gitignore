@@ -9,3 +9,7 @@ risk_assessment/
 .cpython-310.pyc
 **.pt
 **.pth
+**.pyc
+**.bin
+**.safetensors
+**.csv

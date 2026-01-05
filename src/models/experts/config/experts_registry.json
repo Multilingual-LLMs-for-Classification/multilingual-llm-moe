@@ -15,6 +15,21 @@
       "hf_name": "google/gemma-7b",
       "load_in_4bit": true,
       "device_map": "auto"
+    },
+    "aya-23": {
+      "hf_name": "CohereForAI/aya-23-8B",
+      "load_in_4bit": true,
+      "device_map": "auto"
+    },
+    "deepseek-llm-7b-chat": {
+      "hf_name": "deepseek-ai/deepseek-llm-7b-chat",
+      "load_in_4bit": true,
+      "device_map": "auto"
+    },
+    "bloomz-7b1": {
+      "hf_name": "bigscience/bloomz-7b1",
+      "load_in_4bit": true,
+      "device_map": "auto"
     }
   },
   "tasks": {
@@ -23,17 +38,88 @@
       "adapter_name": "fin-sentiment",
       "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/",
       "expert_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/SentimentAnalysisExpert",
-      "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/template.json",
-      "label_set": ["1","2","3","4","5"],
+      "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/template.json",
+      "label_set": ["1", "2", "3", "4", "5"],
       "strict_label_decoding": true,
-      "generation": { "max_new_tokens": 4, "temperature": 0.0, "top_p": 1.0 }
+      "generation": {
+        "max_new_tokens": 4,
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "language_mapping": {
+        "english": {
+          "base_model_key": "llama-2-7b-hf",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/template.json"
+        },
+        "german": {
+          "base_model_key": "deepseek-llm-7b-chat",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat/template.json"
+        },
+        "spanish": {
+          "base_model_key": "aya-23",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/aya-23/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/aya-23/template.json"
+        },
+        "french": {
+          "base_model_key": "deepseek-llm-7b-chat",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat/template.json"
+        },
+        "japanese": {
+          "base_model_key": "llama-2-7b-hf",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/template.json"
+        },
+        "chinese": {
+          "base_model_key": "bloomz-7b1",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/bloomz-7b1/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/bloomz-7b1/template.json"
+        }
+      }
     },
     "finance/news": {
       "base_model_key": "google/gemma-7b",
       "adapter_name": "fin-news-cls",
       "adapter_path": "src/models/experts/llms/adapters/finance/news_classification/gemma-7b",
       "expert_path": "src/models/experts/llms/adapters/finance/news_classification/NewsClassificationExpert",
-      "template_path": "src/models/experts/llms/adapters/finance/news_classification/template.txt"
+      "template_path": "src/models/experts/llms/adapters/finance/news_classification/template.txt",
+      "label_set": ["Business & Management", "Finance", "Government & Controls", "Technology", "Industry", "Tax & Accounting"],
+      "strict_label_decoding": true,
+      "language_mapping": {
+        "english": {
+          "base_model_key": "llama-2-7b-hf",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/template.json"
+        },
+        "german": {
+          "base_model_key": "deepseek-llm-7b-chat",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat/template.json"
+        },
+        "spanish": {
+          "base_model_key": "aya-23",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/aya-23/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/aya-23/template.json"
+        },
+        "french": {
+          "base_model_key": "deepseek-llm-7b-chat",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat/template.json"
+        },
+        "japanese": {
+          "base_model_key": "llama-2-7b-hf",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/template.json"
+        },
+        "chinese": {
+          "base_model_key": "bloomz-7b1",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/bloomz-7b1/",
+          "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/bloomz-7b1/template.json"
+        }
+      }
+
     },
     "general/text_summarization": {
       "base_model_key": "llama-2-7b-hf",

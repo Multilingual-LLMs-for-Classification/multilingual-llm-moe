@@ -808,7 +808,7 @@ class PromptRoutingSystem:
         self.task_classifier.train(training_data, val_split=0.1)
         self.task_classifier.save_models()
     
-    def route_prompt(self, prompt: str, classification_text: str) -> Dict:
+    def route_prompt(self, prompt: str, classification_text: str, review_title: str) -> Dict:
 
         language = self.language_detector.detect_language(prompt)
         domain = self.domain_classifier.classify_domain(prompt)
@@ -816,8 +816,8 @@ class PromptRoutingSystem:
         task = self.task_classifier.classify_task(prompt, domain)
         expert = self.experts[domain][task]
 
-        result, expert_confidence = expert.predict(
-            classification_text,
+        result, expert_confidence, raw_response = expert.predict(
+            classification_text,review_title,
             prompt,
             language
         )
@@ -829,7 +829,8 @@ class PromptRoutingSystem:
             'task': task,
             'result': result,
             'expert_confidence': expert_confidence,
-            'routing_path': f"{language} → {domain} → {task}"
+            'routing_path': f"{language} → {domain} → {task}",
+            'raw_response': raw_response
         }
         return output
     def get_system_stats(self):
@@ -896,26 +897,71 @@ def _print_confusion(cm: Counter, labels: List[str], title: str):
         print(" ".join(row))
     print()
 # Helper function to determine which expert/model was used
-def _get_expert_used(language: str, domain: str, task: str) -> str:
+def _get_expert_used(language: str, domain: str, task: str, registry_path: str = "experts/config/experts_registry.json") -> str:
     """
-    Determine which base model/expert was used based on language.
-    Returns: 'llama-2-7b-hf' or 'aya-23' for rating task, or base model name for others.
-    """
-    if domain == "finance" and task == "rating":
-        # Check language_mapping from registry
-        european_langs = ["english", "german", "spanish", "french"]
-        asian_langs = ["japanese", "chinese"]
+    Determine which base model/expert was used based on task+language combination.
+    Queries experts_registry.json to find the correct base_model_key.
 
-        if language in european_langs:
-            return "llama-2-7b-hf"
-        elif language in asian_langs:
-            return "aya-23"
-        else:
-            return "llama-2-7b-hf"  # default
-    else:
-        # For other tasks, return default model
-        # Could extend this logic for other tasks if they have language_mapping
-        return "default"
+    This mirrors the logic in LLMAdapterPool._resolve_base_model_for_language()
+    to determine which model was actually selected during routing.
+
+    Args:
+        language: Detected language (e.g., "english", "japanese")
+        domain: Detected domain (e.g., "finance")
+        task: Detected task (e.g., "rating", "news")
+        registry_path: Path to experts_registry.json
+
+    Returns:
+        base_model_key (e.g., "llama-2-7b-hf", "aya-23", "google/gemma-7b")
+    """
+    # Construct task_key (e.g., "finance/rating")
+    task_key = f"{domain}/{task}"
+
+    # Load registry
+    try:
+        registry_file = Path(registry_path)
+        if not registry_file.is_absolute():
+            # Make it relative to this file's location
+            registry_file = Path(__file__).parents[4] / registry_path
+
+        with open(registry_file, 'r') as f:
+            registry = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Warning: Could not load registry from {registry_path}: {e}")
+        return "unknown"
+
+    # Get task config
+    tcfg = registry.get("tasks", {}).get(task_key)
+    if not tcfg:
+        return "unknown"
+
+    default_base = tcfg.get("base_model_key", "default")
+
+    # Check if task has language_mapping
+    lang_mapping = tcfg.get("language_mapping")
+    if not lang_mapping:
+        # No language mapping - uses default model for all languages
+        return default_base
+
+    # Normalize language
+    lang_normalized = language.lower() if language else ""
+
+    # Priority 1: Check for direct per-language mapping
+    if lang_normalized in lang_mapping:
+        lang_cfg = lang_mapping[lang_normalized]
+        # Check if it's a per-language entry (no "languages" key)
+        if "languages" not in lang_cfg:
+            return lang_cfg.get("base_model_key", default_base)
+
+    # Priority 2: Find which language group this language belongs to
+    for group_name, group_cfg in lang_mapping.items():
+        languages = group_cfg.get("languages", [])
+        if lang_normalized in languages:
+            # Found the language group - return its base_model_key
+            return group_cfg.get("base_model_key", default_base)
+
+    # Priority 3: Language not found in any group - use default
+    return default_base
 
 def _print_expert_selection_summary(per_lang_total: Counter, per_lang_expert: Dict[str, str]):
     """Print which expert/model was selected for each language"""
@@ -1057,9 +1103,9 @@ def load_prompts_from_csv(path="unified.csv"):
         return [row for row in reader]
 
 if __name__ == "__main__":
-    with open("test2.json", "r", encoding="utf-8") as f:
+    with open("test2_grouped_languages_flat.json", "r", encoding="utf-8") as f:
         test_prompts = json.load(f)
-        
+
     TEST_N = 1020
     test_prompts = test_prompts[:TEST_N]
     # test_prompts = test_prompts[-TEST_N:]
@@ -1117,10 +1163,14 @@ if __name__ == "__main__":
     per_lang_expert = {}
     per_lang_correct = Counter()
 
+    # CSV data collection
+    csv_data = []
+
     for item in test_prompts:
         if not isinstance(item, dict):
             continue
         prompt      = item['prompt']
+        review_title = item['review_title']
         text = item['classification_text']
         gt_domain = item['domain']
         gt_task   = item['task']
@@ -1128,11 +1178,22 @@ if __name__ == "__main__":
 
         print("Expected:", item['label'])
 
-        result      = system.route_prompt(prompt, text)
+        result      = system.route_prompt(prompt, text, review_title)
         pred_domain = result['domain']
         pred_task   = result['task']
         lang_tag    = result.get('language', '?')
         pred_label  = result['result']
+        raw_response = result.get('raw_response', '')
+
+        # Collect CSV data
+        csv_data.append({
+            'review_title': review_title,
+            'review_body': text[:100] + '...' if len(text) > 100 else text,
+            'language': lang_tag,
+            'expected_label': gt_label,
+            'predicted_label': pred_label,
+            'raw_response': raw_response
+        })
 
         # NEW: Determine which expert was used
         expert_key = _get_expert_used(lang_tag, pred_domain, pred_task)
@@ -1217,3 +1278,14 @@ if __name__ == "__main__":
     _print_expert_performance(per_expert_cm, per_lang_total, per_lang_expert, per_lang_correct, expert_labels)
     _print_language_group_comparison(per_expert_cm, per_lang_expert, expert_labels)
     _print_expert_confusion_matrices(per_expert_cm, expert_labels)
+
+    # Save CSV file with raw responses
+    csv_output_path = "predictions_with_raw_responses.csv"
+    with open(csv_output_path, 'w', newline='', encoding='utf-8') as csvfile:
+        fieldnames = ['review_title', 'review_body', 'language', 'expected_label', 'predicted_label', 'raw_response']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(csv_data)
+
+    print(f"\n✅ CSV file saved to: {csv_output_path}")
+    print(f"   Total rows: {len(csv_data)}")
