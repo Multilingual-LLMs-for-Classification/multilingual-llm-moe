@@ -8,4 +8,6 @@ risk_assessment/
 .pkl
 .cpython-310.pyc
 **.pt
+**.pth
+**.csv
 

@@ -1,0 +1,529 @@
+nohup: ignoring input
+🚀 Running inference on test set...
+
+  0%|          | 0/400 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.80s/it][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.30s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.38s/it]
+Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][A
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.05it/s][A
+Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.07it/s][A
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.11it/s][A
+Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.59it/s][ALoading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.36it/s]
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][A
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.96s/it][A
+Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.09s/it][A
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.19s/it][A
+Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.49s/it][ALoading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.72s/it]
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  0%|          | 1/400 [00:23<2:39:11, 23.94s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  0%|          | 2/400 [00:25<1:11:40, 10.81s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  1%|          | 3/400 [00:26<41:30,  6.27s/it]  Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  1%|          | 4/400 [00:27<28:55,  4.38s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  1%|▏         | 5/400 [00:29<21:24,  3.25s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  2%|▏         | 6/400 [00:29<15:33,  2.37s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  2%|▏         | 7/400 [00:31<14:15,  2.18s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  2%|▏         | 8/400 [00:32<12:30,  1.91s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  2%|▏         | 9/400 [00:34<11:09,  1.71s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  2%|▎         | 10/400 [00:35<10:02,  1.54s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  3%|▎         | 11/400 [00:36<09:15,  1.43s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  3%|▎         | 12/400 [00:37<07:44,  1.20s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  3%|▎         | 13/400 [00:37<06:39,  1.03s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  4%|▎         | 14/400 [00:38<05:54,  1.09it/s]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  4%|▍         | 15/400 [00:39<06:21,  1.01it/s]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  4%|▍         | 16/400 [00:40<06:53,  1.08s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  4%|▍         | 17/400 [00:42<08:12,  1.29s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  4%|▍         | 18/400 [00:44<08:27,  1.33s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  5%|▍         | 19/400 [00:45<08:47,  1.38s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  5%|▌         | 20/400 [00:47<09:04,  1.43s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  5%|▌         | 21/400 [00:47<07:43,  1.22s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  6%|▌         | 22/400 [00:49<07:49,  1.24s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  6%|▌         | 23/400 [00:50<07:40,  1.22s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  6%|▌         | 24/400 [00:51<07:38,  1.22s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  6%|▋         | 25/400 [00:52<07:44,  1.24s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  6%|▋         | 26/400 [00:53<06:38,  1.07s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  7%|▋         | 27/400 [00:54<07:12,  1.16s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  7%|▋         | 28/400 [00:55<06:24,  1.03s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  7%|▋         | 29/400 [00:56<06:37,  1.07s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  8%|▊         | 30/400 [00:58<06:58,  1.13s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  8%|▊         | 31/400 [00:58<06:17,  1.02s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  8%|▊         | 32/400 [01:00<07:11,  1.17s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  8%|▊         | 33/400 [01:01<06:23,  1.04s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  8%|▊         | 34/400 [01:01<05:55,  1.03it/s]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  9%|▉         | 35/400 [01:03<07:24,  1.22s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  9%|▉         | 36/400 [01:05<07:27,  1.23s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+  9%|▉         | 37/400 [01:06<07:30,  1.24s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 10%|▉         | 38/400 [01:06<06:27,  1.07s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 10%|▉         | 39/400 [01:08<06:49,  1.14s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 10%|█         | 40/400 [01:09<06:11,  1.03s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 10%|█         | 41/400 [01:09<05:41,  1.05it/s]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 10%|█         | 42/400 [01:11<06:27,  1.08s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 11%|█         | 43/400 [01:11<05:39,  1.05it/s]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 11%|█         | 44/400 [01:13<06:14,  1.05s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 11%|█▏        | 45/400 [01:13<05:41,  1.04it/s]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 12%|█▏        | 46/400 [01:14<05:09,  1.14it/s]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 12%|█▏        | 47/400 [01:15<04:57,  1.19it/s]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 12%|█▏        | 48/400 [01:16<04:49,  1.22it/s]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 12%|█▏        | 49/400 [01:17<05:50,  1.00it/s]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 12%|█▎        | 50/400 [01:19<07:17,  1.25s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 13%|█▎        | 51/400 [01:20<07:41,  1.32s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 13%|█▎        | 52/400 [01:21<06:37,  1.14s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 13%|█▎        | 53/400 [01:22<06:53,  1.19s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 14%|█▎        | 54/400 [01:23<06:00,  1.04s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 14%|█▍        | 55/400 [01:25<07:32,  1.31s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 14%|█▍        | 56/400 [01:27<09:24,  1.64s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 14%|█▍        | 57/400 [01:29<09:03,  1.58s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 14%|█▍        | 58/400 [01:30<08:41,  1.52s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 15%|█▍        | 59/400 [01:32<08:30,  1.50s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 15%|█▌        | 60/400 [01:33<08:50,  1.56s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 15%|█▌        | 61/400 [01:37<12:02,  2.13s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 16%|█▌        | 62/400 [01:40<13:15,  2.35s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 16%|█▌        | 63/400 [01:41<12:14,  2.18s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 16%|█▌        | 64/400 [01:43<10:31,  1.88s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 16%|█▋        | 65/400 [01:44<09:55,  1.78s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 16%|█▋        | 66/400 [01:46<09:25,  1.69s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 17%|█▋        | 67/400 [01:47<09:34,  1.72s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 17%|█▋        | 68/400 [01:49<09:46,  1.77s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 17%|█▋        | 69/400 [01:52<11:43,  2.13s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 18%|█▊        | 70/400 [01:54<11:18,  2.06s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 18%|█▊        | 71/400 [01:56<10:43,  1.96s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 18%|█▊        | 72/400 [01:58<11:14,  2.06s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 18%|█▊        | 73/400 [02:00<09:57,  1.83s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 18%|█▊        | 74/400 [02:01<09:58,  1.83s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 19%|█▉        | 75/400 [02:03<09:19,  1.72s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 19%|█▉        | 76/400 [02:06<10:54,  2.02s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 19%|█▉        | 77/400 [02:10<14:21,  2.67s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 20%|█▉        | 78/400 [02:13<14:30,  2.70s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 20%|█▉        | 79/400 [02:15<14:33,  2.72s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 20%|██        | 80/400 [02:17<12:44,  2.39s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 20%|██        | 81/400 [02:18<10:46,  2.03s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 20%|██        | 82/400 [02:23<15:52,  3.00s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 21%|██        | 83/400 [02:26<15:29,  2.93s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 21%|██        | 84/400 [02:27<12:46,  2.43s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 21%|██▏       | 85/400 [02:30<13:08,  2.50s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 22%|██▏       | 86/400 [02:34<14:38,  2.80s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 22%|██▏       | 87/400 [02:37<15:01,  2.88s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 22%|██▏       | 88/400 [02:41<18:00,  3.46s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 22%|██▏       | 89/400 [02:46<20:20,  3.92s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 22%|██▎       | 90/400 [02:48<16:53,  3.27s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 23%|██▎       | 91/400 [02:49<13:34,  2.64s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 23%|██▎       | 92/400 [02:51<11:44,  2.29s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 23%|██▎       | 93/400 [02:54<12:29,  2.44s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 24%|██▎       | 94/400 [02:57<13:31,  2.65s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 24%|██▍       | 95/400 [03:02<16:58,  3.34s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 24%|██▍       | 96/400 [03:04<15:22,  3.03s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 24%|██▍       | 97/400 [03:07<15:10,  3.00s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 24%|██▍       | 98/400 [03:09<13:45,  2.73s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 25%|██▍       | 99/400 [03:11<12:37,  2.52s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 25%|██▌       | 100/400 [03:17<17:11,  3.44s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 25%|██▌       | 101/400 [03:20<16:22,  3.29s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 26%|██▌       | 102/400 [03:21<12:57,  2.61s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 26%|██▌       | 103/400 [03:23<13:01,  2.63s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 26%|██▌       | 104/400 [03:25<11:27,  2.32s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 26%|██▋       | 105/400 [03:28<12:00,  2.44s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 26%|██▋       | 106/400 [03:33<16:11,  3.31s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 27%|██▋       | 107/400 [03:34<13:15,  2.71s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 27%|██▋       | 108/400 [03:36<11:33,  2.38s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 27%|██▋       | 109/400 [03:39<13:21,  2.75s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 28%|██▊       | 110/400 [03:43<13:46,  2.85s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 28%|██▊       | 111/400 [03:44<11:45,  2.44s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 28%|██▊       | 112/400 [03:47<12:34,  2.62s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 28%|██▊       | 113/400 [03:51<14:14,  2.98s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 28%|██▊       | 114/400 [03:54<14:48,  3.11s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 29%|██▉       | 115/400 [03:56<12:13,  2.57s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 29%|██▉       | 116/400 [04:00<14:02,  2.97s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 29%|██▉       | 117/400 [04:01<11:52,  2.52s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 30%|██▉       | 118/400 [04:05<13:27,  2.86s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 30%|██▉       | 119/400 [04:09<14:55,  3.19s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 30%|███       | 120/400 [04:10<12:14,  2.62s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 30%|███       | 121/400 [04:12<11:49,  2.54s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 30%|███       | 122/400 [04:15<12:05,  2.61s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 31%|███       | 123/400 [04:18<11:56,  2.59s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 31%|███       | 124/400 [04:21<13:19,  2.90s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 31%|███▏      | 125/400 [04:24<13:16,  2.89s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 32%|███▏      | 126/400 [04:26<12:22,  2.71s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 32%|███▏      | 127/400 [04:28<10:19,  2.27s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 32%|███▏      | 128/400 [04:30<10:30,  2.32s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 32%|███▏      | 129/400 [04:33<10:51,  2.40s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 32%|███▎      | 130/400 [04:36<12:47,  2.84s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 33%|███▎      | 131/400 [04:39<11:56,  2.66s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 33%|███▎      | 132/400 [04:41<11:27,  2.56s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 33%|███▎      | 133/400 [04:45<12:58,  2.91s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 34%|███▎      | 134/400 [04:49<14:07,  3.19s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 34%|███▍      | 135/400 [04:51<13:32,  3.07s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 34%|███▍      | 136/400 [04:53<11:16,  2.56s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 34%|███▍      | 137/400 [04:55<10:33,  2.41s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 34%|███▍      | 138/400 [04:59<12:14,  2.80s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 35%|███▍      | 139/400 [05:04<15:42,  3.61s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 35%|███▌      | 140/400 [05:05<12:40,  2.93s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 35%|███▌      | 141/400 [05:08<12:17,  2.85s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 36%|███▌      | 142/400 [05:10<10:54,  2.54s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 36%|███▌      | 143/400 [05:14<13:07,  3.06s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 36%|███▌      | 144/400 [05:17<13:03,  3.06s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 36%|███▋      | 145/400 [05:20<12:34,  2.96s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 36%|███▋      | 146/400 [05:23<12:28,  2.95s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 37%|███▋      | 147/400 [05:27<13:56,  3.30s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 37%|███▋      | 148/400 [05:29<11:40,  2.78s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 37%|███▋      | 149/400 [05:30<09:42,  2.32s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 38%|███▊      | 150/400 [05:34<11:59,  2.88s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 38%|███▊      | 151/400 [05:37<12:17,  2.96s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 38%|███▊      | 152/400 [05:40<11:40,  2.83s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 38%|███▊      | 153/400 [05:41<10:14,  2.49s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 38%|███▊      | 154/400 [05:44<09:53,  2.41s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 39%|███▉      | 155/400 [05:46<09:50,  2.41s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 39%|███▉      | 156/400 [05:51<12:33,  3.09s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 39%|███▉      | 157/400 [05:55<13:26,  3.32s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 40%|███▉      | 158/400 [05:59<14:49,  3.67s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 40%|███▉      | 159/400 [06:03<15:16,  3.80s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 40%|████      | 160/400 [06:06<13:51,  3.47s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 40%|████      | 161/400 [06:07<11:26,  2.87s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 40%|████      | 162/400 [06:10<11:11,  2.82s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 41%|████      | 163/400 [06:13<11:02,  2.80s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 41%|████      | 164/400 [06:14<09:32,  2.42s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 41%|████▏     | 165/400 [06:16<08:26,  2.16s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 42%|████▏     | 166/400 [06:19<09:18,  2.39s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+ 42%|████▏     | 167/400 [06:22<09:42,  2.50s/it]Setting `pad_token_id` to `eos_token_id`:151643 for open-end generation.

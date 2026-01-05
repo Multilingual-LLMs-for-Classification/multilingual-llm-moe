@@ -1,4 +1,6 @@
 from collections import defaultdict, deque
+from concurrent.futures import ThreadPoolExecutor
+from threading import Lock
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -77,6 +79,19 @@ PROMPTS = {
         "Makale: \"{text}\"\n"
         "Çıktı (Sadece Kategori):"
     )
+}
+
+LANGUAGE_ALIASES = {
+    "Dani": "Dani",
+    "Danish": "Dani",
+    "English": "English",
+    "en": "English",
+    "Span": "Span",
+    "Spanish": "Span",
+    "Pol": "Pol",
+    "Polish": "Pol",
+    "Turk": "Turk",
+    "Turkish": "Turk"
 }
 
 # ------------------------------
@@ -172,6 +187,7 @@ class HuggingFaceLLMSystem:
         self.categories = categories # Store categories list
         self.models = [None for _ in model_names]
         self.tokenizers = [None for _ in model_names]
+        self.model_locks = [Lock() for _ in model_names]
 
     def get_categories_string(self):
         # Helper to format the categories into a string for the prompt
@@ -231,33 +247,45 @@ class HuggingFaceLLMSystem:
         # For logging purposes: log the best cleaned string, but the predicted label is "Unknown"
         return string_output, "Unknown"
 
+    def _load_model_if_needed(self, llm_id):
+        if self.models[llm_id] is not None:
+            return self.models[llm_id], self.tokenizers[llm_id]
+
+        with self.model_locks[llm_id]:
+            if self.models[llm_id] is None:
+
+                bnb_cfg = BitsAndBytesConfig(
+                    load_in_4bit=True,
+                    bnb_4bit_use_double_quant=True,
+                    bnb_4bit_quant_type="nf4",
+                    bnb_4bit_compute_dtype=torch.float16
+                )
+
+                tokenizer = AutoTokenizer.from_pretrained(
+                    self.model_names[llm_id],
+                    trust_remote_code=True,
+                    use_auth_token=TOKEN
+                )
+                model = AutoModelForCausalLM.from_pretrained(
+                    self.model_names[llm_id],
+                    device_map="auto",
+                    quantization_config=bnb_cfg,
+                    trust_remote_code=True,
+                    use_auth_token=TOKEN
+                )
+                model.eval()
+                self.models[llm_id] = model
+                self.tokenizers[llm_id] = tokenizer
+
+        return self.models[llm_id], self.tokenizers[llm_id]
+
+    def preload_all(self):
+        for idx in range(len(self.model_names)):
+            self._load_model_if_needed(idx)
+
     def run(self, llm_id, text, language="English"):
         llm_id = min(llm_id, len(self.model_names)-1)
-
-        if self.models[llm_id] is None:
-
-            bnb_cfg = BitsAndBytesConfig(
-                load_in_4bit=True,
-                bnb_4bit_use_double_quant=True,
-                bnb_4bit_quant_type="nf4",
-                bnb_4bit_compute_dtype=torch.float16
-            )
-
-            # NOTE: Use the global TOKEN variable set from HF_TOKEN
-            tokenizer = AutoTokenizer.from_pretrained(self.model_names[llm_id], trust_remote_code=True, use_auth_token=TOKEN)
-            model = AutoModelForCausalLM.from_pretrained(
-                self.model_names[llm_id],
-                device_map="auto",
-                quantization_config=bnb_cfg,
-                trust_remote_code=True,
-                use_auth_token=TOKEN
-            )
-            model.eval()
-            self.models[llm_id] = model
-            self.tokenizers[llm_id] = tokenizer
-        else:
-            model = self.models[llm_id]
-            tokenizer = self.tokenizers[llm_id]
+        model, tokenizer = self._load_model_if_needed(llm_id)
 
         prompt_template = self.prompts.get(language, self.prompts["English"])
         
@@ -282,11 +310,32 @@ class HuggingFaceLLMSystem:
 # ------------------------------
 
 class RoutingPipeline:
-    def __init__(self, agent, llm_system, state_dim):
+    def __init__(self, agent, llm_system, state_dim, model_costs=None,
+                 reward_weights=None, streak_penalty_weight=-0.05,
+                 max_workers=None, language_aliases=None):
         self.agent = agent
         self.llm_system = llm_system
         self.state_dim = state_dim
         self.lang_history = defaultdict(lambda: deque(maxlen=100))
+        self.num_llms = len(self.llm_system.model_names)
+        if model_costs is not None:
+            self.model_costs = model_costs
+        else:
+            cost_scale = np.linspace(0.02, -0.02, self.num_llms)
+            self.model_costs = {idx: cost_scale[idx] for idx in range(self.num_llms)}
+        self.reward_weights = reward_weights or {
+            "per_sample": 0.5,
+            "lang_acc": 0.3,
+            "model_acc": 0.2
+        }
+        self.streak_penalty_weight = streak_penalty_weight
+        self.lang_model_history = defaultdict(
+            lambda: defaultdict(lambda: deque(maxlen=100))
+        )
+        self.lang_model_streak = defaultdict(lambda: defaultdict(int))
+        self.lang_aliases = language_aliases.copy() if language_aliases else LANGUAGE_ALIASES.copy()
+        worker_count = max_workers or max(self.num_llms, 1)
+        self.executor = ThreadPoolExecutor(max_workers=worker_count)
         # Precompile helpers for lightweight text featurization
         self._token_pattern = re.compile(r"\b\w+\b", re.UNICODE)
         self._positive_words = {
@@ -311,16 +360,9 @@ class RoutingPipeline:
 
     def get_state(self, text, language):
         # State generation logic remains the same (log of text length + language one-hot)
-        lang_map = {"English":0, "Turkish":1, "Danish":2, "Spanish":3, "Polish":4}
-        lang_vec = np.zeros(6)
-        # Handle cases where language in data is 'Dani', 'Turk', 'Span', 'Pol' and needs mapping
-        lang_key = language
-        if language in {"Dani", "Danish"}: lang_key = "Danish"
-        elif language in {"Turk", "Turkish"}: lang_key = "Turkish"
-        elif language in {"Span", "Spanish"}: lang_key = "Spanish"
-        elif language in {"Pol", "Polish"}: lang_key = "Polish"
-        elif language in {"English", "en"}: lang_key = "English"
-
+        lang_map = {"English":0, "Turk":1, "Dani":2, "Span":3, "Pol":4}
+        lang_vec = np.zeros(len(lang_map))
+        lang_key = self.lang_aliases.get(language, language)
 
         if lang_key in lang_map:
             lang_vec[lang_map[lang_key]] = 1
@@ -350,57 +392,94 @@ class RoutingPipeline:
         padding = np.zeros(padding_size)
         return np.concatenate([features, padding, lang_vec])
 
-    def reward_fn(self, pred_label, true_label, lang):
-        """
-        Original reward function: 1.0 if the predicted label 
-        exactly matches the true label, 0.0 otherwise.
-        """
+    def reward_fn(self, pred_label, true_label, lang, model_idx):
+        """Composite reward with per-language baselines and per-model feedback."""
         per_sample = 1.0 if pred_label == true_label else 0.0
         self.lang_history[lang].append(per_sample)
-
-        # Language-wise accuracy
         lang_accuracy = sum(self.lang_history[lang]) / len(self.lang_history[lang])
 
-        # Combine them
-        final_reward = 0.5 * per_sample + 0.5 * lang_accuracy
-        return final_reward
+        model_history = self.lang_model_history[lang][model_idx]
+        model_history.append(per_sample)
+        model_accuracy = sum(model_history) / len(model_history)
+
+        if per_sample == 0.0:
+            self.lang_model_streak[lang][model_idx] += 1
+        else:
+            self.lang_model_streak[lang][model_idx] = 0
+        streak_penalty = self.streak_penalty_weight * self.lang_model_streak[lang][model_idx]
+
+        weights = self.reward_weights
+        model_cost = self.model_costs.get(model_idx, 0.0)
+        final_reward = (
+            weights.get("per_sample", 0.0) * per_sample +
+            weights.get("lang_acc", 0.0) * lang_accuracy +
+            weights.get("model_acc", 0.0) * model_accuracy +
+            streak_penalty +
+            model_cost
+        )
+
+        reward_details = {
+            "per_sample": per_sample,
+            "lang_accuracy": lang_accuracy,
+            "model_accuracy": model_accuracy,
+            "streak_penalty": streak_penalty,
+            "model_cost": model_cost
+        }
+        return final_reward, reward_details
+
+    def shutdown(self):
+        self.executor.shutdown(wait=True)
 
 
     def train_step(self, batch, output_csv=None):
         states, actions, old_log_probs, rewards, values, dones = [], [], [], [], [], []
+        batch_logs = []
+        task_queue = []
 
         for _, row in batch.iterrows():
             state = self.get_state(row['text'], row['lang'])
             action, log_prob, value = self.agent.select_action(state)
 
-            # NOTE: We use the language keys defined in PROMPTS, not the full name
-            lang_key_for_prompt = row['lang'] # Assumes row['lang'] is 'Dani', 'English', etc.
-            
-            pred_label, decoded_output, prompt_used, llm_name_used, cleaned_output = \
-                self.llm_system.run(action, row['text'], lang_key_for_prompt)
-            
-            true_label = row['label'] # The ground truth category
+            lang_key_for_prompt = self.lang_aliases.get(row['lang'], "English")
+            future = self.executor.submit(
+                self.llm_system.run,
+                action,
+                row['text'],
+                lang_key_for_prompt
+            )
+            task_queue.append((row, lang_key_for_prompt, state, action, log_prob, value, future))
+
+        for row, lang_key_for_prompt, state, action, log_prob, value, future in task_queue:
+            pred_label, decoded_output, prompt_used, llm_name_used, cleaned_output = future.result()
+
+            true_label = row['label']
             print(f"True Category: {true_label}")
             
-            # Original call to reward_fn (no llm_id passed)
-            reward = self.reward_fn(pred_label, true_label, row["lang"])
+            reward, reward_details = self.reward_fn(
+                pred_label,
+                true_label,
+                lang_key_for_prompt,
+                action
+            )
 
             if output_csv is not None:
-                with open(output_csv, "a", newline="", encoding="utf-8") as f:
-                    writer = csv.writer(f)
-                    # **MODIFIED to include reward in CSV**
-                    writer.writerow([
-                        row['text'],
-                        row['lang'],
-                        true_label,
-                        cleaned_output,
-                        action,
-                        pred_label,
-                        reward, # <- ADDED REWARD HERE
-                        decoded_output,
-                        prompt_used,
-                        llm_name_used
-                    ])
+                batch_logs.append([
+                    row['text'],
+                    row['lang'],
+                    true_label,
+                    cleaned_output,
+                    action,
+                    pred_label,
+                    reward,
+                    reward_details["per_sample"],
+                    reward_details["lang_accuracy"],
+                    reward_details["model_accuracy"],
+                    reward_details["streak_penalty"],
+                    reward_details["model_cost"],
+                    decoded_output,
+                    prompt_used,
+                    llm_name_used
+                ])
 
             states.append(state)
             actions.append(action)
@@ -408,6 +487,11 @@ class RoutingPipeline:
             rewards.append(reward)
             values.append(value)
             dones.append(False)
+
+        if output_csv is not None and batch_logs:
+            with open(output_csv, "a", newline="", encoding="utf-8") as f:
+                writer = csv.writer(f)
+                writer.writerows(batch_logs)
 
         states = torch.tensor(np.array(states), dtype=torch.float32)
         # Note: actions need to be tensor of correct type for indexing/dist.log_prob
@@ -437,11 +521,17 @@ if __name__ == "__main__":
 
     # Pass the categories list to the LLM system
     llm_system = HuggingFaceLLMSystem(model_names, PROMPTS, NEWS_CATEGORIES)
+    llm_system.preload_all()
     
     # Using original gamma (0.99) and entropy_weight (0.01)
     agent = PPOAgent(state_dim, num_llms, entropy_weight=0.01) 
     
-    pipeline = RoutingPipeline(agent, llm_system, state_dim)
+    pipeline = RoutingPipeline(
+        agent,
+        llm_system,
+        state_dim,
+        language_aliases=LANGUAGE_ALIASES
+    )
 
     output_csv_path = "llm_classification_outputs.csv"
     if not os.path.exists(output_csv_path):
@@ -450,54 +540,59 @@ if __name__ == "__main__":
             # **MODIFIED CSV header to include 'reward'**
             writer.writerow([
                 "article_text","language","true_category","cleaned_output",
-                "action","pred_category","reward",
+                "action","pred_category","reward","reward_per_sample",
+                "reward_lang_accuracy","reward_model_accuracy",
+                "reward_streak_penalty","reward_model_cost",
                 "decoded_output","prompt","llm_name_used"
             ])
 
     try:
-        # NOTE: Updated column names to match usage in RoutingPipeline: 'text', 'lang', 'label'
-        # Please ensure you update the path below to your actual training data path:
-        data = pd.read_csv("../../data/train.csv", # Placeholder path
-                            dtype={'text': str, 'lang': str, 'label': str},
-                            encoding='utf-8',
-                            on_bad_lines='skip')
-    except FileNotFoundError:
-        print("Error: Training data file not found. Please ensure the path is correct and the file exists.")
-        exit(1)
+        try:
+            # NOTE: Updated column names to match usage in RoutingPipeline: 'text', 'lang', 'label'
+            # Please ensure you update the path below to your actual training data path:
+            data = pd.read_csv("../../data/train.csv", # Placeholder path
+                                dtype={'text': str, 'lang': str, 'label': str},
+                                encoding='utf-8',
+                                on_bad_lines='skip')
+        except FileNotFoundError:
+            print("Error: Training data file not found. Please ensure the path is correct and the file exists.")
+            exit(1)
 
-    # Ensure all languages in the data have a prompt defined for them
-    available_langs = set(data['lang'].unique())
-    supported_langs = set(PROMPTS.keys())
-    unsupported_langs = available_langs - supported_langs
-    
-    if unsupported_langs:
-        print(f"Warning: The dataset contains unsupported languages: {unsupported_langs}. Falling back to 'en' prompt for these samples.")
-
-
-    ROUNDS = 1
-    
-    # Calculate total steps per round for non-repeating batches
-    total_steps_per_round = len(data) // batch_size
-    print(f"Dataset size: {len(data)}. Batch size: {batch_size}. Steps per round: {total_steps_per_round}.")
-    
-    for round in range(ROUNDS):
-        print(f"=== ROUND {round+1} / {ROUNDS} ===")
+        # Ensure all languages in the data have a prompt defined for them
+        available_langs = set(data['lang'].unique())
+        supported_langs = set(LANGUAGE_ALIASES.keys())
+        unsupported_langs = available_langs - supported_langs
         
-        # 1. SHUFFLE the entire dataset at the start of the round (NON-REPETITION)
-        shuffled_data = data.sample(frac=1).reset_index(drop=True)
+        if unsupported_langs:
+            print(f"Warning: The dataset contains unsupported languages: {unsupported_langs}. Falling back to 'en' prompt for these samples.")
+
+
+        ROUNDS = 1
         
-        for step in range(total_steps_per_round):
-            # 2. Extract a non-repeating batch using index slicing
-            start_idx = step * batch_size
-            end_idx = (step + 1) * batch_size
-            batch = shuffled_data.iloc[start_idx:end_idx]
-                
-            pipeline.train_step(batch, output_csv=output_csv_path)
+        # Calculate total steps per round for non-repeating batches
+        total_steps_per_round = len(data) // batch_size
+        print(f"Dataset size: {len(data)}. Batch size: {batch_size}. Steps per round: {total_steps_per_round}.")
+        
+        for round in range(ROUNDS):
+            print(f"=== ROUND {round+1} / {ROUNDS} ===")
             
-            if step % 25 == 0 and step != 0:
-                print(f"Step {step}/{total_steps_per_round} completed")
+            # 1. SHUFFLE the entire dataset at the start of the round (NON-REPETITION)
+            shuffled_data = data.sample(frac=1).reset_index(drop=True)
+            
+            for step in range(total_steps_per_round):
+                # 2. Extract a non-repeating batch using index slicing
+                start_idx = step * batch_size
+                end_idx = (step + 1) * batch_size
+                batch = shuffled_data.iloc[start_idx:end_idx]
+                    
+                pipeline.train_step(batch, output_csv=output_csv_path)
+                
+                if step % 25 == 0 and step != 0:
+                    print(f"Step {step}/{total_steps_per_round} completed")
 
-        torch.save(agent.policy.state_dict(), f"ppo_router_policy_news_round{round+1}.pth")
-        print(f"Checkpoint saved after round {round+1}")
-        
-    print("Training complete.")
+            torch.save(agent.policy.state_dict(), f"ppo_router_policy_news_round{round+1}.pth")
+            print(f"Checkpoint saved after round {round+1}")
+            
+        print("Training complete.")
+    finally:
+        pipeline.shutdown()
