@@ -20,6 +20,12 @@ from evaluation_metrics import (
     print_expert_confusion_matrices
 )
 
+# Import PIIExpert for task-specific evaluation
+from src.models.experts.llms.adapters.finance.pii.PIIExpert import PIIExpert
+
+# Global PIIExpert instance for evaluation
+_pii_expert = PIIExpert()
+
 
 def load_test_data(filepath: str, test_n: int = None) -> List[Dict]:
     """
@@ -39,59 +45,6 @@ def load_test_data(filepath: str, test_n: int = None) -> List[Dict]:
         data = data[:test_n]
 
     return data
-
-
-def compute_pii_match_score(pred_label: str, gt_label: str) -> float:
-    """
-    Compute entity-level F1 score between predicted and ground truth PII entities.
-
-    Args:
-        pred_label: JSON string of predicted PII entities
-        gt_label: JSON string of ground truth PII entities
-
-    Returns:
-        F1 score between 0.0 and 1.0
-    """
-    # Parse JSON strings to entity lists
-    try:
-        pred_entities = json.loads(pred_label) if isinstance(pred_label, str) else pred_label
-        if not isinstance(pred_entities, list):
-            pred_entities = []
-    except:
-        pred_entities = []
-
-    try:
-        gt_entities = json.loads(gt_label) if isinstance(gt_label, str) else gt_label
-        if not isinstance(gt_entities, list):
-            gt_entities = []
-    except:
-        gt_entities = []
-
-    # Convert to sets for matching (text, label, occurrence)
-    # Use case-insensitive text matching
-    def entity_to_tuple(e):
-        if isinstance(e, dict) and all(k in e for k in ['text', 'label', 'occurrence']):
-            return (str(e['text']).lower().strip(), str(e['label']), int(e.get('occurrence', 1)))
-        return None
-
-    pred_set = {t for t in (entity_to_tuple(e) for e in pred_entities) if t is not None}
-    gt_set = {t for t in (entity_to_tuple(e) for e in gt_entities) if t is not None}
-
-    # Calculate F1
-    if not gt_set and not pred_set:
-        return 1.0  # Both empty = perfect match
-    if not gt_set or not pred_set:
-        return 0.0  # One empty, one not
-
-    tp = len(gt_set & pred_set)
-    fp = len(pred_set - gt_set)
-    fn = len(gt_set - pred_set)
-
-    precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-    recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
-    f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
-
-    return f1
 
 
 def compute_task_specific_metrics(system: PromptRoutingSystem,
@@ -138,10 +91,13 @@ def compute_task_specific_metrics(system: PromptRoutingSystem,
                 from src.models.experts.llms.adapters.finance.news_classification.NewsClassificationExpert import NewsClassificationExpert
                 expert = NewsClassificationExpert()
             elif task_name == 'pii':
-                # Get PII expert
-                from src.models.experts.llms.adapters.finance.pii.PIIExpert import PIIExpert
-                expert = PIIExpert()
-                # For PII, parse JSON strings to entity lists
+                # Get PII expert - use the global instance
+                expert = _pii_expert
+                # For PII, compute accuracy metrics using the raw strings
+                # The expert methods handle parsing internally
+                accuracy_metrics = expert.compute_accuracy_metrics(predictions, ground_truths)
+
+                # For compute_metrics, we still need parsed entity lists
                 parsed_predictions = []
                 parsed_ground_truths = []
                 for pred, gt in zip(predictions, ground_truths):
@@ -150,17 +106,30 @@ def compute_task_specific_metrics(system: PromptRoutingSystem,
                         pred_entities = json.loads(pred) if isinstance(pred, str) else pred
                     except:
                         pred_entities = []
-                    parsed_predictions.append(pred_entities if isinstance(pred_entities, list) else [])
+                    parsed_predictions.append(
+                        pred_entities if isinstance(pred_entities, list) else []
+                    )
 
                     # Parse ground truth
                     try:
                         gt_entities = json.loads(gt) if isinstance(gt, str) else gt
                     except:
                         gt_entities = []
-                    parsed_ground_truths.append(gt_entities if isinstance(gt_entities, list) else [])
+                    parsed_ground_truths.append(
+                        gt_entities if isinstance(gt_entities, list) else []
+                    )
 
-                predictions = parsed_predictions
-                ground_truths = parsed_ground_truths
+                # Compute entity-level metrics
+                metrics = expert.compute_metrics(parsed_predictions, parsed_ground_truths)
+                # Add accuracy metrics to the result
+                metrics['accuracy_metrics'] = accuracy_metrics
+
+                task_specific_metrics[task_name] = {
+                    'status': 'success',
+                    'metrics': metrics,
+                    'num_samples': len(predictions)
+                }
+                continue  # Skip the generic expert.compute_metrics call below
             else:
                 task_specific_metrics[task_name] = {
                     'status': 'unknown_task',
@@ -208,8 +177,15 @@ def evaluate_routing_system(system: PromptRoutingSystem,
                           if isinstance(item, dict) and 'domain' in item})
     task_labels = sorted({item['task'] for item in test_data
                         if isinstance(item, dict) and 'task' in item})
+    # For expert labels, exclude PII task labels (they are JSON arrays, not suitable for confusion matrix)
+    # PII uses F1 score categories instead
     expert_labels = sorted({item['label'] for item in test_data
-                          if isinstance(item, dict) and 'label' in item})
+                          if isinstance(item, dict) and 'label' in item
+                          and item.get('task') != 'pii'})
+    # Add PII F1 score categories if PII task exists
+    if 'pii' in task_labels:
+        pii_categories = ["pii_gt"] + [f"F1_{i}%" for i in range(0, 110, 10)]
+        expert_labels = expert_labels + pii_categories
 
     # Confusion matrices
     cm_domain = Counter()
@@ -290,7 +266,7 @@ def evaluate_routing_system(system: PromptRoutingSystem,
         # Update statistics
         # For PII task, use entity-level F1 instead of exact match
         if gt_task == 'pii':
-            is_correct = compute_pii_match_score(pred_label, gt_label) > 0.5
+            is_correct = _pii_expert.is_correct(pred_label, gt_label, threshold=0.5)
         else:
             is_correct = (pred_label == gt_label)
         dom_ok = (pred_domain == gt_domain)
@@ -302,8 +278,7 @@ def evaluate_routing_system(system: PromptRoutingSystem,
         cm_task[(gt_task, pred_task)] += 1
         # For PII, use F1 score category instead of raw labels for confusion matrix
         if gt_task == 'pii':
-            pii_score = compute_pii_match_score(pred_label, gt_label)
-            pii_category = f"F1_{int(pii_score * 10) * 10}%"  # Bucket into 0%, 10%, ..., 100%
+            pii_category = _pii_expert.get_score_category(pred_label, gt_label)
             cm_expert[(f"pii_gt", pii_category)] += 1
         else:
             cm_expert[(gt_label, pred_label)] += 1
@@ -321,9 +296,14 @@ def evaluate_routing_system(system: PromptRoutingSystem,
             per_expert_correct[expert_key] += 1
 
         # Per-expert confusion matrix
+        # For PII, use F1 score category instead of raw labels
         if expert_key not in per_expert_cm:
             per_expert_cm[expert_key] = Counter()
-        per_expert_cm[expert_key][(gt_label, pred_label)] += 1
+        if gt_task == 'pii':
+            pii_category = _pii_expert.get_score_category(pred_label, gt_label)
+            per_expert_cm[expert_key][("pii_gt", pii_category)] += 1
+        else:
+            per_expert_cm[expert_key][(gt_label, pred_label)] += 1
 
         # Track which expert was used for each language
         per_lang_expert[lang_tag] = expert_key
@@ -431,12 +411,24 @@ def print_task_specific_metrics(task_specific_metrics: Dict):
                     print(f"    {label:20s} : {pct(f1)}")
 
         elif task_name == 'pii':
-            # PII extraction metrics
+            # PII extraction metrics - Accuracy Metrics
+            acc_metrics = metrics.get('accuracy_metrics', {})
+            print("  📈 Accuracy Metrics:")
+            print(f"    Token-Level Accuracy : {pct(acc_metrics.get('token_level_accuracy', 0.0))}")
+            print(f"    Exact Match Accuracy : {pct(acc_metrics.get('exact_match_accuracy', 0.0))}")
+            print(f"    Average F1 Score     : {pct(acc_metrics.get('average_f1_score', 0.0))}")
+            print(f"    Perfect F1 (=100%)   : {acc_metrics.get('perfect_f1_count', 0)} ({pct(acc_metrics.get('perfect_f1_pct', 0.0))})")
+            print(f"    Zero F1 (=0%)        : {acc_metrics.get('zero_f1_count', 0)} ({pct(acc_metrics.get('zero_f1_pct', 0.0))})")
+
+            print()
             print("  📈 Entity-Level Metrics:")
-            print(f"    Micro F1           : {pct(metrics.get('micro_f1', 0.0))}")
-            print(f"    Macro F1           : {pct(metrics.get('macro_f1', 0.0))}")
-            print(f"    Total gold entities: {metrics.get('total_gold_entities', 0)}")
-            print(f"    Total pred entities: {metrics.get('total_predicted_entities', 0)}")
+            print(f"    Micro F1             : {pct(metrics.get('micro_f1', 0.0))}")
+            print(f"    Macro F1             : {pct(metrics.get('macro_f1', 0.0))}")
+            print(f"    Micro Precision      : {pct(metrics.get('micro_precision', 0.0))}")
+            print(f"    Micro Recall         : {pct(metrics.get('micro_recall', 0.0))}")
+            print(f"    Total gold entities  : {metrics.get('total_gold_entities', 0)}")
+            print(f"    Total pred entities  : {metrics.get('total_pred_entities', 0)}")
+            print(f"    Correct tokens       : {acc_metrics.get('total_correct_tokens', 0)} / {acc_metrics.get('total_tokens', 0)}")
 
             # Per-label metrics
             per_label = metrics.get('per_label_metrics', {})
@@ -445,7 +437,9 @@ def print_task_specific_metrics(task_specific_metrics: Dict):
                 print("  📊 Per-Label Metrics:")
                 print(f"    {'Label':20s} | {'Precision':>10} | {'Recall':>10} | {'F1':>10}")
                 print("    " + "-" * 56)
-                for label, label_metrics in sorted(per_label.items(), key=lambda x: x[1].get('f1', 0), reverse=True):
+                for label, label_metrics in sorted(
+                    per_label.items(), key=lambda x: x[1].get('f1', 0), reverse=True
+                ):
                     p = label_metrics.get('precision', 0.0)
                     r = label_metrics.get('recall', 0.0)
                     f1 = label_metrics.get('f1', 0.0)

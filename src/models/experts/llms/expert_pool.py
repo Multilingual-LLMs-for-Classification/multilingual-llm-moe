@@ -132,7 +132,6 @@ class LLMAdapterPool:
 
     # ---------- Adapters ---------- #
     def _ensure_adapter(self, base_key: str, adapter_name: str, adapter_path: str):
-        
         """Load LoRA adapter onto base model if not yet loaded."""
         if not PEFT_AVAILABLE:
             raise RuntimeError("peft is not installed. `pip install peft`")
@@ -141,27 +140,34 @@ class LLMAdapterPool:
         model = slot["model"]
 
         if adapter_name in slot["adapters_loaded"]:
+            # Already loaded, no need to print (reduces terminal clutter)
             return
+
         root = Path(__file__).parents[4]
-        adapter_path = (root / adapter_path).resolve()
-        
+        full_adapter_path = (root / adapter_path).resolve()
+
+        print(f"[Adapter] Loading adapter '{adapter_name}' from: {full_adapter_path}")
+
         if hasattr(model, "load_adapter"):
-            model.load_adapter(adapter_path, adapter_name=adapter_name)
+            model.load_adapter(full_adapter_path, adapter_name=adapter_name)
         else:
             peft_model = PeftModel.from_pretrained(
                 model,
-                adapter_path,
+                full_adapter_path,
                 adapter_name=adapter_name,
                 is_trainable=False
             )
             self.base_models[base_key]["model"] = peft_model
             model = peft_model
+
         slot["adapters_loaded"].add(adapter_name)
+        print(f"✓ Adapter '{adapter_name}' loaded successfully on base model '{base_key}'")
 
     def _activate_adapter(self, base_key: str, adapter_name: Optional[str]):
-        
+        """Activate/switch to the specified adapter on the base model."""
         slot = self.base_models[base_key]
         model = slot["model"]
+
         if adapter_name is None:
             # fall back to base (disable adapters if supported)
             if hasattr(model, "disable_adapter"):
@@ -169,6 +175,7 @@ class LLMAdapterPool:
             elif hasattr(model, "disable_adapters"):
                 model.disable_adapters()
             slot["active"] = None
+            print(f"[Adapter] Disabled adapters on '{base_key}', using base model")
             return
 
         # set active
@@ -177,6 +184,7 @@ class LLMAdapterPool:
         elif hasattr(model, "set_active_adapters"):
             model.set_active_adapters(adapter_name)
         slot["active"] = adapter_name
+        # Only print on first activation to reduce terminal clutter
 
     # ---------- Public API ---------- #
     def _resolve_base_model_for_language(self, task_key: str, language: Optional[str]) -> Tuple[str, Optional[str], Optional[str], Optional[str]]:

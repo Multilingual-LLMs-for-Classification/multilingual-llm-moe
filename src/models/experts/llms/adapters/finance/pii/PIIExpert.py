@@ -80,25 +80,31 @@ class PIIExpert:
         3. Repair truncated JSON
         4. Fix JSON syntax errors
         5. Extract objects individually (last resort)
+
+        Note: Entities with empty "text" fields are filtered out by _sanitize_entities
+        since they represent no actual PII detected.
         """
         if not isinstance(output, str) or not output.strip():
             return []
 
+        # Clean the output first - remove common prefixes/suffixes
+        cleaned_output = output.strip()
+
         # Strategy 1: Direct parse (best case)
         try:
-            result = json.loads(output)
+            result = json.loads(cleaned_output)
             if isinstance(result, list):
                 return self._sanitize_entities(result)
-        except:
+        except Exception:
             pass
 
         # Strategy 2: Extract JSON array and parse
-        extracted = self._extract_json_array(output)
+        extracted = self._extract_json_array(cleaned_output)
         try:
             result = json.loads(extracted)
             if isinstance(result, list):
                 return self._sanitize_entities(result)
-        except:
+        except Exception:
             pass
 
         # Strategy 3: Repair truncated JSON
@@ -107,7 +113,7 @@ class PIIExpert:
             result = json.loads(repaired)
             if isinstance(result, list):
                 return self._sanitize_entities(result)
-        except:
+        except Exception:
             pass
 
         # Strategy 4: Fix syntax errors
@@ -116,11 +122,11 @@ class PIIExpert:
             result = json.loads(fixed)
             if isinstance(result, list):
                 return self._sanitize_entities(result)
-        except:
+        except Exception:
             pass
 
         # Strategy 5: Extract objects individually (last resort)
-        objects = self._extract_objects_individually(output)
+        objects = self._extract_objects_individually(cleaned_output)
         if objects:
             return self._sanitize_entities(objects)
 
@@ -128,31 +134,51 @@ class PIIExpert:
         return []
 
     def _extract_json_array(self, text: str) -> str:
-        """Extract JSON array from text (handles markdown code blocks)."""
+        """Extract JSON array from text (handles markdown code blocks and trailing text)."""
         if not isinstance(text, str):
             return "[]"
 
-        # Strategy 1: Find complete JSON array
-        array_pattern = r'\[(?:[^\[\]]|\[[^\[\]]*\])*\]'
-        matches = re.findall(array_pattern, text, re.DOTALL)
-        if matches:
-            # Return the longest match (most likely to be complete)
-            return max(matches, key=len)
-
-        # Strategy 2: Find array boundaries even if nested
+        # Strategy 1: Find array boundaries by tracking brackets (most reliable)
+        # This handles cases like: [{"text":"..."}] Note: additional text here
         if "[" in text:
             start = text.index("[")
-            # Find matching closing bracket
             bracket_count = 0
+            in_string = False
+            escape_next = False
+
             for i, char in enumerate(text[start:], start):
+                if escape_next:
+                    escape_next = False
+                    continue
+                if char == '\\':
+                    escape_next = True
+                    continue
+                if char == '"' and not escape_next:
+                    in_string = not in_string
+                    continue
+                if in_string:
+                    continue
+
                 if char == "[":
                     bracket_count += 1
                 elif char == "]":
                     bracket_count -= 1
                     if bracket_count == 0:
                         return text[start:i+1]
-            # If no matching bracket, take everything after [
-            return text[start:]
+
+            # If no matching bracket found, try simpler extraction
+            # Take everything from [ to last ]
+            if "]" in text[start:]:
+                last_bracket = text.rindex("]")
+                if last_bracket > start:
+                    return text[start:last_bracket+1]
+
+        # Strategy 2: Find complete JSON array with regex (fallback)
+        array_pattern = r'\[(?:[^\[\]]|\[[^\[\]]*\])*\]'
+        matches = re.findall(array_pattern, text, re.DOTALL)
+        if matches:
+            # Return the longest match (most likely to be complete)
+            return max(matches, key=len)
 
         return "[]"
 
@@ -219,9 +245,15 @@ class PIIExpert:
         """Last resort: extract individual JSON objects from malformed text."""
         objects = []
 
-        # Find all potential JSON objects
+        # Find all potential JSON objects - multiple patterns for flexibility
+        # Pattern 1: Standard object with all three fields
         object_pattern = r'\{[^{}]*"text"[^{}]*"label"[^{}]*"occurrence"[^{}]*\}'
         matches = re.findall(object_pattern, text)
+
+        # Pattern 2: Objects where fields might be in different order
+        if not matches:
+            object_pattern2 = r'\{\s*"[^"]+"\s*:\s*[^{}]+\}'
+            matches = re.findall(object_pattern2, text)
 
         for match in matches:
             try:
@@ -229,14 +261,14 @@ class PIIExpert:
                 obj = json.loads(match)
                 if all(key in obj for key in ["text", "label", "occurrence"]):
                     objects.append(obj)
-            except:
+            except Exception:
                 # Try with quote fixing
                 try:
                     fixed = match.replace("'", '"')
                     obj = json.loads(fixed)
                     if all(key in obj for key in ["text", "label", "occurrence"]):
                         objects.append(obj)
-                except:
+                except Exception:
                     continue
 
         return objects
@@ -565,3 +597,135 @@ class PIIExpert:
         score = self.compute_match_score(pred_label, gt_label)
         bucket = int(score * 10) * 10  # Bucket into 0%, 10%, ..., 100%
         return f"F1_{bucket}%"
+
+    def compute_token_level_accuracy(self, pred_label: str, gt_label: str) -> Tuple[int, int]:
+        """
+        Calculate token-level accuracy based on correctly identified PII entities.
+
+        Token-level accuracy counts how many ground truth entities were correctly
+        identified (text + label match, ignoring occurrence).
+
+        Args:
+            pred_label: JSON string of predicted PII entities
+            gt_label: JSON string of ground truth PII entities
+
+        Returns:
+            Tuple of (correct_tokens, total_tokens) for this sample
+        """
+        pred_entities = self.parse_label(pred_label)
+        gt_entities = self.parse_label(gt_label)
+
+        # Sanitize entities
+        pred_entities = self._sanitize_entities(pred_entities)
+        gt_entities = self._sanitize_entities(gt_entities)
+
+        # Convert to sets (text, label) - ignoring occurrence for token matching
+        gold_set = {
+            (e["text"].lower().strip(), e["label"])
+            for e in gt_entities
+        }
+        pred_set = {
+            (e["text"].lower().strip(), e["label"])
+            for e in pred_entities
+        }
+
+        total_tokens = len(gold_set)
+        correct_tokens = len(gold_set & pred_set)
+
+        return correct_tokens, total_tokens
+
+    def compute_exact_match_accuracy(self, pred_label: str, gt_label: str) -> bool:
+        """
+        Check if prediction exactly matches ground truth (all entities identical).
+
+        Args:
+            pred_label: JSON string of predicted PII entities
+            gt_label: JSON string of ground truth PII entities
+
+        Returns:
+            True if exact match, False otherwise
+        """
+        pred_entities = self.parse_label(pred_label)
+        gt_entities = self.parse_label(gt_label)
+
+        # Sanitize entities
+        pred_entities = self._sanitize_entities(pred_entities)
+        gt_entities = self._sanitize_entities(gt_entities)
+
+        # Normalize for comparison (sorted string representation)
+        def normalize_entities(entities):
+            normalized = []
+            for e in entities:
+                normalized.append((
+                    e["text"].lower().strip(),
+                    e["label"],
+                    e["occurrence"]
+                ))
+            return sorted(normalized)
+
+        gold_normalized = normalize_entities(gt_entities)
+        pred_normalized = normalize_entities(pred_entities)
+
+        return gold_normalized == pred_normalized
+
+    def compute_accuracy_metrics(self, predictions: List[str], ground_truths: List[str]) -> Dict:
+        """
+        Compute comprehensive accuracy metrics for PII evaluation.
+
+        This includes:
+        - Token-level accuracy (correctly identified entities / total entities)
+        - Exact match accuracy (predictions exactly matching ground truth)
+        - F1-based metrics (already in compute_metrics)
+
+        Args:
+            predictions: List of predicted JSON strings
+            ground_truths: List of ground truth JSON strings
+
+        Returns:
+            Dictionary with accuracy metrics
+        """
+        if len(predictions) != len(ground_truths):
+            raise ValueError("Predictions and ground truths must have same length")
+
+        total_correct_tokens = 0
+        total_tokens = 0
+        exact_matches = 0
+        perfect_f1_count = 0
+        zero_f1_count = 0
+        f1_scores = []
+
+        for pred, gt in zip(predictions, ground_truths):
+            # Token-level accuracy
+            correct, total = self.compute_token_level_accuracy(pred, gt)
+            total_correct_tokens += correct
+            total_tokens += total
+
+            # Exact match
+            if self.compute_exact_match_accuracy(pred, gt):
+                exact_matches += 1
+
+            # F1 score for this sample
+            f1 = self.compute_match_score(pred, gt)
+            f1_scores.append(f1)
+
+            if f1 == 1.0:
+                perfect_f1_count += 1
+            elif f1 == 0.0:
+                zero_f1_count += 1
+
+        num_samples = len(predictions)
+
+        return {
+            "total_samples": num_samples,
+            "token_level_accuracy": total_correct_tokens / total_tokens if total_tokens > 0 else 0.0,
+            "total_correct_tokens": total_correct_tokens,
+            "total_tokens": total_tokens,
+            "exact_match_accuracy": exact_matches / num_samples if num_samples > 0 else 0.0,
+            "exact_matches": exact_matches,
+            "average_f1_score": np.mean(f1_scores) if f1_scores else 0.0,
+            "f1_std": np.std(f1_scores) if f1_scores else 0.0,
+            "perfect_f1_count": perfect_f1_count,
+            "perfect_f1_pct": perfect_f1_count / num_samples if num_samples > 0 else 0.0,
+            "zero_f1_count": zero_f1_count,
+            "zero_f1_pct": zero_f1_count / num_samples if num_samples > 0 else 0.0,
+        }

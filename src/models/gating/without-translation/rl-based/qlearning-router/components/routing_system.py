@@ -77,7 +77,7 @@ class PromptRoutingSystem:
             self.model_loader.download_all_models()
 
         self.expert_pool = LLMAdapterPool(self.expert_registry_path)
-        
+
         # Instantiate experts per domain/task using the registry
         self.experts = {}
         for domain, tasks in self.domain_tasks.items():
@@ -92,7 +92,9 @@ class PromptRoutingSystem:
                     ),
                     pool=self.expert_pool
                 )
-        print(f"Initialized experts: {self.experts}")
+        # Summary of initialized experts (without printing full dict)
+        expert_count = sum(len(tasks) for tasks in self.experts.values())
+        print(f"✅ Initialized {expert_count} task experts across {len(self.experts)} domains")
     
     def save_all_models(self):
         print("💾 Saving all models...")
