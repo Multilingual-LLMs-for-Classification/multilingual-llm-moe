@@ -46,7 +46,30 @@ class TaskExpert:
             print(f"[WARNING] No cleanup expert for {self.task_key}: {e}")
         # ------------------------------------------------------------------
 
-    def predict(self, classification_text: str, review_title: str, prompt: str, language: str = "en"):
+    def predict(self, input_data: dict, prompt: str, language: str = "en"):
+        """
+        Generic prediction method supporting multiple task types.
+
+        Delegates to task-specific expert for input preparation.
+
+        Args:
+            input_data: Task-specific data fields (e.g., {"text": "...", "title": "..."})
+            prompt: Full prompt with instructions
+            language: Language code (e.g., "english", "german")
+
+        Returns:
+            Tuple of (cleaned_output, confidence, raw_output)
+        """
+        # Delegate field extraction to task-specific expert if available
+        if self.cleaner and hasattr(self.cleaner, 'prepare_input'):
+            classification_text, review_title = self.cleaner.prepare_input(input_data)
+        else:
+            # Fallback: generic field extraction if expert doesn't have prepare_input
+            classification_text = input_data.get("text",
+                                                input_data.get("classification_text",
+                                                input_data.get("generated_text", "")))
+            review_title = input_data.get("title",
+                                         input_data.get("review_title", ""))
 
         overrides = self.cfg.generation or {}
         raw_output, conf = self.pool.generate(

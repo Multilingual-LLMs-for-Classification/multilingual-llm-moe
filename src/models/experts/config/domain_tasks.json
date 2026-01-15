@@ -11,6 +11,21 @@
             "emotion",
             "review"
         ],
+        "pii": [
+            "pii",
+            "personal",
+            "private",
+            "sensitive",
+            "identify",
+            "extract",
+            "entity",
+            "name",
+            "address",
+            "phone",
+            "email",
+            "ssn",
+            "credit card"
+        ],
         "news": [
             "news",
             "headline",
@@ -21,15 +36,6 @@
             "press",
             "media",
             "report"
-        ]
-    },
-    "general": {
-        "text_summarization": [
-            "summary",
-            "summarize",
-            "brief",
-            "key points",
-            "overview"
         ]
     }
 }

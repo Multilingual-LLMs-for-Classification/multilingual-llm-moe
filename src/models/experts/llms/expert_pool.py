@@ -179,24 +179,25 @@ class LLMAdapterPool:
         slot["active"] = adapter_name
 
     # ---------- Public API ---------- #
-    def _resolve_base_model_for_language(self, task_key: str, language: Optional[str]) -> Tuple[str, Optional[str], Optional[str]]:
+    def _resolve_base_model_for_language(self, task_key: str, language: Optional[str]) -> Tuple[str, Optional[str], Optional[str], Optional[str]]:
         """
         Resolve which base model, adapter, and template to use based on language mapping.
-        Returns: (base_model_key, adapter_path, template_path)
+        Returns: (base_model_key, adapter_name, adapter_path, template_path)
         """
         tcfg = self.cfg["tasks"].get(task_key)
         if not tcfg:
             raise ValueError(f"Task {task_key} not found in registry")
 
-        # Default: use task's base_model_key, adapter_path, and template_path
+        # Default: use task's base_model_key, adapter_name, adapter_path, and template_path
         default_base = tcfg.get("base_model_key")
-        default_adapter = tcfg.get("adapter_path")
+        default_adapter_name = tcfg.get("adapter_name")
+        default_adapter_path = tcfg.get("adapter_path")
         default_template = tcfg.get("template_path")
 
         # Check if task has language_mapping
         lang_mapping = tcfg.get("language_mapping")
         if not lang_mapping or not language:
-            return default_base, default_adapter, default_template
+            return default_base, default_adapter_name, default_adapter_path, default_template
 
         # Normalize language (e.g., 'english' detected by FastText)
         lang_normalized = language.lower()
@@ -207,23 +208,25 @@ class LLMAdapterPool:
             # Check if it's a per-language entry (no "languages" key)
             if "languages" not in lang_cfg:
                 base_key = lang_cfg.get("base_model_key", default_base)
-                adapter_path = lang_cfg.get("adapter_path", default_adapter)
+                adapter_name = lang_cfg.get("adapter_name", default_adapter_name)
+                adapter_path = lang_cfg.get("adapter_path", default_adapter_path)
                 template_path = lang_cfg.get("template_path", default_template)
-                print(f"[LLMAdapterPool] Language '{language}' → per-language mapping → model '{base_key}'")
-                return base_key, adapter_path, template_path
+                print(f"[LLMAdapterPool] Language '{language}' → per-language mapping → model '{base_key}', adapter '{adapter_name}'")
+                return base_key, adapter_name, adapter_path, template_path
 
         # Priority 2: Find which group contains this language
         for group_name, group_cfg in lang_mapping.items():
             if lang_normalized in group_cfg.get("languages", []):
                 base_key = group_cfg.get("base_model_key", default_base)
-                adapter_path = group_cfg.get("adapter_path", default_adapter)
+                adapter_name = group_cfg.get("adapter_name", default_adapter_name)
+                adapter_path = group_cfg.get("adapter_path", default_adapter_path)
                 template_path = group_cfg.get("template_path", default_template)
-                print(f"[LLMAdapterPool] Language '{language}' → group '{group_name}' → model '{base_key}'")
-                return base_key, adapter_path, template_path
+                print(f"[LLMAdapterPool] Language '{language}' → group '{group_name}' → model '{base_key}', adapter '{adapter_name}'")
+                return base_key, adapter_name, adapter_path, template_path
 
         # Priority 3: Fallback to default if language not in any group
         print(f"[LLMAdapterPool] Language '{language}' not in mapping, using default '{default_base}'")
-        return default_base, default_adapter, default_template
+        return default_base, default_adapter_name, default_adapter_path, default_template
 
     def ensure_task_ready(self, task_key: str, language: Optional[str] = None) -> Tuple[AutoModelForCausalLM, AutoTokenizer]:
         """
@@ -235,15 +238,14 @@ class LLMAdapterPool:
         if tcfg is None:
             raise KeyError(f"Task '{task_key}' not found in experts_registry.json")
 
-        # Resolve base model, adapter, and template based on language
-        base_key, adapter_path, _ = self._resolve_base_model_for_language(task_key, language)
+        # Resolve base model, adapter_name, adapter_path, and template based on language
+        base_key, adapter_name, adapter_path, _ = self._resolve_base_model_for_language(task_key, language)
         self._load_base_if_needed(base_key)
 
         # Update access time since we're using this model
         self._update_access_time(base_key)
 
-        adapter_name = tcfg.get("adapter_name")
-        # Use resolved adapter_path from language mapping if available
+        # Use resolved adapter_name and adapter_path from language mapping
         if adapter_name and adapter_path:
             self._ensure_adapter(base_key, adapter_name, adapter_path)
             self._activate_adapter(base_key, adapter_name)
@@ -275,7 +277,7 @@ class LLMAdapterPool:
         Load template for specific language, respecting language_mapping overrides.
         Returns the template content (dict if JSON, string if text file).
         """
-        _, _, tpath = self._resolve_base_model_for_language(task_key, language)
+        _, _, _, tpath = self._resolve_base_model_for_language(task_key, language)
 
         if not tpath:
             return None

@@ -1,9 +1,0 @@
-{
-    "finance": {
-        "sentiment_analysis": {
-            "model_type": "huggingface",
-            "model_name": "FacebookAI/xlm-roberta-large",
-            "download_if_missing": true
-        }
-    }
-}

@@ -1,0 +1,49 @@
+{
+  "expert_registry_path": "src/models/experts/config/experts_registry.json",
+  "domain_tasks_path": "src/models/experts/config/domain_tasks.json",
+  "model_config_path": "src/models/experts/config/model_config.json",
+
+  "language_config": {
+    "registry_path": "src/models/experts/config/experts_registry.json",
+    "fasttext_model_path": null,
+    "chunk_size": 1000
+  },
+
+  "domain_config": {
+    "model_name": "xlm-roberta-base",
+    "model_dir": null,
+    "max_len": 128,
+    "alpha_proto": 0.30,
+    "proto_temp": 10.0,
+    "epochs": 1,
+    "batch_size": 32,
+    "lr": 2e-5,
+    "freeze_encoder": true,
+    "class_weighting": true
+  },
+
+  "qlearning_config": {
+    "encoder_name": "xlm-roberta-base",
+    "model_dir": null,
+    "max_len": 128,
+    "batch_size": 16,
+    "lr": 1e-5,
+    "epochs": 1,
+    "eps_start": 0.2,
+    "eps_end": 0.01,
+    "eps_decay_steps": 10000,
+    "val_split": 0.1
+  },
+
+  "training": {
+    "data_path": "train_combined.json",
+    "enable_training": true
+  },
+
+  "evaluation": {
+    "test_data_path": "test_combined_sample.json",
+    "test_n": null,
+    "output_path": "predictions_with_raw_responses.csv",
+    "enable_evaluation": true
+  }
+}
