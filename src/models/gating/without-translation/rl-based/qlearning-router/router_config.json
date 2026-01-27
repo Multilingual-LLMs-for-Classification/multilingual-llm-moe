@@ -41,7 +41,7 @@
   },
 
   "evaluation": {
-    "test_data_path": "test_combined_sample.json",
+    "test_data_path": "test_combined.json",
     "test_n": null,
     "output_path": "predictions_with_raw_responses.csv",
     "enable_evaluation": true

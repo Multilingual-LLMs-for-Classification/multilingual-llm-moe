@@ -130,7 +130,7 @@
           "template_path": "src/models/experts/llms/adapters/finance/pii/template.json"
         },
         "french": {
-          "base_model_key": "llama-3-8B-Instruct",
+          "base_model_key": "Mistral-7B-Instruct-v0.3",
           "adapter_name": "fin-pii-fr",
           "adapter_path": "src/models/experts/llms/adapters/finance/pii/Llama-3-8B-Instruct/",
           "template_path": "src/models/experts/llms/adapters/finance/pii/template.json"

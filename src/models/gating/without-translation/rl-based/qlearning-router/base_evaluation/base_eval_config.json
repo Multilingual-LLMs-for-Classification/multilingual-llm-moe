@@ -1,0 +1,20 @@
+{
+  "expert_registry_path": "src/models/experts/config/experts_registry.json",
+  "base_model": {
+    "base_model_key": "mistral-7B-Instruct-v0.3",
+    "load_in_4bit": true,
+    "device_map": "auto"
+  },
+  "generation": {
+    "max_new_tokens": 256,
+    "temperature": 0.2,
+    "top_p": 0.9,
+    "repetition_penalty": 1.05
+  },
+  "evaluation": {
+    "test_data_path": "../test_combined.json",
+    "test_n": null,
+    "output_path": "base_model_predictions.csv"
+  },
+  "tasks": ["rating", "news", "pii"]
+}

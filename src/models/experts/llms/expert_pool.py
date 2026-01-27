@@ -318,10 +318,12 @@ class LLMAdapterPool:
         template = self.get_task_template_for_language(task_key, language)
 
         if isinstance(template, dict):
-            # normalize language key
-            lang_key = language.lower()
+            # Always use English template for all languages
+            # This matches the training setup where English prompts were used
+            lang_key = "english"
             if lang_key not in template:
-                lang_key = "english"
+                # Fallback to first available key if no English template
+                lang_key = next(iter(template.keys()))
             # Truncate inputs to match run_lora_star.py
             truncated_text = str(classification_text).replace('\n', ' ').strip()[:400]
             truncated_title = str(review_title).replace('\n', ' ').strip()[:80]

@@ -24,6 +24,8 @@ Examples:
   # Train and evaluate with default config
   python main.py --mode all
 
+  nohup python main.py > output.log 2>&1 &
+
   # Train only
   python main.py --mode train --config my_config.json
 

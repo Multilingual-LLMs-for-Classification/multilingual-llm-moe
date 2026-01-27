@@ -1,0 +1,577 @@
+nohup: ignoring input
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+`torch_dtype` is deprecated! Use `dtype` instead!
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: test_combined_sample.json
+Test samples: all
+Output path: predictions_with_raw_responses.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/news: ['da', 'en', 'es', 'po', 'tu']
+   All supported languages: ['chinese', 'danish', 'english', 'french', 'german', 'japanese', 'po', 'spanish', 'tu']
+✅ Built dynamic language mapping for 9 languages:
+   ['chinese', 'danish', 'english', 'french', 'german', 'japanese', 'po', 'spanish', 'tu']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+✅ Initialized 3 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 3
+   - Supported languages: 9
+
+📂 Loading test data from: test_combined_sample.json
+✅ Loaded 18 test samples
+
+Evaluating on 18 test samples...
+================================================================================
+[LLMAdapterPool] Language 'japanese' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-sentiment-ja'
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:09<00:09,  9.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  5.80s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  6.37s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+`generation_config` default values have been modified to match model-specific defaults: {'pad_token_id': 3, 'bos_token_id': 1, 'eos_token_id': 2}. If this is not desired, please set these values explicitly.
+[Adapter] Loading adapter 'fin-sentiment-ja' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf
+✓ Adapter 'fin-sentiment-ja' loaded successfully on base model 'llama-2-7b-hf'
+[LLMAdapterPool] Language 'japanese' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-sentiment-ja'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: bloomz-7b1 (bigscience/bloomz-7b1)
+[Adapter] Loading adapter 'fin-sentiment-zh' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/bloomz-7b1
+✓ Adapter 'fin-sentiment-zh' loaded successfully on base model 'bloomz-7b1'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-sentiment-en'
+[Memory Management] Unloading model 'bloomz-7b1' from GPU...
+✓ Model 'bloomz-7b1' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:09<00:09,  9.42s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  5.74s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  6.29s/it]
+[Adapter] Loading adapter 'fin-sentiment-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf
+✓ Adapter 'fin-sentiment-en' loaded successfully on base model 'llama-2-7b-hf'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-sentiment-en'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'aya-23', adapter 'fin-sentiment-es'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:10,  3.62s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:08<00:08,  4.18s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:12<00:04,  4.42s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.52s/it]
+[Adapter] Loading adapter 'fin-sentiment-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/aya-23
+✓ Adapter 'fin-sentiment-es' loaded successfully on base model 'aya-23'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'aya-23', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'french' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-fr'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: deepseek-llm-7b-chat (deepseek-ai/deepseek-llm-7b-chat)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.28s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.67s/it]
+Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+/home/cse/miniconda3/envs/multilingual-classification/lib/python3.10/site-packages/peft/tuners/tuners_utils.py:196: UserWarning: Already found a `peft_config` attribute in the model. This will lead to having multiple adapters in the model. Make sure to know what you are doing!
+  warnings.warn(
+Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+[Adapter] Loading adapter 'fin-sentiment-fr' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat
+✓ Adapter 'fin-sentiment-fr' loaded successfully on base model 'deepseek-llm-7b-chat'
+[LLMAdapterPool] Language 'french' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-fr'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[Adapter] Loading adapter 'fin-sentiment-de' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat
+✓ Adapter 'fin-sentiment-de' loaded successfully on base model 'deepseek-llm-7b-chat'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'google/gemma-7b', adapter 'fin-news-es'
+[Memory Management] Unloading model 'deepseek-llm-7b-chat' from GPU...
+✓ Model 'deepseek-llm-7b-chat' unloaded successfully
+[LLMAdapterPool] Loading base model: google/gemma-7b (google/gemma-7b)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:11,  3.74s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:08<00:08,  4.21s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:12<00:04,  4.33s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.38s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.67s/it]
+[Adapter] Loading adapter 'fin-news-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/gemma-7b
+✓ Adapter 'fin-news-es' loaded successfully on base model 'google/gemma-7b'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'google/gemma-7b', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-news-en'
+[Memory Management] Unloading model 'google/gemma-7b' from GPU...
+✓ Model 'google/gemma-7b' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.62s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.26s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.76s/it]
+[Adapter] Loading adapter 'fin-news-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/llama-2-7b-hf
+✓ Adapter 'fin-news-en' loaded successfully on base model 'llama-2-7b-hf'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-news-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-news-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-news-en'
+[LLMAdapterPool] Language 'german' not in mapping, using default 'google/gemma-7b'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: google/gemma-7b (google/gemma-7b)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:09,  3.27s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:07<00:07,  3.96s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:12<00:04,  4.18s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.29s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.52s/it]
+[Adapter] Loading adapter 'fin-news-cls' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/gemma-7b
+✓ Adapter 'fin-news-cls' loaded successfully on base model 'google/gemma-7b'
+[LLMAdapterPool] Language 'german' not in mapping, using default 'google/gemma-7b'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-news-en'
+[Memory Management] Unloading model 'google/gemma-7b' from GPU...
+✓ Model 'google/gemma-7b' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.45s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.15s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.65s/it]
+[Adapter] Loading adapter 'fin-news-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/llama-2-7b-hf
+✓ Adapter 'fin-news-en' loaded successfully on base model 'llama-2-7b-hf'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-news-en'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-es'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:04<00:08,  4.20s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:08<00:04,  4.38s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:12<00:00,  4.21s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:12<00:00,  4.24s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+[Adapter] Loading adapter 'fin-pii-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-es' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-es'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[Adapter] Loading adapter 'fin-pii-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-en' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-de'
+[Adapter] Loading adapter 'fin-pii-de' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-de' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-de'
+[LLMAdapterPool] Language 'french' → per-language mapping → model 'llama-3-8B-Instruct', adapter 'fin-pii-fr'
+[Memory Management] Unloading model 'mistral-7B-Instruct-v0.3' from GPU...
+✓ Model 'mistral-7B-Instruct-v0.3' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-3-8B-Instruct (meta-llama/Meta-Llama-3-8B-Instruct)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:12,  4.02s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:08<00:08,  4.28s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:12<00:04,  4.38s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  2.94s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  3.43s/it]
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+[Adapter] Loading adapter 'fin-pii-fr' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Llama-3-8B-Instruct
+✓ Adapter 'fin-pii-fr' loaded successfully on base model 'llama-3-8B-Instruct'
+[LLMAdapterPool] Language 'french' → per-language mapping → model 'llama-3-8B-Instruct', adapter 'fin-pii-fr'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-es'
+[Memory Management] Unloading model 'llama-3-8B-Instruct' from GPU...
+✓ Model 'llama-3-8B-Instruct' unloaded successfully
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:05,  2.58s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:07<00:03,  3.70s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:11<00:00,  3.82s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:11<00:00,  3.67s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+[Adapter] Loading adapter 'fin-pii-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-es' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-es'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[Adapter] Loading adapter 'fin-pii-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-en' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+================================================================================
+ROUTING SYSTEM EVALUATION RESULTS
+================================================================================
+
+📊 Domain Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Task Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  : 100.00%
+
+📊 Expert Output Classification:
+  Accuracy           :  21.43%
+  Macro  P/R/F1      :  11.90% /  14.29% /  12.70%
+  Micro  P/R/F1      :  21.43% /  21.43% /  21.43%
+  Weighted F1        :  19.05%
+  Balanced accuracy  :  14.29%
+  Cohen's kappa (κ)  :  18.52%
+
+================================================================================
+📊 TASK-SPECIFIC EXPERT EVALUATION
+================================================================================
+
+🔍 Task: RATING
+--------------------------------------------------------------------------------
+  Samples evaluated: 6
+
+  📈 Classification Metrics:
+    Accuracy           :  50.00%
+    Macro  P/R/F1      :  50.00% /  60.00% /  53.33%
+    Micro  P/R/F1      :  50.00% /  50.00% /  50.00%
+
+  📉 Ordinal Metrics (star ratings as continuous):
+    MAE (Mean Abs Err) : 0.5000 stars
+    RMSE               : 0.7071 stars
+    Coverage           : 100.00%
+
+🔍 Task: NEWS
+--------------------------------------------------------------------------------
+  Samples evaluated: 5
+
+  📈 Classification Metrics:
+    Accuracy           :   0.00%
+    Macro F1           :   0.00%
+    Weighted F1        :   0.00%
+    Coverage           :  80.00%
+
+  📊 Per-Class F1 Scores:
+    Finance              :   0.00%
+    Tax & Accounting     :   0.00%
+    Government & Controls :   0.00%
+    Technology           :   0.00%
+    Industry             :   0.00%
+    Business & Management :   0.00%
+
+🔍 Task: PII
+--------------------------------------------------------------------------------
+  Samples evaluated: 7
+
+  📈 Accuracy Metrics:
+    Token-Level Accuracy :  31.43%
+    Exact Match Accuracy :   0.00%
+    Average F1 Score     :  25.71%
+    Perfect F1 (=100%)   : 0 (  0.00%)
+    Zero F1 (=0%)        : 3 ( 42.86%)
+
+  📈 Entity-Level Metrics:
+    Micro F1             :  34.92%
+    Macro F1             :  25.71%
+    Micro Precision      :  42.31%
+    Micro Recall         :  29.73%
+    Total gold entities  : 37
+    Total pred entities  : 26
+    Correct tokens       : 11 / 35
+
+  📊 Per-Label Metrics:
+    Label                |  Precision |     Recall |         F1
+    --------------------------------------------------------
+    contact_info         |    100.00% |     80.00% |     88.89%
+    location             |    100.00% |     50.00% |     66.67%
+    organization         |    100.00% |     33.33% |     50.00%
+    person_name          |     18.75% |     25.00% |     21.43%
+    date                 |     50.00% |     10.00% |     16.67%
+    financial_account    |      0.00% |      0.00% |      0.00%
+    government_id        |      0.00% |      0.00% |      0.00%
+    secret               |      0.00% |      0.00% |      0.00%
+
+
+📋 Domain Confusion Matrix (GT rows × Pred cols)
+                     finance
+finance                     18
+
+📋 Task Confusion Matrix (GT rows × Pred cols)
+                        news                    pii                 rating
+  news                      5                      0                      0
+   pii                      0                      7                      0
+rating                      0                      0                      6
+
+📋 Expert Output Confusion Matrix (GT rows × Pred cols)
+                           1                      2                      3                      4                      5  Business & Management               Industry       Tax & Accounting             Technology                 pii_gt                  F1_0%                 F1_10%                 F1_20%                 F1_30%                 F1_40%                 F1_50%                 F1_60%                 F1_70%                 F1_80%                 F1_90%                F1_100%
+     1                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     2                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     3                      0                      1                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     4                      0                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     5                      0                      0                      0                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Business & Management                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Industry                      0                      0                      0                      0                      0                      0                      0                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Tax & Accounting                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Technology                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+pii_gt                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      3                      1                      1                      0                      0                      0                      1                      0                      1                      0                      0
+ F1_0%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_10%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_20%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_30%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_40%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_50%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_60%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_70%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_80%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_90%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_100%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+
+
+📊 Per-Language Performance:
+--------------------------------------------------------------------------------
+  Language |    N |   Domain Acc |   Task Acc |  Exact Acc
+--------------------------------------------------------------------------------
+   chinese |    1 |      100.00% |    100.00% |    100.00%
+   english |    7 |      100.00% |    100.00% |    100.00%
+    french |    2 |      100.00% |    100.00% |    100.00%
+    german |    3 |      100.00% |    100.00% |    100.00%
+  japanese |    1 |      100.00% |    100.00% |    100.00%
+   spanish |    4 |      100.00% |    100.00% |    100.00%
+
+EXPERT/MODEL SELECTION BY LANGUAGE
+================================================================================
+
+Language Group: European (llama-2-7b-hf)
+--------------------------------------------------------------------------------
+  english      :    7 samples
+  french       :    2 samples
+  german       :    3 samples
+  spanish      :    4 samples
+  Total        :   16 samples (88.9%)
+
+================================================================================
+
+
+PERFORMANCE BY EXPERT/MODEL
+================================================================================
+
+bloomz-7b1 (Languages: chinese)
+--------------------------------------------------------------------------------
+  Samples      : 1
+  Accuracy     : 100.00%
+  Macro F1     :   4.76%
+  Weighted F1  : 100.00%
+
+  Per-language performance:
+    chinese      : Accuracy = 100.00%, Samples = 1
+
+llama-2-7b-hf (Languages: japanese)
+--------------------------------------------------------------------------------
+  Samples      : 1
+  Accuracy     :  33.33%
+  Macro F1     :   4.76%
+  Weighted F1  :  33.33%
+
+  Per-language performance:
+    japanese     : Accuracy =   0.00%, Samples = 1
+
+llama-3-8B-Instruct (Languages: french)
+--------------------------------------------------------------------------------
+  Samples      : 2
+  Accuracy     :   0.00%
+  Macro F1     :   0.00%
+  Weighted F1  :   0.00%
+
+  Per-language performance:
+    french       : Accuracy =  50.00%, Samples = 2
+
+mistral-7B-Instruct-v0.3 (Languages: english, german, spanish)
+--------------------------------------------------------------------------------
+  Samples      : 14
+  Accuracy     :   0.00%
+  Macro F1     :   0.00%
+  Weighted F1  :   0.00%
+
+  Per-language performance:
+    english      : Accuracy =  14.29%, Samples = 7
+    german       : Accuracy =   0.00%, Samples = 3
+    spanish      : Accuracy =  50.00%, Samples = 4
+
+================================================================================
+
+
+LANGUAGE GROUP COMPARISON
+================================================================================
+
+Metric                    European (llama-2)   Asian (aya-23)       Difference     
+--------------------------------------------------------------------------------
+Accuracy                   33.33%                0.00%              +33.3pp
+Macro F1                    4.76%                0.00%              +4.8pp
+Weighted F1                33.33%                0.00%              +33.3pp
+Balanced Accuracy           4.76%                0.00%              +4.8pp
+
+================================================================================
+
+
+CONFUSION MATRICES BY EXPERT/MODEL
+================================================================================
+
+aya-23 Confusion Matrix (GT rows × Pred cols)
+                           1                      2                      3                      4                      5  Business & Management               Industry       Tax & Accounting             Technology                 pii_gt                  F1_0%                 F1_10%                 F1_20%                 F1_30%                 F1_40%                 F1_50%                 F1_60%                 F1_70%                 F1_80%                 F1_90%                F1_100%
+     1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     2                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     3                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     4                      0                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     5                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Business & Management                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Industry                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Tax & Accounting                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Technology                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+pii_gt                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+ F1_0%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_10%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_20%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_30%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_40%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_50%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_60%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_70%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_80%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_90%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_100%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+
+
+bloomz-7b1 Confusion Matrix (GT rows × Pred cols)
+                           1                      2                      3                      4                      5  Business & Management               Industry       Tax & Accounting             Technology                 pii_gt                  F1_0%                 F1_10%                 F1_20%                 F1_30%                 F1_40%                 F1_50%                 F1_60%                 F1_70%                 F1_80%                 F1_90%                F1_100%
+     1                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     2                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     3                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     4                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     5                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Business & Management                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Industry                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Tax & Accounting                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Technology                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+pii_gt                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+ F1_0%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_10%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_20%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_30%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_40%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_50%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_60%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_70%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_80%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_90%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_100%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+
+
+deepseek-llm-7b-chat Confusion Matrix (GT rows × Pred cols)
+                           1                      2                      3                      4                      5  Business & Management               Industry       Tax & Accounting             Technology                 pii_gt                  F1_0%                 F1_10%                 F1_20%                 F1_30%                 F1_40%                 F1_50%                 F1_60%                 F1_70%                 F1_80%                 F1_90%                F1_100%
+     1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     2                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     3                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     4                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     5                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Business & Management                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Industry                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Tax & Accounting                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Technology                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+pii_gt                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+ F1_0%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_10%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_20%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_30%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_40%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_50%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_60%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_70%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_80%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_90%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_100%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+
+
+google/gemma-7b Confusion Matrix (GT rows × Pred cols)
+                           1                      2                      3                      4                      5  Business & Management               Industry       Tax & Accounting             Technology                 pii_gt                  F1_0%                 F1_10%                 F1_20%                 F1_30%                 F1_40%                 F1_50%                 F1_60%                 F1_70%                 F1_80%                 F1_90%                F1_100%
+     1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     2                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     3                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     4                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     5                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Business & Management                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Industry                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Tax & Accounting                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Technology                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+pii_gt                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+ F1_0%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_10%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_20%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_30%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_40%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_50%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_60%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_70%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_80%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_90%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_100%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+
+
+llama-2-7b-hf Confusion Matrix (GT rows × Pred cols)
+                           1                      2                      3                      4                      5  Business & Management               Industry       Tax & Accounting             Technology                 pii_gt                  F1_0%                 F1_10%                 F1_20%                 F1_30%                 F1_40%                 F1_50%                 F1_60%                 F1_70%                 F1_80%                 F1_90%                F1_100%
+     1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     2                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     3                      0                      0                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     4                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     5                      0                      0                      0                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Business & Management                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Industry                      0                      0                      0                      0                      0                      0                      0                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Tax & Accounting                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Technology                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+pii_gt                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+ F1_0%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_10%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_20%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_30%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_40%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_50%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_60%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_70%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_80%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_90%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_100%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+
+
+llama-3-8B-Instruct Confusion Matrix (GT rows × Pred cols)
+                           1                      2                      3                      4                      5  Business & Management               Industry       Tax & Accounting             Technology                 pii_gt                  F1_0%                 F1_10%                 F1_20%                 F1_30%                 F1_40%                 F1_50%                 F1_60%                 F1_70%                 F1_80%                 F1_90%                F1_100%
+     1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     2                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     3                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     4                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     5                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Business & Management                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Industry                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Tax & Accounting                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Technology                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+pii_gt                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+ F1_0%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_10%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_20%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_30%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_40%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_50%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_60%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_70%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_80%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_90%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_100%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+
+
+mistral-7B-Instruct-v0.3 Confusion Matrix (GT rows × Pred cols)
+                           1                      2                      3                      4                      5  Business & Management               Industry       Tax & Accounting             Technology                 pii_gt                  F1_0%                 F1_10%                 F1_20%                 F1_30%                 F1_40%                 F1_50%                 F1_60%                 F1_70%                 F1_80%                 F1_90%                F1_100%
+     1                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     2                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     3                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     4                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+     5                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Business & Management                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Industry                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Tax & Accounting                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+Technology                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+pii_gt                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      2                      1                      1                      0                      0                      0                      1                      0                      1                      0                      0
+ F1_0%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_10%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_20%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_30%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_40%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_50%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_60%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_70%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_80%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_90%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+F1_100%                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0                      0
+
+
+================================================================================
+
+
+✅ Results saved to: predictions_with_raw_responses.csv
+   Total samples: 18
+
+================================================================================
+✅ EVALUATION COMPLETE
+================================================================================
+
+================================================================================
+✅ ALL OPERATIONS COMPLETE
+================================================================================
