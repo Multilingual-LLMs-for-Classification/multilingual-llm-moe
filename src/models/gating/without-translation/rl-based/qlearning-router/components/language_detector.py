@@ -179,6 +179,7 @@ class LanguageDetector:
             mapped_lang = self.language_mapping.get(detected_lang, 'english')
             return mapped_lang
         except Exception:
+            print("⚠️ FastText detection failed, using fallback")
             return self._fallback_detection(text)
 
     def _fallback_detection(self, text: str) -> str:

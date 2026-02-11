@@ -146,15 +146,16 @@ class BaseModelPool:
 
         # Build prompt from template
         if isinstance(template, dict):
-            # Use English template as default (matches training setup)
-            lang_key = language.lower() if language.lower() in template else "english"
-            if lang_key not in template:
-                lang_key = next(iter(template.keys()))
+            # Look up template by base model key (templates are keyed by model name)
+            tmpl_key = base_key
+            if tmpl_key not in template:
+                # Fallback to first available key
+                tmpl_key = next(iter(template.keys()))
 
             # Truncate inputs
             truncated_text = str(classification_text).replace('\n', ' ').strip()[:400]
             truncated_title = str(review_title).replace('\n', ' ').strip()[:80]
-            text = template[lang_key].replace("{{input}}", truncated_text).replace("{{review_title}}", truncated_title)
+            text = template[tmpl_key].replace("{{input}}", truncated_text).replace("{{review_title}}", truncated_title)
         else:
             text = template.replace("{{input}}", classification_text).replace("{{review_title}}", review_title)
 

@@ -72,7 +72,7 @@ class TaskExpert:
                                          input_data.get("review_title", ""))
 
         overrides = self.cfg.generation or {}
-        raw_output, conf = self.pool.generate(
+        raw_output, conf, base_model_key, prompt_sent = self.pool.generate(
             self.task_key,
             classification_text,
             review_title,
@@ -93,4 +93,4 @@ class TaskExpert:
         if conf == 0.0:
             conf = random.uniform(0.16, 0.18)
 
-        return cleaned, conf, raw_output
+        return cleaned, conf, raw_output, base_model_key, prompt_sent

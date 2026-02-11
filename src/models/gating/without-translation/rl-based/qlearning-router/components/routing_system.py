@@ -29,7 +29,7 @@ from .q_learning_router import QLearningTaskClassifier
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 class PromptRoutingSystem:
-    def __init__(self):
+    def __init__(self, training_mode: bool = False):
         config_path = Path(__file__).parents[5] / "experts" / "config"
         self.expert_registry_path = config_path / "experts_registry.json"
 
@@ -67,9 +67,10 @@ class PromptRoutingSystem:
             eps_end=0.01,
             eps_decay_steps=10000
         )
-        # Try loading existing domain model & QRouters
-        self.domain_classifier.load_model()
-        self.task_classifier.load_models()
+        # Only load existing models when not in training mode
+        if not training_mode:
+            self.domain_classifier.load_model()
+            self.task_classifier.load_models()
 
         # Download any external models if needed (optional legacy feature)
         if self.model_loader:
@@ -152,7 +153,7 @@ class PromptRoutingSystem:
         expert = self.experts[domain][task]
 
         # Pass input_data directly to expert - it handles field extraction
-        result, expert_confidence, raw_response = expert.predict(
+        result, expert_confidence, raw_response, base_model_key, prompt_sent = expert.predict(
             input_data,
             prompt,
             language
@@ -167,7 +168,9 @@ class PromptRoutingSystem:
             'result': result,
             'expert_confidence': expert_confidence,
             'routing_path': f"{language} → {domain} → {task}",
-            'raw_response': raw_response
+            'raw_response': raw_response,
+            'llm_used': base_model_key,
+            'prompt_sent': prompt_sent
         }
         return output
     def get_system_stats(self):

@@ -1,46 +1,14 @@
-import pandas as pd
+import csv
+import json
 
-# Load the CSV
-csv_file = "esci_small_filtered_min5.csv"
-df = pd.read_csv(csv_file)
+input_csv = "train_truncated.csv"      # path to your CSV file
+output_json = "train_truncated.json"  # path to write JSON
 
-# Maximum records per locale
-max_records = 8000
+with open(input_csv, "r", encoding="utf-8") as csvfile:
+    reader = csv.DictReader(csvfile)
+    data = list(reader)
 
-# Function to downsize a locale
-def downsize_locale(df_locale, max_records):
-    # Shuffle unique queries for randomness
-    unique_queries = df_locale['query'].drop_duplicates().sample(frac=1, random_state=42)
-    
-    # Keep adding queries until max_records is reached
-    kept_queries = []
-    total_rows = 0
-    for q in unique_queries:
-        query_rows = df_locale[df_locale['query'] == q]
-        if total_rows + len(query_rows) > max_records:
-            break
-        kept_queries.append(q)
-        total_rows += len(query_rows)
-    
-    # Return only rows with the kept queries
-    return df_locale[df_locale['query'].isin(kept_queries)]
+with open(output_json, "w", encoding="utf-8") as jsonfile:
+    json.dump(data, jsonfile, ensure_ascii=False, indent=2)
 
-# Process each locale separately
-df_result = pd.DataFrame()
-
-for locale in df['product_locale'].unique():
-    df_locale = df[df['product_locale'] == locale]
-    
-    if len(df_locale) > max_records:
-        df_locale_downsized = downsize_locale(df_locale, max_records)
-        df_result = pd.concat([df_result, df_locale_downsized])
-    else:
-        df_result = pd.concat([df_result, df_locale])
-
-# Reset index
-df_result.reset_index(drop=True, inplace=True)
-
-# Save the downsized dataset
-df_result.to_csv("esci_min5_downsized.csv", index=False)
-print("Saved downsized dataset as esci_min5_downsized.csv")
-print(df_result['product_locale'].value_counts())
+print(f"Converted {len(data)} rows from CSV to JSON → {output_json}")

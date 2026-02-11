@@ -1,0 +1,45 @@
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: /home/cse/Desktop/moe-router/data/test_combined_spanish.json
+Test samples: all
+Output path: predictions_with_raw_responses_spanish.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['nl', 'en', 'fr', 'de', 'it', 'es', 'sv']
+   finance/news: ['da', 'en', 'es', 'pl', 'tr']
+   finance/esci: ['en', 'es', 'ja']
+   All supported languages: ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+✅ Built dynamic language mapping for 12 languages:
+   ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+✅ Initialized 4 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 4
+   - Supported languages: 12
+
+📂 Loading test data from: /home/cse/Desktop/moe-router/data/test_combined_spanish.json
+✅ Loaded 170 test samples
+
+Evaluating on 170 test samples...
+================================================================================
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'aya-23', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'aya-23', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+
+
+⚠️  Interrupted by user

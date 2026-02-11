@@ -1,0 +1,251 @@
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: test_combined.json
+Test samples: 8
+Output path: predictions_with_raw_responses.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['nl', 'en', 'fr', 'de', 'it', 'es', 'sv']
+   finance/news: ['da', 'en', 'es', 'pl', 'tr']
+   finance/esci: ['en', 'es', 'ja']
+   All supported languages: ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+✅ Built dynamic language mapping for 12 languages:
+   ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+[WARNING] No cleanup expert for finance/esci: module 'src.models.experts.llms.adapters.finance.esci.ESCIExpert' has no attribute 'ESCIExpert'
+✅ Initialized 4 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 4
+   - Supported languages: 12
+
+📂 Loading test data from: test_combined.json
+✅ Loaded 8 test samples
+
+Evaluating on 8 test samples...
+================================================================================
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-esci-es'
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+[Adapter] Loading adapter 'fin-esci-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/esci/Mistral-7B
+✓ Adapter 'fin-esci-es' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-esci-es'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-3.1-8b-instruct', adapter 'fin-esci-en'
+[Memory Management] Unloading model 'mistral-7B-Instruct-v0.3' from GPU...
+✓ Model 'mistral-7B-Instruct-v0.3' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-3.1-8b-instruct (meta-llama/Llama-3.1-8B-Instruct)
+[Adapter] Loading adapter 'fin-esci-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/esci/LLama-3-8.1B
+✓ Adapter 'fin-esci-en' loaded successfully on base model 'llama-3.1-8b-instruct'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-3.1-8b-instruct', adapter 'fin-esci-en'
+[LLMAdapterPool] Language 'japanese' → per-language mapping → model 'llama-3.1-8b-instruct', adapter 'fin-esci-ja'
+[Adapter] Loading adapter 'fin-esci-ja' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/esci/LLama-3-8.1B
+✓ Adapter 'fin-esci-ja' loaded successfully on base model 'llama-3.1-8b-instruct'
+[LLMAdapterPool] Language 'japanese' → per-language mapping → model 'llama-3.1-8b-instruct', adapter 'fin-esci-ja'
+[LLMAdapterPool] Language 'japanese' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-sentiment-ja'
+[Memory Management] Unloading model 'llama-3.1-8b-instruct' from GPU...
+✓ Model 'llama-3.1-8b-instruct' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+[Adapter] Loading adapter 'fin-sentiment-ja' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf
+✓ Adapter 'fin-sentiment-ja' loaded successfully on base model 'llama-2-7b-hf'
+[LLMAdapterPool] Language 'japanese' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-sentiment-ja'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit (unsloth/mistral-7b-instruct-v0.3-bnb-4bit)
+[Adapter] Loading adapter 'fin-news-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-es' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[Adapter] Loading adapter 'fin-news-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-en' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[LLMAdapterPool] Language 'dutch' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-nl'
+[Memory Management] Unloading model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' from GPU...
+✓ Model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' unloaded successfully
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+[Adapter] Loading adapter 'fin-pii-nl' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/aya-23-8B
+✓ Adapter 'fin-pii-nl' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'dutch' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-nl'
+
+================================================================================
+ROUTING SYSTEM EVALUATION RESULTS
+================================================================================
+
+📊 Domain Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Task Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  : 100.00%
+
+📊 Expert Output Classification:
+  Accuracy           :  66.67%
+  Macro  P/R/F1      :  11.76% /  11.76% /  11.76%
+  Micro  P/R/F1      :  66.67% /  66.67% /  66.67%
+  Weighted F1        :  66.67%
+  Balanced accuracy  :  11.76%
+  Cohen's kappa (κ)  :  57.14%
+
+================================================================================
+📊 TASK-SPECIFIC EXPERT EVALUATION
+================================================================================
+
+🔍 Task: RATING
+--------------------------------------------------------------------------------
+  Samples evaluated: 1
+
+  📈 Classification Metrics:
+    Accuracy           :   0.00%
+    Macro  P/R/F1      :   0.00% /   0.00% /   0.00%
+    Micro  P/R/F1      :   0.00% /   0.00% /   0.00%
+
+  📉 Ordinal Metrics (star ratings as continuous):
+    MAE (Mean Abs Err) : 1.0000 stars
+    RMSE               : 1.0000 stars
+    Coverage           : 100.00%
+
+🔍 Task: NEWS
+--------------------------------------------------------------------------------
+  Samples evaluated: 3
+
+  📈 Classification Metrics:
+    Accuracy           :  66.67%
+    Macro F1           :  33.33%
+    Weighted F1        :  66.67%
+    Coverage           : 100.00%
+
+  📊 Per-Class F1 Scores:
+    Technology           : 100.00%
+    Business & Management : 100.00%
+    Finance              :   0.00%
+    Tax & Accounting     :   0.00%
+    Government & Controls :   0.00%
+    Industry             :   0.00%
+
+🔍 Task: PII
+--------------------------------------------------------------------------------
+  Samples evaluated: 1
+
+  📈 Accuracy Metrics:
+    Token-Level Accuracy :   0.00%
+    Exact Match Accuracy :   0.00%
+    Average F1 Score     :   0.00%
+    Perfect F1 (=100%)   : 0 (  0.00%)
+    Zero F1 (=0%)        : 1 (100.00%)
+
+  📈 Entity-Level Metrics:
+    Micro F1             :   0.00%
+    Macro F1             :   0.00%
+    Micro Precision      :   0.00%
+    Micro Recall         :   0.00%
+    Total gold entities  : 6
+    Total pred entities  : 0
+    Correct tokens       : 0 / 5
+
+  📊 Per-Label Metrics:
+    Label                |  Precision |     Recall |         F1
+    --------------------------------------------------------
+    location             |      0.00% |      0.00% |      0.00%
+    organization         |      0.00% |      0.00% |      0.00%
+    contact_info         |      0.00% |      0.00% |      0.00%
+    person_name          |      0.00% |      0.00% |      0.00%
+
+
+📊 Per-Language Performance:
+--------------------------------------------------------------------------------
+  Language |    N |   Domain Acc |   Task Acc |  Exact Acc
+--------------------------------------------------------------------------------
+     dutch |    1 |      100.00% |    100.00% |    100.00%
+   english |    3 |      100.00% |    100.00% |    100.00%
+  japanese |    2 |      100.00% |    100.00% |    100.00%
+   spanish |    2 |      100.00% |    100.00% |    100.00%
+
+EXPERT/MODEL SELECTION BY LANGUAGE
+================================================================================
+
+Language Group: European (llama-2-7b-hf)
+--------------------------------------------------------------------------------
+  english      :    3 samples
+  spanish      :    2 samples
+  Total        :    5 samples (62.5%)
+
+================================================================================
+
+
+PERFORMANCE BY EXPERT/MODEL
+================================================================================
+
+llama-2-7b-hf (Languages: japanese)
+--------------------------------------------------------------------------------
+  Samples      : 2
+  Accuracy     :   0.00%
+  Macro F1     :   0.00%
+  Weighted F1  :   0.00%
+
+  Per-language performance:
+    japanese     : Accuracy =   0.00%, Samples = 2
+
+mistral-7B-Instruct-v0.3 (Languages: dutch)
+--------------------------------------------------------------------------------
+  Samples      : 1
+  Accuracy     :   0.00%
+  Macro F1     :   0.00%
+  Weighted F1  :   0.00%
+
+  Per-language performance:
+    dutch        : Accuracy =   0.00%, Samples = 1
+
+unsloth/mistral-7b-instruct-v0.3-bnb-4bit (Languages: english, spanish)
+--------------------------------------------------------------------------------
+  Samples      : 5
+  Accuracy     : 100.00%
+  Macro F1     :  11.76%
+  Weighted F1  : 100.00%
+
+  Per-language performance:
+    english      : Accuracy =  66.67%, Samples = 3
+    spanish      : Accuracy =   0.00%, Samples = 2
+
+================================================================================
+
+
+LANGUAGE GROUP COMPARISON
+================================================================================
+
+================================================================================
+
+
+✅ Results saved to: predictions_with_raw_responses.csv
+   Total samples: 8
+
+================================================================================
+✅ EVALUATION COMPLETE
+================================================================================
+
+================================================================================
+✅ ALL OPERATIONS COMPLETE
+================================================================================

@@ -1,0 +1,287 @@
+nohup: ignoring input
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+`torch_dtype` is deprecated! Use `dtype` instead!
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: /home/cse/Desktop/moe-router/data/test_combined.json
+Test samples: 10
+Output path: predictions_with_raw_responses.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['nl', 'en', 'fr', 'de', 'it', 'es', 'sv']
+   finance/news: ['da', 'en', 'es', 'pl', 'tr']
+   finance/esci: ['en', 'es', 'ja']
+   All supported languages: ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+✅ Built dynamic language mapping for 12 languages:
+   ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+✅ Initialized 4 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 4
+   - Supported languages: 12
+
+📂 Loading test data from: /home/cse/Desktop/moe-router/data/test_combined.json
+✅ Loaded 10 test samples
+
+Evaluating on 10 test samples...
+================================================================================
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Loading base model: deepseek-llm-7b-chat (deepseek-ai/deepseek-llm-7b-chat)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.96s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:15<00:00,  7.50s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:15<00:00,  7.72s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+[Adapter] Loading adapter 'fin-sentiment-de' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat
+✓ Adapter 'fin-sentiment-de' loaded successfully on base model 'deepseek-llm-7b-chat'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<|system|>                You are an expert at analyzing product reviews and assigning star ratings from 1-5.                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive                <|user|>                Title: Mangelware                Review: Leider gleich nach 10 min spielen ist die Scheibe zerbrochen. Keine gute Qualität und ich kann es nicht weiter empfehlen.                Language: german                Rate this review with a number from 1-5:                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<|system|>                You are an expert at analyzing product reviews and assigning star ratings from 1-5.                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive                <|user|>                Title: klasse produkt                Review: wirklich äußerst praktisch auch für skateboards. Mein Griptape ist dadurch nie dreckig. allerdings empfehle ich das draußen zu machen, da man viele Rückstände auf dem boden findet                Language: german                Rate this review with a number from 1-5:                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<|system|>                You are an expert at analyzing product reviews and assigning star ratings from 1-5.                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive                <|user|>                Title: Naja                Review: Sind super verarbeiten aber durch die Handschuhe zieht es einfach durch deshalb nichts für den Winter oder wenn es kälter ist                Language: german                Rate this review with a number from 1-5:                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<|system|>                You are an expert at analyzing product reviews and assigning star ratings from 1-5.                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive                <|user|>                Title: Empfehlung                Review: Für den Preis eine mega schöne Sandale! Gut verarbeitet und sehr schöne Farben. Ein Stern abzug, weil das Gummi etwas locker an meinen Fuß sitzt. Kommt aber sicherlich auch auf den Fuß an. Kann ich nur empfehlen!                Language: german                Rate this review with a number from 1-5:                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<|system|>                You are an expert at analyzing product reviews and assigning star ratings from 1-5.                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive                <|user|>                Title: Für den Preis ok                Review: Ich habe mir den Tisch für meine kleine Mansarde angeschafft und dafür ist er echt gut geeignet. Einschränkungen aus meiner Sicht: das Furnier wirkt echt billig (ich weiss, der Tisch ist billig) und der Zusammenbau ist ohne Schrauber kaum zu machen. Aber wenn er mal steht ist er echt ok.                Language: german                Rate this review with a number from 1-5:                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<|system|>                You are an expert at analyzing product reviews and assigning star ratings from 1-5.                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive                <|user|>                Title: Fehlende Sticker trüben den Spaß                Review: Das Buch ist soweit gut. Aber auch in diesem Fall fehlen 2 von den 3 gekauften Stickerbögen. Ärgerlich. Sollten diese nachgeliefert werden können, wird die Bewertung angepasst.                Language: german                Rate this review with a number from 1-5:                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+<|system|>                You are an expert at analyzing product reviews and assigning star ratings from 1-5.                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive                <|user|>                Title: Keine lange Haltbarkeit                Review: Macht auf den ersten Blick einen guten Eindruck und funktioniert auch einwandfrei, hat bei mir jedoch nach zwei Wochen täglicher Nutzung den Geist aufgegeben..                Language: german                Rate this review with a number from 1-5:                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'aya-23', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'aya-23', adapter 'fin-sentiment-es'
+[Memory Management] Unloading model 'deepseek-llm-7b-chat' from GPU...
+✓ Model 'deepseek-llm-7b-chat' unloaded successfully
+[LLMAdapterPool] Loading base model: aya-23 (CohereForAI/aya-23-8B)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:10,  3.56s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:07<00:07,  4.00s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:12<00:04,  4.25s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  3.04s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  3.40s/it]
+[Adapter] Loading adapter 'fin-sentiment-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/aya-23
+✓ Adapter 'fin-sentiment-es' loaded successfully on base model 'aya-23'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'aya-23', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>                You are an expert at analyzing product reviews and assigning star ratings from 1-5.                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive                <|user|>                Title: gut                Review: beschenkte fand es toll                Language: spanish                Rate this review with a number from 1-5:                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[Memory Management] Unloading model 'aya-23' from GPU...
+✓ Model 'aya-23' unloaded successfully
+[LLMAdapterPool] Loading base model: deepseek-llm-7b-chat (deepseek-ai/deepseek-llm-7b-chat)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.82s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.75s/it]
+Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+[Adapter] Loading adapter 'fin-sentiment-de' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat
+✓ Adapter 'fin-sentiment-de' loaded successfully on base model 'deepseek-llm-7b-chat'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<|system|>                You are an expert at analyzing product reviews and assigning star ratings from 1-5.                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive                <|user|>                Title: Bequem für Ballerina                Review: Soweit alles ok nur dass eine Socke mt fehlproduktion ankam also der Stoff stand ab an der naht vorne. Silikon hält nicht immer                Language: german                Rate this review with a number from 1-5:                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<|system|>                You are an expert at analyzing product reviews and assigning star ratings from 1-5.                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive                <|user|>                Title: Nur zu empfehlen                Review: Fütter dieses und das Lamm und reis meinem rudel nun seit einem Jahr . Sie sind dick und satt davon und lieben es. Und das beste und erstaunlichste es gibt super Stuhlgang . Die Sorte hier schmeckt meinen am besten da es etwas fettiger erscheint                Language: german                Rate this review with a number from 1-5:                <|assistant|>
+============================================================
+
+
+================================================================================
+ROUTING SYSTEM EVALUATION RESULTS
+================================================================================
+
+📊 Domain Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Task Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Expert Output Classification:
+  Accuracy           :  50.00%
+  Macro  P/R/F1      :  63.33% /  71.67% /  56.00%
+  Micro  P/R/F1      :  50.00% /  50.00% /  50.00%
+  Weighted F1        :  48.00%
+  Balanced accuracy  :  71.67%
+  Cohen's kappa (κ)  :  39.76%
+
+================================================================================
+📊 TASK-SPECIFIC EXPERT EVALUATION
+================================================================================
+
+🔍 Task: RATING
+--------------------------------------------------------------------------------
+  Samples evaluated: 10
+
+  📈 Classification Metrics:
+    Accuracy           :  50.00%
+    Macro  P/R/F1      :  63.33% /  71.67% /  56.00%
+    Micro  P/R/F1      :  50.00% /  50.00% /  50.00%
+
+  📉 Ordinal Metrics (star ratings as continuous):
+    MAE (Mean Abs Err) : 0.5000 stars
+    RMSE               : 0.7071 stars
+    Coverage           : 100.00%
+
+🔍 Task: NEWS
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: news
+
+🔍 Task: PII
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: pii
+
+🔍 Task: ESCI
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: esci
+
+
+📊 Per-Language Performance:
+--------------------------------------------------------------------------------
+  Language |    N |   Domain Acc |   Task Acc |  Exact Acc
+--------------------------------------------------------------------------------
+    german |    9 |      100.00% |    100.00% |    100.00%
+   spanish |    1 |      100.00% |    100.00% |    100.00%
+
+EXPERT/MODEL SELECTION BY LANGUAGE
+================================================================================
+
+Language Group: Asian (aya-23)
+--------------------------------------------------------------------------------
+  Total        :    0 samples (0.0%)
+
+================================================================================
+
+
+PERFORMANCE BY EXPERT/MODEL
+================================================================================
+
+aya-23 (Languages: spanish)
+--------------------------------------------------------------------------------
+  Samples      : 1
+  Accuracy     :   0.00%
+  Macro F1     :   0.00%
+  Weighted F1  :   0.00%
+
+  Per-language performance:
+    spanish      : Accuracy =   0.00%, Samples = 1
+
+deepseek-llm-7b-chat (Languages: german)
+--------------------------------------------------------------------------------
+  Samples      : 9
+  Accuracy     :  55.56%
+  Macro F1     :  61.33%
+  Weighted F1  :  54.07%
+
+  Per-language performance:
+    german       : Accuracy =  55.56%, Samples = 9
+
+================================================================================
+
+
+LANGUAGE GROUP COMPARISON
+================================================================================
+
+================================================================================
+
+
+✅ Results saved to: predictions_with_raw_responses.csv
+   Total samples: 10
+
+================================================================================
+✅ EVALUATION COMPLETE
+================================================================================
+
+================================================================================
+✅ ALL OPERATIONS COMPLETE
+================================================================================

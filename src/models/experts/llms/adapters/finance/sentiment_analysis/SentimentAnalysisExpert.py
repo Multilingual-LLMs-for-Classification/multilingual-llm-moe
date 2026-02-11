@@ -29,10 +29,8 @@ class SentimentAnalysisExpert:
             Tuple of (main_text, title_text)
         """
         # Sentiment analysis uses 'classification_text' and 'review_title'
-        main_text = input_data.get("classification_text",
-                                   input_data.get("text", ""))
-        title_text = input_data.get("review_title",
-                                    input_data.get("title", ""))
+        main_text = input_data.get("classification_text", input_data.get("text", ""))
+        title_text = input_data.get("review_title", input_data.get("title", ""))
         return main_text, title_text
 
     def clean_output(self, raw: str) -> str:

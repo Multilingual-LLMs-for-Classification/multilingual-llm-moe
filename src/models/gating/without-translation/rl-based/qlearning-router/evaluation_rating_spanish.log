@@ -1,0 +1,3478 @@
+/home/cse/miniconda3/envs/multilingual-classification/lib/python3.10/site-packages/torch/cuda/__init__.py:182: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() > 0
+/home/cse/miniconda3/envs/multilingual-classification/lib/python3.10/site-packages/transformers/quantizers/auto.py:239: UserWarning: You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used.
+  warnings.warn(warning_msg)
+The 8-bit optimizer is not available on your device, only available on CUDA for now.
+/home/cse/miniconda3/envs/multilingual-classification/lib/python3.10/site-packages/torch/cuda/__init__.py:829: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: /home/cse/Desktop/moe-router/data/test_combined_spanish.json
+Test samples: all
+Output path: predictions_with_raw_responses_spanish.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['nl', 'en', 'fr', 'de', 'it', 'es', 'sv']
+   finance/news: ['da', 'en', 'es', 'pl', 'tr']
+   finance/esci: ['en', 'es', 'ja']
+   All supported languages: ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+✅ Built dynamic language mapping for 12 languages:
+   ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+✅ Initialized 4 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 4
+   - Supported languages: 12
+
+📂 Loading test data from: /home/cse/Desktop/moe-router/data/test_combined_spanish.json
+✅ Loaded 170 test samples
+
+Evaluating on 170 test samples...
+================================================================================
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Loading base model: qwen2.5-7b-instruct (unsloth/Qwen2.5-7B-Instruct-bnb-4bit)
+[Adapter] Loading adapter 'fin-sentiment-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/qwen2.5
+✓ Adapter 'fin-sentiment-es' loaded successfully on base model 'qwen2.5-7b-instruct'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Codigo no funciona
+Review: De los dos codigos que lleva el producto, uno dice que ya estaba usado. Sin comentarios
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Pésima
+Review: Quema el cabello incluso en la temperatura más baja. La tiré a la basura, no daba ni para regalarla. No creo que sea original.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: ZAPATOS ENORMES
+Review: SON ZAPATOS ENORMES AUNQUE ESCOJAS LA TALLA MINIMA, SON PARA BEBES SIN SUELA, ENTONCES AL SER TAN GRANDES CUANDO LE VAN BIEN A LOS NIÑOS YA ANDAN Y NO TE VALEN CON ESTA SUELA.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Recomendable
+Review: Buen producto, con buena calidad, muy recomendable.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: LA IDEA ES BUENA PERO DIFICIL DE ENCONTRAR UN MICROONDAS APROPIADO
+Review: AL FINAL NO LO UTILIZAS MUCHO
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Pensaba que aguantaría un poco más
+Review: Recibido un martes,prometía mucho ya que agarra bien, se estrena el miércoles y el viernes ya tenía la cremallera rota. Esta descosido el final de la cremallera y se sale el carro, fue utilizado para llevar el teléfono y un portamonedas en la jornada de trabajo.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Bueno, bonito y barato. Lo tiene todo.
+Review: Son super cómodas, no dan nada de calor, y no se deforman. El precio es muy bueno en comparación con las que ves en tiendas de descanso. Ya llevo usándolas 2 semanas y la verdad que estoy muy satisfecha y contenta. Las recomiendo 100%.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Me gusta
+Review: Es lo que se ve. Un juguete práctico y divertido para los peques. El único problema es que hay que tener cuidado con los palitos porque los bebés se pueden lastimar.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Lo recomiendo
+Review: 2do motorola q tengo y de lujo. va muy bien. la camara es muy muy buena
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No la compraría otra vez.
+Review: La navaja por ese precio bien. El seguro mejorable. Los afiladores muy mejorables por decirlo suavemente. La brújula encajada torcida y no funciona.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Que cumpla su objetivo
+Review: Llego perfectamente y estoy satisfecho con su uso y sigo probando haber cuanto me dura.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No es lo que se espera
+Review: El diseño es muy bonito Pero es muy lento,se queda pillado y tarda en entrar en la aplicaciones incluidas las básicas y WiFi lo Coke si no tienes muchas cosas conectadas ( valla tres terminales más) Sí pudiera lo cambiaba. Un poco decepcionada.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: J.bernardo
+Review: Cuando llegará el pedido ? Por favor contacte conmigo ates de anular la ya lleva mucho tiempo si no anulamos
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Muy Barato y Muy básico
+Review: Está bien para los que quieran conocer a grandes rasgos cosas sobre la raza. Pero para quien controle algo no aporta nada nuevo.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Protector roto
+Review: Me llegó roto... 😭 Supongo que el embalaje no era el mas adecuado para algo tan frágil. En el resto de casas de accesorios suelen venir en sobres de mas grosor.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Juegazo, pero la desarrolladora ha sido muy vaga
+Review: Le pongo 3 estrellas porque es un gran juego a buen precio, pero la desarrolladora ha sido una vaga, prácticamente la misma versión, a 30 FPS, sigue estando en inglés...
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Divertido para jugar en un césped
+Review: Divertido para jugar a lanzarlo y cogerlo. Tamaño mediano, no grande.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Pinta bien de primeras
+Review: Me ha gustado que venga con una bolsita super bien recogido y que no ocupa casi nada de espacio. Pero ha llegado la bolsa mal cosida y la tela de la bolsa es la típica que cuando coge un pelín de humedad se deshace entre las manos como si fuera polvo. No la hemos montado porque es para un regalo de navidad.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Bueno
+Review: Un cable de carga, simple pero bonito al poder elegir colores, el cable tiene tacto gomoso, que esta bien porque parece que le da agarre si lo dejas colgando de algún mueble o similar pero me da la sensación de que con el calor se va a poner pegajoso, lo probaré puesto que me llegó ayer y a ver con en el tiempo si cambio de opinión a mejor o peor
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: figura bien, caja mal.
+Review: la figura bien, el problema es que la caja de la figura venia un poco abollada y al menos en figuras como los Funko pop la caja de la figura es muy importante..
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Aparato
+Review: Me gusta todo menos que no tiene USB para conectar gracias moreno
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No parece nuevo
+Review: El producto parace que biene es su embalaje original pero tiene marcas de haber estado expuesto, rayaduras... No lo recomiendo
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Perfecto
+Review: Está muy bien , el pájaro ya no tira tanta comida al suelo
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Sartén muy honda
+Review: No es un wok, es una sartén muy honda
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Desastre
+Review: Se rompió a los 6 meses
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No funciona correctamente
+Review: No funciona correctamente, carga literalmente cuando quiere, lo he tenido que devolver. Quizás ha sido mala suerte y me tocó uno defectuoso. La devolución con Amazon sin problemas.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Relación calidad precio.
+Review: Una silla práctica y comoda y no lo digo yo, lo dice mi pequeño que le encanta.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No es para todo el mundo
+Review: Supongo que será por el tipo de relato, del año que es, pero no he podido terminar de leerlo, la temática me gusta pero no el desarrollo. No creo que sea por la historia, sino por la época en la que se escribió. Yo no he sabido cogerle el tranquillo.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Muy buena
+Review: Muy buena, me ha gustado mucho, lo he utilizado tanto para freir como cocción lenta, no pesa mucho, nada se pega, un diez calidad-precio
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No vale para móviles grandes
+Review: Mi movil tiene una pantalla de 5.5 pulgadas y debido al peso a veces se cae. Con el tiempo la pinza del soporte se va dando de si.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Bastante bien
+Review: Llego muy rápido Queda muy bonito es muy finito pero mejor para el verano el tallaje viene bien me queda estupendo
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Excelente
+Review: La mejor forma de realizar la limpieza de las llantas llegando a todos los puntos de estas sin rallarlas.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Incómoda
+Review: Al principio va genial pero al cabo del tiempo (1 mes como mucho) es lo más incómodo del mundo, apenas puedes hacer nada con ella puesta.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Pésimo
+Review: El peor mueble q he montado nunca .Y he montado bastantes . Parece de juguete y los materiales sin pésimos . Muy mala compra
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No era lo que esperaba
+Review: Esperaba otra cosa. Me parece ruidoso. Poco aire, más bien una pequeña brisa. En mi caso, ha salido rodando un par de veces y casi se parte. No lo volvería a comprar nuevamente.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Buena superficie
+Review: La adhesión es espectacular por la cara de la malla negra. No hace falta laca, de hecho no lo recomiendo porque le puse en la primera impresión y no había manera humana de despegar la pieza. No pesa en exceso por lo que la cama no sufre. Son 4mm de grosor, por lo que hay que elevar un poco la posición Z antes de instalarla, pero se hace en 30 segundos. Por poner una pega, la serigrafía negra se ra
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Se resbalan
+Review: Tengo el cabello fino y se me resbala, por lo que ya no las uso. Por su precio no puedes pedir mucho más.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Precioso y muy comodo
+Review: Es precioso, hoy es él cumpleaños de mi niña de 3 añitos y ha sido él regalo perfecto, Recomendadisimo cien por cien.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Prácticos
+Review: Marcan muy bien la tela.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Tarda mucho tiempo en cocinarse
+Review: Tarda mucho tiempo en cocinar! Todo lo demás bien
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Genial
+Review: Poco ruido, 2 niveles, para 1 vaso solo o para hacer más. fácil de montar/desmontar y limpiar
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: NO FUNCIONA
+Review: NO LA DETECTA EL PORTATIL NY NO CARGA, LA SEGUNDA QUE DEVUELVO. MUY DESCONTENTO. AMAZON COMO SIEMPRE PERFECTO CON LAS DEVOLUCIONES.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Útil, se adapta bien
+Review: Lo que esperaba por el precio
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Decepcionante
+Review: No me gusta mucho porque sale mucha tinta y es dificil de controlar, demasiado caro para como es
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Barato pero poco preciso
+Review: Está bien, nada para un trabajo muy perfecto. Recordad ponerle aguarrás al cristal antes de cortar, os hará todo más fácil.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Regular
+Review: Juego a Pc y compré este ratón porque tenía uno inalámbrico también de Amazon que iba al revés la ruedecita de subir y bajar, a este le pasa exacatamente lo mismo. Es muy cómodo y cumple su función pero tiene el mismo problema que mi anterior ratón, la rueda está al revés o algo.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Satisfecho
+Review: Tiene buen acabado y tejido. Costuras reforzadas.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Decepción
+Review: Parecía otra cosa, nada más abrir la caja ya me di cuenta que metí la pata, pequeñas y casi no alumbran
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: MAGNIFICA COMPRA
+Review: Resultado de calidad/precio = espectacular, de hecho he comprado varios colores porque quedan muy bien y son de un material excelente , recomiendo la compra 100%
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: devolucion
+Review: A día de hoy aún no he recibido mi reembolso de este pedido no recibido.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No comprar
+Review: No entra en mi sofa y el vendedor no contesta a mis mensajes
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Un casco diferente
+Review: Es cómodo y bonito pero las gafas son de mala calidad
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No funciona
+Review: Como lámpara graciosa tiene su punto, pero mosquitos no atrapa ni uno. Me lo llevé de cámping, lo he probado de noche al fresco, y nada, todas las veces que lo he usado que había mosquitos no ha cogido a ninguno y me han picado, así que nada, milagros a Lurdes
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Regular
+Review: Lo que no me ha gustado es que vuelca hacia delante con mucha facilidad. Es casi imposible estar encima sin caerte .
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Muy chulo
+Review: Está bien acabado, tenía un poco de miedo xq había leído que que si acabado era malo, pero yo pedí dos y los dos, me llegaron con un acabado perfecto, y mi niño está encantado de sus estuches diferentes a los de siempre.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Pitu
+Review: La calidad es muy buena, pero el tamaño..... Super pequeñita, no entra ni una libreta tamaño a5, es una pena.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No trae conectores multiples
+Review: Me decidí por este pack porque traía conectores para hacer muchas formas distintas (gafas, flores, etc...) pero solo trae conectores de unión simple... Con lo cual solo se pueden hacer pulseras o collares... Que decepción!
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Precioso
+Review: Eso muy bonito y tiene buenos detalles
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Decepcionante
+Review: Se adapta bien pero se ve nublado parece que está rallado
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Funcionando perfectamente sin problemas
+Review: La utilizo para la moto y va de maravilla, de momento. Tiene potencia de arranque en una moto de 259 c.c.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Hola solicito que me devuelvan el dinero y compraré otra
+Review: Se pueden comprar las partes por separado? La protección de delante es muy mala. Se ha quedado rayada, pero muy rallada por nada.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Caro y mala caludad
+Review: Le han dado una capa de acabado mate, para ocultar grieta y tiene perdida, pero no es visible hasta que le quitas la capa mate. No volveré a comprar a este proveedor.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Embalado en bolsa
+Review: Es lo esperado, pero al venir en bolsa de amazón el paquete interior del primer embalaje estaba casi destrozado. Espero que pongan remedio próxima vez
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Está bien pero no me convence
+Review: Esta bien pero engancharlo en la funda no es lo más cómodo, hace que la funda se vuelva más incomoda
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: muy buen precio
+Review: Muy buen precio y los altavoces han quedado genial
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Maria
+Review: Bien es lo esperado por el precio que tiene.Hace 10 dias q lo tengo y funciona perfectamente.La calidad no es buenisima pero tampoco la cobran
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Buenísimo
+Review: Sigue así, me he leído todos tus libros y ya estoy esperando el siguiente no dejes de escribir . Suerte.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Poner en sitios sin aire
+Review: Los tubos son bastante endebles y si hay aire le tienes que quitar la lona por que sino se desmorona la medida es adecuada y la lona resistente
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Mala calidad.
+Review: De muy mala calidad y además no encaja bien. No recomendable.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No muy satisfecha
+Review: Lo compré porque habia leido opiniones,me aguanta más el ojo con las lentillas,pero se sigue secando y cuando llevas unas horas te molestan.Me esperaba algo mejor..
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Encantado
+Review: Quería una plancha para bocadillos y bikinis y esta va de fábula. Se calients rápido, se limpia fàcil con papel de cocina y en pocos minutos quedan planchados los bocadillos.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Defectuosa
+Review: Ha venido la pizarra marcada q no se va y no se borra nada bien lo pintado. Es muy ligera y tiene pinta de romperse facilmente.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Un fiasco como un churrasco
+Review: Tiene muy mala calidad, los tacos no corresponden con el tamaño de la estanteria. Bastante inestable. Por este precio podría haber conseguido algo bastante mejor.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: .
+Review: satisfecho con la compra, recomendable
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No compatible J5
+Review: La descripción dice que es compatible con el Samsung Galaxy J5 pero le va pequeño, la pantalla es más grande que el cristal. No es compatible. He solicitado la devolución
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Envy
+Review: El envío esta muu bien
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Funda bien - Cristal mal
+Review: El cristal templado no se pega bien en todo el alrededor de la pantalla. La funda bien.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No me ha gustado la opción
+Review: Quería comprar el CD y no el MP3 para descargar ,no pude devolver el producto ya que se cobro instantáneamente.lo tienen mal hecho.era para regalar a una tercera persona y no he podido hacerlo.muy mal
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Un 6,5
+Review: Está muy chula, aunque un poco resbaladiza. No quiero escribir 13 palabras más porque no me sale de las narices
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Para surface pro
+Review: Es pequeña y fina. Se ajusta perfectamente a una Surface pro y algunos papeles o libreta. Para el día a día y los desplazamientos rápidos está muy bien
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Buen producto.
+Review: Perfecto, me encanta, por el precio y portes gratis no se puede pedir mas.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Excelente relación calidad-precio
+Review: Buena calidad y buen precio. Es un producto con calidad profesional, cómodo de transportar y de fácil montaje. Lo aconsejo .
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: adaptador
+Review: E hecho la devolución de esté adaptador porque no me era compatible y me dicen que me han hecho la devolución del pago a mi tarjeta, a día de hoy aún no lo e recibido en mi banco,por favor resuelvan esté incidente. Un saludo. Eva.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Muy caro
+Review: El envío muy bien y el cuaderno está bien, pero es excesivamente caro. No se justifica el precio en relación con la competencia
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Piezas con golpes
+Review: El producto llego a tiempo y viene bastante completo y bien enbuelto. A pesar de todo esto las dos estrellas se las doy porque en varias pieza venia con golpes y se nota bastante, por lo demas bien
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Regular, no protege bien.
+Review: El material es bueno, pero la fubda no tiene ese borde extra q protege el mobil cuabdo cae de cara. Se me rompen los cristales templados pq sobresalen. Por lo demas genial tacto y color.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Decepcionado
+Review: El móvil falla mucho! La batería no dura todo el día El whatsapp algunos días no se puede abrir, parece que estuviera bloqueado y de repente funciona correctamente, pero no es fallo del whatsapp porque en otros teléfono funciona bien
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Deja el monte como lo encuentres
+Review: Las dos primeras salidas comparé los registros con la app de strava del smartphone y eran iguales. A partir de las tercera salida ha dejado de dar una lectura correcta de la altitud. Lo bueno es al pasarlo a la app strava la altitud se corrige.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: BIEN, PERO PUEDE MEJORAR
+Review: Esta muy bien para que aprendan a abrochar y desabrochar, pero creo que estaría mucho mejor si cada pieza se pudiera enganchar de alguna forma al tablero...porque si no, es muy complicado que las piezas no se pierdan o se guarden juntas...
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Bonitas!!
+Review: De tamaño es perfecta para casi cualquier silla bastante normal y aunque de tela son muy finas . El tacto es agradable y super elásticas . Ideales para cambiar de aspecto cualquier silla quedan como nuevas.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: de facil uso, regulable.
+Review: simple, de facil uso, regulable. Muy buena iluminacion,bateria duradera,con regulador de intensidad muy practico y ademas pesa poco. Yo recomendé.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Anda que...
+Review: Si compro un libro me gusta que llegue sin pegotes, ni restos de cola en la portada... el que no envuelve, pobre, no debe tener tiempo ni para visualizar lo que tiene enfrente! Un poquito de porfavor! Y ahora ponéis este comentario de anuncio de Amazon! porfi porfi
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Estafa barritas energéticas
+Review: Estafa comparto la misma opinión de los demás usuarios. El pedido decía 15 unidades y trae solo una por pedido. Alucinante!! Estafa en toda regla
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No llego
+Review: Ni ha llegado ni se le espera no confíes en el vendedor y encima no contesta a los emails de vergüenza
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Que llegue
+Review: No puedo opinar,porque no me ha llegado
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Genial
+Review: Son súper cómodos, se ajustan genial y no no estás ni que están!
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Bien como complemento
+Review: Esta bien, pero los milagros no existen, evidentemente, hay que combinarlo con dieta sana y ejercicio, es un complemento.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Buena calidad y diseño
+Review: Me parece una muy buena camiseta técnica.Calidad y diseño excelentes
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Me gusta el producto
+Review: Cumple su función perfectamente
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Nunca llegó
+Review: Nunca llegó, el vendedor solo me dio largas.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Mala calidad
+Review: Muy mala calidad, se doblan con nada de fuerza, y no consigues sacar grapas un poco fuertes, no merecen la pena, no volvería a comprar
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Baja autonomía de la batería
+Review: El reloj está bien. Ubica correctamente al sitio donde se encuentra el niño y el sonido al hacer las llamadas es bueno..pero las dos estrellas vienen pq la configuración no es sencilla y las instrucciones solo vienen en ingles y el principal problema es la autonomía de la batería. Solo es de 6 horas aproximadamente, lo cual es claramente insuficiente. Es el principal problema.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No me funciona
+Review: A mi personalmente no me funciona y la verdad es q me sienta mal, me da muchos ardores y ganas de vomitar y es como si el estómago se me cerrará y la orina demasiado amarillenta
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Pastosa
+Review: Demasiado pastoso, por lo que se quedan las pestañas pegajosas.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Genial
+Review: Cumple sus expectativas, se adapta muy bien, aunque personalmente no me gusta mucho la argolla delantera, pero entiendo que es algo que en otros casos pueda ser práctico.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Bolsa de regalo disponible sería perfecto
+Review: El artículo es estupendo,pero debería tener opción a preparar como regalo o enviar al menos una bolsa.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Bien
+Review: Las mias son originales, además vienen con una hoja informativa informando de las que son y no son originales a modo de comparativa
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Buen libro, los libros de texto tendrían que ser más baratos
+Review: Buen libro, los libros de texto tendrían que ser más baratos
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Seriedad
+Review: Devuelto a S/T por avería
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Perfecto
+Review: Muy bien todo perfecto rápido y la mochila muy chula le ha gustado mucho recomendable este vendedor ..... por poner un pero podría ser un poco más grande
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: precio
+Review: mas caro el envio que el producto
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Opinión.
+Review: Me deja la piel bastante bien pero huele fatal.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Calentito pero muy pequeño
+Review: Tamaño excesivamente pequeño. Estira pero para una 38 queda muy apretado. Deberían de poner las medidas en la descripción
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Mochila excelente
+Review: Me gusta su diseño y calidad de la mochila es grande ,fuerte y viene preparada por si quieres añadirle las ruedas.mi hija esta encantada
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Precio
+Review: Cubre bien pero los imanes no son muy fuertes y los enganches se rompen con facilidad
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: REGULAR
+Review: Fácil uso, la música de oye muy bien, pero las llamadas no te oyen. La batería dura muy poco.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: Problema resuelto
+Review: Compré este portabicis y tuve un problema ya que el agarre a la bola estaba defectuoso. Una lástima porque me gustaba la marca Thule. La empresa MBS Import que me lo vendió entendió el problema y me hizo el reembolso. Un 10 por ellos.
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: spanish
+============================================================
+<|system|>
+You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+<|user|>
+Here are examples of how to rate reviews:
+
+Title: Poor quality | Review: Missing half the costume and it is too small. | Rating: 1
+Title: Two Stars | Review: It is not my type of Olive Oil. Very Plain. | Rating: 2
+Title: Wrong size??? | Review: It said 5 ft tall, but is like 3ft | Rating: 3
+Title: Nicely made product | Review: I like the ease of applying the product onto my face, its smell and texture. | Rating: 4
+Title: Simple and Accurate | Review: I found it accurate, simple to use and very effective. I would give it a 5/5 rating! | Rating: 5
+
+Now rate this review. Respond with ONLY the number (1-5), nothing else:
+
+Title: No creo que repita compra...
+Review: El bolígrafo parece de buena calidad, pero no me gusta cómo pinta. Parece que la tinta es demasiado fluida (es gel) y el propio balín evita que la tinta pegue en el papel. Pasa algo parecido a lo que ocurre con los correctores líquidos si se aprieta mucho (aunque la tinta es menos opaca). Y lo he visto más barato (menos de dos euros en tiendas físicas de bellas artes o en centros comerciales...
+Rating:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'qwen2.5-7b-instruct', adapter 'fin-sentiment-es'
+
+============================================================

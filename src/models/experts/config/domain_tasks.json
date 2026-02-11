@@ -36,6 +36,12 @@
             "press",
             "media",
             "report"
+        ],
+        "esci": [
+            "exact",
+            "substitute",
+            "complement",
+            "irrelevant"
         ]
     }
 }

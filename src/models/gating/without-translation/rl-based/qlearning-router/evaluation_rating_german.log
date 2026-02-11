@@ -1,0 +1,3718 @@
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: /home/cse/Desktop/moe-router/data/test_combined_german.json
+Test samples: all
+Output path: predictions_with_raw_responses.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['nl', 'en', 'fr', 'de', 'it', 'es', 'sv']
+   finance/news: ['da', 'en', 'es', 'pl', 'tr']
+   finance/esci: ['en', 'es', 'ja']
+   All supported languages: ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+✅ Built dynamic language mapping for 12 languages:
+   ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+✅ Initialized 4 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 4
+   - Supported languages: 12
+
+📂 Loading test data from: /home/cse/Desktop/moe-router/data/test_combined_german.json
+✅ Loaded 170 test samples
+
+Evaluating on 170 test samples...
+================================================================================
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Loading base model: deepseek-llm-7b-chat (deepseek-ai/deepseek-llm-7b-chat)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.16s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.35s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.77s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[Adapter] Loading adapter 'fin-sentiment-de' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/deepseek-llm-7b-chat
+✓ Adapter 'fin-sentiment-de' loaded successfully on base model 'deepseek-llm-7b-chat'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Mangelware
+Bewertung: Leider gleich nach 10 min spielen ist die Scheibe zerbrochen. Keine gute Qualität und ich kann es nicht weiter empfehlen.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: klasse produkt
+Bewertung: wirklich äußerst praktisch auch f�r skateboards. Mein Griptape ist dadurch nie dreckig. allerdings empfehle ich das draußen zu machen, da man viele R�ckstände auf dem boden findet
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Naja
+Bewertung: Sind super verarbeiten aber durch die Handschuhe zieht es einfach durch deshalb nichts f�r den Winter oder wenn es kälter ist
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Empfehlung
+Bewertung: F�r den Preis eine mega sch�ne Sandale! Gut verarbeitet und sehr sch�ne Farben. Ein Stern abzug, weil das Gummi etwas locker an meinen Fuß sitzt. Kommt aber sicherlich auch auf den Fuß an. Kann ich nur empfehlen!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: F�r den Preis ok
+Bewertung: Ich habe mir den Tisch f�r meine kleine Mansarde angeschafft und daf�r ist er echt gut geeignet. Einschränkungen aus meiner Sicht: das Furnier wirkt echt billig (ich weiss, der Tisch ist billig) und der Zusammenbau ist ohne Schrauber kaum zu machen. Aber wenn er mal steht ist er echt ok.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Fehlende Sticker tr�ben den Spaß
+Bewertung: Das Buch ist soweit gut. Aber auch in diesem Fall fehlen 2 von den 3 gekauften Stickerb�gen. Ärgerlich. Sollten diese nachgeliefert werden k�nnen, wird die Bewertung angepasst.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Keine lange Haltbarkeit
+Bewertung: Macht auf den ersten Blick einen guten Eindruck und funktioniert auch einwandfrei, hat bei mir jedoch nach zwei Wochen täglicher Nutzung den Geist aufgegeben..
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: gut
+Bewertung: beschenkte fand es toll
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Bequem f�r Ballerina
+Bewertung: Soweit alles ok nur dass eine Socke mt fehlproduktion ankam also der Stoff stand ab an der naht vorne. Silikon hält nicht immer
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Nur zu empfehlen
+Bewertung: F�tter dieses und das Lamm und reis meinem rudel nun seit einem Jahr . Sie sind dick und satt davon und lieben es. Und das beste und erstaunlichste es gibt super Stuhlgang . Die Sorte hier schmeckt meinen am besten da es etwas fettiger erscheint
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Große Liebe!
+Bewertung: Zuerst, nach dem unkomplizierten Aufbau, haben wir gedacht, dass da nie eine Katze reingeht, weil der Einstieg sehr niedrig ist und die Katzen nur geduckt rein k�nnen. Aber mittlerweile haben wir einen zweiten gekauft. Unsere Katzen lieben diese Teile einfach! Haben Handt�cher reingelegt, damit es sch�n weich ist.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Qualität
+Bewertung: Schaut nach guter Qualität aus. Ob das wirklich dann so ist, muss man abwarten wenn die Bleche mal älter sind
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Ozongenerator ohne Anschlußkabel
+Bewertung: Da ich kein Netzkabel dabei habe und ein Kontakt zum Versender nicht herzustellen ist, gebe ich die schlecht m�glichste Bewertung ab, dabei spielt es keine Rolle, ob ich mir irgendwo ein Kabel besorgen k�nnte ! Ohne Kabel keine Benutzung also schlechte Bewertung !
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Feuerwehrauto
+Bewertung: Da unser kleiner Mann Feuerwehr und Autos liebt, hatten wir uns dazu entschlossen dieses Produkt zu kaufen. Leider waren wir sehr enttäuscht, da man f�r diesen Preis doch bessere Qualität erwarten w�rde! Sticker total unsauber aufgeklebt und der Sound h�rt sich auch schrecklich an. So gar nicht Feuerwehr.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Defekt nach einigen wenigen Monaten Benutzung
+Bewertung: Nachdem mein V-Moda-Kabel jahrelang gehalten hat und es auch eher um Optik als um nicht mehr vorhandene Funktion ging dieses Kabel gekauft und seit einer Woche Aussetzter und seit gestern MONO da Kabelbruch. Bis dahin hat das Kabel aber gut funktioniert und deshalb auch 2 Sternchen Nur knapp drei Monate Funktion ist einfach zu wenig selbst wenn der Preis relativ gering zum Headset von V-Moda ist.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Nicht wert!
+Bewertung: Mein Mann hat mir dieses Armband gekauft. Ich trug dieses Armband ständig kurz nach 2 Tagen. Meine Haut wurde gr�n und das Metall verfärbte sich. Sehr enttäuscht!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Große Enttäuschung
+Bewertung: Bereits am 3. Tag stellt sich das Handy andauernd von allein aus. Bei 47% Akkuladung! Der Akku entläd sich außerdem sehr schnell (wie bei meinem 3 Jahre alten Handy) auch bei geringer Nutzung. Es funktioniert nicht gut bei mobiler Datennutzung. Findet dann "keine Verbindung" Und außerdem wird es beängstigend heiß.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: 50 Prozent der Klammern sind nicht verwendbar!!
+Bewertung: Wollte mit den Wäscheklammern Bilder aufhängen. Etwa die hälfte der Klammern haben qualitative Mängel und sind meist gar nicht mehr zu retten. (Siehe Bilder) Bin richtig enttäuscht..
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Super Kamera
+Bewertung: Nach zwei Reinfällen wo die Kameras defekt ankommen habe ich mich f�r diese IP Kamera entschieden. Die ist wirklich super. Das einrichten ist sehr einfach und die Bildqualität super. Nur die Bewegungserkennung schwächelt etwas aber das Problem haben alle Hersteller. Was sehr gut ist, das man eine SD Karte direkt in die Kamera stecken kann die alles aufzeichnet. 64 GB rechen f�r gut 2 Wochen nonsto
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Alles hat gepasst
+Bewertung: Preis Leistung ist perfekt. Gute Qualität
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Kaputt nach 3 Wochen bei sorgsamer Handhabung
+Bewertung: Nicht mal 1 Monat später sind die ersten Spannungsrisse zu sehen, das ist nicht akzeptabel, Produkt geht zur�ck an Amazon... Und dabei ist mir das Gerät mit samt der H�lle nicht ein einziges Mal herunter gefallen, dass diese H�lle eigentlich keinen Schutz bietet sollte eh klar sein, außer eventuell vor Kratzer, dass die H�lle aber durch die angedachte Nutzung einfach zerfällt zieht entsprechend sc
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Leider kaputt gegangen viel zu schnell
+Bewertung: Ist nach einer Woche kaputt gegangen 😔 fand die Qualität am Anfang gut doch mit der Zeit merkte ich das Gegenteil
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Eher Stuhl statt Liege
+Bewertung: Ich pers�nlich finde den Stuhl sehr bequem w�rde ihn aber nicht als faltbare Liege oder Gartenliege bezeichnen. Der Stuhl ist Kinderleicht aufstellbar. Um in der Sonne zu chillen ist dieser Stuhl genau das Richtige. F�r Senioren absolut nicht zu empfehlen da er sehr niedrig ist und ältere Leute nicht so gut aus dem Stuhl aufstehen k�nnen. Die Verarbeitung des Stuhles ist in Ordnung und durch das A
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Top
+Bewertung: problemlose Aktivierung und Installation, Steuerung �ber Echo-Show nach wenigen Minuten. super Sache und gutes Preis-Leistungs-Verhältnis.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Griff Farbe stimmt nicht �berein wie abgebildet ansonsten Top
+Bewertung: ein Stern weniger da die Farbe vom Griff extrem hellblau ist und nicht so dunkel wie am Bild ansonsten am ersten Blick Top Praxis Test folgt erst
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Naja
+Bewertung: Nachdem ich das Bustier nun schon einige Zeit trage, muss ich sagen, dass ich enttäuscht bin. Der Gummi ist ausgeleiert und es l�sen sich Fäden. Da gibt es um denselben Preis jede Menge hochwertigere Produkte. Schade, da das Bustier grundsätzlich bequem ist und gut aussieht.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Zerkn�llt angekommen
+Bewertung: Total zerkn�llt angekommen. Bin nicht zufrieden. Kann von dem Kauf, trotzdem es sehr g�nstig ist, nur abraten.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Intensiver Geruch nach giftigem Plastik
+Bewertung: Das Design ist nett, das Gerät sogar kleiner als erwartet und die Leistung ok... ABER selbst nach mehreren Stunden Betrieb gibt es noch immer einen unglaublich starken Geruch nach giftigem Plastik von sich, der Hustenreiz ausl�st. Die Wohnung riecht sogar danach, nachdem das Gerät ausgeschaltet wurde. Wird daher zur�ckgeschickt.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: nichts f�r mich
+Bewertung: mir hat das Spiel �berhaupt nicht gefallen...war mir irgendwie zu stressig...aber da hat jeder doch einen anderen geschmack
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Ganz gut aber...
+Bewertung: Update: Der verkäufer, �bersendet mir eine neue leuchte, sobald diese getestet ist, werde ich die beurteilung anpassen. Vom kundenservice ist die leuchte 5 sterne wert. Prompter zuvorkommender service. Vetarbeitung und idee sind sehr gut. Die box ist zwar kein st�ck gr�ßer als n�tig, was bedeutet das dass gummiband genau gefaltet werden muss,aber nach ein paar versuchen gehts ganz gut. Die licht A
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Alles in Ordnung
+Bewertung: In Original genauso wie ich es mir vorgestellt habe. Qualität f�r diesen Preis vollkommen zufriedenstellend.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Smarthome leicht einzurichten
+Bewertung: Lampe mit Glitzereffekt durch die hochwertige Schale. Sie gefällt mir noch besser, als bei dem Preis erwartet, war leicht in Smarthome einzubinden und funktioniert seitdem tadellos.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Qualitat
+Bewertung: Schlechte Verarbeitung
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Bewährte Qualität
+Bewertung: Wie erwartet, perfekt!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Keine CD dabei
+Bewertung: Super Heft zum Üben, kam aber leider ohne CD. Ich habe reklamiert und bekam ein zweites Heft ohne CD. Habe alles zur�ckgeschickt und woanders bestellt (gleicher Preis). Und ich finde es lohnt sich: Die "Vokabel Dusche" CD ist richtig gut, mein Sohn h�rt Sie gerne. Sie hat meditative Musik im Hintergrund und er h�rt die richtige Aussprache. Also: Heft und CD super. Aber lieber dieses Mal nicht bei 
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Perfect
+Bewertung: Tip top funktioniert einwandfrei und vorallem auf Anhieb 6 Sterne geht leider nicht aber m�sste man vergeben k�nnen
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: W�rde ich nicht mehr kaufen schlechte Qualität
+Bewertung: Sobald man diese an hat fangen sie an sehr stark zu Fusseln
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Naja
+Bewertung: Leider enttäuscht da wir dachten, dass es ein Teppich ist, aber leider ein Aufkleber. Effekt ist auch nicht erzielt wie auf dem Bild.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Brauche nicht rumlaufen, guter Preis
+Bewertung: Immer wieder die gute Erfahrung mit diesem Produkt. Fixe Lieferung
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Schick aber auch nur f�r die Uhrzeit
+Bewertung: Nat�rlich kann man diese Uhr nicht mit den gängigen Marktf�hrern vergleichen aber ich dachte ich gebe ihr eine Chance. Optisch ist die Uhr wirklich super. Sehr schick Allerdings habe ich die Uhr nach mehrtägigem Test zur�ck geschickt : - Puls / Herzfrequenzmessung negativ : ich habe mehrere Tests mit einem Blutdruckmessgerät gemacht und war zufällig während meiner Testphase auch beim Arzt zur Blut
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Schlechtes Produkt. Alle Ballons sind nach einer Stunde geplatz.
+Bewertung: Sehr schlechtes Produkt. Meine Mutter ist im April 60 geworden und wir wollte den Saal mit den Ballons dekorieren. Nach einer Stunde (aufgeblasen) sind nach und nach alle Ballons geplatz. Wir haben die Ballons nicht zu toll aufgeblasen. Nicht gerade toll wenn darunter ein gedeckter Tisch in einem Hotel steht und alles voll Konfetti liegt. Zum Gl�ck waren die Gäste noch nicht da.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Sehr gutes Erzeugnis
+Bewertung: Beste Ware, entspricht voll den Erwartungen
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Nicht zu empfehlen
+Bewertung: Die Tasche kam rechtzeitig doch leider ist sie total billig verarbeitet. Jedes Emblem l�st sich nach bereits wenigen Tagen. Nicht zu empfehlen
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Pants Gr.4
+Bewertung: Das erste Paket wunderbar. Mit jedem weiteren Paket (glaube 4) Qualität gesunken. Man kann schon zuschauen wie die ausläuft... Qualität �berhaupt nicht vergleichbar mit der die man in einem Drogeriemarkt bekommt.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Ohrringe
+Bewertung: Die Ohrringe k�nnten am Stift etwas stabiler sein...man hat ständig Angst,dass er beim nächsten Öffnen abbricht. Ansonsten sehen sie sehr gut aus.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Enttäuscht
+Bewertung: Ich hätte gern etwas positives geschrieben, aber leider ist das Produkt bei mir nicht angekommen. Obwohl ich eine Lieferbestätigung per Email erhalten habe. Schade, dass man den Verkäufer nicht kontaktieren kann.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Leuchtkraft o.k - aber weder Zoom noch Fokusfunktion
+Bewertung: Ich weß nicht ob ich der einzige Käufer mit diesem Problem bin, denn bei meiner Lampe war weder die Zoomfunktion noch der Fokus verstellbar. Man konnte lediglich den Lampenkopf abschrauben. Darunter verbarg sich dann eine Skala zum Zoomen und fokusieren. Aber ohne Lampenkopf v�llig sinnlos. Leuchtkraft und SOS Funktion,sowie Stroboskop waren Einwandfrei. Allerdings habe ich sie zur�ckgeschickt. Oh
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Kabel nicht sehr flexibel
+Bewertung: Kabel etwas zu steif.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Nutzloses Ding
+Bewertung: Rausgeschmissenes Geld! Ein Stern, weil null nicht gibt.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Top Kabel
+Bewertung: Passt und tut zu 100% was es soll, auch in Verbindung mit 3,5mm Adaptern f�r 2. Kopfh�rer. Gegen�ber Huawei-Originalware kein Klangverlust. Schnell geliefert, passt in jeden Briefkasten.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Nie mehr kalte F�ße
+Bewertung: Super bequem, warm und trocken. F�hlen sich nur etwas breit an. Mit ein paar Wollsocken allerdings super.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: CD Feld
+Bewertung: Diese Life rund CD Feld Danke
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Eine gute L�sung gegen Fliegen und M�cken
+Bewertung: Die Gr�ße des Geräts ist in Ordnung. Man kann das Gerät entweder aufhängen oder einfach iWo hinstellen. Es macht �berhaupt keine Geräusche und das Ultraviolett hat eine angenehme Beleuchtung. Das Gerät braucht keine Chemikalien oder ähnliches und gibt auch keinen Geruch ab. Es wurde schnell geliefert und preis Leistung stimmt ebenfalls.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Schade
+Bewertung: Der Artikel wurde sehr schnell geliefert und die Kinder haben sich sehr gefreut. Das Schwimmbecken sieht gut aus. Allerdings hat sich nach kurzem Gebrauch die Naht an der Unterseite ( wo die Rutsche mit dem Boden verbunden ist) gel�st. Wir haben von Amazon direkt und sehr schnell ein neues Schwimmbecken zugeschickt bekommen. Dieses ist leider wieder nach kurzem Gebrauchen kaputt gegangen. Ich muss
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Gebraucht, schlechter Zustand.
+Bewertung: Das Buch ist in keinem guten Zustand. Es ist zerknittert, gelocht, dreckig und �berall wurde reingeschrieben oder mit einem Text-Marker markiert.Das das Buch gebraucht ist ist mir klar aber in so einem schlechten Zustand den ich so nicht akzeptieren kann.. Ich empfehle nicht Gebrauch zu kaufen.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Sch�ne Moltont�cher
+Bewertung: Sehr ansprechendes Design und Verarbeitung. Ideal f�r den kleinen Nachwuchs
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Perfekt
+Bewertung: Super schneller Versand , Hammer preis , tolle Qualität . Bin absolut zufrieden 👍🏻
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Schick aber schnell kaputt
+Bewertung: Eigentlich eine sehr, sehr h�bsche H�lle, die hochwertig aussieht. Jedoch sieht man jeden Fingerabdruck und schon nach 2 Monaten ist der obere Rahmen gebrochen, sodass sich das untere Rahmenteil nun nicht mehr befestigen lässt und die H�lle jetzt in die Tonne muss. Schade ums Geld.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Unangenehmer Geruch
+Bewertung: Das Rosenwasser richt unangenehm und nicht nach Rose. Wie abgestanden. Komisch. Auch vertrage ich es nicht. Die Haut bekommt Pickel. Ich kann es leider nicht weiterempfehlen.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Verarbeitung leider nicht wie erwartet...
+Bewertung: Wenig im Einsatz, Holz verzogen und Preis �berzogen.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Schade:(
+Bewertung: Ich hab mich so gefreut auf diesen Becher, und dann die Enttäuschung er hat sowas von grausam gerochen und bei jedem schluck Kaffee wurde mir schlecht weil dieser Geschmack und Geruch so penetrant war. Schade von der Qualität super Teil.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Adidas
+Bewertung: Sie sind sehr gut und guter stoff
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Klasse
+Bewertung: Da lohnt es sich nicht einen Stifthalter selber zu basteln!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Schrott
+Bewertung: Nicht zu empfehlen Glas hält vllt 1-2 Wochen und die Haftbarkeit lässt zu w�nschen �brig Tolle Verpackung mehr aber nicht 🤷🏼‍♂️
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Tolles Gadget!
+Bewertung: Diente als Geschenk f�r meine Mutter, die immer kalte Hände. Super Gadget, die kalten Hände geh�ren nun der Vergangenheit an. Der Akku hält echt lange und die Temperatur lässt sich sehr hit temperieren.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Vogelkäfig
+Bewertung: Käfig OK, aber man sollte Käfig-Architekt sein ! Korrekter Aufbau dauert lange, wenn man es gut machen will braucht man Draht + Zangen. Viel Spielzeug, aber keine Trinkbehälter, die wichtig wären ! Letztendlich F�r Leute die handwerklich begabt sind. Ein Schwimmbad ist m�glich, war nicht dabei. Gut f�r 4 Wellensittiche, wenn zusätzlich Freiflug gewährt wird. Versand und Abwicklung okay.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Ware kommt nie an !
+Bewertung: Am 15.11 bestellt , bis heute nicht erhalten. Auch nach �ber 2 Monaten nicht , dass Geld hat man gesehen
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Man schnarcht trotzdem
+Bewertung: Finde es sch�n das einen geholfen wird wenn das Produkt nicht funktioniert
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Rost...
+Bewertung: Bei einem Produkt in der Preisklasse sollte das nicht nach einem Abend passieren. Habe im das Werkst�ck unter dem Dach stehen lassen, aber der Tau muss rangekommen sein. Auf den Bildern war das Ergebnis am nächsten Tag. F�r Zwingen in der Gr�ße und Kraft sind sie ja doch etwas teuerer, da hätte es auch die klassischen Schraubzwingen getan. Sehr ärgerlich.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Sehr enttäuscht
+Bewertung: Bin sehr enttäuscht. Die Pumpe funktioniert nur bei direkter Sonneneinstrahlung. Sobald eine Wolke vor der Sonne ist funktioniert sie schon nicht mehr. Hätte mehr erwartet
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Adapter f�r Maus/Tastatur
+Bewertung: Produkt hält was es verspricht. Allerdings ist es notwendig den Rechner parallel zur Konsole laufen zu lassen. Konsole und Rechner m�ssen via Stick und den Kabeln verbunden werden. Anschließend kann man �ber das dazugeh�rige Programm ( muss erst �ber die Hersteller Website heruntergeladen werden und ist nur auf Englisch) die Konsole mit Maus und Tastatur steuern. Diese m�ssen vorher �ber das Progr
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Leider etwas laut
+Bewertung: Sch�ner und funktioneller Wasserkocher, leider etwas laut.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Nicht zu empfelen
+Bewertung: Leider ist das Akku extrem schnell runter. Habe mehrer Akkutypen ausprobiert aber immer das selbe Resultat. Nach 50 Z�gen ist Schluss. Ich kann den Akkuträger nicht empfehlen.. ..
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Das Display extrem empfindlich und kaputt
+Bewertung: Display kaputt das Geld weg Nicht zu empfehlen
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Brauchbar
+Bewertung: Funktioniert gut, etwas klapprige Verarbeitung
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Jk
+Bewertung: F�r das Geld ist der erste Eindruck ganz ok. Mal sehen was nach dem ersten Einsatz und der ersten Wäsche so �brig bleibt.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Sehr gut
+Bewertung: Leider habe ich meinen alten Transmitter verloren, daher musste rasch ein Ersatz her. Das Gerät passt hervorragend in den Zigarettenanz�nder. Es wackelt nicht und sitzt trotzdem nicht zu stramm. Die Kabel sind sehr stabil. Hatte schon ganz andere d�nne Drähtchen gesehen. Hier ist da gesamte Teil hochwertig verbaut. Die Verbindung zu meinem Handy funktioniert hervorragend. Gut gel�st ist die Bedien
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: nicht erhalten
+Bewertung: leider sind bis heute weder bei mir noch bei Nachbarn die Lieferung der Strasssteine eingegangen
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: 👍
+Bewertung: Einfache Montage und funktioniert einwandfrei.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Probleme mit Lieferung durch DHL
+Bewertung: Habe bis jetzt keine Lieferung durch DHL bekommen
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Wlan led
+Bewertung: Problemlos mit Alexa verwendbar
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Nicht geeignet f�r Liquids
+Bewertung: Definitiv nicht zum mischen von Liquids geeignet. Sobald der Mixer auf das Liquid trifft bewegt dieser sich kaum noch.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Macht was es soll
+Bewertung: Sind nicht sch�n aber kann man machen ... f�r ein kleines Gehäuse mit ein bisschen Glas ist das L�fter Design was 50 jahre alt ist in Ordnung
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Truck super, Verpackung leider nicht
+Bewertung: Der Bruder RAM ist ein tolles Produkt! Leider war die Verpackung zerdr�ckt und gerissen sowie die Heckklappe bereits vom Truck heruntergebrochen. Sehr schade! Vor allem weil ich den Truck schon als Geschenk ben�tige und eine Umtausch zeitlich nicht mehr m�glich ist...
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Preisg�nstig
+Bewertung: Die Ohrh�rer sehen etwas billig aus und die Qualität ist nicht besonders gut. Aber f�r solchen Preis was k�nnte man erwarten. Bin jetzt zufrieden, mal schauen f�r wie lange
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Top Lupe super helles Licht
+Bewertung: Super Lupe habe die als Geschenk f�r meinen Vater gekauft der nicht mehr so gut sehen kann Er sagt seit langen wieder eine gute Lupe Die LEDs sind auch sch�n hell
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Angenehmes Kissen f�r unterwegs!
+Bewertung: An sich ein echt tolles Ding, tut was es soll, ist sehr gut verarbeitet und auch ohne Überzug angenehm am Gesicht. Den einen Stern Abzug gibts, da es nach einigen malen benutzen nicht mehr komplett dicht ist (aber dicht genug), und da es echt nicht das allerkleinste Kissen ist wenn es ausgelassen ist - aber Komfort kommt hald nicht ohne Nachteil ;) Also gibts von mir hier trotz Schwächen Kaufempfe
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Tolles Produkt
+Bewertung: Ich w�rde diese Tasche / Schutzh�lle sofort wieder kaufen. 1 Stern Abzug gibt es, da die Tasche nach dem Auspacken etwas streng riecht, aber der Geruch verfliegt ziemlich schnell und beeinträchtigt keineswegs die Funktion.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Tut seinen Job LEIDER NICHT MEHR
+Bewertung: Erf�llt gr�ßtenteils seinen Zweck, Ersatz f�r ein Orignal Apple Adapter bei weitem aber nicht. Präsentationen in der Schule gut m�glich, auch wenn man noch das Stromkabel mitschleppen muss. Update neues IOS funktioniert nun nicht mehr, Upgrade wie vom Verkäufer beschrieben geht nicht Schrott! Garantie ist weg und jetzt funktioniert es nicht mehr. Rausgeschmissenes Geld. NICHT KAUFEN!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: revolt Universal Netzteil:...
+Bewertung: revolt Universal Netzteil:... sehr sehr billig verarbeitet. Der erste Stecker ist schon direkt beim ersten einstecken abgeknickt. Alles sehr labiel.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: komische Passform
+Bewertung: ich habe zwei Paare Handschuhe dieser Marke gekauft - beide sind sch�n verarbeitet und angenehm zu tragen. Bei diesem Paar gibt es Sterneabzug weil die Passform komisch ist - sie sind nicht zu klein, aber passen einfach nicht ordentlich.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Jedes billig Produkt ist Besser
+Bewertung: Sehr schlechtes Produkt !!! Habe von Bosch mehr erwartet, die B�rste sah nach ca. 2 Stunden lack Entfernung so aus. Das Ding ist den Namen "BOSCH" nicht wert.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Großartig
+Bewertung: Tolle H�lle, umschließt mein Samsung a5 2018 bis zu den Ecken nach vorne perfekt, sieht dabei auch Edel aus. Meine Handy ist bereits heruntergefallen und die H�lle hat den Sturz gl�cklicherweise aufgefangen.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Nicht wirklich g�cklich
+Bewertung: Die Folie aufs Tablet zu bekommen ist leider nicht so einfach, bei mir hat es erst mit der zweiten Folie geklappt (was das angeht: gut, dass zwei Folien dabei sind). Vorteile der Folie: + Folie ist robust. + Außerdem gibt es meines Erachtens keine Beeinträchtigung bei der Bedienung mit Fingern oder Apple Pencil. Nachteile: - Die Folie ist nicht passgenau, was meiner Meinung nach ein Unding ist. Di
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Zu erst wsr es toll
+Bewertung: Eigentlich war ich total zufrieden ...toller Sternen himmel etc. Aber nach zwei mal benutzen f�r zehn Minuten geht es nicht mehr
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Simone Dambor
+Bewertung: Aussehn wie abgebildet, sehr d�nne Sohle, fallen auch kleiner aus
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Sehr lange Lieferzeiten
+Bewertung: Dem Kunden wird nach dem Kauf vorgegaukelt, dass die Ware (laut Sendeverfolgung) verschickt wurde. Somit war die Ware �ber 10 Tage unterwegs.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Leider nicht kompatibel mit H�lle
+Bewertung: Eigentlich passt dieses Glas sehr gut auf den ersten Blick auch mit spingen H�lle doch nach ein zwei Tagen beginnt sich das Glas zu l�sen. Es scheint mir es liegt nur ein 1mm. Da ich die Version case fitted ausgewählt habe bekommt das Produkt nur 2 Sterne. Die Aussparungen f�r Kamera und infrarot Sensoren waren perfekt.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Perfektes Produkt
+Bewertung: Das Produkt ist wie beschrieben. Die Fußmatte ist perfekt f�r den Winter wenn man von draußen reinkommt und nasse Schuhe hat. Keine chemischen Ger�che beim Auspacken Ware 1a
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Super
+Bewertung: Vielen Dank. Der Versand war sehr schnell und die Samen waren auch fachgerecht verpackt. Was die Keimung betrifft, werde ich berichten, sobald ein Ergebnis zu erkennen ist. Dann gibt es auch den 5 Stern:)
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Verspricht viel mehr als sie hält!
+Bewertung: Hatte hohe Erwartungen und war mega enttäuscht �ber eine von Anfang an nur lauwarme Wärmflasche... Verarbeitung ist super, aber eine lauwarme Wärmflasche ist nicht mein Ding!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Immer wieder gerne
+Bewertung: Habe noch nicht damit gearbeitet Sonst alles wie beschrieben
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Funktioniert einwandfrei!
+Bewertung: Der Ziffernblock ist kabellos. Er wird mittels USB mit dem PC verbunden. Anders als in der beiliegenden Beschreibung ben�tigt man dazu nur eine Batterie. Er lässt sich hinten ein-/ausschalten und funktioniert einwandfrei!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Sch�ner Lichtstreifen, empfehlenswert!!!
+Bewertung: Viele Varianten der Lichtgestaltung. Genial mit der Fernbedienung. Durch den selbstklebenden Streifen ist die Installation sehr einfach. W�rde ich wieder kaufen! Ist ein empfehlenswerter Artikel!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Super Ware, schnelle Lieferung !!! Immer wieder gerne !!!
+Bewertung: Die Regenhose ist sehr robust und ist leuchtend rot. Die Träger lassen sich gut verstellen. Die Gr�ße passt auch super!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Gut mit Verbesserungspotenzial
+Bewertung: Die Befestigungen bzw. Die Einstellm�glichkeiten sind nicht so gut. Die matte verstellt sich hin und wieder einfach durch den Zustand dass man die Beine drauf legt. Hier muss man selber kreativ werden. Aber im großen und ganzen kann ich die Hängematte empfehlen. F�rs B�ro genau richtig.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Nicht zu empfehlen Intensivreiniger
+Bewertung: Der Intensivreiniger reinigt nicht so gut wie nicht w�rde ich nicht empfehlen am liebsten w�rde ich sogar 0 Sterne geben
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Hundehandtuch
+Bewertung: Ich habe 2 kleine Hunde und ich sage Euch, wenn der Hund nass ist, dann ist der Hund auch nass und dann kann man noch so viele High Tech T�cher benutzen. Ich dusche den Hund am Bauch und den Beinen ab nach dem Spazierengehen, da die voller Dreck sind bei uns im Feld und er ist nach dem abtrocknen nicht trockener als wenn ich ein Badehandtuch nehme. Aber die Handt�cher sind sehr sch�n, lassen sich 
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Schnelle Lieferung // Produkt nicht zu empfehlen
+Bewertung: Schnelle Lieferung // Produkt ist leider nicht zu gebrauchen das anbringen ist knifflig und man schafft es nicht die Bläschen raus zu bekommen ... nicht zu empfehlen
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Rosa statt blau
+Bewertung: Falsche Farbe erhalten
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Schlechter Ventilator
+Bewertung: Dieser Ventilator bringt leider gar nichts. Er ist unglaublich laut und surrt komisch, Frischluft gibt es keine. Das ist eigentlich unverschämt "Klimaanlage" in die Beschreibung zu schreiben.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: 😋
+Bewertung: Lecker, mehr aber nicht.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Flasche beschädigt angeliefert
+Bewertung: Flasche wurde leider schon mit einem Riss.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Top
+Bewertung: Alles wie beschrieben!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Gleiter nach 10 Monaten schon kaputt...
+Bewertung: Grundsätzlich sieht die Stange sch�n aus und war auch sehr einfach zu montieren. Als st�rend empfinden wir aber, dass der Duschschlauch nur rechts der Stange entlang gef�hrt werden kann, weil der Gleiter nicht gedreht werden kann. Zudem ist der Gleiter bzw. dessen Plastikinnenleben nach nur rund 10 Monaten bereits kaputt, was zur Folge hat, dass der Gleiter die Duschbrause nicht mehr fest an der S
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Habe etwas mehr erwartet
+Bewertung: Es war etwas langatmig. Zu viel gequassel, deshalb auch nicht wirklich witzig. Weniger ist oftmals mehr, deshalb nur 3 Sterne.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Preis/Leistung gut
+Bewertung: Gute Passform, leichte weiße Flecken am unteren Bildrand, Touch funktioniert etwas schlechter als das Original. Preis/Leistung Gut
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Tolle Qualität und Haptik
+Bewertung: Ein Klasse-Vogel. Die Haptik ist der Knaller. So soft und pl�schig habe ich noch kein anderes Stofftier gesehen. Da sie zur Dekoration eines Geschenkes dienten, waren wir auf die Reaktion gespannt: Diese V�gel wurden regelrecht geliebt. Auf jeden Fall empfehlenswert.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: L�w Quality
+Bewertung: Es soll ja ein Fitnesshandschuh sein, leider ging hier am ersten Tag das gummierte Netz ab.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Schade
+Bewertung: Schlechtes Material sieht total billig aus kann ich niemanden empfehlen bin echt unzufrieden
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Top Gerät, erwartung erf�llt.
+Bewertung: Funktioniert einwandfrei wie erwartet. Alles Super!!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: gut, aber nur f�r d�nner B�cher.
+Bewertung: Die Buchst�tze ist sehr gut und auch sch�n. Einen Stern weniger gab es, weil leider dickere Kochb�cher keinen Platz haben.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Das Ding wird zu schnell zu warm
+Bewertung: Rasiert ganz gut, allerdings wird das Gerät ziemlich schnell ganz warm, dann wird’s unangenehm und man muss das Ding erst mal abk�hlen lassen.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Tolle Aufnahmen
+Bewertung: Guter Film, das Ende hat mich nicht �berzeugt. Hätte Potential f�r eine Serie.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Ziemlich d�nnes Material
+Bewertung: Naja ziemlich d�nnes Material mal schauen wie lange sie halten!!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Verwirrende Geschichte
+Bewertung: Es dauerte lange bis ich den Code erhalten habe, bzw. bis dieser funktionierte.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Bin zufrieden
+Bewertung: Sehr bequem und gem�tlich,engt den Bauch nicht ein. Fein gewebt und recht d�nn,fast blickdicht. Vielleicht etwas zu teuer f�r das,was es ist. Aber sie ist ok.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Idee gut aber Ergebnis schlecht
+Bewertung: Habe die Kamera bestellt, weil sie gut ins Bremslicht integriert ist. Die Steckverbindungen sind in Ordnung, aber die Stromkabel sind wirklich nicht gut. Habe die Kamera zum Gl�ck nur montiert, ohne das Kabel gleich ordentlich hinter die Verkleidung zu legen, um zu testen wie die Bildqualität ist. Naja was soll ich sagen... Man sieht zwar etwas aber nicht sein eigenen Fahrzeugheck. Da frage ich mi
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Super Einkauf
+Bewertung: Funktioniert super ist ein wenig groß und schwer aber daf�r hat sie genug Power. Reicht f�r mindestens 3 Handy Ladungen
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Etwas besonderes
+Bewertung: F�r den gelegentlichen Gebrauch sehr angenehm. F�r täglich etwas zu kräftig. Meine Frau mag es auf jeden Fall.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Top!
+Bewertung: Gutes Popcorn-Kino mit tollen Effekten. Arthur spielt seine Rolle klasse! Guter Film mit viel Action und coolen Spr�chen! Kann man sich ohne sorgen angucken.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Prima Laufsocken
+Bewertung: Endlich habe ich mal das Material gefunden, das super bequem sich anf�hlt und meine F�sse f�hlen sich wohl :-)
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Zu groß
+Bewertung: Als S/M bestellt. Fällt leider groß aus. Qualität ist eine 3. aber was will man f�r diesen Preis erwarten...... ok
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Einfach aber Zweckmäßig
+Bewertung: Ist einfach aufgebaut wie auch in den Bildern dargestellt, hatte bei der Lieferung keine Mängel und ist ausreichend. Schnelle Lieferung von Amazon.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Billig in jeder Hinsicht
+Bewertung: Sehr billig verarbeitet
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Allgemein f�r den Preis gut
+Bewertung: F�r den Preis gut jedoch passform der stifte nocht 100% und mein Chromrand war schon leicht beschädigt!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: toller Sortimentskasten
+Bewertung: Ein toller Metall Sortimentskasten von guter Qualität. Preis Leistung ist top.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Begeisterung
+Bewertung: Der Tisch ist super sch�n, sehr nat�rlicher Look und absolut originell. Ich habe 2 bestellt und beide haben Risse/kleine L�cher. Aber das st�rt mich absolut nicht, und hab bis her nur Komplimente daf�r bekommen. ein sch�nes Schnäppchen
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Nicht wirklich Dual Sim
+Bewertung: Ich habe dieses Handy aufgrund der positiven Bewertungen gekauft und durch Empfehlungen von Freunden die ebenfalls schon ein Huawei haben. An sich ein sch�nes Handy. F�r meine Sicht aber absolut kein Dual Sim Handy da im Grunde nur eins m�glich ist, nämlich: Entweder 1 x Sim und 1 x Nano SD oder 2 x Sim. Es exisitiert kein zusätzlicher Speicherkartenplatz, deswegen ging das Handy zur�ck da ich unb
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Ganz zufrieden
+Bewertung: Steine etwas schwer zu legen.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Artikel gut und wie beschrieben
+Bewertung: Artikel wurde wie bestätigt geliefert. Die Matratzenschoner sind gut aufzulegen und machen eine guten Eindruck. wie die Wertigkeit der Matratzenschoner sind wird sich dann beweisen m�ssen.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Alles in Ordnung
+Bewertung: Artikel kam sehr schnell und unbeschädigt an. Das Design sieht einfach aber elegant aus und die Installation erfolgt auch ohne die Anleitung. Die T�rklingel funktioniert einwandfrei mit gen�gende Lautstärke wie beschrieben und erf�llt alle Erwartungen. Alles in allem ist das ein gutes Produkt zu einem fairen Preis.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Gutes Panzerglas.Einfache Montage
+Bewertung: Ich habe das Panzerglas heute erhalten. Das Installieren ging sehr einfach.Was mich positiv stimmt, ist dass es tatsächlich nicht komplett bis nach unten rechts und links am Display abschließt. Das hat den Grund dass ich vorher ein Panzerglas hatte was das ganze Display abdeckt, aber jedes Mal durch die H�llen hochgehoben worden ist und somit jedesmal Staub unter dem Display war. Ob das nat�rlich 
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Leider schnell kaputt
+Bewertung: Ich hab die bestellt weil die nicht so auffällig sind. Leider gehen die aber sehr schnell kaputt. Wir haben es an unserem esstisch und gartentisch genutzt aber wie gesagt gehen die schnell kaputt
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Viel zu klein
+Bewertung: Corsage selbst ist in Ordnung, qualitätsmäßig nicht unbedingt top, aber okay. Nur leider viel zu klein. Ich trage normalerweise M, hier hätte ich vermutlich XXL ben�tigt. Der Rock ist sehr viel k�rzer, als die Abbildung suggeriert.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Leider hat keine der R�hren funktioniert
+Bewertung: R�hren in die Lampe gesteckt, nix tat sich. Beim Test jeder R�hre einzeln habe ich dann festgestellt, dass wirklich gar keine der 4 funktioniert. R�cksendung und Erstattung �ber Amazon problemlos.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Gutes Produkt!
+Bewertung: Super Produkt! Einziger leicht negativer Punkt ist, dass sich die Blitzschuh-Abdeckung mit Dosenlibelle auf meine Kamera (Sony a6000) nicht ganz aufschieben lässt, da eine Einkerbung auf einer Seite fehlt. Aber das stellt f�r mich kein großes Problem dar.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Toll!!!
+Bewertung: Super um dreckige Wände wieder weiß zu bekommen... Statt neu zu streichen, einfach mal zu diesem Schwamm greifen ☺️
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Qualitativ genauso wie billiges Drogerie Produkt
+Bewertung: Viel zu teuer, qualitativ genauso wie die billigen Netze in der Drogerie. Hat leider nur einen Monat gehalten. Keine Kaufempfehlung.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Perfekt f�r ausgiebige Play doo Nachmittage
+Bewertung: Kam in einer tollen Tasche die immer wieder verwendbar ist, somit fliegt das Zeug auch nicht rum! Wir nutzen es f�r ausgiebige play doo Sitzungen und es gibt jetzt endlich genug formen und Werkzeug um mit der Knete zu spielen 😊 Super 😊
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Lack schon ab.
+Bewertung: Leider war bei meinem Regal schon der Lack etwas ab, als es ankam. Die Qualität ist nicht so gut.. Aussehen w�rde es aber super.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Zu klein
+Bewertung: In xl immer noch zu klein. Zwei Nummern gr�ßer sollte man bestellen. Und die Br�ste sollten nicht groß sein. Wenig halt f�r diese.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Guter Schutz
+Bewertung: Da ich keine Klapph�lle oder eine Tasche f�r das Telefon haben wollte aber einen guten Schutz, habe ich mich f�r diese H�lle entschieden. Wenn die vordere Seite drauf ist, ist es etwas schwieriger das Handy zu bedienen. Man kann normal touchen, nur leider ist das etwas schwerer und man muss genau drauf tippen. Die H�lle bietet einen super Schutz. Im B�ro oder zu Hause nehme ich die vordere Seite e
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Klasse Film
+Bewertung: Super Schauspieler, alle in H�chstform und packende Geschichte.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: langanhaltend ist es nicht
+Bewertung: das stimmt einfach nicht. Der Duft ist nicht lang anhaltend. Er ist noch nicht einmal durchschnittlich. Wird nicht mehr gekauft.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Unzufrieden
+Bewertung: Dieses Produkt hat zu wenig Farbe und Geschmack. Bei einem anderen Anbieter auch Bio gekauft und dort bessere Qualität bekommen.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Hochwertige Leinwand, hohe Aufl�sung
+Bewertung: Die Leinwand wurde sehr schnell geliefert und hat eine hohe Qualität und Aufl�sung. Der Rahmen ist stabil und hochwertig verarbeitet. Das Bild bekommt einen besonderen Platz, ich bin mehr als zufrieden.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Qualität ?
+Bewertung: Qualität lässt leider zu w�nschen �brig. Hält maximal 3 Monate und auch wenn es nur ein oder zweimal im Monat benutzt wird, dann hält es unerklärlicherweise die Luft von heute auf morgen nicht mehr. Bin jetzt auf die teuere Variante ausgewichen. Mal sehen.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Flackern und summen
+Bewertung: Die dimmbaren Lampen flackern leider und wurden deshalb zur�ckgesendet. Wenn die Lampen gedimmt werden, ist ein st�rendes Summen zu h�ren.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Leider nur 3 Sterne da Kabel sehr d�nn und dadurch schnell kaputt geht.
+Bewertung: Gute Idee mit der kleinen Solarplatte. Lichterkette sieht auch im dunkeln sehr sch�n aus. Länge absolut ausreichend. Jedoch ist das Kabel hauch d�nn und kann durch mehrmaligen biegen mal schnell brechen. Ich vermute das es nur 1-2 Winter durchhalten wird, dann muss wohl schon das erste mal gel�tet werden....wir hatten schon unsere Probleme.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Die rutscht immer wieder runter..
+Bewertung: Die rutscht immer wieder runter..
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Überragend!
+Bewertung: Der Film ist echt der Hammer! Nichts f�r schwache Nerven, vor allem wenn man Mutter ist! Spannung pur!! Absolute Empfehlung!!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Gute Armbänder
+Bewertung: Super Armbänder f�r das Geld. So kann man der Uhr �fters ein neues Aussehen geben. Auch super beim Sport, da die Armbänder sehr luftig sind.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Spannend
+Bewertung: Gute psychologische Studie, spannend inszeniert. Ich habe das Buch wieder mal in einem Rutsch gelesen. Wieder mal ein toller Krimi!
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Ware noch nicht erhalten.
+Bewertung: Am 21 Sept. 2019 soll o.g. Ware zugestellt worden sein. Ich habe nichts erhalten.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: F�r den Preis nicht mehr zu erwarten
+Bewertung: Ziemlich klein und daher kaum Bass, maximale Lautstärke beeindruckt auch nicht. F�r Musik daher ungeeignet, als Laptop Lautsprecher in Ordnung
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Wasserdicht, aber...
+Bewertung: Macht das IPhone 8+ sehr klobig. Leider war die Verarbeitung schlecht so das zu Luftblasen am Homebutton gekommen ist. Bei einer so teuren H�lle darf das nicht passieren. Den zweiten Stern gibt es f�r die Dichtigkeit. Da hält sie was sie verspricht. Die H�lle ging wegen der Passungenauigkeit zur�ck.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: F�r den Preis in Ordnung
+Bewertung: funktioniert super ! Qualität ebenfalls super das einzige was ich beanstanden muss, der Akku ist extrem schnell leer man sollte es fast schon nach jedem Telefonat wieder erneut laden! Daher ein Stern Abzug.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Viel zu klein
+Bewertung: Leider ist dieses Kleid viel zu Klein. Eine M�glichkeit es zur�ck zusenden gibt es auch nicht, obwohl es beim Kauf angezeigt wurde. Selbst nach langem hin und her schreiben. Ich werde nie wieder dort kaufen.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'deepseek-llm-7b-chat', adapter 'fin-sentiment-de'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: german
+============================================================
+<｜begin▁of▁sentence｜><|system|>
+Du bist ein Experte f�r die Analyse von Produktbewertungen und die Vergabe von Sternebewertungen von 1-5.
+1 = Sehr negativ, 2 = Negativ, 3 = Neutral, 4 = Positiv, 5 = Sehr positiv
+
+<|user|>
+Titel: Zahnstocher
+Bewertung: Nach langer Wartezeit endlich da.
+Sprache: de
+
+Bewerte diese Rezension mit einer Zahl von 1-5:
+
+<|assistant|>
+============================================================
+
+
+================================================================================
+ROUTING SYSTEM EVALUATION RESULTS
+================================================================================
+
+📊 Domain Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Task Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Expert Output Classification:
+  Accuracy           :  62.94%
+  Macro  P/R/F1      :  62.47% /  62.94% /  61.88%
+  Micro  P/R/F1      :  62.94% /  62.94% /  62.94%
+  Weighted F1        :  61.88%
+  Balanced accuracy  :  62.94%
+  Cohen's kappa (κ)  :  53.68%
+
+================================================================================
+📊 TASK-SPECIFIC EXPERT EVALUATION
+================================================================================
+
+🔍 Task: RATING
+--------------------------------------------------------------------------------
+  Samples evaluated: 170
+
+  📈 Classification Metrics:
+    Accuracy           :  62.94%
+    Macro  P/R/F1      :  62.47% /  62.94% /  61.88%
+    Micro  P/R/F1      :  62.94% /  62.94% /  62.94%
+
+  📉 Ordinal Metrics (star ratings as continuous):
+    MAE (Mean Abs Err) : 0.4471 stars
+    RMSE               : 0.7822 stars
+    Coverage           : 100.00%
+
+🔍 Task: NEWS
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: news
+
+🔍 Task: PII
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: pii
+
+🔍 Task: ESCI
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: esci
+
+
+📊 Per-Language Performance:
+--------------------------------------------------------------------------------
+  Language |    N |   Domain Acc |   Task Acc |  Exact Acc
+--------------------------------------------------------------------------------
+    german |  170 |      100.00% |    100.00% |    100.00%
+
+EXPERT/MODEL SELECTION BY LANGUAGE
+================================================================================
+
+================================================================================
+
+
+PERFORMANCE BY EXPERT/MODEL
+================================================================================
+
+deepseek-llm-7b-chat (Languages: german)
+--------------------------------------------------------------------------------
+  Samples      : 170
+  Accuracy     :  62.94%
+  Macro F1     :  61.88%
+  Weighted F1  :  61.88%
+
+  Per-language performance:
+    german       : Accuracy =  62.94%, Samples = 170
+
+================================================================================
+
+
+LANGUAGE GROUP COMPARISON
+================================================================================
+
+================================================================================
+
+
+✅ Results saved to: predictions_with_raw_responses.csv
+   Total samples: 170
+
+================================================================================
+✅ EVALUATION COMPLETE
+================================================================================
+
+================================================================================
+✅ ALL OPERATIONS COMPLETE
+================================================================================

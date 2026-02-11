@@ -241,7 +241,9 @@ def print_expert_performance(per_expert_cm: Dict[str, Counter],
                              per_lang_total: Counter,
                              per_lang_expert: Dict[str, str],
                              per_lang_correct: Counter,
-                             expert_labels: List[str]):
+                             expert_labels: List[str],
+                             per_expert_correct: Counter = None,
+                             per_expert_total: Counter = None):
     """
     Print performance metrics broken down by expert/model.
 
@@ -251,6 +253,8 @@ def print_expert_performance(per_expert_cm: Dict[str, Counter],
         per_lang_expert: Mapping of language to expert
         per_lang_correct: Correct predictions per language
         expert_labels: List of class labels
+        per_expert_correct: Direct correct count per expert (avoids CM label issues)
+        per_expert_total: Direct total count per expert
     """
     print("\nPERFORMANCE BY EXPERT/MODEL")
     print("=" * 80)
@@ -271,17 +275,37 @@ def print_expert_performance(per_expert_cm: Dict[str, Counter],
         print(f"\n{expert} (Languages: {', '.join(langs)})")
         print("-" * 80)
 
-        # Calculate metrics for this expert
         cm = per_expert_cm[expert]
-        metrics = compute_prf_bal_kappa(cm, expert_labels)
 
-        # Total samples for this expert
-        total = sum(per_lang_total[lang] for lang in langs)
+        # Compute accuracy from direct counts (avoids PII confusion matrix
+        # label mismatch where ("pii_gt", "F1_X%") entries have no diagonal)
+        if per_expert_correct is not None and per_expert_total is not None:
+            total = per_expert_total.get(expert, 0)
+            correct = per_expert_correct.get(expert, 0)
+            accuracy = correct / total if total > 0 else 0.0
+        else:
+            total = sum(per_lang_total[lang] for lang in langs)
+            accuracy = 0.0
+
+        # For F1 metrics, use only non-PII entries with expert-specific labels.
+        # PII entries use ("pii_gt", "F1_X%") which never form valid diagonal
+        # entries for TP computation. PII metrics are reported separately in
+        # the task-specific evaluation section.
+        non_pii_cm = Counter({k: v for k, v in cm.items() if k[0] != 'pii_gt'})
+        non_pii_labels = sorted({label for pair in non_pii_cm.keys() for label in pair})
+
+        if non_pii_labels:
+            metrics = compute_prf_bal_kappa(non_pii_cm, non_pii_labels)
+            macro_f1 = metrics['macro_f1']
+            weighted_f1 = metrics['weighted_f1']
+        else:
+            macro_f1 = 0.0
+            weighted_f1 = 0.0
 
         print(f"  Samples      : {total}")
-        print(f"  Accuracy     : {pct(metrics['accuracy'])}")
-        print(f"  Macro F1     : {pct(metrics['macro_f1'])}")
-        print(f"  Weighted F1  : {pct(metrics['weighted_f1'])}")
+        print(f"  Accuracy     : {pct(accuracy)}")
+        print(f"  Macro F1     : {pct(macro_f1)}")
+        print(f"  Weighted F1  : {pct(weighted_f1)}")
 
         # Per-language breakdown for this expert
         print(f"\n  Per-language performance:")
@@ -297,7 +321,9 @@ def print_expert_performance(per_expert_cm: Dict[str, Counter],
 
 def print_language_group_comparison(per_expert_cm: Dict[str, Counter],
                                    per_lang_expert: Dict[str, str],
-                                   expert_labels: List[str]):
+                                   expert_labels: List[str],
+                                   per_expert_correct: Counter = None,
+                                   per_expert_total: Counter = None):
     """
     Compare European vs Asian language group performance.
 
@@ -305,6 +331,8 @@ def print_language_group_comparison(per_expert_cm: Dict[str, Counter],
         per_expert_cm: Confusion matrices per expert
         per_lang_expert: Mapping of language to expert
         expert_labels: List of class labels
+        per_expert_correct: Direct correct count per expert
+        per_expert_total: Direct total count per expert
     """
     print("\nLANGUAGE GROUP COMPARISON")
     print("=" * 80)
@@ -313,7 +341,27 @@ def print_language_group_comparison(per_expert_cm: Dict[str, Counter],
     groups = {}
     for expert in ["llama-2-7b-hf", "aya-23"]:
         if expert in per_expert_cm:
-            metrics = compute_prf_bal_kappa(per_expert_cm[expert], expert_labels)
+            cm = per_expert_cm[expert]
+            # Use non-PII entries with expert-specific labels for F1
+            non_pii_cm = Counter({k: v for k, v in cm.items()
+                                  if k[0] != 'pii_gt'})
+            non_pii_labels = sorted(
+                {label for pair in non_pii_cm.keys() for label in pair}
+            )
+            if non_pii_labels:
+                metrics = compute_prf_bal_kappa(non_pii_cm, non_pii_labels)
+            else:
+                metrics = {
+                    'accuracy': 0.0, 'macro_f1': 0.0,
+                    'weighted_f1': 0.0, 'balanced_acc': 0.0,
+                }
+            # Override accuracy with direct counts
+            if (per_expert_correct is not None
+                    and per_expert_total is not None):
+                total = per_expert_total.get(expert, 0)
+                correct = per_expert_correct.get(expert, 0)
+                metrics['accuracy'] = (correct / total
+                                       if total > 0 else 0.0)
             groups[expert] = metrics
 
     if len(groups) == 2:
@@ -351,7 +399,13 @@ def print_expert_confusion_matrices(per_expert_cm: Dict[str, Counter],
 
     for expert in sorted(per_expert_cm.keys()):
         cm = per_expert_cm[expert]
-        print_confusion_matrix(cm, expert_labels,
-                             title=f"\n{expert} Confusion Matrix (GT rows × Pred cols)")
+        # Derive labels from this expert's own CM entries
+        expert_specific_labels = sorted(
+            {label for pair in cm.keys() for label in pair}
+        )
+        print_confusion_matrix(
+            cm, expert_specific_labels,
+            title=f"\n{expert} Confusion Matrix (GT rows x Pred cols)"
+        )
 
     print("\n" + "=" * 80 + "\n")

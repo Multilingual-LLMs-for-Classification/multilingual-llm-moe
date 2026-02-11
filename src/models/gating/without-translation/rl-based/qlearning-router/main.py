@@ -26,6 +26,15 @@ Examples:
 
   nohup python main.py > output.log 2>&1 &
 
+  # Evaluation only with N samples
+nohup python main.py --mode eval --test-n 100 > output.log 2>&1 &
+
+# Train + evaluate with N samples
+nohup python main.py --mode all --test-n 100 > output.log 2>&1 &
+
+# With custom paths
+nohup python main.py --mode eval --test-n 500 --test-data /path/to/test.json --output results.csv > output.log 2>&1 &
+
   # Train only
   python main.py --mode train --config my_config.json
 

@@ -1,0 +1,3717 @@
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: /home/cse/Desktop/moe-router/data/test_combined_chinese.json
+Test samples: all
+Output path: predictions_with_raw_responses.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['nl', 'en', 'fr', 'de', 'it', 'es', 'sv']
+   finance/news: ['da', 'en', 'es', 'pl', 'tr']
+   finance/esci: ['en', 'es', 'ja']
+   All supported languages: ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+✅ Built dynamic language mapping for 12 languages:
+   ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+✅ Initialized 4 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 4
+   - Supported languages: 12
+
+📂 Loading test data from: /home/cse/Desktop/moe-router/data/test_combined_chinese.json
+✅ Loaded 170 test samples
+
+Evaluating on 170 test samples...
+================================================================================
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Loading base model: bloomz-7b1 (bigscience/bloomz-7b1)
+[Adapter] Loading adapter 'fin-sentiment-zh' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/bloomz-7b1
+✓ Adapter 'fin-sentiment-zh' loaded successfully on base model 'bloomz-7b1'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 还可以，希望耐用。
+                评价: 商品还可以，笔有时候会卡死，可能是不熟悉。价格略高。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不喜欢
+                评价: 后悔买这本书，不是我喜欢的类型，只是把重点说说，并没有内容，我比较懒，不喜欢对照着看书。。。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 东西一般
+                评价: 刨花板板的，质量一般，有点味道。安好后有点晃，感觉不太结实。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 好书
+                评价: 收到书，速度很快，包装也很好，愉快的购物
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 码子适合瘦长的人
+                评价: 我感觉S码最适合的是173CM体重65公斤左右的，买的时候要注意了。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 个人觉得还行吧
+                评价: 东西全新的 用来做了几次蛋糕 效果都挺好的 就是打的时候感觉有点晃？？
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 质量有点差劲。
+                评价: 袖口处的布料质量差，总是有小毛球，感觉质量有点差劲。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 坑爹
+                评价: 努比亚用不了给了同学HTC，一个多月一边就不能听了，还不如校门口文具店十块钱一条的→_→
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 大号和中号非常实用
+                评价: 很好用。但是商品尺寸搭配不好，小号的压缩袋根本没用处。赠送的手泵比较费劲，想购买的客户看清楚，尤其是女性力气小的，电泵好用。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 你咋不上天呢
+                评价: 二手货，已经不是试穿鞋了，鞋跟尾已经磨损很明显，缝隙中的泥土估计是实在擦不掉了，客服很屌，应对相当娴熟，反正不能换新，要不你退货，发到美国自己先垫运费，那边检测好是二手再退回运费，我们也不负责，是美国亚马逊的问题。特么在你平台买的你不负责，我来负责么？
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 好锅
+                评价: 质量不错，大小也合适，用了几次都没粘，打理也方便。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 很给力的家庭工具！
+                评价: 收到货后，就立马拆包，很惊喜！马达动力十足！冲击钻握着很舒服！快递非常给力！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 有点出乎意料
+                评价: 内容超乎寻常，孩子看有趣小恐怖 ，与期望有些差距。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 书的内容是五分，不过kindle版的书中有一半图片是空白，没显示。
+                评价: 书的内容的真的好，有血有肉有知识。冷冰冰的历史被这本书写出了温度和深度，每一篇文章都很吸引人读下去，而且很多篇都看得我很感动。 所以书的内容五星。 不过我买的kindle版，书里原本有很多图片，在kindle版里有一半的图片是空白，没显示，看的很窝火。 最后又买了本实体书，支持作者~
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 偏大
+                评价: 非常好看，也没有传说中那么硬。但是，我买大了……我一个35码的脚为什么要买36号，大很多！！我记得Nike的小白鞋买的36码正好啊……
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 值得购买
+                评价: 送货速度给力。一套书的印刷还是挺不错的，和小时候的连环画记忆重合，给小朋友看的，挺好。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 质量太差
+                评价: 无语，由亚马逊销售并发货的居然是这个质量：包装表面完好，在最中间的一块破裂，无法使用。有理由相信是质量问题。要求换货！！！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不咋滴，里边那层像不粘锅的涂层很烦
+                评价: 看说明书第一次要高温空烤去除里边的味道，可我已经断断续续烤了好几次，还是能闻到一股刺鼻的味道，我都不敢往里边放吃的烤，我想退货
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 好评
+                评价: 还不错，第一和第四部分没有考到，第二，三部分有考到，第4部分图片不太清楚
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 贵到离谱
+                评价: 买的时候没留心价格，比其它电商都贵一倍，还是双十一特价！中国亚马逊你这样下去是迟早要关门歇业的。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 莲
+                评价: 货已经到 有几颗已经损坏不好看 想退货
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 做工没有预期好
+                评价: 做工精细度没有想象好，十字起子用了几次后头子已经变形了，不知道是否能够按承诺换
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 一个长达28天的感恩故事
+                评价: 看了开头，就知道结尾的一本书，旨在让人学会向世上存在的一切感恩，学会感恩，你的生活会越来越富足，越来越美好（听起来的美好愿景） 具体会不会变成那样，就看个人努力了，是否真正按照书上写的去做，而且坚持
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 内容一般
+                评价: 书本本身的印刷质量还是不错的，就是内容很一般，里面没收录几篇童诗不说，收录的诗也很莫名其妙
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 少光盘，请售后补上，谢谢!
+                评价: 订了一个系列，唯独这本少发了光盘，希望补上，谢谢!
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 还不错
+                评价: 看了评论说这款质量不错，买了用后的确不错，没有掉毛的现象出现。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 挺好
+                评价: 实物和图片一样很好，用起来和之前一百多买的一样
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 货品不错。
+                评价: 货品不错。建议在销售网站页面上加注（类似含义）“根据运单包裹号到快递公司官方网站查询货品运输行迹”字样。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 认真看了
+                评价: 介绍的很详细（还有韩国妇女的凄苦一生，啧啧），但不会去做了，太不健康了，这吃了怎么会不生病呢
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 质量不错，值得购买！
+                评价: 使用了一段时间，该产品走时准确，价格实惠。 手表的表链比较长，至少对于我来说，表链太长了些。 产品外观，大气，厚重，防水性能不错，价格实惠。 你不用担心日常佩戴会损坏，是值得购买的商品！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 排版影响阅读
+                评价: 电子版排版有问题，这是一本讲设计的书排版割裂案例图片是很讽刺的。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 适时的鸡汤
+                评价: 鸡汤文火，因为每个人都有不如意，需要鸡汤的时候。累了，就煲点汤再继续
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 没有茶隔的
+                评价: 明明写着“带茶隔”，收到货后发现根本就没有茶隔
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 还可以
+                评价: 很多都是经典故事，整体还可以，但有的故事感觉应该稍大点的孩子听，特别小的小宝宝不太合适。还有改变外国童话的，不是很喜欢，都是中国的经典童话就好了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 快递很差劲
+                评价: 差评这次，亚马逊忠实用户，这次买机油，快递送货也不打电话，耽误一天保养。收到货一看油还漏了，打开包装瓶盖未拧紧导致渗油。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 翻译不是太好
+                评价: 只看了一部分，翻译不是太好，有不少地方都翻得比较生硬
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 破损的书
+                评价: 第一次从亚马逊买到这么破的东西，书皮是脏的，书都严重折角。失望了，以后还是去别家买吧
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 满意
+                评价: 到的速度很快，不到两个星期就到了，目前没有任何质量问题。还是mij的机子，很满意这次购物，要是再支持prime就好了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 盖子碎了
+                评价: 盖子都碎啦！而且是粉碎！包装太马虎！没有盖子很容易滋生细菌！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 好用
+                评价: 做工精细，拍摄出来的画面清晰，很实用，晚上也试了一下，停车时能看清车牌号码，效果还不错，对这个价位来说，可以了，防碰瓷是绝对够了 ，外观设计精美有档次，画面也是非常的清晰，好开心的一次网购，
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 最好的译本 适合珍藏
+                评价: 挺不错的一本书 名家翻译 忠于原著。网上找过这是最好的译本。大人小孩都适合看，像书名一样适合珍藏
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 好像百科全书
+                评价: 内容全面 好像百科全书 印刷模糊 好像盗版 是文化快餐
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不好喝
+                评价: 闻着很香。 倒在杯子，看着不通透。 喝起来酸涩很明显。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 垃圾
+                评价: 不熟，有烂的，个头也小，很难吃，跟彩色辣椒一个味道，不会再买了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 可读，但几乎不解决问题
+                评价: 作者对于成瘾者的家庭关系，内心的情绪分析的很到位，但是对于治疗的核心过程只是寥寥数笔，对问题的分析有自己独到的见解，但是对于戒瘾的方法，特别是自助方法，给出的马马虎虎，模棱两可
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 我说耳机太小他说是我耳朵太大
+                评价: 音质对得起这个价格。单材料有点水。带了不知道是我的耳朵大了还是他小了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 大大
+                评价: 还算马马虎虎，不过怎么又涨价了，难道亚马逊也这样价格不稳定吗？不可理喻
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 你亚马逊不想好了吗
+                评价: 买的东西，说你的包装不好，你就不给发表，说你的包装不如以前了，就不行了？以后能上别的地方买就不会在亚马逊下单了。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 脚垫质量不错，但不实用
+                评价: 脚垫的质量确实不错，没有异味，但是我也买后悔了，因为没经验买了这种，打滑很厉害，总是窜来窜去的，已经决定再买一套大包围的了，那种才实用。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 取代木铲
+                评价: 首先外观很漂亮，大小我觉得正合适，铲子底部有些软，但也能铲到沾在锅上的东西，终于有一样东西可以取代木铲了，非常好用。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不好
+                评价: 搭配的啥，感觉与其他GRE教材落后一大截，有点瞎凑的感觉。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 包装也挺简陋的
+                评价: 看不出made in Germany字样，真的是德国原装进口吗？
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 一般，价格与超市比没优势
+                评价: 价格与大小型超市比都没优势，都是一样的！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 很漂亮，做工很好
+                评价: 颜色很正，大小合适，质量也很好，很喜欢，
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 还好。
+                评价: 去黑头效果一般。相当于磨皮祛角质的感觉。。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 舒服
+                评价: 椅子包装很扎实，店家很贴心。按照图纸一步一步来安装整体上还是挺容易的，组装好的椅子坐着也很舒适，轮子和转轴也很好。整体上感觉这个价位买到这样一把好椅子很超值的，非常值得推荐。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 感觉这次买的粉，质量不行，日期也不行。
+                评价: 日期不新鲜，明显是去年的陈货，包装都是老版的。一个是我去年买的，都是8月份的，这个居然是4月份的
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 机器经常自动关机，网站换货无法操作
+                评价: 不好用，不知道为什么经常自动关机。而且，亚马逊网站的换货渠道不好用，一点换货就出来退货的信息，搞不懂
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 还行
+                评价: 考研前一个月买的 题型很新 时间充足可以买来看看
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 差评
+                评价: 差评，商品质量有问题，联系卖家一直没有回复
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 读后感
+                评价: 写的不错，道出了中国人为人处世。但这本书写的只是中国人缘好的，是怎样一味地怎么去迎合别人的技巧。个人感觉缺少个性与创新的东西。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 还可以！
+                评价: 1.内容有点少，只是泛泛的概述，像煤的种类等知识都没有！要是再全一些就好了！ 2. 书中有一些明显的错误，笔者应该多检查几遍！ 3. 如果再有CD语音就更好了！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 感觉不是正品，包装太次！
+                评价: 刚到货的时候有一股臭味，而且颜色还给我发了一个粉色的，但是清洁度还是可以的。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 锅很厚实，好用
+                评价: 一直寻找一个好用无涂层的铁锅，这个锅买回家炒了一次菜，虽然不能完全做到无油烟，但炒菜味道很香。只是，刚买不到3天，就降200块钱，这让我们情何以堪！亚马逊是不是也应该学学其它网站，有一个十天内补差价的机制？
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 2年半时间。。坏了 ，，这质量算的刚好过2年保修就坏了
+                评价: 2年半时间。。坏了 ，，这质量算的刚好过2年保修就坏了 2014年10月 到 2016年 1月
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 缺点
+                评价: 东西很好用，就是加水和烧水程序同时开启时会自己关闭一个程序（大部分时候都是烧水程序停止），这个需要改善。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 很有意义
+                评价: 尽管现在单身，甚至不太相信可以找到可以相伴一生的另一半，但看了书后有点相信并觉得很多事情都是可以做到的
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 假货！亚马逊自营也沦陷了
+                评价: 第三支凌美笔，确定假货。一星都不想给，标的ef尖，结果写出来比f还粗，笔尖生涩，出水也不流畅，用的凌美墨囊，前面两支笔完全不是这样的手感。亚马逊自营也卖假货，真无语了，可能我要是没用过真的也不会知道吧。出于信任，包装什么的收货时就扔了，这下好了，只能自认倒霉
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 内容好看，看完书也完蛋了
+                评价: 书是蛮好看的，只是书的质量太差了，还没有读完，书页就掉了，随着看书纸也一张一张往下掉，等到看完，书也散了。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 还不错
+                评价: 用了几天，还不错，容量超大，功能也不错，就是加水不太方便，可能大容量的都这个样子。外观还是不错的
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 噪音大，有异响，外壳糙，底部磨损
+                评价: 噪音确实太大了，有一点异响，外壳很糙，底部有磨损，实在懒得退换了！ 早知道还不如买两台小米的了！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 这怎么穿
+                评价: 有一个超市专门卡衣服的那种锁。。没取掉就发货了，什么鬼
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 快递极差
+                评价: 没拿到货就签收了，既没有打电话也没有短信通知，这几天家里一直有人也不送货上门，联系后送到快递点，去快递点拿发现只是随意堆在那边。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 黄磊的文笔实在太一般了，读不下去，还是看他的电视好了
+                评价: 黄磊的文笔实在太一般了，读不下去，还是看他的电视好了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 穿着很舒服合适 但是洗涤时严重掉色
+                评价: 水都被染色了 接着洗了一遍 还是掉色 很奇怪的说
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 最差的一次购物!
+                评价: 化学味道很刺鼻！放在车上真的受不了！！！直接扔掉，希望亚马逊要严格监管第三方商家，这种商家最好别让入驻。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 时代的特色
+                评价: 虽然是大师的作品，但是那个时代的语言习惯，现在读来，颇是费力。看了3篇，虽然讽刺意味很浓，但读起来感觉很累，本来应该轻松享受读书，结果却是相反。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 失望！！！
+                评价: 我买的全套升级版，收到后真是大写的不值，不值，不值！和地摊货没什么两样，纸质发黄，书全部都受到了不同程度的磕碰。真真的连10块钱都不值。退货麻烦，懒得退了，总之失望，失望，失望！！！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 质量有点问题，中间有几页没粘牢，掉出来了。
+                评价: 质量有点问题，中间有几页没粘牢，掉出来了。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不太好
+                评价: 包装有点low，盒子是用透明胶带在两端粘了的，有点怀疑真假，而且日期不太好，保质期一年，2016年11月的。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 方便简单有效果
+                评价: 很简便。拧上就能用了。烧水再也没水垢。 但是要注意自己的水龙头是不是能用哈。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 38的脚请买7.5码
+                评价: 看了别的买家晒的图，7码对应的是240的脚长。结果买来一试，小了。38的脚还是应该买7.5码。价格便宜，比代购都划算，可惜尺码不合适，只能退了。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 质量和手感
+                评价: 从细节上看和使用的感觉看有点像浙江出产的，尤其是这个价位的保温壶。。。。。。。。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 大家小心上当，压根就是骗子
+                评价: 网站、微信都不能提货，电话拨了一个小时都打不通，唯一一次通了还没人接。联系亚马逊客服一直不能解决问题，总是让我换个时间再尝试，还说没有接到别的客户反馈这样的问题，可是看评论大家应该都是这个情况，这次亚马逊的商品和服务实在令人失望，望改进！！！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 值得一看
+                评价: 本书是站在国家的高度上，通过各国的历史、文化、重要人物等去分析各国的现状以及未来。其中对中国的环节有独特的见解，看完后对国家的未来走向有所深思，一些论断的确让人脑洞大开，比如博大精深的中文却是阻碍中国发展的业障，因为国际顶尖人才无法像学习英文那样学习中文，从而不选择在中国立足。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 极差
+                评价: 假的，极差，不但不上色，易晕染，还易折断，根本一次就用不了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 郁闷了
+                评价: 我买的时候69元，刚收到货时准备评价，一看只卖49元，心里不舒服。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 非常喜欢
+                评价: 我自己买了一双，又给老爸买了一双，夏天穿正装非常合适。而且很舒服
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 辣味赛过辣椒的萝卜
+                评价: 这是萝卜。但辣的跟辣椒还辣。怀疑不是沙窝萝卜。即便是，也是最差极差的沙窝萝卜。以后肯定不敢买了。一共六个萝卜，两个因为物流都断了，滚的都是泥
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: kindel排版有问题
+                评价: 书内容不必说了，非常好，但是我刚买的kindel版排版有问题，每段前面不知道加的什么符号，希望重新排版，修订一下。 续，这家出版社真的很有问题，反映了这个问题，他们竟然说是正常现象，中国人的书写习惯是每段前面空两个汉字，什么时候还加了一个方框（电脑显示，而在我的kindle上显示的是一个乱码），不准备修订，试问，这一系列其他的版本的电子版为什么不加这个特殊的符号呢？好在亚马逊的服务还是不错的，我果断的退了这个电子版，好书都让出版商给毁了。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 很好
+                评价: 繁体版是16开，大，简体版32开小/有的人觉得老祖宗留下的是正宗中国字，传递着能量；也有人认为，跟古文相关的又是繁体，你一定要有本繁体字典在手才行。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 用不了
+                评价: 看起来不错，但是38升的烤箱放不下，亚马逊的解释太简单，没有标注适用烤箱尺寸
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 甩不干
+                评价: 脱水力度实在太小了，小孩子的衣服都甩不掉的，好想退货！快递很好
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 书质一般般
+                评价: 书整体看还是可以 印刷基本没什么错误，但是对组装很不满意，新书拿到手就开线， 估计用了一段时间后，会变成一页一页的了。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 装订质量太差
+                评价: 必须说一下，书的装订质量太差了，买回来翻了一次就脱页了，无语了。亚马逊能联系出版社改进改进吗？ 另外，亚马逊的评论能增加贴图的功能吗？无图无真相。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 骗人的
+                评价: 说送硅胶铲，实际并没送，还不如其他网站，还便宜40
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 刚刚收到货，装上了，但发现磁扣扣不住，没有吸力。更可恨的是 现在不知道怎么把这套弄下来
+                评价: 刚刚收到货，装上了，但发现磁扣扣不住，没有吸力。更可恨的是 现在不知道怎么把这套弄下来，卡的好紧，把把kindle弄坏了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 还好
+                评价: 内容挺好，但是所使用的ABAQUS的版本过低，不过还是能学到一些东西
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 假货
+                评价: 我1⃣️号开始穿的.今天算是11号了.才几天啊....鞋头就开胶了.尼玛也太夸张了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 好看
+                评价: 一眼看上这个品牌，质量不错，这件是所有衣服中最好看的，价格相当便宜
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 啊
+                评价: 有点真题的感觉，但是难度比真题稍微低点。每天做一篇，练手很不错。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 电陶炉不错
+                评价: 已经开始手了，比电磁炉要小些，要厚些。外观很好看
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 虚假宣传
+                评价: 该商品介绍页面说蓝牙能连接5个手机，收到货看到盒子上写着只能连接1部顿时懵了，再打开盒子看到电话机，再看看网页图片，简直就不能再忍受了。坚决退货！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 好书
+                评价: 这本书拜读一遍之后，收益匪浅，可以当做工具书来使用，生活工作中遇到任何事，迷茫时，消极时，都可以把书拿出来读其中1~2章，很受用。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不错
+                评价: 东野圭吾悬疑小说，写作风格多样，所以都能看下去。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不建议购买
+                评价: 第一次收到的鞋鞋底很脏，进行了换货，第二次稍微好一些，但是看起来仍然像二次销售的产品，有些地方的胶水粘合不严密。做工不好，左脚脚后跟已经磨烂，右脚没事。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不掉色
+                评价: 不掉色，洗了好几次，才来评价，没有起球，价格也很实惠，客服服务态度也很好，很满意。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 中看不中用的！！
+                评价: 包包特别重，打开的时候很吃力！的确是漂亮的，但我觉得是中看不中用的。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 一气呵成
+                评价: 第一次书评 看完，又找来一些高斯的介绍来读，书读完了，很舍不得。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 注意包装
+                评价: 包装的不够严实，我是要送人的，回来以后书的角上都磕破了，包装纸也烂了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 可以推荐
+                评价: 总体来讲词汇语法和内容都符合N2考试的难度，，，不过。。。。字大，，空白多，，图表刻意占体积，，，本来用一半页数就能写完的。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 快递没有包装！差
+                评价: 包装太差，没箱子，连包装袋也没有，直接裸着寄过来！外包装都是扁的！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 接口太紧
+                评价: 整体来说不错，但是大部分接口都特别紧 插拔很不方便，要说缺点吧也就这个了，其他都不错。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 没有信用的商店
+                评价: 没有信用的商店，网上说是6个小时发货，其实是10天！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 推荐购买
+                评价: 五只小猴子的故事，经典，孩子喜欢。同时也启蒙了英语，挺好的
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 价格高
+                评价: 用了几天才来评价，总体还可以，但是电池充满用不了说明中的20次，价格太高，别的网站价格低了60元
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 东芝存储卡
+                评价: 网购基本上首选亚马逊，买了那么多次，如此信任你们，但你们有时真让人失望。看看这次货物包装，那么小的盒子，存储卡也没包装，货物放里面挤的盒盖都合不上，用胶带一缠就那么鼓鼓囊囊的给我送来了，就没有个大点的盒子吗？你们库房包装人员也太不负责任了吧！上次买的移动硬盘，怕震的东西，竟然也没有任何包装保护，在盒里晃荡着就送来了。我已经给你们提过意见，怎么不见改进，反而更差劲了呢？别让忠诚的老客户离你而去！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 很不愉快的一次购物
+                评价: 非常感谢亚马逊客服及时，有效地解决问题。 预定时间没有收到货，物流单号查询没有信息，找卖家退款无反应。只能寻求客服解决问题。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 隔江山色
+                评价: 书本质量不怎样，看了几天、翻了几下，本子有点纸张脱落，内容还可以。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 质量不怎样
+                评价: 质量不怎样，带灯的时亮时不亮。做工也粗糙。不值这个价钱。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 面料感觉舒适
+                评价: 总体感觉不错，面料穿着舒适、没有掉色、起球现象。穿了较长时间才来评价，感觉尺码偏小，个人建议购买大一号。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 心累
+                评价: 我主要是觉得书好像盗版，有缺字，还又加粗的有小字。对于强迫症真是要命。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 此书有很多地方是重复的，可以说是胡乱编排；且图片很不清晰。可以说是，我买到过的最糟糕
+                评价: 此书有很多地方是重复的，可以说是胡乱编排；且图片很不清晰。可以说是，我买到过的最糟糕的电子书。我很生气它是怎么被通过审核的！ 像这样的书籍第一不该出版，第二更不该变成电子版。 我认为Amazon应该对卖的东西更加严格地审核。尤其Kindle是你们自己的产品，不是吗？
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 骗人的“电子教案”
+                评价: 书上说附电子教案，可是按照提示进入机械工业出版社，必须要以教师身份注册，经审核后才能登录下载。对我们这些学生来说很不人性化，建议卓越网能为下载提供便利。 而且，一输入封面所提供的网页地址，连网页都打不开。换了浏览器，同样地打不开，...............。当时差不多就冲“价格理论及其应用:决策、市场与信息(原书第7版)(附电子教案) ”中的“电子教案”而下手，满以为应该有个光盘“什么的，结果什么都没有，还好端端的弄坏了心情，............. 然后，在大星级时，有一点犯难，”星级，打给书本本身的内容呢，还是给出版社的这种行为呢“，..........
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 还行吧
+                评价: 这次买的书，纸质不是太好，还有一页上破掉了，不过还好不太影响阅读。亚马逊的送货还是不错的
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 关于收到的书
+                评价: 速度挺快，包裹完好，就是拆开来的时候发现书角有轻微磨损和塑封膜被划开一道口子
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 果真一本杂记
+                评价: 同时买了一个女人的自传，这本真算得上是杂记了。有很多语焉不详的地方，走了哪里、去了哪里、遇见哪些人……拉拉杂杂，白描几句，像是从日记上拼出来的梗概。不值得买。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: zippo还是不错的
+                评价: 除了机盖稍微有点晃，都很满意，时间长了把上面的漆磨掉手感一定很不错。亚马逊的商品还是让人很放心的。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不是我想要的那种款
+                评价: 不是我想要要的那种。。还行吧，多学学知识。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 就那样吧
+                评价: 还可以吧！主要客服小孔服务很好，别的也不想说了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 很满意
+                评价: 和卖家描述的一样，无色差，质量也很好，我有点小胖，穿出来效果有显瘦。很满意
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 一般质量
+                评价: 实际只有28G.并且有时候接触不良，识别不了文件！！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 内容很丰富
+                评价: 内容丰富详尽，取材来自实际项目，让我这个结构画图匠大开眼界！看了这本书之后，廓清了一些迷惑我很久的结构概念；同时了解了结构工程师在整个项目中的角色，不仅仅是个画图匠的职能。真是难得的好书！ 序言中提到了关于地下室优化的内容作为姊妹书择机上市，非常期待！其实本书已有很多地下室优化的内容，拭目以待新书的面世！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 短裤偏大
+                评价: 料子不是很好 平时穿34的裤子 这个33的大了 应该买小两码的合适
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不推荐
+                评价: 这本书没有体现作者的水平，引用目的不明确，太散
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 塑料味大 有几个梳齿头有细丝粘连
+                评价: 买卡诗的赠品 打开包装后味道很大 如其他评论所述 涂抹梳齿圆头的材料还有细丝粘连在一起 品质看起来很一般
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不错，装帧好，内容也好
+                评价: 《国王的两个身体》涉及到了西方政治史当中的权力象征问题，而这个问题在西方历史中古已有之，又延续至今
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 图片与实物
+                评价: 图片与实物不符，图片给人以金属质感，拿到手是会有落差感的，不过很好用
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 感觉这个商品还可以，应该不错，再试试看看
+                评价: 感觉这个商品还可以，应该不错，再试一 试看看
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 居然电子版不完整！！！
+                评价: 快看完了，居然电子版不完整！请亚马逊自查下，不完整卖啥呀！
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 还不错
+                评价: 笔记本固态硬盘转到该硬盘的传输速度在150mb左右
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 一般
+                评价: 里面的一些有我不太喜欢的风格，或者是难以理解的心情。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 内容空洞
+                评价: 总体上书本内容通俗易懂，简单易看易懂，适合初级读者看看。但是涉及的层次不高，缺乏新意，东拼西凑，对于高级读者这书表达还欠缺火候，个人建议实例结合理论，再加上作者精辟见解，那样就很好了。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 666
+                评价: 写得不错，但就看过这一本相关的书，不好做对比
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 发票得催
+                评价: 发票等催几次等几个月才能收到，买家需要注意。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 严重缺页
+                评价: 从第10章到第12章里面严重缺页140页.141页.145页.。。。 不知道出版社的校对干什么去了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 看起来很唬人，其实一般般
+                评价: 没什么干货。读完之后，看到豆瓣上那些言过其实的评论（大多是是在刚出版的时候发布的，妥妥的口碑维护），你就知道社群营销的能量是有多大了。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不喜欢
+                评价: 白色是羊奶成分的赠品，7月买的半年后就过期了，不好用。粉色好一点，但用了都会长痘痘在脑袋上？长痘了就有头屑。。不会再买这个牌子了
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 书籍封面脏
+                评价: 书籍封面有黄色的痕迹，像是另外一本书把封面的颜色染在了书上，不过没有折损，勉强接受。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 没拉链安全有点问题
+                评价: 比预期的小一点，图片上似乎是软质的，其实是硬面的，所以内置物品不多；本包没有拉链，安全有问题
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 食品最好当场开箱验货，不支持退换货，无论是不是质量问题
+                评价: 亚马逊的食品现在不支持退换货，原先有质量问题可以退，现在不能退了，大家收货的时候注意先开箱验货，有问题直接拒收。 今天收货送货师傅收了钱直接走了，打开箱发现有两包食品外包装有破损，客服让追回送货师傅，拒收。东西我还想要，后来看里面还有一层包装，就没有退。之前退过一次牛奶，也是送货师傅走了，才发现包装破裂，已经扭开了一点，其实完全没有证据证明究竟是谁扭开的，但是说了，亚马逊就会相信，牛奶不要了，把钱退了。 再之后食品就没出过问题，今天才发现政策已经改了，其实本身也是规定先验货的，但是送货师傅都是急着走的，有时也就不验了，别的东西售后都是无理由退换还好，食品本来就是不能无理由退换的，还是守着送货师傅验货，有个人作证，大家都放心。其实之前真的是亚马逊太相信客户了，也可能有太多的人利用了这种信任。。。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 产地问题请大家看仔细
+                评价: made in china,客服告诉我说采购的时候会有很多生产商，请介意的家长绕行。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 磨损严重
+                评价: 书的死角全部磨损，每次的硬封皮书都有磨损。包装及其敷衍，仅用一个薄塑料袋，到货时没有一本书不是破损的，失望。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不错
+                评价: 有一角翻折，其他很好。 书本正在研读。初步认为还是很不错的。较为真挚，有一定的对阅读水平的要求。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 读过此书，觉得自己刚刚重生似的
+                评价: 读过此书，觉得自己刚刚重生似的.之前自己是学习金融的，但对于金钱却概念是非常模糊的，有这样一本书启蒙，真的很好的
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 包装
+                评价: 请卖家注意包装，图片是是有LOGO的，实际收到的没有LOGO
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 既然发邮件说发票寄出了就应该把发票寄过来，发邮件说寄出了又不寄，你忽悠谁呢？
+                评价: 既然发邮件说发票寄出了就应该把发票寄过来，发邮件说寄出了又不寄，你忽悠谁呢？
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不太推荐
+                评价: 书中循序渐进的引导读者学习一套“讲故事”的框架，但其适用性不强，欠缺说服力，整体内容较为空洞，不太推荐
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 相对来说笔迹较粗，上墨器破损
+                评价: 相对来说笔迹较粗，上墨器破损，勉强可用，其他还好，顺滑。国内亚马逊卖的卓尔都是钢尖的。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 一款不错的笔记本电脑
+                评价: 快递服务很好，开机速度挺快，性价比挺高的，本打算买A或T牌电脑，但我那款T牌电脑风扇坏了，维修费劲，就买Dell了。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 物流速度很快
+                评价: 在亚马逊买的东西物流一向很快，不管怎么说，都比淘宝放心~
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 是不是少了个盒子哟？
+                评价: 为什么我买了没有外面的大盒子呢？我这怎么送人呢
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不推荐
+                评价: 需要插电源才能使用，很不方便。而且App软件苹果手机不能用，苹果没受信。买霾表不推荐这款
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 不错 不错 不错 不错 不错 不错 不错 不错 不错
+                评价: 不错 不错 不错 不错 不错 不错 不错 不错 不错 不错 不错 不错 不错 不错 不错 不错
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 挺好喝的
+                评价: 下单后货送到挺快的，喝了一下，味道挺好的，价钱也实惠
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 东西不错，但是物流不好
+                评价: 送给朋友的，谁知道物流说不送到那里，得加钱给送货，无奈只能加钱
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 一般般
+                评价: 没用过其他品牌的加湿器，这个299买入，感觉实用性一般。噪音比较大，特别是半夜水用完了响了很久居然不会自动断电
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 一颗星都嫌多了
+                评价: 简直毛病吧 ，说好有光盘的，发来了又没有，电脑还中毒了，而且亚马逊是怎么回事的，找客服那么不方便，差评差评差评
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 排版有缺失，
+                评价: 这本书本身应该是很好的，但是出版社不出了，导致我只能买电子书来看，但是很失望，刚看几页就发现配图不全，排版也不好，耽误阅读时间和精力。。。不开心，以后都不想买电子书了。如下图，请问带花的图在哪里？
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                你是分析产品评价和给出1-5星评分的专家。
+                1 = 非常差, 2 = 差, 3 = 一般, 4 = 好, 5 = 非常好
+
+                <|user|>
+                标题: 按键太硬，耳挂太软
+                评价: 按键太硬，不是一般的硬，要用指甲死死按住才有反应，如果在开关机，匹配时，那几秒钟根本坚持不住啊。 耳挂太软，高高在上，几乎感觉不到，不能因人而已自由调整位置。
+                语言: zh
+
+                给这个评价打1-5分:
+
+                <|assistant|>
+============================================================
+
+
+================================================================================
+ROUTING SYSTEM EVALUATION RESULTS
+================================================================================
+
+📊 Domain Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Task Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Expert Output Classification:
+  Accuracy           :  58.24%
+  Macro  P/R/F1      :  61.42% /  58.24% /  59.29%
+  Micro  P/R/F1      :  58.24% /  58.24% /  58.24%
+  Weighted F1        :  59.29%
+  Balanced accuracy  :  58.24%
+  Cohen's kappa (κ)  :  47.79%
+
+================================================================================
+📊 TASK-SPECIFIC EXPERT EVALUATION
+================================================================================
+
+🔍 Task: RATING
+--------------------------------------------------------------------------------
+  Samples evaluated: 170
+
+  📈 Classification Metrics:
+    Accuracy           :  58.24%
+    Macro  P/R/F1      :  61.42% /  58.24% /  59.29%
+    Micro  P/R/F1      :  58.24% /  58.24% /  58.24%
+
+  📉 Ordinal Metrics (star ratings as continuous):
+    MAE (Mean Abs Err) : 0.5412 stars
+    RMSE               : 0.9010 stars
+    Coverage           : 100.00%
+
+🔍 Task: NEWS
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: news
+
+🔍 Task: PII
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: pii
+
+🔍 Task: ESCI
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: esci
+
+
+📊 Per-Language Performance:
+--------------------------------------------------------------------------------
+  Language |    N |   Domain Acc |   Task Acc |  Exact Acc
+--------------------------------------------------------------------------------
+   chinese |  170 |      100.00% |    100.00% |    100.00%
+
+EXPERT/MODEL SELECTION BY LANGUAGE
+================================================================================
+
+================================================================================
+
+
+PERFORMANCE BY EXPERT/MODEL
+================================================================================
+
+bloomz-7b1 (Languages: chinese)
+--------------------------------------------------------------------------------
+  Samples      : 170
+  Accuracy     :  58.24%
+  Macro F1     :  59.29%
+  Weighted F1  :  59.29%
+
+  Per-language performance:
+    chinese      : Accuracy =  58.24%, Samples = 170
+
+================================================================================
+
+
+LANGUAGE GROUP COMPARISON
+================================================================================
+
+================================================================================
+
+
+✅ Results saved to: predictions_with_raw_responses.csv
+   Total samples: 170
+
+================================================================================
+✅ EVALUATION COMPLETE
+================================================================================
+
+================================================================================
+✅ ALL OPERATIONS COMPLETE
+================================================================================

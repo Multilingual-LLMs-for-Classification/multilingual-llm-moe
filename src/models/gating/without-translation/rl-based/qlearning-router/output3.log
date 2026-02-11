@@ -1,0 +1,1314 @@
+nohup: ignoring input
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+`torch_dtype` is deprecated! Use `dtype` instead!
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: test_combined.json
+Test samples: 40
+Output path: predictions_with_raw_responses.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['nl', 'en', 'fr', 'de', 'it', 'es', 'sv']
+   finance/news: ['da', 'en', 'es', 'pl', 'tr']
+   finance/esci: ['en', 'es', 'ja']
+   All supported languages: ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+✅ Built dynamic language mapping for 12 languages:
+   ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+✅ Initialized 4 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 4
+   - Supported languages: 12
+
+📂 Loading test data from: test_combined.json
+✅ Loaded 40 test samples
+
+Evaluating on 40 test samples...
+================================================================================
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-esci-es'
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.29s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.40s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.30s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.32s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+[Adapter] Loading adapter 'fin-esci-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/esci/Mistral-7B
+✓ Adapter 'fin-esci-es' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-esci-es'
+
+============================================================
+[LLM PROMPT] Task: finance/esci | Language: spanish
+============================================================
+You are an e-commerce relevance classifier for search results.
+Given a search query and a product description, classify their relationship using ESCI labels.
+
+ESCI Labels:
+E = Exact match
+S = Substitute
+C = Complement (accessory/add-on/related item)
+I = Irrelevant
+
+IMPORTANT RULES:
+1. Accessories/holders/mounts/cases/parts/add-ons are ALWAYS C, never E or S.
+2. E only if core product type exactly matches query.
+3. Decide by core product type, not keyword overlap.
+4. Output ONLY one uppercase letter: E, S, C, or I.
+5. No explanations.
+
+Query: msi x570 gaming edge wifi Product: GIGABYTE X570 I AORUS Pro WiFi Adaptador de Cable ¡ATENCIÓN! ¡Compruebe en el sitio web del fabricante si sus componentes (memorias RAM, procesador) son compatibles con esta placa base antes de comprarla! Compatible con procesadores amd ryzen / ryzen de
+Label:
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-3.1-8b-instruct', adapter 'fin-esci-en'
+[Memory Management] Unloading model 'mistral-7B-Instruct-v0.3' from GPU...
+✓ Model 'mistral-7B-Instruct-v0.3' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-3.1-8b-instruct (meta-llama/Llama-3.1-8B-Instruct)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:12,  4.25s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:08<00:08,  4.44s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:13<00:04,  4.44s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  2.95s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  3.48s/it]
+/home/cse/miniconda3/envs/multilingual-classification/lib/python3.10/site-packages/peft/config.py:165: UserWarning: Unexpected keyword arguments ['alora_invocation_tokens', 'arrow_config', 'ensure_weight_tying', 'peft_version'] for class LoraConfig, these are ignored. This probably means that you're loading a configuration file that was saved using a higher version of the library and additional parameters have been introduced since. It is highly recommended to upgrade the PEFT version before continuing (e.g. by running `pip install -U peft`).
+  warnings.warn(
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+/home/cse/miniconda3/envs/multilingual-classification/lib/python3.10/site-packages/peft/tuners/tuners_utils.py:196: UserWarning: Already found a `peft_config` attribute in the model. This will lead to having multiple adapters in the model. Make sure to know what you are doing!
+  warnings.warn(
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+[Adapter] Loading adapter 'fin-esci-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/esci/LLama-3-8.1B
+✓ Adapter 'fin-esci-en' loaded successfully on base model 'llama-3.1-8b-instruct'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-3.1-8b-instruct', adapter 'fin-esci-en'
+
+============================================================
+[LLM PROMPT] Task: finance/esci | Language: english
+============================================================
+You are an e-commerce relevance classifier for search results.
+Given a search query and a product description, classify their relationship using ESCI labels.
+
+ESCI Labels:
+E = Exact match
+S = Substitute
+C = Complement (accessory/add-on/related item)
+I = Irrelevant
+
+IMPORTANT RULES:
+1. Accessories/holders/mounts/cases/parts/add-ons are ALWAYS C, never E or S.
+2. E only if core product type exactly matches query.
+3. Decide by core product type, not keyword overlap.
+4. Output ONLY one uppercase letter: E, S, C, or I.
+5. No explanations.
+
+Query: kids chest protector dirt bike Product: FOX TITAN KIDS ROOST DEFLECTOR BLACK/SILVER MD/LG AGES 6-9 Easy to use elastic waist straps with hook-and-loop closure. Injection-molded plastic shoulder pads. Hard rubber chest and back pads. Sizing: S/M fits ages 4 - 7. M/L fits ages 6 -
+Label:
+============================================================
+
+[LLMAdapterPool] Language 'japanese' → per-language mapping → model 'llama-3.1-8b-instruct', adapter 'fin-esci-ja'
+[Adapter] Loading adapter 'fin-esci-ja' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/esci/LLama-3-8.1B
+✓ Adapter 'fin-esci-ja' loaded successfully on base model 'llama-3.1-8b-instruct'
+[LLMAdapterPool] Language 'japanese' → per-language mapping → model 'llama-3.1-8b-instruct', adapter 'fin-esci-ja'
+
+============================================================
+[LLM PROMPT] Task: finance/esci | Language: japanese
+============================================================
+You are an e-commerce relevance classifier for search results.
+Given a search query and a product description, classify their relationship using ESCI labels.
+
+ESCI Labels:
+E = Exact match
+S = Substitute
+C = Complement (accessory/add-on/related item)
+I = Irrelevant
+
+IMPORTANT RULES:
+1. Accessories/holders/mounts/cases/parts/add-ons are ALWAYS C, never E or S.
+2. E only if core product type exactly matches query.
+3. Decide by core product type, not keyword overlap.
+4. Output ONLY one uppercase letter: E, S, C, or I.
+5. No explanations.
+
+Query: 糖 質 なし お 菓子 Product: 大地の生菓 15種類の野菜チップス 150g こども おやつ お菓子 おつまみ ギフト クリスマス お土産 プレゼント 大地から生まれたやさしい味わいの野菜チップスです！<br> 素材の素材のおいしさを生かしてずっと食べていたくなる野菜チップスは【大地の生菓】だけ！<br> 野菜の風味と栄養を丸ごと召し上がれます。<br> 薄味だからお子様から大人の方までおいしく頂けます。<br> ビールのおつまみからサラダのトッピングなど幅広く使えます。 安心安全の国内九州製造です♪ お子様からお年寄りまで大人気のお菓子♪ これ一つで多くの野菜がおいしく摂取できる！ ビールやお酒のおつまみにも最適な野菜チップス！
+Label:
+============================================================
+
+[LLMAdapterPool] Language 'japanese' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-sentiment-ja'
+[Memory Management] Unloading model 'llama-3.1-8b-instruct' from GPU...
+✓ Model 'llama-3.1-8b-instruct' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.72s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.39s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:11<00:00,  5.89s/it]
+/home/cse/miniconda3/envs/multilingual-classification/lib/python3.10/site-packages/transformers/quantizers/auto.py:239: UserWarning: You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used.
+  warnings.warn(warning_msg)
+[Adapter] Loading adapter 'fin-sentiment-ja' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf
+✓ Adapter 'fin-sentiment-ja' loaded successfully on base model 'llama-2-7b-hf'
+[LLMAdapterPool] Language 'japanese' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-sentiment-ja'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: japanese
+============================================================
+<|system|>
+                You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+                <|user|>
+                Title: 
+                Review: 普通光量: 思ってたより、光量無いですσ(^_^;でも、まだ切れないのでいいよ！ (Category: automotive)
+                Language: english
+
+                Rate this review with a number from 1-5:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit (unsloth/mistral-7b-instruct-v0.3-bnb-4bit)
+[Adapter] Loading adapter 'fin-news-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-es' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+Breves Energía - Proyecto de modificación de la Ley del Sector de Hidrocarburos
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[Adapter] Loading adapter 'fin-news-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-en' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: english
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+PwC’s 2018 Annual Corporate Directors Survey
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: english
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+Robotlar işimizi elimizden alacak mı?
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'dutch' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-nl'
+[Memory Management] Unloading model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' from GPU...
+✓ Model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' unloaded successfully
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:04<00:08,  4.30s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:09<00:04,  4.55s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.35s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:13<00:00,  4.38s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+`generation_config` default values have been modified to match model-specific defaults: {'pad_token_id': 3, 'bos_token_id': 1, 'eos_token_id': 2}. If this is not desired, please set these values explicitly.
+[Adapter] Loading adapter 'fin-pii-nl' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/aya-23-8B
+✓ Adapter 'fin-pii-nl' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'dutch' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-nl'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: dutch
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Kredietaanvraag: Consolidatieplan  Gegevens van de sollicitant: Naam: Jeroen Janssen Adres: Kastanjelaan 25, 1234 AB, Amsterdam Telefoonnummer: 06-12345678 E-mail: jeroen.janssen@gmail.com BSN: 123456789  Financiële gegevens: Maandelijkse brutowinst: € 3.500 Maandelijkse uitgaven: € 2.500 Resterende maandelijkse inkomsten: € 1.000  Huidige schulden: Schuld 1: Persoonlijke lening, Resterende schuld
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[Memory Management] Unloading model 'mistral-7B-Instruct-v0.3' from GPU...
+✓ Model 'mistral-7B-Instruct-v0.3' unloaded successfully
+[LLMAdapterPool] Loading base model: bloomz-7b1 (bigscience/bloomz-7b1)
+[Adapter] Loading adapter 'fin-sentiment-zh' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/bloomz-7b1
+✓ Adapter 'fin-sentiment-zh' loaded successfully on base model 'bloomz-7b1'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+                <|user|>
+                Title: 
+                Review: 质量太差: 无语，由亚马逊销售并发货的居然是这个质量：包装表面完好，在最中间的一块破裂，无法使用。有理由相信是质量问题。要求换货！！！ (Category: home)
+                Language: english
+
+                Rate this review with a number from 1-5:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'italian' not in mapping, using default 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[Memory Management] Unloading model 'bloomz-7b1' from GPU...
+✓ Model 'bloomz-7b1' unloaded successfully
+[LLMAdapterPool] Loading base model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit (unsloth/mistral-7b-instruct-v0.3-bnb-4bit)
+[Adapter] Loading adapter 'fin-news-cls' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-cls' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'italian' not in mapping, using default 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: italian
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+La generación femenina del milenio
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[Memory Management] Unloading model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' from GPU...
+✓ Model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' unloaded successfully
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:04<00:08,  4.45s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:08<00:04,  4.26s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:10<00:00,  3.27s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:10<00:00,  3.55s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+[Adapter] Loading adapter 'fin-pii-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-en' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: english
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+<?xml version="1.0" encoding="UTF-8"?> <FpML xmlns="http://www.fpml.org/FpML-5/reporting"       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"       xsi:schemaLocation="http://www.fpml.org/FpML-5/reporting http://www.fpml.org/spec/fpml-5-4-6-reporting.xsd">    <header>       <party id="Party1">          <partyId partyIdScheme="http://www.fpml.org/coding-scheme/party-identifier">            
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-de'
+[Adapter] Loading adapter 'fin-pii-de' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-de' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-de'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: german
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Fehlercode: APP-CRASH-007 Fehlermeldung: Die Anwendung konnte nicht gestartet werden. (bban: LTXX94962913034265)
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'french' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-fr'
+[Adapter] Loading adapter 'fin-pii-fr' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-fr' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'french' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-fr'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: french
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Demande de Renouvellement de Prêt  Je soussigné, M. Oreste Luchino Murri, demande respectueusement le renouvellement de mon prêt actuel auprès de votre institution. Vous trouverez ci-joint les documents requis pour le traitement de ma demande.  Coordonnées personnelles: Nom: Oreste Luchino Murri Adresse: 70 chemin Jacqueline Marques Code postal: 75009 Ville: Paris Téléphone: [insérer numéro de tél
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-es'
+[Adapter] Loading adapter 'fin-pii-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-es' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-es'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: spanish
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Solicitud de Préstamo de Viaje  Nombre: Juan Pérez Dirección: Calle del Prado 34, Madrid, España Teléfono: +34 612 345 678 Correo electrónico: juanperez@correo.com  Ocupación: Diseñador gráfico Ingresos mensuales: €2.500  Prestamo solicitado: €5.000 Finalidad: Viaje a Cancún, México  Itinerario de viaje:  * Vuelo de ida: Madrid - Cancún, fecha de salida 01/08/2023 * Alojamiento: Hotel Xcaret Arte,
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: english
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Robin Lösenord: aUrv9atuj(3 Åke Nilsson-Gustafsson Wilhelm-Mans-Straße 752, Apt. 00  ------------------------------------------------- Mortgage Amortization Schedule - Interest-Only -------------------------------------------------  | Payment | Payment Date | Principal | Interest | Remaining Balance | |----------|--------------|-----------|-----------|-------------------| | 1        | 2023-01-01  
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'french' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-fr'
+[LLMAdapterPool] Language 'french' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-fr'
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: french
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Formulaire de Demande de Remboursement d'Assurance Maladie  Numéro de client : CUST84963559 Nom : Pasqual Seddio Adresse : 11 Avenida de Azahara Fuente, 16641, Granada  Je soussigné, Pasqual Seddio, demande le remboursement des frais médicaux liés à un accident de voiture survenu le 1er mars 2023.  Détails de l'accident : Le 1er mars 2023, j'ai été impliqué dans un accident de voiture à l'intersec
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-sentiment-en'
+[Memory Management] Unloading model 'mistral-7B-Instruct-v0.3' from GPU...
+✓ Model 'mistral-7B-Instruct-v0.3' unloaded successfully
+[LLMAdapterPool] Loading base model: llama-2-7b-hf (meta-llama/Llama-2-7b-hf)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:09<00:09,  9.28s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  5.74s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  6.27s/it]
+[Adapter] Loading adapter 'fin-sentiment-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf
+✓ Adapter 'fin-sentiment-en' loaded successfully on base model 'llama-2-7b-hf'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'llama-2-7b-hf', adapter 'fin-sentiment-en'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: english
+============================================================
+<|system|>
+                You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+                <|user|>
+                Title: 
+                Review: Convenient: This honestly works perfectly and its SUPER convenient! (Category: pc)
+                Language: english
+
+                Rate this review with a number from 1-5:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[Memory Management] Unloading model 'llama-2-7b-hf' from GPU...
+✓ Model 'llama-2-7b-hf' unloaded successfully
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.37s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:03<00:01,  1.56s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.27s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.06s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+[Adapter] Loading adapter 'fin-pii-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-en' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: english
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+FÖRSÄKRAD TJANSTEKONSULTATION  Patientinformation: Namn: Anna Svensson Personnummer: 19801215-1234 Adress: Götgatan 22, 116 21 Stockholm Telefon: 070-123 45 67 E-post: annasvensson@exempel.com  Specialistinformation: Namn: Maria Eriksson Specialitet: Neurolog Läkarregisternummer: 82061 Adress: Karolinska Universitetssjukhuset, 171 76 Solna Telefon: 08-556 080 00  Konsultation: Datum: 2023-03-15 Ty
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'italian' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-it'
+[Adapter] Loading adapter 'fin-pii-it' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/aya-23-8B
+✓ Adapter 'fin-pii-it' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'italian' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-it'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: italian
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Scheda di Dati di Sicurezza  Sezione 1: Identificazione della sostanza/del miscuglio e della società/dell'impresa  Prodotto: Acido cloridrico Sinonimi: Spirit of salt, muriatic acid Numero CAS: 7647-01-0  Società/Impresa: Azienda Chimica Italiana S.p.A. Indirizzo: Via Chimica 1, 20135 Milano, Italia Telefono: +39 02 1234567 E-mail: info@aziendachimica.it  Sezione 2: Identificazione dei pericoli  C
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'french' not in mapping, using default 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[Memory Management] Unloading model 'mistral-7B-Instruct-v0.3' from GPU...
+✓ Model 'mistral-7B-Instruct-v0.3' unloaded successfully
+[LLMAdapterPool] Loading base model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit (unsloth/mistral-7b-instruct-v0.3-bnb-4bit)
+[Adapter] Loading adapter 'fin-news-cls' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-cls' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'french' not in mapping, using default 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: french
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+ClosinGap presenta un ambicioso plan con quince acuerdos voluntarios para cerrar las brechas de género en España
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[Adapter] Loading adapter 'fin-news-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-es' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+Gemma Moral Marcos - Socia de Banking and Finance
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'dutch' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-nl'
+[Memory Management] Unloading model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' from GPU...
+✓ Model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' unloaded successfully
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:03<00:06,  3.27s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:06<00:03,  3.35s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.77s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.92s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+[Adapter] Loading adapter 'fin-pii-nl' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/aya-23-8B
+✓ Adapter 'fin-pii-nl' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'dutch' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-nl'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: dutch
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Veiligheidsinformatiedatasheet  Naam van het bedrijf: Chemisch Bedrijf B.V. Geadresseerde persoon: Joseph Powell-Johnson Straat en huisnummer: 56 Helen Lake  Emergency Response Plan  1. Algemene informatie ---------------------     Deze Veiligheidsinformatiedatasheet (SDB) bevat informatie over de noodmaatregelen voor potentiële chemische ongevallen of incidenten in ons bedrijf. Het is van cruciaa
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[Adapter] Loading adapter 'fin-pii-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-en' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: english
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+SERVICE LEVEL AGREEMENT  This Service Level Agreement (the "Agreement") is entered into by and between Vito Silvestri, with a mailing address at 179 Alison Roads, Boydport ("Customer"), and [Company Name], a company organized and existing under the laws of [State] with its head office located at [Address] ("Service Provider").  WHEREAS, Service Provider desires to provide certain services to Custo
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[Memory Management] Unloading model 'mistral-7B-Instruct-v0.3' from GPU...
+✓ Model 'mistral-7B-Instruct-v0.3' unloaded successfully
+[LLMAdapterPool] Loading base model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit (unsloth/mistral-7b-instruct-v0.3-bnb-4bit)
+[Adapter] Loading adapter 'fin-news-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-en' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: english
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+Rozwój handlu detalicznego w czasie hiperkonkurencji
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[Memory Management] Unloading model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' from GPU...
+✓ Model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' unloaded successfully
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.29s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.33s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.22s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.25s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+[Adapter] Loading adapter 'fin-pii-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-en' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: english
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+UNB+UNOC:300+ISAACDUHAMEL:56.245.254.221::+170101:1030+0050123456+ZZ+0050123456+170101:1030+2' UNH+INVOIC+170101103056:123456' BGM+380+534534' DTM+137:20220101' DTM+2:20220105' NAD+BY+6::6 Hiddelaan::Tilligte::6255OR::ISAAC R. DUHAMEL' NAD+SU+6::6 Hiddelaan::Tilligte::6255OR::ISAAC R. DUHAMEL' LIN+1++:Product 1:10' PIA+1:56.245.254.221' MOA+1++50' LIN+2++:Product 2:20' PIA+1:56.245.254.221' MOA+1+
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-de'
+[Adapter] Loading adapter 'fin-pii-de' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-de' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-de'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: german
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+**Policyholder's Report: Claim Filing Guide**  Sehr geehrte Policyholder,  vielen Dank, dass Sie sich für unsere Versicherung entschieden haben. In diesem Dokument finden Sie eine Schritt-für-Schritt-Anleitung, wie Sie eine Schadensmeldung einreichen können, falls erforderlich.  **Schritt 1: Sammeln Sie die notwendigen Informationen** Stellen Sie sicher, dass Sie über folgende Informationen verfüg
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: english
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+**BL/NL**  **Bill of Lading**  No. BL-23456789  **Shipper:** Martina J. Ordóñez 6 rue Pinto 1000 AA Amsterdam Nederland  **Consignee:** [Recipient Name] [Recipient Street Address] [Recipient Postal Code] [Recipient City] Nederland  **Vessel:** [Vessel Name] Port of Loading: Amsterdam Port of Discharge: Rotterdam  **Goods:** [Description of Goods]  **Place and Date of Issue:** Amsterdam, 15-02-2023
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[Memory Management] Unloading model 'mistral-7B-Instruct-v0.3' from GPU...
+✓ Model 'mistral-7B-Instruct-v0.3' unloaded successfully
+[LLMAdapterPool] Loading base model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit (unsloth/mistral-7b-instruct-v0.3-bnb-4bit)
+[Adapter] Loading adapter 'fin-news-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-en' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: english
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+PwC's CXO Survey 2018
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+[Memory Management] Unloading model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' from GPU...
+✓ Model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' unloaded successfully
+[LLMAdapterPool] Loading base model: bloomz-7b1 (bigscience/bloomz-7b1)
+[Adapter] Loading adapter 'fin-sentiment-zh' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/sentiment_analysis/bloomz-7b1
+✓ Adapter 'fin-sentiment-zh' loaded successfully on base model 'bloomz-7b1'
+[LLMAdapterPool] Language 'chinese' → per-language mapping → model 'bloomz-7b1', adapter 'fin-sentiment-zh'
+
+============================================================
+[LLM PROMPT] Task: finance/rating | Language: chinese
+============================================================
+<|system|>
+                You are an expert at analyzing product reviews and assigning star ratings from 1-5.
+                1 = Very negative, 2 = Negative, 3 = Neutral, 4 = Positive, 5 = Very positive
+
+                <|user|>
+                Title: 
+                Review: 穿着很舒服合适 但是洗涤时严重掉色: 水都被染色了 接着洗了一遍 还是掉色 很奇怪的说 (Category: sports)
+                Language: english
+
+                Rate this review with a number from 1-5:
+
+                <|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-de'
+[Memory Management] Unloading model 'bloomz-7b1' from GPU...
+✓ Model 'bloomz-7b1' unloaded successfully
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:05,  2.73s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:06<00:03,  3.17s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:10<00:00,  3.64s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:10<00:00,  3.47s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+[Adapter] Loading adapter 'fin-pii-de' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-de' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-de'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: german
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+**Autoversicherungspolice**  Wir, die **Fiktive Versicherungs AG**, bestätigen hiermit den Abschluss der folgenden Kfz-Versicherungspolice für Herrn Claus-Dieter Norbert Gutknecht, wohnhaft an der 9 Birgit-Wulf-Gasse, 29289 Soltau.  **Versicherungsnehmer:** Herr Claus-Dieter Norbert Gutknecht 9 Birgit-Wulf-Gasse 29289 Soltau  **Fahrzeug:** Marke: ABC Automobile Modell: XYZ 3000 Erstzulassung: 01.0
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'dutch' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-nl'
+[Adapter] Loading adapter 'fin-pii-nl' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/aya-23-8B
+✓ Adapter 'fin-pii-nl' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'dutch' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-nl'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: dutch
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Gemeentelijke Ziekenfondsadministratie  Formulier: Ziekenhuisopname Aangifte  Aangiftegegevens:  * Aangifte nummer: 2023-001298 * Datum ontvangst: 15-03-2023  Verzekerde persoon:  * Naam: Teresita T. Tello * Adres: 3, Avenue Sabine Lambert * Geboortedatum: 01-05-1975 * Polisnummer: 123456789  Ziekenhuisopname:  * Ziekenhuis: St. Elisabeth Ziekenhuis * Adres: 45, Laan van de Vrede * Datum van opnam
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[Memory Management] Unloading model 'mistral-7B-Instruct-v0.3' from GPU...
+✓ Model 'mistral-7B-Instruct-v0.3' unloaded successfully
+[LLMAdapterPool] Loading base model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit (unsloth/mistral-7b-instruct-v0.3-bnb-4bit)
+[Adapter] Loading adapter 'fin-news-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-en' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: english
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+Çevrenin Korunması Yönünden Kontrol Altında Tutulan Kimyasalların Yakıtların İthalat Denetimi Tebliği
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[Memory Management] Unloading model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' from GPU...
+✓ Model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' unloaded successfully
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:03<00:06,  3.35s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:05<00:02,  2.80s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.48s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.62s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+[Adapter] Loading adapter 'fin-pii-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-en' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: english
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+**Kreditansökan - Individ**  Namn: Hans-Uwe B. Zobel Gatuadress: 094 Miroslaw-Liebelt-Ring, Wolmirstedt  Syfte med kreditansökan: Anskaffning av bostad Kreditbehövande belopp: 500 000 SEK Löneinkomst: 45 000 SEK (månadsvis) Arbetsplats: Svenska Stålverken (anställd sedan 2015)  Annan inkomst: Ingen Försäkringar: Försäkringskassan, Kommunal pensionsmyndighet Fasta utgifter: Hyra, el, vatten, intern
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'dutch' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-nl'
+[Adapter] Loading adapter 'fin-pii-nl' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/aya-23-8B
+✓ Adapter 'fin-pii-nl' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'dutch' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-nl'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: dutch
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Ketenbeheersovereenkomst (Trade Finance en Betalingsvoorwaarden Contract)  Partijen:  1. Verkoper: [Verkoper naam], gevestigd aan [adres] (verder "Verkoper"); 2. Koper: [Koper naam], gevestigd aan [adres] (verder "Koper").  Waarom deze overeenkomst:  Deze overeenkomst regelt de afspraken tussen de Verkoper en de Koper met betrekking tot de levering van goederen en de financiering van deze levering
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[Memory Management] Unloading model 'mistral-7B-Instruct-v0.3' from GPU...
+✓ Model 'mistral-7B-Instruct-v0.3' unloaded successfully
+[LLMAdapterPool] Loading base model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit (unsloth/mistral-7b-instruct-v0.3-bnb-4bit)
+[Adapter] Loading adapter 'fin-news-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-en' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: english
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+Indien afslutter gamle transfer pricing-sager - bilaterale APA'er venter i horisonten
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'german' not in mapping, using default 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[Adapter] Loading adapter 'fin-news-cls' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-cls' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'german' not in mapping, using default 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: german
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+Tilskud til faste omkostninger - nu er reglerne kommet. Der kan søges fra den 8. april
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[Adapter] Loading adapter 'fin-news-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-es' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<|system|>
+You are an expert at classifying financial news articles into one of the following categories:
+Business & Management, Finance, Government & Controls, Technology, Industry, Tax & Accounting.
+
+Follow the rules carefully:
+- Respond with ONLY the category name.
+- No punctuation, no explanation, no reasoning, no extra words.
+- The category must be exactly one of the predefined names.
+
+<|user|>
+Article:
+La colaboración entre el Gobierno y las empresas, esencial para aprovechar las ayudas europeas
+
+Return ONLY the category name:
+
+<|assistant|>
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[Memory Management] Unloading model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' from GPU...
+✓ Model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit' unloaded successfully
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:05,  2.93s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:05<00:02,  2.98s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.56s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.67s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+[Adapter] Loading adapter 'fin-pii-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-en' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: english
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+:20:MT710 :25:NEIEDSPH :20:220415 :57A:DEUTDEFF22A :50K:/5623275484565432 :52A:20220415 :53A:DEUTDEFF22A :54A:XYZ Bank, Frankfurt :57B:/5623275484565432 :59:/CORRECTION/ :71A:ABC Bank, Berlin :72:/375 Eliaspad, 7601 DJ, Nieuwolda/ :73B:Guido Salata-Bianchini :77A:^5SbVJbYW(1Fr7 :86:/DE/ :88A:DEUTDEFF22A :88C:/1234567890/ :98A:DEUTDEFF22A :98C:/20220415/  This SWIFT message indicates a correction f
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: english
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+------------------------------------------------------------------------------------------------------------------- Customer Support Conversational Log -------------------------------------------------------------------------------------------------------------------  Timestamp: 2023-03-14 10:05:00 Customer: Hello, I heard there were some new features added to the platform. Can you tell me more ab
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'french' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-fr'
+[Adapter] Loading adapter 'fin-pii-fr' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-fr' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'french' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-fr'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: french
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST have exactly 3 fields:
+- "text": the exact PII string from the document
+- "label": one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Rapport de la procédure de remboursement de sinistre  Chère Madame Elisa Turati,  Nous vous remercions de votre confiance en notre compagnie d'assurance. Nous vous prions de trouver ci-joint un rapport détaillant la procédure de remboursement de sinistre pour votre police.  Adresse de correspondance : 4 Vicolo Ruggero IBAN : MTCI44678357104976  Voici les étapes à suivre pour soumettre une réclamat
+
+Extract PII: [/INST]
+============================================================
+
+
+================================================================================
+ROUTING SYSTEM EVALUATION RESULTS
+================================================================================
+
+📊 Domain Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Task Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  : 100.00%
+
+📊 Expert Output Classification:
+  Accuracy           :  55.00%
+  Macro  P/R/F1      :  47.50% /  44.44% /  40.28%
+  Micro  P/R/F1      :  47.37% /  47.37% /  47.37%
+  Weighted F1        :  44.74%
+  Balanced accuracy  :  44.44%
+  Cohen's kappa (κ)  :  42.25%
+
+================================================================================
+📊 TASK-SPECIFIC EXPERT EVALUATION
+================================================================================
+
+🔍 Task: RATING
+--------------------------------------------------------------------------------
+  Samples evaluated: 4
+
+  📈 Classification Metrics:
+    Accuracy           :  75.00%
+    Macro  P/R/F1      :  60.00% /  50.00% /  53.33%
+    Micro  P/R/F1      :  75.00% /  75.00% /  75.00%
+
+  📉 Ordinal Metrics (star ratings as continuous):
+    MAE (Mean Abs Err) : 0.2500 stars
+    RMSE               : 0.5000 stars
+    Coverage           : 100.00%
+
+🔍 Task: NEWS
+--------------------------------------------------------------------------------
+  Samples evaluated: 12
+
+  📈 Classification Metrics:
+    Accuracy           :  41.67%
+    Macro F1           :  27.78%
+    Weighted F1        :  30.56%
+    Coverage           : 100.00%
+
+  📊 Per-Class F1 Scores:
+    Tax & Accounting     :  66.67%
+    Industry             :  66.67%
+    Finance              :  33.33%
+    Government & Controls :   0.00%
+    Technology           :   0.00%
+    Business & Management :   0.00%
+
+🔍 Task: PII
+--------------------------------------------------------------------------------
+  Samples evaluated: 21
+
+  📈 Accuracy Metrics:
+    Token-Level Accuracy :  38.97%
+    Exact Match Accuracy :   0.00%
+    Average F1 Score     :  48.35%
+    Perfect F1 (=100%)   : 0 (  0.00%)
+    Zero F1 (=0%)        : 4 ( 19.05%)
+
+  📈 Entity-Level Metrics:
+    Micro F1             :  50.64%
+    Macro F1             :  48.35%
+    Micro Precision      :  85.51%
+    Micro Recall         :  35.98%
+    Total gold entities  : 164
+    Total pred entities  : 69
+    Correct tokens       : 53 / 136
+
+  📊 Per-Label Metrics:
+    Label                |  Precision |     Recall |         F1
+    --------------------------------------------------------
+    user_identifier      |    100.00% |    100.00% |    100.00%
+    ip_address           |    100.00% |     75.00% |     85.71%
+    secret               |    100.00% |     66.67% |     80.00%
+    organization         |    100.00% |     53.85% |     70.00%
+    location             |     85.71% |     48.00% |     61.54%
+    contact_info         |    100.00% |     35.29% |     52.17%
+    person_name          |     79.17% |     37.25% |     50.67%
+    financial_account    |     50.00% |     33.33% |     40.00%
+    date                 |     80.00% |     19.05% |     30.77%
+    payment_card         |      0.00% |      0.00% |      0.00%
+    government_id        |      0.00% |      0.00% |      0.00%
+
+🔍 Task: ESCI
+--------------------------------------------------------------------------------
+  Samples evaluated: 3
+
+  📈 Classification Metrics:
+    Accuracy           :  33.33%
+    Macro F1           :  12.50%
+    Weighted F1        :  50.00%
+    Coverage           : 100.00%
+
+  📊 Per-Class F1 Scores:
+    S (Substitute)       :  50.00%
+    E (Exact)            :   0.00%
+    C (Complement)       :   0.00%
+    I (Irrelevant)       :   0.00%
+
+
+📊 Per-Language Performance:
+--------------------------------------------------------------------------------
+  Language |    N |   Domain Acc |   Task Acc |  Exact Acc
+--------------------------------------------------------------------------------
+   chinese |    2 |      100.00% |    100.00% |    100.00%
+     dutch |    4 |      100.00% |    100.00% |    100.00%
+   english |   17 |      100.00% |    100.00% |    100.00%
+    french |    4 |      100.00% |    100.00% |    100.00%
+    german |    4 |      100.00% |    100.00% |    100.00%
+   italian |    2 |      100.00% |    100.00% |    100.00%
+  japanese |    2 |      100.00% |    100.00% |    100.00%
+   spanish |    5 |      100.00% |    100.00% |    100.00%
+
+EXPERT/MODEL SELECTION BY LANGUAGE
+================================================================================
+
+Language Group: European (llama-2-7b-hf)
+--------------------------------------------------------------------------------
+  english      :   17 samples
+  french       :    4 samples
+  german       :    4 samples
+  spanish      :    5 samples
+  Total        :   30 samples (75.0%)
+
+================================================================================
+
+
+PERFORMANCE BY EXPERT/MODEL
+================================================================================
+
+bloomz-7b1 (Languages: chinese)
+--------------------------------------------------------------------------------
+  Samples      : 2
+  Accuracy     : 100.00%
+  Macro F1     : 100.00%
+  Weighted F1  : 100.00%
+
+  Per-language performance:
+    chinese      : Accuracy = 100.00%, Samples = 2
+
+llama-2-7b-hf (Languages: japanese)
+--------------------------------------------------------------------------------
+  Samples      : 2
+  Accuracy     :  50.00%
+  Macro F1     :  33.33%
+  Weighted F1  :  50.00%
+
+  Per-language performance:
+    japanese     : Accuracy =   0.00%, Samples = 2
+
+mistral-7B-Instruct-v0.3 (Languages: dutch, english, french, italian)
+--------------------------------------------------------------------------------
+  Samples      : 22
+  Accuracy     :  63.64%
+  Macro F1     : 100.00%
+  Weighted F1  : 100.00%
+
+  Per-language performance:
+    dutch        : Accuracy =  25.00%, Samples = 4
+    english      : Accuracy =  52.94%, Samples = 17
+    french       : Accuracy =  75.00%, Samples = 4
+    italian      : Accuracy =  50.00%, Samples = 2
+
+unsloth/mistral-7b-instruct-v0.3-bnb-4bit (Languages: german, spanish)
+--------------------------------------------------------------------------------
+  Samples      : 12
+  Accuracy     :  41.67%
+  Macro F1     :  27.78%
+  Weighted F1  :  30.56%
+
+  Per-language performance:
+    german       : Accuracy =  50.00%, Samples = 4
+    spanish      : Accuracy =  80.00%, Samples = 5
+
+================================================================================
+
+
+LANGUAGE GROUP COMPARISON
+================================================================================
+
+================================================================================
+
+
+✅ Results saved to: predictions_with_raw_responses.csv
+   Total samples: 40
+
+================================================================================
+✅ EVALUATION COMPLETE
+================================================================================
+
+================================================================================
+✅ ALL OPERATIONS COMPLETE
+================================================================================

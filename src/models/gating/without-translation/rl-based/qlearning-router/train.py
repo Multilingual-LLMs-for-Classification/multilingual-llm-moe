@@ -122,9 +122,9 @@ def main(config: RouterSystemConfig):
     print("HIERARCHICAL ROUTING SYSTEM - TRAINING MODE")
     print("=" * 80)
 
-    # Initialize routing system
+    # Initialize routing system (training_mode=True skips loading old checkpoints)
     print("\n🔧 Initializing routing system...")
-    system = PromptRoutingSystem()
+    system = PromptRoutingSystem(training_mode=True)
 
     # Display system info
     stats = system.get_system_stats()

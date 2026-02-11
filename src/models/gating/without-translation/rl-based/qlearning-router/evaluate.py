@@ -2,7 +2,7 @@
 Evaluation script for the hierarchical routing system.
 
 This script loads a trained routing system and evaluates it on test data,
-producing detailed metrics and confusion matrices.
+producing detailed metrics.
 """
 
 import json
@@ -14,10 +14,9 @@ from collections import Counter
 from components import PromptRoutingSystem
 from router_config import RouterSystemConfig
 from evaluation_metrics import (
-    pct, compute_prf_bal_kappa, print_confusion_matrix,
+    pct, compute_prf_bal_kappa,
     get_expert_used, print_expert_selection_summary,
-    print_expert_performance, print_language_group_comparison,
-    print_expert_confusion_matrices
+    print_expert_performance, print_language_group_comparison
 )
 
 # Import PIIExpert for task-specific evaluation
@@ -130,6 +129,10 @@ def compute_task_specific_metrics(system: PromptRoutingSystem,
                     'num_samples': len(predictions)
                 }
                 continue  # Skip the generic expert.compute_metrics call below
+            elif task_name == 'esci':
+                # Get ESCI expert
+                from src.models.experts.llms.adapters.finance.esci.ESCIExpert import ESCIExpert
+                expert = ESCIExpert()
             else:
                 task_specific_metrics[task_name] = {
                     'status': 'unknown_task',
@@ -209,7 +212,8 @@ def evaluate_routing_system(system: PromptRoutingSystem,
     per_task_data = {
         'rating': {'predictions': [], 'ground_truths': []},
         'news': {'predictions': [], 'ground_truths': []},
-        'pii': {'predictions': [], 'ground_truths': []}
+        'pii': {'predictions': [], 'ground_truths': []},
+        'esci': {'predictions': [], 'ground_truths': []}
     }
 
     # CSV data collection
@@ -236,6 +240,8 @@ def evaluate_routing_system(system: PromptRoutingSystem,
         lang_tag = result.get('language', '?')
         pred_label = result['result']
         raw_response = result.get('raw_response', '')
+        llm_used = result.get('llm_used', '')
+        prompt_sent = result.get('prompt_sent', '')
 
         # Extract text fields for CSV (task-agnostic fallback chain)
         # Tries multiple field names to handle different task formats:
@@ -257,6 +263,8 @@ def evaluate_routing_system(system: PromptRoutingSystem,
             'task': pred_task,
             'expected_label': gt_label,
             'predicted_label': pred_label,
+            'llm_used': llm_used,
+            'prompt_sent': prompt_sent,
             'raw_response': raw_response
         })
 
@@ -317,7 +325,34 @@ def evaluate_routing_system(system: PromptRoutingSystem,
     # Calculate metrics
     dom_metrics = compute_prf_bal_kappa(cm_domain, domain_labels)
     task_metrics = compute_prf_bal_kappa(cm_task, task_labels)
-    expert_metrics = compute_prf_bal_kappa(cm_expert, expert_labels)
+
+    # For expert metrics, exclude PII entries from CM (they use
+    # ("pii_gt", "F1_X%") encoding which breaks diagonal-based TP).
+    # Compute accuracy from direct counts instead.
+    non_pii_cm_expert = Counter(
+        {k: v for k, v in cm_expert.items() if k[0] != 'pii_gt'}
+    )
+    non_pii_expert_labels = sorted(
+        {label for pair in non_pii_cm_expert.keys() for label in pair}
+    )
+    if non_pii_expert_labels:
+        expert_metrics = compute_prf_bal_kappa(
+            non_pii_cm_expert, non_pii_expert_labels
+        )
+    else:
+        expert_metrics = {
+            'accuracy': 0.0, 'macro_p': 0.0, 'macro_r': 0.0,
+            'macro_f1': 0.0, 'micro_p': 0.0, 'micro_r': 0.0,
+            'micro_f1': 0.0, 'weighted_f1': 0.0,
+            'balanced_acc': 0.0, 'kappa': 0.0,
+            'support': {}, 'pred_tot': {}, 'total': 0,
+        }
+    # Override accuracy with direct counts (handles PII correctly)
+    total_correct = sum(per_expert_correct.values())
+    total_samples = sum(per_expert_total.values())
+    expert_metrics['accuracy'] = (
+        total_correct / total_samples if total_samples > 0 else 0.0
+    )
 
     # Compute expert-specific task metrics
     task_specific_metrics = compute_task_specific_metrics(system, per_task_data)
@@ -325,11 +360,11 @@ def evaluate_routing_system(system: PromptRoutingSystem,
     # Print results
     print_evaluation_results(
         dom_metrics, task_metrics, expert_metrics,
-        cm_domain, cm_task, cm_expert,
-        domain_labels, task_labels, expert_labels,
+        expert_labels,
         per_lang_total, per_lang_dom, per_lang_task, per_lang_exact,
         per_expert_cm, per_lang_expert, per_lang_correct,
-        task_specific_metrics
+        task_specific_metrics,
+        per_expert_correct, per_expert_total
     )
 
     # Save CSV file
@@ -445,6 +480,22 @@ def print_task_specific_metrics(task_specific_metrics: Dict):
                     f1 = label_metrics.get('f1', 0.0)
                     print(f"    {label:20s} | {pct(p):>10} | {pct(r):>10} | {pct(f1):>10}")
 
+        elif task_name == 'esci':
+            # ESCI (product-query relevance) metrics
+            print("  📈 Classification Metrics:")
+            print(f"    Accuracy           : {pct(metrics.get('accuracy', 0.0))}")
+            print(f"    Macro F1           : {pct(metrics.get('macro_f1', 0.0))}")
+            print(f"    Weighted F1        : {pct(metrics.get('weighted_f1', 0.0))}")
+            print(f"    Coverage           : {pct(metrics.get('coverage', 0.0))}")
+
+            # Per-class F1 scores
+            per_class = metrics.get('per_class_f1', {})
+            if per_class:
+                print()
+                print("  📊 Per-Class F1 Scores:")
+                for label, f1 in sorted(per_class.items(), key=lambda x: x[1], reverse=True):
+                    print(f"    {label:20s} : {pct(f1)}")
+
         else:
             # Unknown task - print all available metrics
             print("  📊 Available Metrics:")
@@ -456,11 +507,11 @@ def print_task_specific_metrics(task_specific_metrics: Dict):
 
 
 def print_evaluation_results(dom_metrics, task_metrics, expert_metrics,
-                            cm_domain, cm_task, cm_expert,
-                            domain_labels, task_labels, expert_labels,
+                            expert_labels,
                             per_lang_total, per_lang_dom, per_lang_task, per_lang_exact,
                             per_expert_cm, per_lang_expert, per_lang_correct,
-                            task_specific_metrics):
+                            task_specific_metrics,
+                            per_expert_correct=None, per_expert_total=None):
     """Print comprehensive evaluation results including task-specific metrics."""
 
     print("\n" + "=" * 80)
@@ -497,11 +548,6 @@ def print_evaluation_results(dom_metrics, task_metrics, expert_metrics,
     # Task-specific metrics (using expert evaluation methods)
     print_task_specific_metrics(task_specific_metrics)
 
-    # Confusion matrices
-    print_confusion_matrix(cm_domain, domain_labels, "\n📋 Domain Confusion Matrix (GT rows × Pred cols)")
-    print_confusion_matrix(cm_task, task_labels, "📋 Task Confusion Matrix (GT rows × Pred cols)")
-    print_confusion_matrix(cm_expert, expert_labels, "📋 Expert Output Confusion Matrix (GT rows × Pred cols)")
-
     # Per-language breakdown
     if per_lang_total:
         print("\n📊 Per-Language Performance:")
@@ -517,9 +563,12 @@ def print_evaluation_results(dom_metrics, task_metrics, expert_metrics,
 
     # Expert-based analysis
     print_expert_selection_summary(per_lang_total, per_lang_expert)
-    print_expert_performance(per_expert_cm, per_lang_total, per_lang_expert, per_lang_correct, expert_labels)
-    print_language_group_comparison(per_expert_cm, per_lang_expert, expert_labels)
-    print_expert_confusion_matrices(per_expert_cm, expert_labels)
+    print_expert_performance(per_expert_cm, per_lang_total, per_lang_expert,
+                             per_lang_correct, expert_labels,
+                             per_expert_correct, per_expert_total)
+    print_language_group_comparison(per_expert_cm, per_lang_expert,
+                                   expert_labels,
+                                   per_expert_correct, per_expert_total)
 
 
 def save_csv_results(csv_data: List[Dict], output_path: str):
@@ -532,7 +581,8 @@ def save_csv_results(csv_data: List[Dict], output_path: str):
     """
     with open(output_path, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['title', 'text', 'language', 'domain', 'task',
-                     'expected_label', 'predicted_label', 'raw_response']
+                     'expected_label', 'predicted_label', 'llm_used',
+                     'prompt_sent', 'raw_response']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames,
                                quoting=csv.QUOTE_NONNUMERIC)
         writer.writeheader()

@@ -33,6 +33,31 @@ class PIIExpert:
         "user_identifier", "secret", "ip_address"
     }
 
+    # Maps non-standard ground truth labels to canonical VALID_LABELS
+    LABEL_MAPPING = {
+        "email": "contact_info",
+        "phone": "contact_info",
+        "phone_number": "contact_info",
+        "address": "location",
+        "hospital_address": "location",
+        "street_address": "location",
+        "birth_date": "date",
+        "date_of_birth": "date",
+        "hospital_name": "organization",
+        "company_name": "organization",
+        "national_id_number": "government_id",
+        "national_id": "government_id",
+        "ssn": "government_id",
+        "passport_number": "government_id",
+        "credit_card": "payment_card",
+        "credit_card_number": "payment_card",
+        "bank_account": "financial_account",
+        "iban": "financial_account",
+        "username": "user_identifier",
+        "password": "secret",
+        "api_key": "secret",
+    }
+
     def __init__(self):
         """Initialize the PIIExpert."""
         pass
@@ -173,6 +198,10 @@ class PIIExpert:
                 if last_bracket > start:
                     return text[start:last_bracket+1]
 
+            # No closing bracket at all (truncated output) - return from [ to end
+            # so _repair_truncated_json can salvage complete objects
+            return text[start:]
+
         # Strategy 2: Find complete JSON array with regex (fallback)
         array_pattern = r'\[(?:[^\[\]]|\[[^\[\]]*\])*\]'
         matches = re.findall(array_pattern, text, re.DOTALL)
@@ -294,10 +323,14 @@ class PIIExpert:
         if entity["occurrence"] < 1:
             return False
 
-        # Optional: Validate label against known PII types (can be disabled for flexibility)
-        # Uncomment the following lines to enforce strict label validation:
-        # if entity["label"] not in self.VALID_LABELS:
-        #     return False
+        # Normalize label via mapping if needed
+        label = entity["label"]
+        if label not in self.VALID_LABELS and label in self.LABEL_MAPPING:
+            entity["label"] = self.LABEL_MAPPING[label]
+
+        # Validate label against known PII types
+        if entity["label"] not in self.VALID_LABELS:
+            return False
 
         return True
 
@@ -327,6 +360,9 @@ class PIIExpert:
         """
         Extract ground truth PII entities from input data.
 
+        Applies LABEL_MAPPING normalization but does NOT filter through
+        VALID_LABELS, since ground truth may use non-standard label names.
+
         Args:
             input_data: Dictionary with task data
 
@@ -348,8 +384,15 @@ class PIIExpert:
         else:
             entities = label_field if isinstance(label_field, list) else []
 
-        # Sanitize to ensure valid structure
-        return self._sanitize_entities(entities)
+        # Normalize labels without dropping entities with unknown labels
+        if not isinstance(entities, list):
+            return []
+        normalized = []
+        for entity in entities:
+            if isinstance(entity, dict) and 'text' in entity and 'label' in entity:
+                entity = self._normalize_entity_label(entity)
+                normalized.append(entity)
+        return normalized
 
     def compute_metrics(self, predictions: List[List[Dict]],
                        ground_truths: List[List[Dict]]) -> Dict:
@@ -392,19 +435,12 @@ class PIIExpert:
         label_support = defaultdict(int)
 
         for pred_entities, gold_entities in zip(predictions, ground_truths):
-            # Sanitize inputs
-            pred_entities = self._sanitize_entities(pred_entities) if isinstance(pred_entities, list) else []
-            gold_entities = self._sanitize_entities(gold_entities) if isinstance(gold_entities, list) else []
+            # Extract entity tuples with label normalization, no VALID_LABELS filtering
+            pred_entities = pred_entities if isinstance(pred_entities, list) else []
+            gold_entities = gold_entities if isinstance(gold_entities, list) else []
 
-            # Convert to sets for matching (case-insensitive text matching)
-            gold_set = {
-                (e["text"].lower().strip(), e["label"], e["occurrence"])
-                for e in gold_entities
-            }
-            pred_set = {
-                (e["text"].lower().strip(), e["label"], e["occurrence"])
-                for e in pred_entities
-            }
+            gold_set = self._extract_entity_tuples(gold_entities)
+            pred_set = self._extract_entity_tuples(pred_entities)
 
             # Calculate sample-level metrics
             tp = len(gold_set & pred_set)
@@ -425,8 +461,7 @@ class PIIExpert:
             sample_recalls.append(r)
 
             # Per-label tracking
-            for entity in gold_entities:
-                label = entity["label"]
+            for text, label, occ in gold_set:
                 label_support[label] += 1
 
             # Track TP/FP/FN per label
@@ -520,11 +555,56 @@ class PIIExpert:
         except:
             return []
 
+    def _normalize_entity_label(self, entity: Dict) -> Dict:
+        """
+        Apply LABEL_MAPPING normalization to an entity without dropping it.
+
+        Returns a copy with the normalized label.
+        """
+        entity = dict(entity)
+        label = entity.get("label", "")
+        if label in self.LABEL_MAPPING:
+            entity["label"] = self.LABEL_MAPPING[label]
+        return entity
+
+    def _extract_entity_tuples(self, entities: List, normalize_labels: bool = True) -> set:
+        """
+        Extract (text, label, occurrence) tuples from entity list.
+
+        Only requires 'text' and 'label' fields. If 'occurrence' is missing,
+        defaults to 1. Applies LABEL_MAPPING if normalize_labels is True.
+        No VALID_LABELS filtering - keeps all entities for fair evaluation.
+        """
+        result = set()
+        for item in entities:
+            if not isinstance(item, dict):
+                continue
+            if 'text' not in item or 'label' not in item:
+                continue
+            text = item.get('text', '')
+            label = item.get('label', '')
+            if not isinstance(text, str) or not text.strip():
+                continue
+            if not isinstance(label, str) or not label.strip():
+                continue
+            # Apply label normalization
+            if normalize_labels and label in self.LABEL_MAPPING:
+                label = self.LABEL_MAPPING[label]
+            occurrence = item.get('occurrence', 1)
+            if isinstance(occurrence, (int, float)):
+                occurrence = int(occurrence)
+            else:
+                occurrence = 1
+            result.add((text, label, occurrence))
+        return result
+
     def compute_match_score(self, pred_label: str, gt_label: str) -> float:
         """
         Compute entity-level F1 score between predicted and ground truth PII entities.
 
         This method is used for per-sample accuracy evaluation instead of exact string match.
+        Ground truth entities are not filtered through VALID_LABELS to avoid
+        silently dropping valid entities that use non-standard label names.
 
         Args:
             pred_label: JSON string of predicted PII entities
@@ -536,20 +616,9 @@ class PIIExpert:
         pred_entities = self.parse_label(pred_label)
         gt_entities = self.parse_label(gt_label)
 
-        # Sanitize entities
-        pred_entities = self._sanitize_entities(pred_entities)
-        gt_entities = self._sanitize_entities(gt_entities)
-
-        # Convert to sets for matching (text, label, occurrence)
-        # Use case-insensitive text matching
-        pred_set = {
-            (e["text"].lower().strip(), e["label"], e["occurrence"])
-            for e in pred_entities
-        }
-        gt_set = {
-            (e["text"].lower().strip(), e["label"], e["occurrence"])
-            for e in gt_entities
-        }
+        # Extract tuples with label normalization, no VALID_LABELS filtering
+        pred_set = self._extract_entity_tuples(pred_entities)
+        gt_set = self._extract_entity_tuples(gt_entities)
 
         # Calculate F1
         if not gt_set and not pred_set:
@@ -605,6 +674,9 @@ class PIIExpert:
         Token-level accuracy counts how many ground truth entities were correctly
         identified (text + label match, ignoring occurrence).
 
+        Matches the reference implementation: no VALID_LABELS filtering,
+        no occurrence requirement, case-sensitive text matching.
+
         Args:
             pred_label: JSON string of predicted PII entities
             gt_label: JSON string of ground truth PII entities
@@ -615,19 +687,18 @@ class PIIExpert:
         pred_entities = self.parse_label(pred_label)
         gt_entities = self.parse_label(gt_label)
 
-        # Sanitize entities
-        pred_entities = self._sanitize_entities(pred_entities)
-        gt_entities = self._sanitize_entities(gt_entities)
+        # Build sets using only (text, label) - no VALID_LABELS filter,
+        # no occurrence requirement, case-sensitive matching
+        gold_set = set()
+        pred_set = set()
 
-        # Convert to sets (text, label) - ignoring occurrence for token matching
-        gold_set = {
-            (e["text"].lower().strip(), e["label"])
-            for e in gt_entities
-        }
-        pred_set = {
-            (e["text"].lower().strip(), e["label"])
-            for e in pred_entities
-        }
+        for item in gt_entities:
+            if isinstance(item, dict) and 'text' in item and 'label' in item:
+                gold_set.add((item['text'], item['label']))
+
+        for item in pred_entities:
+            if isinstance(item, dict) and 'text' in item and 'label' in item:
+                pred_set.add((item['text'], item['label']))
 
         total_tokens = len(gold_set)
         correct_tokens = len(gold_set & pred_set)
@@ -637,6 +708,9 @@ class PIIExpert:
     def compute_exact_match_accuracy(self, pred_label: str, gt_label: str) -> bool:
         """
         Check if prediction exactly matches ground truth (all entities identical).
+
+        Matches the reference implementation: compares sorted string representations
+        without VALID_LABELS filtering.
 
         Args:
             pred_label: JSON string of predicted PII entities
@@ -648,23 +722,10 @@ class PIIExpert:
         pred_entities = self.parse_label(pred_label)
         gt_entities = self.parse_label(gt_label)
 
-        # Sanitize entities
-        pred_entities = self._sanitize_entities(pred_entities)
-        gt_entities = self._sanitize_entities(gt_entities)
-
-        # Normalize for comparison (sorted string representation)
-        def normalize_entities(entities):
-            normalized = []
-            for e in entities:
-                normalized.append((
-                    e["text"].lower().strip(),
-                    e["label"],
-                    e["occurrence"]
-                ))
-            return sorted(normalized)
-
-        gold_normalized = normalize_entities(gt_entities)
-        pred_normalized = normalize_entities(pred_entities)
+        # Normalize for comparison using sorted string representations
+        # No VALID_LABELS filtering - matches reference implementation
+        gold_normalized = sorted([str(item) for item in gt_entities])
+        pred_normalized = sorted([str(item) for item in pred_entities])
 
         return gold_normalized == pred_normalized
 

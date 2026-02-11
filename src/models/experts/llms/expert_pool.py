@@ -6,12 +6,27 @@ from pathlib import Path
 from typing import Dict, Optional, Tuple
 
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
+from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig, LogitsProcessor, LogitsProcessorList
 try:
     from peft import PeftModel
     PEFT_AVAILABLE = True
 except Exception:
     PEFT_AVAILABLE = False
+
+
+class RestrictToLabelSet(LogitsProcessor):
+    """Hard-mask logits so the model can only output tokens in the given label set."""
+    def __init__(self, tokenizer, labels):
+        self.allowed_ids = set()
+        for lab in labels:
+            for _id in tokenizer.encode(str(lab), add_special_tokens=False):
+                self.allowed_ids.add(_id)
+
+    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor) -> torch.FloatTensor:
+        mask = torch.full_like(scores, float("-inf"))
+        idx = torch.tensor(list(self.allowed_ids), device=scores.device, dtype=torch.long)
+        mask[:, idx] = 0.0
+        return scores + mask
 
 
 def _maybe_bnb_quant(load_in_4bit: bool) -> Dict:
@@ -22,7 +37,7 @@ def _maybe_bnb_quant(load_in_4bit: bool) -> Dict:
         return {
             "quantization_config": BitsAndBytesConfig(
                 load_in_4bit=True, bnb_4bit_use_double_quant=True,
-                bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.bfloat16
+                bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.float16
             )
         }
     except Exception:
@@ -112,15 +127,27 @@ class LLMAdapterPool:
         device_map = base.get("device_map", "auto")
 
         print(f"[LLMAdapterPool] Loading base model: {base_key} ({hf_name})")
-        tok = AutoTokenizer.from_pretrained(hf_name, use_fast=True)
+        tok = AutoTokenizer.from_pretrained(
+            hf_name,
+            use_fast=True,
+            trust_remote_code=True,
+            padding_side="right",
+            clean_up_tokenization_spaces=False
+        )
+        if tok.pad_token is None:
+            tok.pad_token = tok.eos_token
         bnb_kw = _maybe_bnb_quant(load_in_4bit)
         model = AutoModelForCausalLM.from_pretrained(
             hf_name,
-            torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
+            torch_dtype=None if load_in_4bit else (torch.float16 if torch.cuda.is_available() else torch.float32),
+            trust_remote_code=True,
             low_cpu_mem_usage=True,
             device_map=device_map,
             **bnb_kw
         )
+        if load_in_4bit:
+            from peft import prepare_model_for_kbit_training
+            model = prepare_model_for_kbit_training(model)
         self.base_models[base_key] = {
             "model": model,
             "tok": tok,
@@ -313,32 +340,76 @@ class LLMAdapterPool:
         **gen_overrides
         ) -> Tuple[str, float]:
 
+        # Resolve base model key for template lookup
+        base_key, _, _, _ = self._resolve_base_model_for_language(task_key, language)
+
         # Pass language to ensure_task_ready for language-based model selection
         model, tok = self.ensure_task_ready(task_key, language=language)
         template = self.get_task_template_for_language(task_key, language)
 
         if isinstance(template, dict):
-            # Always use English template for all languages
-            # This matches the training setup where English prompts were used
-            lang_key = "english"
-            if lang_key not in template:
-                # Fallback to first available key if no English template
-                lang_key = next(iter(template.keys()))
-            # Truncate inputs to match run_lora_star.py
-            truncated_text = str(classification_text).replace('\n', ' ').strip()[:400]
+            # Look up template by base model key (templates are keyed by model name)
+            tmpl_key = base_key
+            if tmpl_key not in template:
+                # Fallback to first available key
+                tmpl_key = next(iter(template.keys()))
+            # For ESCI: Mistral training used newline-structured format (from ESCIExpert),
+            # Llama training used raw text with newlines stripped
+            if task_key == "finance/esci" and "mistral" in base_key.lower():
+                truncated_text = str(classification_text).strip()
+            elif task_key == "finance/esci":
+                # Undo ESCIExpert's reformat: restore original "Query: X Product: Y" format
+                truncated_text = str(classification_text).replace('\n', ' ').strip()
+                truncated_text = truncated_text.replace('Search Query:', 'Query:').replace('Product Description:', 'Product:')
+            else:
+                truncated_text = str(classification_text).replace('\n', ' ').strip()[:400]
             truncated_title = str(review_title).replace('\n', ' ').strip()[:80]
-            text = template[lang_key].replace("{{input}}", truncated_text).replace("{{review_title}}", truncated_title)
+            text = template[tmpl_key].replace("{{input}}", truncated_text).replace("{{review_title}}", truncated_title).replace("{{language}}", language)
         else:
-            text = template.replace("{{input}}", classification_text).replace("{{review_title}}", review_title)
+            text = template.replace("{{input}}", classification_text).replace("{{review_title}}", review_title).replace("{{language}}", language)
 
-        inputs = tok(text, return_tensors="pt").to(model.device)
+        # Debug: Print full LLM prompt
+        print(f"\n{'='*60}")
+        print(f"[LLM PROMPT] Task: {task_key} | Language: {language}")
+        print(f"{'='*60}")
+        # print(text)
+        # print(f"{'='*60}\n")
+
+        inputs = tok(
+            text,
+            return_tensors="pt",
+            truncation=True,
+            max_length=512,
+            padding=True,
+            add_special_tokens=True,
+            return_attention_mask=True
+        ).to(model.device)
+        # print(inputs)
+        print(tok.decode(inputs["input_ids"][0], skip_special_tokens=False))
+        print(f"{'='*60}\n")
         gen_cfg = self.default_generation_config()
         for k, v in gen_overrides.items():
             setattr(gen_cfg, k, v)
 
+        # --- Constrained decoding for single-token label tasks (e.g. ESCI) ---
+        task_cfg = self.cfg.get("tasks", {}).get(task_key, {})
+        gen_kwargs = {}
+
+        if task_cfg.get("constrained_single_token") and task_cfg.get("label_set"):
+            gen_kwargs["logits_processor"] = LogitsProcessorList(
+                [RestrictToLabelSet(tok, task_cfg["label_set"])]
+            )
+            gen_kwargs["max_new_tokens"] = 1
+        else:
+            gen_kwargs["max_new_tokens"] = task_cfg.get("generation", {}).get("max_new_tokens", 25)
+
         out = model.generate(
             **inputs,
-            generation_config=gen_cfg,
+            **gen_kwargs,
+            do_sample=False,
+            pad_token_id=tok.eos_token_id,
+            eos_token_id=tok.eos_token_id,
+            use_cache=True,
             return_dict_in_generate=True,
             output_scores=True
         )
@@ -354,4 +425,4 @@ class LLMAdapterPool:
             probs = [F.softmax(s[0], dim=-1).max().item() for s in out.scores]
             if probs:
                 conf = float(sum(probs) / len(probs))
-        return decoded, conf
+        return decoded, conf, base_key, text
