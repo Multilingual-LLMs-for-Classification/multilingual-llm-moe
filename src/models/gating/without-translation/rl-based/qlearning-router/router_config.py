@@ -82,7 +82,7 @@ class RouterSystemConfig:
         default_factory=lambda: Path("src/models/experts/config/experts_registry.json")
     )
     domain_tasks_path: Path = field(
-        default_factory=lambda: Path("src/models/experts/config/domain_tasks.json")
+        default_factory=lambda: Path("src/models/experts/config/experts_registry.json")
     )
     model_config_path: Optional[Path] = field(
         default_factory=lambda: Path("src/models/experts/config/model_config.json")

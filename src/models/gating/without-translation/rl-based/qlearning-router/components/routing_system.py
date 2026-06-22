@@ -51,7 +51,7 @@ class PromptRoutingSystem:
             print("ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)")
             self.model_loader = None
 
-        self.domain_tasks_obj = DomainTaskLoader(config_path / "domain_tasks.json")
+        self.domain_tasks_obj = DomainTaskLoader(config_path / "experts_registry.json")
         self.domain_tasks = self.domain_tasks_obj.domain_tasks if hasattr(self.domain_tasks_obj, "domain_tasks") else self.domain_tasks_obj
         
         # Q-learning task classifier
@@ -146,7 +146,9 @@ class PromptRoutingSystem:
                 "review_title": review_title or ""
             }
 
-        language = self.language_detector.detect_language(prompt)
+        # Use full prompt for detection (has language-specific instruction words)
+        # but English label names are stripped via stopwords inside detect_language
+        language, filtered_prompt = self.language_detector.detect_language(prompt)
         domain = self.domain_classifier.classify_domain(prompt)
         domain_probs = self.domain_classifier.get_domain_probabilities(prompt)
         task = self.task_classifier.classify_task(prompt, domain)
@@ -170,7 +172,8 @@ class PromptRoutingSystem:
             'routing_path': f"{language} → {domain} → {task}",
             'raw_response': raw_response,
             'llm_used': base_model_key,
-            'prompt_sent': prompt_sent
+            'prompt_sent': prompt_sent,
+            'filtered_prompt': filtered_prompt
         }
         return output
     def get_system_stats(self):

@@ -12,6 +12,28 @@ from typing import Dict, List, Set
 import requests
 import fasttext
 
+# Per-task English label names stripped before FastText language detection.
+_LANG_DETECT_STOPWORDS = {
+    "finance/news": {
+        "business", "management", "finance", "government", "controls",
+        "technology", "industry", "tax", "accounting",
+    },
+    "finance/rating": set(),
+    "finance/esci": {
+        "exact", "substitute", "complement", "irrelevant",
+    },
+    "finance/pii": {
+        "person", "name", "date", "location", "organization",
+        "contact", "info", "government", "financial",
+        "account", "payment", "card", "user", "identifier",
+        "secret", "address",
+    },
+}
+
+_ALL_STOPWORDS = set()
+for _words in _LANG_DETECT_STOPWORDS.values():
+    _ALL_STOPWORDS.update(_words)
+
 
 class LanguageDetector:
     """
@@ -158,29 +180,43 @@ class LanguageDetector:
             f.write(response.content)
         print("✅ FastText model downloaded")
 
-    def detect_language(self, text: str) -> str:
+    def detect_language(self, text: str, task_key: str = None) -> tuple:
         """
         Detect language of input text.
 
         Args:
             text: Input text to detect language
+            task_key: Optional task key (e.g. 'finance/news') to strip
+                      task-specific English label names before detection.
 
         Returns:
-            Full language name (e.g., 'english', 'japanese')
+            Tuple of (language_name, filtered_text) where filtered_text is the
+            prompt after stopword removal (used for debugging/CSV output).
         """
         if self.model is None:
-            return self._fallback_detection(text)
+            return self._fallback_detection(text), text
         try:
             cleaned_text = text.replace('\n', ' ').strip()
             if len(cleaned_text) < 3:
-                return 'english'
-            labels, scores = self.model.predict(cleaned_text, k=1)
+                return 'english', cleaned_text
+
+            # Strip task-specific English label names that confuse FastText
+            # Compare after stripping punctuation so "Accounting," or "Controls}:" match
+            stopwords = _LANG_DETECT_STOPWORDS.get(task_key, _ALL_STOPWORDS)
+            filtered_text = cleaned_text
+            if stopwords:
+                words = cleaned_text.split()
+                filtered = [w for w in words
+                            if w.lower().strip('{}[](),.:;&!?"\'/→') not in stopwords]
+                filtered_text = ' '.join(filtered) if filtered else cleaned_text
+
+            labels, scores = self.model.predict(filtered_text, k=1)
             detected_lang = labels[0]
             mapped_lang = self.language_mapping.get(detected_lang, 'english')
-            return mapped_lang
+            return mapped_lang, filtered_text
         except Exception:
             print("⚠️ FastText detection failed, using fallback")
-            return self._fallback_detection(text)
+            return self._fallback_detection(text), text
 
     def _fallback_detection(self, text: str) -> str:
         """
