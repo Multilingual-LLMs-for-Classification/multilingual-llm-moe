@@ -976,7 +976,7 @@ class PromptRoutingSystem:
         self.language_detector = LanguageDetector()  # FastText-based
         self.domain_classifier = DomainClassifier()  # ML-based
         self.model_loader = ModelLoader(config_path / "model_config.json")
-        self.domain_tasks = DomainTaskLoader(config_path / "domain_tasks.json")
+        self.domain_tasks = DomainTaskLoader(config_path / "experts_registry.json")
         
         # Initialize task classifier with PPO
         self.task_classifier = TaskClassifier(self.domain_tasks.domain_tasks)

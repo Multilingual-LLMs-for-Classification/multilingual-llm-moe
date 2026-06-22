@@ -1,0 +1,951 @@
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: /home/cse/Desktop/moe-router/data/multifin/multifin_tr.json
+Test samples: all
+Output path: predictions_with_raw_responses_multifin_tr.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['nl', 'en', 'fr', 'de', 'it', 'es', 'sv']
+   finance/news: ['da', 'en', 'es', 'pl', 'tr']
+   finance/esci: ['en', 'es', 'ja']
+   All supported languages: ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+✅ Built dynamic language mapping for 12 languages:
+   ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+✅ Initialized 4 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 4
+   - Supported languages: 12
+
+📂 Loading test data from: /home/cse/Desktop/moe-router/data/multifin/multifin_tr.json
+✅ Loaded 80 test samples
+
+Evaluating on 80 test samples...
+================================================================================
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Loading base model: facebook/xglm-7.5B (facebook/xglm-7.5B)
+[Adapter] Loading adapter 'fin-news-tr' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/xglm-7.5B
+✓ Adapter 'fin-news-tr' loaded successfully on base model 'facebook/xglm-7.5B'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: SGK İşe Giriş ve Ayrılış Bildirgelerinin e-Devlet Sisteminden Görüntülenebilmesi Hk. Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Amerika Birleşik Devletleri Menşeli Bazı Ürünlerin İthalatında Ek Mali Yükümlülük Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Hayatta kalmaktan yaşam kalitesine: Kanser tedavisinde yeni yaklaşımlar Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Gözetim Uygulamasına İlişkin Tebliğ (Tebliğ No: 2016/6 ve 2016/3) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Yabancı personele ödenen ücretin vergilendirilmesi (2) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: 2019 Yılı Mali Tatilinde Sosyal Güvenlik Uygulamaları Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Oyuncakların ithalat denetimi tebliği (ürün güvenliği ve denetimi: 2017/10) yayımlanmıştır. Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: 2019 Yetenek Trendleri Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Vergi İncelemesinde Olanlarda Matrah Artırımı Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Gözetim Uygulanmasına İlişkin Tebliğ (Tebliğ No: 2018/10) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Yeni Gelir İdaresi Özelgeleri (2019.1) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: 7103 Sayılı Kanun Düzenlemeleriyle İlgili Gelir Vergisi Genel Tebliği Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Kurumsallaşma Koçluğu Programı Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İşyeri sağlık personelini fiili hizmet zammıyla bildiriyor musunuz? Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: 18. Küresel CEO Araştırması Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: 2017/10926 Sayılı Bakanlar Kurulu Kararı ile Yürürlüğe Konulan Bazı Ürünlerin İthalatında Ek Mali Yükümlülük Tahsili Hakkında Kararın Uygulanmasına Dair Tebliğ Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: UFRS / TFRS Bülteni - Haziran 2018 Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: E-defter Oluşturma İmzalama ve GİB Sistemine Yüklenme Süresinin Uzatılması İmzalama ve GİB Sistemine Yüklenme Süresinin Uzatılması İmzalama ve GİB Sistemine Yüklenme Süresinin Uzatılması Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: 3093 Sayılı Türkiye Radyo-Televizyon Kurumu Gelirleri Kanununda Değişiklik Yapılmasına Dair Karar Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Tayland menşeli 4007 tarifesi altında sınıflandırılan vulkanize edilmiş kauçuktan iplik ve ipler (lateks iplik) için nihai gözden geçirme soruşturması Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Türkiye - Moldova Sosyal Güvenlik Sözleşmesinin Yürürlüğe Girmesi Hk. Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Bankalarda tahsili gecikmiş alacakların yönetilmesi Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (Tebliğ No:2019/25) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: LPG ve Türevlerinde ÖTV İndirimi Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: COVID-19 Günlerinde Likidite Yönetimi Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: EPİAŞ’ın Türkiye elektrik piyasasına getirmesi beklenen faydaları üzerine bir değerlendirme Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İlave 6 Puanlık Bölgesel Sigorta Primi Teşviki Süresi Uzadı Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Telekoma Bakış: B2B Kurumsal Telekom Pazarı Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Benzin Türevlerinde ÖTV Artışı Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Haksız Rekabetin Önlenmesi Hakkında Kararda Değişiklik (Karar Sayısı: 3113) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Gümrük Genel Tebliği (Varış Öncesi Gümrük İşlemleri) (Seri NO:1) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Gözetim Uygulanmasına İlişkin Tebliğ (Tebliğ No:2019/4) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Gayrimenkulde Gelişen Trendler: Avrupa 2021 Rapor Lansmanı Kayıt Formu Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Koronavirüs (COVID-19) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: ÖTV Tutarları Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (2019/8) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Eğlence ve medya Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Gümrük Genel Tebliği (Tarife-Sınıflandırma Kararları) (Seri No: 15)’nde Değişiklik Yapılmasına Dair Tebliğ (Seri No: 30) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Bilgi Teknolojileri Risk Hizmetleri Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (Tebliğ No: 2019/38) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: UFRS / TFRS Bülteni - Haziran 2017 Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (No: 2020/13) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Gümrük Genel Tebliği (Yetkilendirilmiş Gümrük Müşavirşiği) (Seri No: 6)'nde Değişiklik Yapılmasına Dair Tebliğ Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta haksız rekabetin önlenmesine ilişkin tebliğ (Tebliğ no: 2018/6) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Bitcoin kazançları vergiye tabi mi? Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Gıda, Tarım Ve Hayvancılık Bakanlığının Kontrolüne Tabi Ürünlerin İthalat Denetimi Tebliği Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Gözetim Uygulanmasına İlişkin Tebliğ (Tebliğ No:2020/1) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (No: 2020/10) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Tehdit İstihbaratı Nedir? Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Reasürans şirketleri için yeni risklerle başa çıkma Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Anayasa Mahkemesi Vergilendirme İşlemlerinde Elektronik Tebligat Uygulamasını Anayasaya Uygun Bulmuştur Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İşyeri Tesliminde KDV Oranı ve ÖTV'de Hurda İndirimi Tutarına İlişkin Kararname Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: 7193 Sayılı Kanun’da Gayrimenkule İlişkin Hükümler Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Yeni Kanun Teklifinde Gayrimenkule İlişkin Hükümler Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Gelir Vergisi Genel Tebliği (Seri No: 309) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: UFRS / TFRS Bülteni - Mayıs 2015 Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: COVID-19 Salgını Kapsamında Dünyada ve Türkiye’de Alınan Vergi Önlemleri Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Fazlasıyla eksiğiyle KDV Yasa Tasarısı (1) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: 32 Sayılı Kararla Yapılan Değişikliklerin Gayrimenkul Sektörüne Etkileri Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Girişim Sermayesi Yatırım Fonları Tebliğinde Değişiklik Yapıldı Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Uluslararası Büyüme Stratejileri Nasıl Oluşturulur? Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Binek Otomobillerinin ÖTV Matrahı Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (Tebliğ No: 2018/28) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Gümrük Genel Tebliği (Gümrük İşlemleri) (Seri no:148) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Etik & Uyum Hizmetleri Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Siber risk sigortası hakkında bilinmesi gerekenler Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Dijital Satınalma Araştırması 2019 Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: 2020 Yılı Mali Tatilinde Sosyal Güvenlik Uygulamaları Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Vergi stratejisi ve operasyonları Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: PwC Küresel Özel Sermaye Fonları Sorumlu Yatırım Anketi 2013: Değere fiyat biçmek Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İhracat işlemlerinde BEDELSİZ e-Fatura düzenleyen mükelleflerin dikkatine! Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Küresel Dijital IQ Araştırması 2015 Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Türkiye-Romanya Sosyal Güvenlik Anlaşmasının Uygulama Esasları Hk. Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Bilançoda saatli bomba “şerefiye” Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalat Rejimi Kararına Ek Kararda Değişiklik Yapılmasına İlişkin Karar Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Avrupa Birliği Adalet Divanı’ndan müşterek veri sorumluluğuna ilişkin karar Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Uluslararası şirketlerin diyet programı; Ortak Hizmet Merkezleri Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: UFRS / TFRS Bülteni - Mayıs 2017 Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (2019/3) Category:
+============================================================
+
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+[LLMAdapterPool] Language 'turkish' → per-language mapping → model 'facebook/xglm-7.5B', adapter 'fin-news-tr'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: turkish
+============================================================
+</s> Classify this financial news headline into one category: Categories: - Business & Management - Finance - Government & Controls - Technology - Industry - Tax & Accounting Headline: Genel Sağlık Sigortası (GSS) Prim Borcu Bulunanların 2019 Yılı Sonuna Kadar Sağlık Hizmetlerinden Yararlanabilmesi Category:
+============================================================
+
+
+================================================================================
+ROUTING SYSTEM EVALUATION RESULTS
+================================================================================
+
+📊 Domain Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Task Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Expert Output Classification:
+  Accuracy           :  88.75%
+  Macro  P/R/F1      :  87.03% /  78.91% /  81.61%
+  Micro  P/R/F1      :  88.75% /  88.75% /  88.75%
+  Weighted F1        :  88.35%
+  Balanced accuracy  :  78.91%
+  Cohen's kappa (κ)  :  82.84%
+
+================================================================================
+📊 TASK-SPECIFIC EXPERT EVALUATION
+================================================================================
+
+🔍 Task: RATING
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: rating
+
+🔍 Task: NEWS
+--------------------------------------------------------------------------------
+  Samples evaluated: 80
+
+  📈 Classification Metrics:
+    Accuracy           :  88.75%
+    Macro F1           :  81.61%
+    Weighted F1        :  88.35%
+    Coverage           : 100.00%
+
+  📊 Per-Class F1 Scores:
+    Finance              :  95.65%
+    Tax & Accounting     :  94.25%
+    Business & Management :  80.00%
+    Technology           :  76.92%
+    Industry             :  76.19%
+    Government & Controls :  66.67%
+
+🔍 Task: PII
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: pii
+
+🔍 Task: ESCI
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: esci
+
+
+📊 Per-Language Performance:
+--------------------------------------------------------------------------------
+  Language |    N |   Domain Acc |   Task Acc |  Exact Acc
+--------------------------------------------------------------------------------
+   turkish |   80 |      100.00% |    100.00% |    100.00%
+
+EXPERT/MODEL SELECTION BY LANGUAGE
+================================================================================
+
+================================================================================
+
+
+PERFORMANCE BY EXPERT/MODEL
+================================================================================
+
+facebook/xglm-7.5B (Languages: turkish)
+--------------------------------------------------------------------------------
+  Samples      : 80
+  Accuracy     :  88.75%
+  Macro F1     :  81.61%
+  Weighted F1  :  88.35%
+
+  Per-language performance:
+    turkish      : Accuracy =  88.75%, Samples = 80
+
+================================================================================
+
+
+LANGUAGE GROUP COMPARISON
+================================================================================
+
+================================================================================
+
+
+✅ Results saved to: predictions_with_raw_responses_multifin_tr.csv
+   Total samples: 80
+
+================================================================================
+✅ EVALUATION COMPLETE
+================================================================================
+
+================================================================================
+✅ ALL OPERATIONS COMPLETE
+================================================================================

@@ -242,6 +242,7 @@ def evaluate_routing_system(system: PromptRoutingSystem,
         raw_response = result.get('raw_response', '')
         llm_used = result.get('llm_used', '')
         prompt_sent = result.get('prompt_sent', '')
+        filtered_prompt = result.get('filtered_prompt', '')
 
         # Extract text fields for CSV (task-agnostic fallback chain)
         # Tries multiple field names to handle different task formats:
@@ -264,6 +265,8 @@ def evaluate_routing_system(system: PromptRoutingSystem,
             'expected_label': gt_label,
             'predicted_label': pred_label,
             'llm_used': llm_used,
+            'prompt': prompt,
+            'filtered_prompt': filtered_prompt,
             'prompt_sent': prompt_sent,
             'raw_response': raw_response
         })
@@ -582,7 +585,7 @@ def save_csv_results(csv_data: List[Dict], output_path: str):
     with open(output_path, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['title', 'text', 'language', 'domain', 'task',
                      'expected_label', 'predicted_label', 'llm_used',
-                     'prompt_sent', 'raw_response']
+                     'prompt', 'filtered_prompt', 'prompt_sent', 'raw_response']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames,
                                quoting=csv.QUOTE_NONNUMERIC)
         writer.writeheader()

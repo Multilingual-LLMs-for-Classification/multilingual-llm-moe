@@ -1,0 +1,1833 @@
+/home/cse/miniconda3/envs/multilingual-classification/lib/python3.10/site-packages/transformers/quantizers/auto.py:239: UserWarning: You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used.
+  warnings.warn(warning_msg)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: /home/cse/Desktop/moe-router/data/multifin/multifin_es.json
+Test samples: all
+Output path: predictions_with_raw_responses_multifin_es.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['nl', 'en', 'fr', 'de', 'it', 'es', 'sv']
+   finance/news: ['da', 'en', 'es', 'pl', 'tr']
+   finance/esci: ['en', 'es', 'ja']
+   All supported languages: ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+✅ Built dynamic language mapping for 12 languages:
+   ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+✅ Initialized 4 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 4
+   - Supported languages: 12
+
+📂 Loading test data from: /home/cse/Desktop/moe-router/data/multifin/multifin_es.json
+✅ Loaded 80 test samples
+
+Evaluating on 80 test samples...
+================================================================================
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Loading base model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit (unsloth/mistral-7b-instruct-v0.3-bnb-4bit)
+[Adapter] Loading adapter 'fin-news-es' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-es' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Los expertos y directivos creen que la reforma del Impuesto de Sociedades mermará la competitividad de las empresas y el crecimiento económico
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: 2019 Women to Watch. Talento y diversidad en los nuevos Consejos de Administración
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: La frontera del dato
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Los hoteleros optimistas ante la próxima temporada invernal
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Temas candentes de la economía catalana
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: PwC elegida Auditora Más Innovadora del Año
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Turismo, transporte y logística
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Informe anual 2017
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Conclusiones del webcast: Impacto en el Sector Hotelero
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Las empresas y el desafío de los ODS
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: PwC lidera el asesoramiento en transacciones según los rankings elaborados por Thomson Reuters y Mergermarket
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Liderazgo
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Contacte con Auditoría
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: El sector de videojuegos en España crecerá un 32% hasta 2020
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: El número de concursos de empresas crece un 20% en 2013 y alcanza las 8.716 insolvencias
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: El mercado de videojuegos en España crecerá un 35% hasta 2021 cuando alcanzará los 1.067 millones de euros de ingresos
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: PwC lidera por sexto año consecutivo el asesoramiento en transacciones en España en 2017 según los principales rankings por sexto año consecutivo
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Energía
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Las grandes empresas cuentan con un Chief Digital Officer
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: PwC lidera por quinto año consecutivo el asesoramiento en transacciones en España en 2016
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: ¿Moda por un tubo? La relación con el cliente omnicanal en el sector moda en España. Retos y oportunidades
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Plataforma electrónica para resolución de conflictos online
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: M&A Mercantil
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Cómo impulsar la eficiencia energética en el sector hotelero español
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Finanzas digitales
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Women to Watch. Talento y diversidad en los nuevos Consejos de Administración
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Falta de talento y modelo de negocio claro
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Digital - Transporte y Turismo
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Perspectivas del sector de Entretenimiento y Medios 2019-2023. España
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Entretenimiento y Medios
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Negocio responsable
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Alertas Tax&Legal
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Acelerar el impacto digital y tecnológico
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Telecomunicaciones
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Temas candentes del sector inmobiliario español
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Gestión de gobierno corporativo y sociedades
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: La Inteligencia Artificial y el 5G redefinirán el concepto de smartphone en los próximos tres a cinco años
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Sergio Lavandera - director fiscalidad corporativa
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Ver para creer: la realidad virtual y la realidad aumentada están transformando negocios
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Unión Bancaria el precio de la estabilidad
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Observatorio de la Industria Hotelera Española invierno 2016-2017
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: La actividad concursal en España se estabiliza en 2017 en los 4.000 procedimientos anuales
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Contacte - Global Innovation 1000 - 2017
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: El sector inmobiliario europeo afronta 2019 con optimismo a pesar de la inestabilidad política
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Observatorio Industria Hotelera Semana Santa 2015
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: auditoria
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Empleos del futuro en el sector audiovisual
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: El vehículo digital 2020
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: El sector hotelero afronta con optimismo la temporada de invierno
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: La irrupción en el mercado de las empresas petroleras y de gas entre las principales preocupaciones de las eléctricas
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Alberto Monreal - Socio responsable - Procedimientos tributarios
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: El cambio climático en España 2033
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Contacte - Tecnología
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Entertainment and Media Outlook 2018 - 2022. España
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Política de Protección de Datos de PwC
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Asesoría fiscal y legal - Derecho mercantil internacional - PwC España
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Ciudades y ciudadanos en 2.033
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: La capitalización bursátil de las cien mayores empresas supera los niveles previos a la crisis
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Hacia un modelo de 'Total Retail'
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Global Economy Watch - Marzo 2020 a corto plazo en las exportaciones mundiales de servicios
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Novedades en el sector eléctrico - diciembre 2015
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: PwC reúne en Barcelona a sus líderes de todo el mundo
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Asesoramiento legal y fiscal
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Javier Maceira - Fusiones y Adquisiciones
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Los expertos cuestionan el cálculo de Hacienda sobre el tipo efectivo del Impuesto sobre Sociedades que pagan las empresas españolas
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Contacta con Servicios Fiscales y Legales - Derecho procesal y arbitraje
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Gracias - World Mobile Congress
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: 5 acciones esenciales para tener en cuenta en la gestión de capital circulante y liquidez en momentos de crisis
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Los auditores internos reclaman su papel como asesor de confianza de las empresas
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Ciberseguridad: cómo gestionar el impacto del COVID-19
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Prepara a tu equipo para el futuro
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: El impacto del 5G: generando valor en las industrias en la sociedad y en los ODS
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: La rentabilidad de la banca europea atrapada entre el exceso de capital y la japonización de la economía
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: El acceso universal a Internet podría sacar a 500 millones de personas de la pobreza e inyectar 67 billones de dólares al PIB mundial
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Las empresas del IBEX 35, menos avanzadas que las compañías del FTSE en materia de reporting integrado
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: XIX Encuesta mundial de CEOs
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: ¿Puede la llegada del coche autónomo y eléctrico acelerar la transición a una economía baja en carbono?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Inteligentes e innovadoras tecnológicamente preparadas y abiertas al mundo claves de la ciudad moderna
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Claves económicas de PwC - Acuerdo Fondos Europeos 21 de julio de 2020
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+[LLMAdapterPool] Language 'spanish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-es'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: spanish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Cómo impulsar la eficiencia energética en el sector hotelero español
+Category:
+============================================================
+
+
+================================================================================
+ROUTING SYSTEM EVALUATION RESULTS
+================================================================================
+
+📊 Domain Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Task Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Expert Output Classification:
+  Accuracy           :  90.00%
+  Macro  P/R/F1      :  87.85% /  91.21% /  88.74%
+  Micro  P/R/F1      :  90.00% /  90.00% /  90.00%
+  Weighted F1        :  90.07%
+  Balanced accuracy  :  91.21%
+  Cohen's kappa (κ)  :  87.65%
+
+================================================================================
+📊 TASK-SPECIFIC EXPERT EVALUATION
+================================================================================
+
+🔍 Task: RATING
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: rating
+
+🔍 Task: NEWS
+--------------------------------------------------------------------------------
+  Samples evaluated: 80
+
+  📈 Classification Metrics:
+    Accuracy           :  90.00%
+    Macro F1           :  88.74%
+    Weighted F1        :  90.07%
+    Coverage           : 100.00%
+
+  📊 Per-Class F1 Scores:
+    Tax & Accounting     :  93.75%
+    Industry             :  90.48%
+    Technology           :  89.66%
+    Business & Management :  89.66%
+    Finance              :  88.89%
+    Government & Controls :  80.00%
+
+🔍 Task: PII
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: pii
+
+🔍 Task: ESCI
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: esci
+
+
+📊 Per-Language Performance:
+--------------------------------------------------------------------------------
+  Language |    N |   Domain Acc |   Task Acc |  Exact Acc
+--------------------------------------------------------------------------------
+   spanish |   80 |      100.00% |    100.00% |    100.00%
+
+EXPERT/MODEL SELECTION BY LANGUAGE
+================================================================================
+
+================================================================================
+
+
+PERFORMANCE BY EXPERT/MODEL
+================================================================================
+
+unsloth/mistral-7b-instruct-v0.3-bnb-4bit (Languages: spanish)
+--------------------------------------------------------------------------------
+  Samples      : 80
+  Accuracy     :  90.00%
+  Macro F1     :  88.74%
+  Weighted F1  :  90.07%
+
+  Per-language performance:
+    spanish      : Accuracy =  90.00%, Samples = 80
+
+================================================================================
+
+
+LANGUAGE GROUP COMPARISON
+================================================================================
+
+================================================================================
+
+
+✅ Results saved to: predictions_with_raw_responses_multifin_es.csv
+   Total samples: 80
+
+================================================================================
+✅ EVALUATION COMPLETE
+================================================================================
+
+================================================================================
+✅ ALL OPERATIONS COMPLETE
+================================================================================

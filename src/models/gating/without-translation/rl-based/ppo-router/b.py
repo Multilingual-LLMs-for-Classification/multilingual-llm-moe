@@ -377,7 +377,7 @@ class PromptRoutingSystem:
             max_len=128, alpha_proto=0.30, proto_temp=10.0
         )
         self.model_loader = ModelLoader(cfg / "model_config.json")
-        self.domain_tasks_obj = DomainTaskLoader(cfg / "domain_tasks.json")
+        self.domain_tasks_obj = DomainTaskLoader(cfg / "experts_registry.json")
         self.domain_tasks = (self.domain_tasks_obj.domain_tasks
                              if hasattr(self.domain_tasks_obj, "domain_tasks")
                              else self.domain_tasks_obj)

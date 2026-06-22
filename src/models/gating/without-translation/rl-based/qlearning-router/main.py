@@ -1,6 +1,5 @@
 """
 Main CLI entry point for the hierarchical routing system.
-
 This script provides a unified interface for training, evaluation, and
 combined workflows.
 """

@@ -1,0 +1,1818 @@
+/home/cse/miniconda3/envs/multilingual-classification/lib/python3.10/site-packages/transformers/quantizers/auto.py:239: UserWarning: You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used.
+  warnings.warn(warning_msg)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: /home/cse/Desktop/moe-router/data/multifin/multifin_da.json
+Test samples: all
+Output path: predictions_with_raw_responses_multifin_da.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['nl', 'en', 'fr', 'de', 'it', 'es', 'sv']
+   finance/news: ['da', 'en', 'es', 'pl', 'tr']
+   finance/esci: ['en', 'es', 'ja']
+   All supported languages: ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+✅ Built dynamic language mapping for 12 languages:
+   ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+✅ Initialized 4 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 4
+   - Supported languages: 12
+
+📂 Loading test data from: /home/cse/Desktop/moe-router/data/multifin/multifin_da.json
+✅ Loaded 79 test samples
+
+Evaluating on 79 test samples...
+================================================================================
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Loading base model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit (unsloth/mistral-7b-instruct-v0.3-bnb-4bit)
+[Adapter] Loading adapter 'fin-news-da' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-da' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Brexit: Hvad er status? (uge 14)
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Deltag i PwC's survey Insurance Banana Skins
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Pulsmåling: Verdensmål i erhvervslivet
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Opdatering af IFRS-begrebsramme
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Kom i gang med Robotics - Step 2
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Aktstykke om hjælpepakken for selvstændiges omsætningsnedgang er offentliggjort
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Værdiansættelse af unoterede aktier - Ny dom fra Østre Landsret
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Podcast: Nyt om skat, 12 - sådan beskattes bespisning af medarbejdere
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: SKAT strammer nettet.. Skylder din virksomhed afgiftskroner til SKAT for de seneste 10 år?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Præcisering af dansk-svensk Øresundsaftale om skat
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Otte essentielle teknologier, der understøtter virksomhedens digitale forretningsmodeller
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Nyt fra CFOdirect: ny standard for hedge accounting på vej, forenklet regnskabsmæssig behandling af skat for interne overførsler af aktiver, og meget mere
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: EBA udgiver rapport om FinTech-selskabers effekt på betalingsinstitutter og e-pengeinstitutter
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Implementering af IFRS 9 i den danske regnskabsbekendtgørelse for kreditinstitutter
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Nedskrivning på koncernmellemværender efter IFRS 9
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Chokoladeafgiften er i hastig udvikling - kan du følge med?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Har du husket at få alt med på din årsopgørelse for 2017?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Regeringens kommende arbejde - de ansættelsesretlige aspekter
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Fokus på klimaforandringer i Finanstilsynets rapport
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Revisionskomiteens erfaring og kompetencer: Praktiske tips
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Brexit: Hvad er status? (uge 10)
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Hvordan navigerer virksomheder bedst i nutidens risikolandskab?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Finansieringen af "Arne"-pensionen
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Podcast: Nyt om skat, uge 29 - Regler for bespisning
+Category:
+============================================================
+
+/home/cse/miniconda3/envs/multilingual-classification/lib/python3.10/site-packages/peft/tuners/tuners_utils.py:196: UserWarning: Already found a `peft_config` attribute in the model. This will lead to having multiple adapters in the model. Make sure to know what you are doing!
+  warnings.warn(
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Momshåndtering af personalegoder - nye muligheder?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Høringsperioden er afsluttet for IASBs "Exposure Draft; Amendments to IFRS 17"
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Momsrefusionsordningen for kommuner og regioner
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+[Adapter] Loading adapter 'fin-news-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/news_classification/mistral-7b
+✓ Adapter 'fin-news-en' loaded successfully on base model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-en'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: english
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: ESMA: Nye retningslinjer for compliancefunktionen i relation til MIFID II
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Hjælp til at træde ud af den økonomiske regulering for vandselskaber
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Vandselskaber - nu kan der formentligt snart oprettes foreninger med henblik på at forbedre sektorens effektivitet og kvalitet
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Skab tillid til digitaliseringen af den offentlige sektor
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: I IFRS News maj
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: SKAT ændrer praksis for, hvornår konkursboer skal momsregistreres
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Er din bindende tariferingsoplysning (BTO) stadig gældende?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Sådan optimerer I jeres finansfunktion
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Forslag om lovliggørelse af udlån til ejere og ledelse i selskaber
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: EBA vil give klarhed om passende behandling af overgangsperiodens udløb efter kapitalkravsforordningen
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Årsnyt 2015 - Let din regnskabsaflæggelse - Vi giver overblikket
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Regeringens hjælpepakke om udvidet ret til refusion for løn eller sygedagpenge grundet fravær som følge af covid-19 forventes vedtaget på tirsdag den 17. marts 2020
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Tandlægebranchen: Klinikejer, får du nok ud af dine stole?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Transfer Pricing-redegørelse: Nye tal for 2016 offentliggjort
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: EBA vurderer indvirkningen af Basel IV i EU
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Sidste nyt fra energi- og forsyningsområdet, oktober 2018
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Datatilsynets guidelines til overførsel af personoplysninger
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Eksportmomslånet skal tilbagebetales senest den 15. januar 2018
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: PwC's undersøgelse om digitalisering i den offentlige sektor
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Høringsforslag om ændring af EBIT-reglen i SEL § 11 C
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Regeringens lovprogram 2018/2019: Selskabsskat
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Detail 2020: Et kig ud i fremtiden
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Har du fingeren på pulsen i din økonomiafdeling?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Regeringens forslag til finanslov
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Ændring af IFRS-bekendtgørelsen
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Elvarmeafgiften sænkes fra 1. maj 2018
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Er din årsomvurdering 2019 korrekt?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Tjeklisten til selvangivelsen 2019 (for selskaber)
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Modelregnskab for delårsrapporter i 2016
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Nyt fra CFOdirect: Hedge accounting, ny standard for indregning af omsætning og meget mere
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Brexit hvad er status? (uge 20)
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Podcast: Nyt om skat, uge 51
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: EU-persondataforordningen
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Opdaterede indberetningskrav for data om svig
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Sådan holder du robotten i sporet
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Risikovurdering af banksektoren
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Endegyldigt farvel til eksportmomslånet fra 15. januar 2018
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Byttehandler fra et moms- og TP-mæssigt perspektiv
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Sådan påvirker COVID-19 værdiansættelsen af virksomheder
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Dataudfordringen - og potentialet - i myndighedsrapportering
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Kan blockchain øge tilliden i den finansielle sektor?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Praksisændring: Salg af elevproducerede varer og ydelser er ikke længere momspligtigt
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Salg af byggegrunde i en fællesregistrering - moms eller ikke moms?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: ESMA har opdateret Q&A om implementeringen af MiFID II og MiFIR
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Rapporteringsmæssige konsekvenser af erstatning af LIBOR og andre referencerenter
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Skal I producere håndsprit? Og har I husket afgifterne?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Hvordan bliver kapitalreglerne for bankerne i fremtiden?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Ny bekendtgørelse om kompensation for selvstændiges omsætningstab - i fire måneder
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Har du styr på forventningerne til arbejdet med samfundsansvar i mode- og tekstilbranchen?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Podcast: Nyt om skat, uge 6 - Får du godtgørelse af afgifter for energi og miljø?
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Globalt illustrativt IFRS modelregnskab 2016
+Category:
+============================================================
+
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+[LLMAdapterPool] Language 'danish' → per-language mapping → model 'unsloth/mistral-7b-instruct-v0.3-bnb-4bit', adapter 'fin-news-da'
+
+============================================================
+[LLM PROMPT] Task: finance/news | Language: danish
+============================================================
+<s> Classify this financial news headline into one category:
+
+Categories:
+- Business & Management
+- Finance
+- Government & Controls
+- Technology
+- Industry
+- Tax & Accounting
+
+Headline: Lars Liebst, adm. direktør i Tivoli om transformation og digitalisering
+Category:
+============================================================
+
+
+================================================================================
+ROUTING SYSTEM EVALUATION RESULTS
+================================================================================
+
+📊 Domain Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Task Classification:
+  Accuracy           : 100.00%
+  Macro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Micro  P/R/F1      : 100.00% / 100.00% / 100.00%
+  Weighted F1        : 100.00%
+  Balanced accuracy  : 100.00%
+  Cohen's kappa (κ)  :   0.00%
+
+📊 Expert Output Classification:
+  Accuracy           :  82.28%
+  Macro  P/R/F1      :  75.36% /  76.79% /  74.92%
+  Micro  P/R/F1      :  82.28% /  82.28% /  82.28%
+  Weighted F1        :  82.05%
+  Balanced accuracy  :  76.79%
+  Cohen's kappa (κ)  :  74.79%
+
+================================================================================
+📊 TASK-SPECIFIC EXPERT EVALUATION
+================================================================================
+
+🔍 Task: RATING
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: rating
+
+🔍 Task: NEWS
+--------------------------------------------------------------------------------
+  Samples evaluated: 79
+
+  📈 Classification Metrics:
+    Accuracy           :  82.28%
+    Macro F1           :  74.92%
+    Weighted F1        :  82.05%
+    Coverage           : 100.00%
+
+  📊 Per-Class F1 Scores:
+    Tax & Accounting     :  93.51%
+    Industry             :  88.89%
+    Finance              :  81.82%
+    Government & Controls :  72.00%
+    Technology           :  60.00%
+    Business & Management :  53.33%
+
+🔍 Task: PII
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: pii
+
+🔍 Task: ESCI
+--------------------------------------------------------------------------------
+  ⚠️  No correctly routed samples for task: esci
+
+
+📊 Per-Language Performance:
+--------------------------------------------------------------------------------
+  Language |    N |   Domain Acc |   Task Acc |  Exact Acc
+--------------------------------------------------------------------------------
+    danish |   78 |      100.00% |    100.00% |    100.00%
+   english |    1 |      100.00% |    100.00% |    100.00%
+
+EXPERT/MODEL SELECTION BY LANGUAGE
+================================================================================
+
+================================================================================
+
+
+PERFORMANCE BY EXPERT/MODEL
+================================================================================
+
+unsloth/mistral-7b-instruct-v0.3-bnb-4bit (Languages: danish, english)
+--------------------------------------------------------------------------------
+  Samples      : 79
+  Accuracy     :  82.28%
+  Macro F1     :  74.92%
+  Weighted F1  :  82.05%
+
+  Per-language performance:
+    danish       : Accuracy =  82.05%, Samples = 78
+    english      : Accuracy = 100.00%, Samples = 1
+
+================================================================================
+
+
+LANGUAGE GROUP COMPARISON
+================================================================================
+
+================================================================================
+
+
+✅ Results saved to: predictions_with_raw_responses_multifin_da.csv
+   Total samples: 79
+
+================================================================================
+✅ EVALUATION COMPLETE
+================================================================================
+
+================================================================================
+✅ ALL OPERATIONS COMPLETE
+================================================================================

@@ -46,24 +46,41 @@ class NewsClassificationExpert:
         """
         Clean and normalize LLM output for news-category classification.
 
-        Steps:
-          1. Converts text to lowercase
-          2. Checks for exact matches with known categories
-          3. Checks for partial substring matches
-          4. Returns "unknown" if no match found
+        Strips trailing generation artifacts (repeated categories, headlines,
+        explanations) before matching against the known label set.
         """
-        raw = raw.lower().strip()
+        # Split at common continuation markers and take only the first part
+        for marker in ['Category:', 'category:', 'Headline:', 'headline:',
+                       'Categories:', 'Classify', '\n\n']:
+            if marker in raw:
+                raw = raw.split(marker)[0]
 
-        # Exact match
+        raw = raw.replace('\n', ' ').strip().rstrip(' -:,')
+
+        # Exact match (case-insensitive)
         for category in CATEGORIES:
-            if category.lower() == raw:
+            if category.lower() == raw.lower():
                 return category
 
-        # Partial match
+        # Starts-with match (model may append extra text)
         for category in CATEGORIES:
-            cat_l = category.lower()
-            if raw in cat_l or cat_l in raw:
+            if raw.lower().startswith(category.lower()):
                 return category
+
+        # Keyword-based fallback
+        raw_lower = raw.lower()
+        if any(w in raw_lower for w in ['tax', 'accounting']):
+            return "Tax & Accounting"
+        elif any(w in raw_lower for w in ['government', 'control']):
+            return "Government & Controls"
+        elif any(w in raw_lower for w in ['business', 'management']):
+            return "Business & Management"
+        elif 'technology' in raw_lower:
+            return "Technology"
+        elif 'industry' in raw_lower:
+            return "Industry"
+        elif 'finance' in raw_lower or 'financial' in raw_lower:
+            return "Finance"
 
         return "unknown"
 

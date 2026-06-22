@@ -780,7 +780,7 @@ class PromptRoutingSystem:
         self.language_detector = LanguageDetector()
         self.domain_classifier = DomainClassifier()
         self.model_loader = ModelLoader(config_path / "model_config.json")
-        self.domain_tasks = DomainTaskLoader(config_path / "domain_tasks.json")  # has .domain_tasks dict
+        self.domain_tasks = DomainTaskLoader(config_path / "experts_registry.json")  # has .domain_tasks dict
         self.translator = Translator(target_language='english')
 
         # Initialize task classifier with PPO

@@ -1,0 +1,114 @@
+✅ Loaded configuration from: router_config.json
+
+================================================================================
+CONFIGURATION SUMMARY
+================================================================================
+Mode: eval
+Test data: /home/cse/Desktop/moe-router/data/pii/pii_combined.json
+Test samples: all
+Output path: predictions_with_raw_responses_pii.csv
+================================================================================
+
+================================================================================
+HIERARCHICAL ROUTING SYSTEM - EVALUATION MODE
+================================================================================
+
+🔧 Initializing routing system...
+✅ FastText language model loaded
+✅ Loaded language support from registry:
+   finance/rating: ['de', 'en', 'es', 'fr', 'ja', 'zh']
+   finance/pii: ['nl', 'en', 'fr', 'de', 'it', 'es', 'sv']
+   finance/news: ['da', 'en', 'es', 'pl', 'tr']
+   finance/esci: ['en', 'es', 'ja']
+   All supported languages: ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+✅ Built dynamic language mapping for 12 languages:
+   ['chinese', 'danish', 'dutch', 'english', 'french', 'german', 'italian', 'japanese', 'polish', 'spanish', 'swedish', 'turkish']
+ℹ️  model_config.json not found - skipping legacy ModelLoader (not needed for LLMAdapterPool)
+✅ Domain classifier loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/domain_xlmr/domain_cls.pt
+✅ Q-learning routers loaded from: /home/cse/Desktop/multilingual-llm-moe/src/models/gating/without-translation/rl-based/qlearning-router/models/task_routers_qlearning
+✅ Initialized 4 task experts across 1 domains
+✅ System initialized:
+   - Domains: 1
+   - Tasks: 4
+   - Supported languages: 12
+
+📂 Loading test data from: /home/cse/Desktop/moe-router/data/pii/pii_combined.json
+✅ Loaded 1047 test samples
+
+Evaluating on 1047 test samples...
+================================================================================
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-de'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-de'
+[LLMAdapterPool] Loading base model: mistral-7B-Instruct-v0.3 (mistralai/Mistral-7B-Instruct-v0.3)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.09s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.13s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.02s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.04s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+/home/cse/miniconda3/envs/multilingual-classification/lib/python3.10/site-packages/peft/tuners/tuners_utils.py:196: UserWarning: Already found a `peft_config` attribute in the model. This will lead to having multiple adapters in the model. Make sure to know what you are doing!
+  warnings.warn(
+[Adapter] Loading adapter 'fin-pii-de' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-de' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'german' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-de'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: german
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST contain: "text", "label", "occurrence".
+- Allowed labels: one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Betreff: Supplier Due Diligence - Arturo Fulvio Giannone  Sehr geehrte Damen und Herren,  hiermit reiche ich im Namen von Arturo Fulvio Giannone die erforderlichen Informationen für die Supplier Due Diligence ein. Wir haben sorgfältig unsere Geschäftspartner geprüft und sind zuversichtlich, dass wir Ihre Erwartungen erfüllen werden.  1. Finanzstabilität  Herr Arturo Fulvio Giannone verfügt über ei
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[Adapter] Loading adapter 'fin-pii-en' from: /home/cse/Desktop/multilingual-llm-moe/src/models/experts/llms/adapters/finance/pii/Mistral-7B-Instruct-v0.3
+✓ Adapter 'fin-pii-en' loaded successfully on base model 'mistral-7B-Instruct-v0.3'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: english
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST contain: "text", "label", "occurrence".
+- Allowed labels: one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+Consumer Goods Fund Investment Prospectus  Dear Investor,  We are pleased to present the Consumer Goods Fund, a fund specializing in investment opportunities within the consumer goods industry. Our objective is to deliver long-term capital growth by investing in a diversified portfolio of companies that operate within this high-growth sector.  Fund Objectives Our primary objective is to achieve ca
+
+Extract PII: [/INST]
+============================================================
+
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+[LLMAdapterPool] Language 'english' → per-language mapping → model 'mistral-7B-Instruct-v0.3', adapter 'fin-pii-en'
+
+============================================================
+[LLM PROMPT] Task: finance/pii | Language: english
+============================================================
+<s>[INST] You are a strict PII extraction model. Output ONLY a JSON array. Each object MUST contain: "text", "label", "occurrence".
+- Allowed labels: one of person_name, date, location, organization, contact_info, government_id, financial_account, payment_card, user_identifier, secret, ip_address
+- "occurrence": integer starting at 1 (if same text appears multiple times, increment for each)
+
+Example format: [{"text": "John Smith", "label": "person_name", "occurrence": 1}]
+
+NO explanations. No markdown. Close all brackets properly.
+
+Document:
+--- Confirmation of Contactless Payment ---  Transaction ID: 5fce8a6b-d603-435c-9c21-f4a5a3f6d274 Date: 04.02.2023, 15:32:18  Payer: Gianna Pavarotti Street Address: 05 Elizabethdreef, Apt. 7, 12345 Berlin Account PIN: **** 1894 ****  Payee: XYZ-Store Amount: €54.95  ---  Thank you for your payment.  Best regards, XYZ-Store Customer Service Team
+
+Extract PII: [/INST]
+============================================================
+
+
+
+⚠️  Interrupted by user
