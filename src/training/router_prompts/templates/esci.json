@@ -7,67 +7,67 @@
     {
         "id": "en-2",
         "lang": "english",
-        "template": "Query: {query}\nProduct: {product_description}\nBased on this information, decide if the relationship is Exact, Substitute, Complement, or Irrelevant."
+        "template": "Based on this information, decide if the relationship is Exact, Substitute, Complement, or Irrelevant.\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-3",
         "lang": "english",
-        "template": "Given the query \"{query}\" and product \"{product_description}\", classify into one category: Exact, Substitute, Complement, or Irrelevant."
+        "template": "Classify into one category: Exact, Substitute, Complement, or Irrelevant.\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-4",
         "lang": "english",
-        "template": "Product: {product_description}\nQuery: {query}\nChoose the correct label from: Exact, Substitute, Complement, Irrelevant."
+        "template": "Choose the correct label from: Exact, Substitute, Complement, Irrelevant.\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-5",
         "lang": "english",
-        "template": "Query provided: {query}. Product provided: {product_description}. Return only one label (Exact, Substitute, Complement, Irrelevant)."
+        "template": "Return only one label (Exact, Substitute, Complement, Irrelevant).\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-6",
         "lang": "english",
-        "template": "Decide whether the product \"{product_description}\" satisfies the query \"{query}\". Options: Exact, Substitute, Complement, Irrelevant."
+        "template": "Decide whether the product satisfies the query. Options: Exact, Substitute, Complement, Irrelevant.\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-7",
         "lang": "english",
-        "template": "The product is: {product_description}. The query is: {query}. Which ESCI label best applies?"
+        "template": "Which ESCI label best applies?\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-8",
         "lang": "english",
-        "template": "Analyze the pair (Query: {query}, Product: {product_description}). Then output exactly one label: Exact, Substitute, Complement, Irrelevant."
+        "template": "Analyze the pair. Then output exactly one label: Exact, Substitute, Complement, Irrelevant.\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-9",
         "lang": "english",
-        "template": "Determine if \"{product_description}\" fully matches, substitutes, complements, or is irrelevant to \"{query}\"."
+        "template": "Determine if the product fully matches, substitutes, complements, or is irrelevant to the query.\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-10",
         "lang": "english",
-        "template": "Query: {query}\nProduct: {product_description}\nQ: What is the correct classification?\nA: Exact, Substitute, Complement, or Irrelevant."
+        "template": "Q: What is the correct classification?\nA: Exact, Substitute, Complement, or Irrelevant.\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-11",
         "lang": "english",
-        "template": "Without explanation, classify the following query and product.\nQuery: {query}\nProduct: {product_description}\nLabels: Exact, Substitute, Complement, Irrelevant."
+        "template": "Without explanation, classify the following query and product.\nLabels: Exact, Substitute, Complement, Irrelevant.\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-12",
         "lang": "english",
-        "template": "User query: {query}. Product: {product_description}. Classify their relationship as one of Exact, Substitute, Complement, Irrelevant."
+        "template": "Classify their relationship as one of Exact, Substitute, Complement, Irrelevant.\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-13",
         "lang": "english",
-        "template": "Consider the intent behind the query \"{query}\". Does the product \"{product_description}\" serve as Exact, Substitute, Complement, or Irrelevant?"
+        "template": "Consider the intent behind the query. Does the product serve as Exact, Substitute, Complement, or Irrelevant?\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-14",
         "lang": "english",
-        "template": "Choose the canonical ESCI label for this pair.\nProduct: {product_description}\nQuery: {query}\nOptions: Exact, Substitute, Complement, Irrelevant."
+        "template": "Choose the canonical ESCI label for this pair.\nOptions: Exact, Substitute, Complement, Irrelevant.\nQuery: {query}\nProduct: {product_description}"
     },
     {
         "id": "en-15",
@@ -82,67 +82,67 @@
     {
         "id": "es-2",
         "lang": "spanish",
-        "template": "Consulta: {query}\nProducto: {product_description}\nSegún esta información, selecciona una etiqueta: Exact, Substitute, Complement o Irrelevant."
+        "template": "Según esta información, selecciona una etiqueta: Exact, Substitute, Complement o Irrelevant.\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-3",
         "lang": "spanish",
-        "template": "Dados la consulta \"{query}\" y el producto \"{product_description}\", clasifícalos en Exact, Substitute, Complement o Irrelevant."
+        "template": "Clasifícalos en Exact, Substitute, Complement o Irrelevant.\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-4",
         "lang": "spanish",
-        "template": "Producto: {product_description}\nConsulta: {query}\nElige la etiqueta correcta: Exact, Substitute, Complement, Irrelevant."
+        "template": "Elige la etiqueta correcta: Exact, Substitute, Complement, Irrelevant.\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-5",
         "lang": "spanish",
-        "template": "Consulta: {query}. Producto: {product_description}. Devuelve solo una etiqueta (Exact, Substitute, Complement, Irrelevant)."
+        "template": "Devuelve solo una etiqueta (Exact, Substitute, Complement, Irrelevant).\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-6",
         "lang": "spanish",
-        "template": "Decide si el producto \"{product_description}\" satisface la consulta \"{query}\". Opciones: Exact, Substitute, Complement, Irrelevant."
+        "template": "Decide si el producto satisface la consulta. Opciones: Exact, Substitute, Complement, Irrelevant.\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-7",
         "lang": "spanish",
-        "template": "El producto es: {product_description}. La consulta es: {query}. ¿Qué etiqueta ESCI corresponde mejor?"
+        "template": "¿Qué etiqueta ESCI corresponde mejor?\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-8",
         "lang": "spanish",
-        "template": "Analiza el par (Consulta: {query}, Producto: {product_description}) y devuelve solo una etiqueta ESCI."
+        "template": "Analiza el par y devuelve solo una etiqueta ESCI.\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-9",
         "lang": "spanish",
-        "template": "Determina si \"{product_description}\" coincide, sustituye, complementa o es irrelevante respecto a \"{query}\"."
+        "template": "Determina si el producto coincide, sustituye, complementa o es irrelevante respecto a la consulta.\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-10",
         "lang": "spanish",
-        "template": "Consulta: {query}\nProducto: {product_description}\nP: ¿Cuál es la clasificación correcta?\nR: Exact, Substitute, Complement o Irrelevant."
+        "template": "P: ¿Cuál es la clasificación correcta?\nR: Exact, Substitute, Complement o Irrelevant.\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-11",
         "lang": "spanish",
-        "template": "Sin explicación, clasifica esta consulta y producto.\nConsulta: {query}\nProducto: {product_description}\nOpciones: Exact, Substitute, Complement, Irrelevant."
+        "template": "Sin explicación, clasifica esta consulta y producto.\nOpciones: Exact, Substitute, Complement, Irrelevant.\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-12",
         "lang": "spanish",
-        "template": "Consulta de usuario: {query}. Producto: {product_description}. Clasifica su relación como Exact, Substitute, Complement o Irrelevant."
+        "template": "Clasifica su relación como Exact, Substitute, Complement o Irrelevant.\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-13",
         "lang": "spanish",
-        "template": "Considera la intención detrás de la consulta \"{query}\". ¿El producto \"{product_description}\" es Exact, Substitute, Complement o Irrelevant?"
+        "template": "Considera la intención detrás de la consulta. ¿El producto es Exact, Substitute, Complement o Irrelevant?\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-14",
         "lang": "spanish",
-        "template": "Elige la etiqueta ESCI para este par.\nProducto: {product_description}\nConsulta: {query}\nOpciones: Exact, Substitute, Complement, Irrelevant."
+        "template": "Elige la etiqueta ESCI para este par.\nOpciones: Exact, Substitute, Complement, Irrelevant.\nConsulta: {query}\nProducto: {product_description}"
     },
     {
         "id": "es-15",
@@ -157,71 +157,71 @@
     {
         "id": "ja-2",
         "lang": "japanese",
-        "template": "クエリ: {query}\n製品: {product_description}\n上記をもとに、Exact, Substitute, Complement, Irrelevant の1つを選んでください。"
+        "template": "上記をもとに、Exact, Substitute, Complement, Irrelevant の1つを選んでください。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-3",
         "lang": "japanese",
-        "template": "クエリ \"{query}\" と製品 \"{product_description}\" の関係を分類してください。選択肢: Exact, Substitute, Complement, Irrelevant。"
+        "template": "クエリと製品の関係を分類してください。選択肢: Exact, Substitute, Complement, Irrelevant。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-4",
         "lang": "japanese",
-        "template": "製品: {product_description}\nクエリ: {query}\nこの関係を表すラベルを選んでください。Exact, Substitute, Complement, Irrelevant。"
+        "template": "この関係を表すラベルを選んでください。Exact, Substitute, Complement, Irrelevant。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-5",
         "lang": "japanese",
-        "template": "クエリ: {query}。製品: {product_description}。返すラベルは1つだけ (Exact, Substitute, Complement, Irrelevant)。"
+        "template": "返すラベルは1つだけ (Exact, Substitute, Complement, Irrelevant)。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-6",
         "lang": "japanese",
-        "template": "製品 \"{product_description}\" がクエリ \"{query}\" を満たすか判断してください。候補: Exact, Substitute, Complement, Irrelevant。"
+        "template": "製品がクエリを満たすか判断してください。候補: Exact, Substitute, Complement, Irrelevant。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-7",
         "lang": "japanese",
-        "template": "製品は {product_description}。クエリは {query}。どのESCIラベルが最適ですか？"
+        "template": "どのESCIラベルが最適ですか？\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-8",
         "lang": "japanese",
-        "template": "ペア (クエリ: {query}, 製品: {product_description}) を分析し、1つのラベルだけを出力してください。"
+        "template": "ペアを分析し、1つのラベルだけを出力してください。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-9",
         "lang": "japanese",
-        "template": "\"{product_description}\" が \"{query}\" に完全一致するか、代替、補完、または無関係かを判断してください。"
+        "template": "製品がクエリに完全一致するか、代替、補完、または無関係かを判断してください。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-10",
         "lang": "japanese",
-        "template": "クエリ: {query}\n製品: {product_description}\nQ: 分類は？\nA: Exact, Substitute, Complement, Irrelevant のいずれか。"
+        "template": "Q: 分類は？\nA: Exact, Substitute, Complement, Irrelevant のいずれか。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-11",
         "lang": "japanese",
-        "template": "説明不要。このクエリと製品を分類してください。\nクエリ: {query}\n製品: {product_description}\nラベル: Exact, Substitute, Complement, Irrelevant。"
+        "template": "説明不要。このクエリと製品を分類してください。\nラベル: Exact, Substitute, Complement, Irrelevant。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-12",
         "lang": "japanese",
-        "template": "ユーザークエリ: {query}。製品: {product_description}。関係を Exact, Substitute, Complement, Irrelevant のいずれかに分類してください。"
+        "template": "関係を Exact, Substitute, Complement, Irrelevant のいずれかに分類してください。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-13",
         "lang": "japanese",
-        "template": "クエリ \"{query}\" の意図を考え、製品 \"{product_description}\" を分類してください。Exact, Substitute, Complement, Irrelevant。"
+        "template": "クエリの意図を考え、製品を分類してください。Exact, Substitute, Complement, Irrelevant。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-14",
         "lang": "japanese",
-        "template": "このペアの正しいラベルを選んでください。\n製品: {product_description}\nクエリ: {query}\n候補: Exact, Substitute, Complement, Irrelevant。"
+        "template": "このペアの正しいラベルを選んでください。\n候補: Exact, Substitute, Complement, Irrelevant。\nクエリ: {query}\n製品: {product_description}"
     },
     {
         "id": "ja-15",
         "lang": "japanese",
-        "template": "クエリと製品の関係を最もよく表すカテゴリを1つだけ選んでください: Exact, Substitute, Complement, Irrelevant。"
+        "template": "クエリと製品の関係を最もよく表すカテゴリを1つだけ選んでください: Exact, Substitute, Complement, Irrelevant。\nクエリ: {query}\n製品: {product_description}"
     }
 ]
