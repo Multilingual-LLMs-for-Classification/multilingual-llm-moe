@@ -98,9 +98,9 @@
           "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/template.json"
         },
         "german": {
-          "base_model_key": "llama-2-7b-hf",
+          "base_model_key": "qwen2.5-7b-instruct",
           "adapter_name": "fin-sentiment-de",
-          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/llama-2-7b-hf/",
+          "adapter_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/qwen2.5/",
           "template_path": "src/models/experts/llms/adapters/finance/sentiment_analysis/template.json"
         },
         "spanish": {
@@ -230,6 +230,11 @@
         "pl",
         "tr"
       ],
+      "generation": {
+        "max_new_tokens": 8,
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
       "language_mapping": {
         "english": {
           "base_model_key": "unsloth/mistral-7b-instruct-v0.3-bnb-4bit",
