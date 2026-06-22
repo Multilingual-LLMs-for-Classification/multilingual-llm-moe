@@ -1,0 +1,1362 @@
+[
+  {
+    "prompt": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\nCodigo no funciona: De los dos codigos que lleva el producto, uno dice que ya estaba usado. Sin comentarios (Category: video_games)",
+    "classification_text": "Codigo no funciona: De los dos codigos que lleva el producto, uno dice que ya estaba usado. Sin comentarios (Category: video_games)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nPésima: Quema el cabello incluso en la temperatura más baja. La tiré a la basura, no daba ni para regalarla. No creo que sea original. (Category: personal_care_appliances)",
+    "classification_text": "Pésima: Quema el cabello incluso en la temperatura más baja. La tiré a la basura, no daba ni para regalarla. No creo que sea original. (Category: personal_care_appliances)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Según la siguiente reseña, ¿qué calificación por estrellas (1–5) corresponde?\nReseña: ZAPATOS ENORMES: SON ZAPATOS ENORMES AUNQUE ESCOJAS LA TALLA MINIMA, SON PARA BEBES SIN SUELA, ENTONCES AL SER TAN GRANDES CUANDO LE VAN BIEN A LOS NIÑOS YA ANDAN Y NO TE VALEN CON ESTA SUELA. (Category: apparel)",
+    "classification_text": "ZAPATOS ENORMES: SON ZAPATOS ENORMES AUNQUE ESCOJAS LA TALLA MINIMA, SON PARA BEBES SIN SUELA, ENTONCES AL SER TAN GRANDES CUANDO LE VAN BIEN A LOS NIÑOS YA ANDAN Y NO TE VALEN CON ESTA SUELA. (Category: apparel)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nRecomendable: Buen producto, con buena calidad, muy recomendable. (Category: sports)",
+    "classification_text": "Recomendable: Buen producto, con buena calidad, muy recomendable. (Category: sports)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nLA IDEA ES BUENA PERO DIFICIL DE ENCONTRAR UN MICROONDAS APROPIADO: AL FINAL NO LO UTILIZAS MUCHO (Category: home)",
+    "classification_text": "LA IDEA ES BUENA PERO DIFICIL DE ENCONTRAR UN MICROONDAS APROPIADO: AL FINAL NO LO UTILIZAS MUCHO (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nPensaba que aguantaría un poco más: Recibido un martes,prometía mucho ya que agarra bien, se estrena el miércoles y el viernes ya tenía la cremallera rota. Esta descosido el final de la cremallera y se sale el carro, fue utilizado para llevar el teléfono y un portamonedas en la jornada de trabajo. (Category: sports)",
+    "classification_text": "Pensaba que aguantaría un poco más: Recibido un martes,prometía mucho ya que agarra bien, se estrena el miércoles y el viernes ya tenía la cremallera rota. Esta descosido el final de la cremallera y se sale el carro, fue utilizado para llevar el teléfono y un portamonedas en la jornada de trabajo. (Category: sports)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nBueno, bonito y barato. Lo tiene todo.: Son super cómodas, no dan nada de calor, y no se deforman. El precio es muy bueno en comparación con las que ves en tiendas de descanso. Ya llevo usándolas 2 semanas y la verdad que estoy muy satisfecha y contenta. Las recomiendo 100%. (Category: home)",
+    "classification_text": "Bueno, bonito y barato. Lo tiene todo.: Son super cómodas, no dan nada de calor, y no se deforman. El precio es muy bueno en comparación con las que ves en tiendas de descanso. Ya llevo usándolas 2 semanas y la verdad que estoy muy satisfecha y contenta. Las recomiendo 100%. (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\nMe gusta: Es lo que se ve. Un juguete práctico y divertido para los peques. El único problema es que hay que tener cuidado con los palitos porque los bebés se pueden lastimar. (Category: toy)",
+    "classification_text": "Me gusta: Es lo que se ve. Un juguete práctico y divertido para los peques. El único problema es que hay que tener cuidado con los palitos porque los bebés se pueden lastimar. (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nLo recomiendo: 2do motorola q tengo y de lujo. va muy bien. la camara es muy muy buena (Category: wireless)",
+    "classification_text": "Lo recomiendo: 2do motorola q tengo y de lujo. va muy bien. la camara es muy muy buena (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\nNo la compraría otra vez.: La navaja por ese precio bien. El seguro mejorable. Los afiladores muy mejorables por decirlo suavemente. La brújula encajada torcida y no funciona. (Category: sports)",
+    "classification_text": "No la compraría otra vez.: La navaja por ese precio bien. El seguro mejorable. Los afiladores muy mejorables por decirlo suavemente. La brújula encajada torcida y no funciona. (Category: sports)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nQue cumpla su objetivo: Llego perfectamente y estoy satisfecho con su uso y sigo probando haber cuanto me dura. (Category: wireless)",
+    "classification_text": "Que cumpla su objetivo: Llego perfectamente y estoy satisfecho con su uso y sigo probando haber cuanto me dura. (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Piensa en las calificaciones típicas de Amazon. ¿Cuál (1–5) es la más probable para esta reseña?\nNo es lo que se espera: El diseño es muy bonito Pero es muy lento,se queda pillado y tarda en entrar en la aplicaciones incluidas las básicas y WiFi lo Coke si no tienes muchas cosas conectadas ( valla tres terminales más) Sí pudiera lo cambiaba. Un poco decepcionada. (Category: electronics)",
+    "classification_text": "No es lo que se espera: El diseño es muy bonito Pero es muy lento,se queda pillado y tarda en entrar en la aplicaciones incluidas las básicas y WiFi lo Coke si no tienes muchas cosas conectadas ( valla tres terminales más) Sí pudiera lo cambiaba. Un poco decepcionada. (Category: electronics)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nJ.bernardo: Cuando llegará el pedido ? Por favor contacte conmigo ates de anular la ya lleva mucho tiempo si no anulamos (Category: toy)",
+    "classification_text": "J.bernardo: Cuando llegará el pedido ? Por favor contacte conmigo ates de anular la ya lleva mucho tiempo si no anulamos (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nMuy Barato y Muy básico: Está bien para los que quieran conocer a grandes rasgos cosas sobre la raza. Pero para quien controle algo no aporta nada nuevo. (Category: book)",
+    "classification_text": "Muy Barato y Muy básico: Está bien para los que quieran conocer a grandes rasgos cosas sobre la raza. Pero para quien controle algo no aporta nada nuevo. (Category: book)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: Protector roto: Me llegó roto... 😭 Supongo que el embalaje no era el mas adecuado para algo tan frágil. En el resto de casas de accesorios suelen venir en sobres de mas grosor. (Category: wireless)",
+    "classification_text": "Protector roto: Me llegó roto... 😭 Supongo que el embalaje no era el mas adecuado para algo tan frágil. En el resto de casas de accesorios suelen venir en sobres de mas grosor. (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Nuestro sistema necesita saber la calificación por estrellas de esta reseña de producto. Proporciona una puntuación entre 1 y 5:\nJuegazo, pero la desarrolladora ha sido muy vaga: Le pongo 3 estrellas porque es un gran juego a buen precio, pero la desarrolladora ha sido una vaga, prácticamente la misma versión, a 30 FPS, sigue estando en inglés... (Category: video_games)",
+    "classification_text": "Juegazo, pero la desarrolladora ha sido muy vaga: Le pongo 3 estrellas porque es un gran juego a buen precio, pero la desarrolladora ha sido una vaga, prácticamente la misma versión, a 30 FPS, sigue estando en inglés... (Category: video_games)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nDivertido para jugar en un césped: Divertido para jugar a lanzarlo y cogerlo. Tamaño mediano, no grande. (Category: toy)",
+    "classification_text": "Divertido para jugar en un césped: Divertido para jugar a lanzarlo y cogerlo. Tamaño mediano, no grande. (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Tengo la siguiente reseña de cliente. ¿Puedes asignarle una calificación entre 1 y 5 estrellas?\nPinta bien de primeras: Me ha gustado que venga con una bolsita super bien recogido y que no ocupa casi nada de espacio. Pero ha llegado la bolsa mal cosida y la tela de la bolsa es la típica que cuando coge un pelín de humedad se deshace entre las manos como si fuera polvo. No la hemos montado porque es para un regalo de navidad. (Category: toy)",
+    "classification_text": "Pinta bien de primeras: Me ha gustado que venga con una bolsita super bien recogido y que no ocupa casi nada de espacio. Pero ha llegado la bolsa mal cosida y la tela de la bolsa es la típica que cuando coge un pelín de humedad se deshace entre las manos como si fuera polvo. No la hemos montado porque es para un regalo de navidad. (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nBueno: Un cable de carga, simple pero bonito al poder elegir colores, el cable tiene tacto gomoso, que esta bien porque parece que le da agarre si lo dejas colgando de algún mueble o similar pero me da la sensación de que con el calor se va a poner pegajoso, lo probaré puesto que me llegó ayer y a ver con en el tiempo si cambio de opinión a mejor o peor (Category: wireless)",
+    "classification_text": "Bueno: Un cable de carga, simple pero bonito al poder elegir colores, el cable tiene tacto gomoso, que esta bien porque parece que le da agarre si lo dejas colgando de algún mueble o similar pero me da la sensación de que con el calor se va a poner pegajoso, lo probaré puesto que me llegó ayer y a ver con en el tiempo si cambio de opinión a mejor o peor (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Lee esta reseña y decide cuántas estrellas de cinco merece:\nfigura bien, caja mal.: la figura bien, el problema es que la caja de la figura venia un poco abollada y al menos en figuras como los Funko pop la caja de la figura es muy importante.. (Category: toy)",
+    "classification_text": "figura bien, caja mal.: la figura bien, el problema es que la caja de la figura venia un poco abollada y al menos en figuras como los Funko pop la caja de la figura es muy importante.. (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\nAparato: Me gusta todo menos que no tiene USB para conectar gracias moreno (Category: electronics)",
+    "classification_text": "Aparato: Me gusta todo menos que no tiene USB para conectar gracias moreno (Category: electronics)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Según la siguiente reseña, ¿qué calificación por estrellas (1–5) corresponde?\nReseña: No parece nuevo: El producto parace que biene es su embalaje original pero tiene marcas de haber estado expuesto, rayaduras... No lo recomiendo (Category: toy)",
+    "classification_text": "No parece nuevo: El producto parace que biene es su embalaje original pero tiene marcas de haber estado expuesto, rayaduras... No lo recomiendo (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\nPerfecto: Está muy bien , el pájaro ya no tira tanta comida al suelo (Category: pet_products)",
+    "classification_text": "Perfecto: Está muy bien , el pájaro ya no tira tanta comida al suelo (Category: pet_products)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\nSartén muy honda: No es un wok, es una sartén muy honda (Category: home)",
+    "classification_text": "Sartén muy honda: No es un wok, es una sartén muy honda (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nDesastre: Se rompió a los 6 meses (Category: wireless)",
+    "classification_text": "Desastre: Se rompió a los 6 meses (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nNo funciona correctamente: No funciona correctamente, carga literalmente cuando quiere, lo he tenido que devolver. Quizás ha sido mala suerte y me tocó uno defectuoso. La devolución con Amazon sin problemas. (Category: electronics)",
+    "classification_text": "No funciona correctamente: No funciona correctamente, carga literalmente cuando quiere, lo he tenido que devolver. Quizás ha sido mala suerte y me tocó uno defectuoso. La devolución con Amazon sin problemas. (Category: electronics)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nRelación calidad precio.: Una silla práctica y comoda y no lo digo yo, lo dice mi pequeño que le encanta. (Category: baby_product)",
+    "classification_text": "Relación calidad precio.: Una silla práctica y comoda y no lo digo yo, lo dice mi pequeño que le encanta. (Category: baby_product)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: No es para todo el mundo: Supongo que será por el tipo de relato, del año que es, pero no he podido terminar de leerlo, la temática me gusta pero no el desarrollo. No creo que sea por la historia, sino por la época en la que se escribió. Yo no he sabido cogerle el tranquillo. (Category: digital_ebook_purchase)",
+    "classification_text": "No es para todo el mundo: Supongo que será por el tipo de relato, del año que es, pero no he podido terminar de leerlo, la temática me gusta pero no el desarrollo. No creo que sea por la historia, sino por la época en la que se escribió. Yo no he sabido cogerle el tranquillo. (Category: digital_ebook_purchase)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nMuy buena: Muy buena, me ha gustado mucho, lo he utilizado tanto para freir como cocción lenta, no pesa mucho, nada se pega, un diez calidad-precio (Category: home)",
+    "classification_text": "Muy buena: Muy buena, me ha gustado mucho, lo he utilizado tanto para freir como cocción lenta, no pesa mucho, nada se pega, un diez calidad-precio (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nNo vale para móviles grandes: Mi movil tiene una pantalla de 5.5 pulgadas y debido al peso a veces se cae. Con el tiempo la pinza del soporte se va dando de si. (Category: wireless)",
+    "classification_text": "No vale para móviles grandes: Mi movil tiene una pantalla de 5.5 pulgadas y debido al peso a veces se cae. Con el tiempo la pinza del soporte se va dando de si. (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Piensa en las calificaciones típicas de Amazon. ¿Cuál (1–5) es la más probable para esta reseña?\nBastante bien: Llego muy rápido Queda muy bonito es muy finito pero mejor para el verano el tallaje viene bien me queda estupendo (Category: apparel)",
+    "classification_text": "Bastante bien: Llego muy rápido Queda muy bonito es muy finito pero mejor para el verano el tallaje viene bien me queda estupendo (Category: apparel)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nExcelente: La mejor forma de realizar la limpieza de las llantas llegando a todos los puntos de estas sin rallarlas. (Category: automotive)",
+    "classification_text": "Excelente: La mejor forma de realizar la limpieza de las llantas llegando a todos los puntos de estas sin rallarlas. (Category: automotive)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Según la siguiente reseña, ¿qué calificación por estrellas (1–5) corresponde?\nReseña: Incómoda: Al principio va genial pero al cabo del tiempo (1 mes como mucho) es lo más incómodo del mundo, apenas puedes hacer nada con ella puesta. (Category: beauty)",
+    "classification_text": "Incómoda: Al principio va genial pero al cabo del tiempo (1 mes como mucho) es lo más incómodo del mundo, apenas puedes hacer nada con ella puesta. (Category: beauty)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nPésimo: El peor mueble q he montado nunca .Y he montado bastantes . Parece de juguete y los materiales sin pésimos . Muy mala compra (Category: furniture)",
+    "classification_text": "Pésimo: El peor mueble q he montado nunca .Y he montado bastantes . Parece de juguete y los materiales sin pésimos . Muy mala compra (Category: furniture)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nNo era lo que esperaba: Esperaba otra cosa. Me parece ruidoso. Poco aire, más bien una pequeña brisa. En mi caso, ha salido rodando un par de veces y casi se parte. No lo volvería a comprar nuevamente. (Category: pc)",
+    "classification_text": "No era lo que esperaba: Esperaba otra cosa. Me parece ruidoso. Poco aire, más bien una pequeña brisa. En mi caso, ha salido rodando un par de veces y casi se parte. No lo volvería a comprar nuevamente. (Category: pc)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nBuena superficie: La adhesión es espectacular por la cara de la malla negra. No hace falta laca, de hecho no lo recomiendo porque le puse en la primera impresión y no había manera humana de despegar la pieza. No pesa en exceso por lo que la cama no sufre. Son 4mm de grosor, por lo que hay que elevar un poco la posición Z antes de instalarla, pero se hace en 30 segundos. Por poner una pega, la serigrafía negra se ralla con facilidad, como se puede apreciar en la fotografía (Category: industrial_supplies)",
+    "classification_text": "Buena superficie: La adhesión es espectacular por la cara de la malla negra. No hace falta laca, de hecho no lo recomiendo porque le puse en la primera impresión y no había manera humana de despegar la pieza. No pesa en exceso por lo que la cama no sufre. Son 4mm de grosor, por lo que hay que elevar un poco la posición Z antes de instalarla, pero se hace en 30 segundos. Por poner una pega, la serigrafía negra se ralla con facilidad, como se puede apreciar en la fotografía (Category: industrial_supplies)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nSe resbalan: Tengo el cabello fino y se me resbala, por lo que ya no las uso. Por su precio no puedes pedir mucho más. (Category: sports)",
+    "classification_text": "Se resbalan: Tengo el cabello fino y se me resbala, por lo que ya no las uso. Por su precio no puedes pedir mucho más. (Category: sports)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Piensa en las calificaciones típicas de Amazon. ¿Cuál (1–5) es la más probable para esta reseña?\nPrecioso y muy comodo: Es precioso, hoy es él cumpleaños de mi niña de 3 añitos y ha sido él regalo perfecto, Recomendadisimo cien por cien. (Category: toy)",
+    "classification_text": "Precioso y muy comodo: Es precioso, hoy es él cumpleaños de mi niña de 3 añitos y ha sido él regalo perfecto, Recomendadisimo cien por cien. (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Piensa en las calificaciones típicas de Amazon. ¿Cuál (1–5) es la más probable para esta reseña?\nPrácticos: Marcan muy bien la tela. (Category: office_product)",
+    "classification_text": "Prácticos: Marcan muy bien la tela. (Category: office_product)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nTarda mucho tiempo en cocinarse: Tarda mucho tiempo en cocinar! Todo lo demás bien (Category: home)",
+    "classification_text": "Tarda mucho tiempo en cocinarse: Tarda mucho tiempo en cocinar! Todo lo demás bien (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\nGenial: Poco ruido, 2 niveles, para 1 vaso solo o para hacer más. fácil de montar/desmontar y limpiar (Category: kitchen)",
+    "classification_text": "Genial: Poco ruido, 2 niveles, para 1 vaso solo o para hacer más. fácil de montar/desmontar y limpiar (Category: kitchen)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\nNO FUNCIONA: NO LA DETECTA EL PORTATIL NY NO CARGA, LA SEGUNDA QUE DEVUELVO. MUY DESCONTENTO. AMAZON COMO SIEMPRE PERFECTO CON LAS DEVOLUCIONES. (Category: electronics)",
+    "classification_text": "NO FUNCIONA: NO LA DETECTA EL PORTATIL NY NO CARGA, LA SEGUNDA QUE DEVUELVO. MUY DESCONTENTO. AMAZON COMO SIEMPRE PERFECTO CON LAS DEVOLUCIONES. (Category: electronics)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nÚtil, se adapta bien: Lo que esperaba por el precio (Category: home)",
+    "classification_text": "Útil, se adapta bien: Lo que esperaba por el precio (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Piensa en las calificaciones típicas de Amazon. ¿Cuál (1–5) es la más probable para esta reseña?\nDecepcionante: No me gusta mucho porque sale mucha tinta y es dificil de controlar, demasiado caro para como es (Category: office_product)",
+    "classification_text": "Decepcionante: No me gusta mucho porque sale mucha tinta y es dificil de controlar, demasiado caro para como es (Category: office_product)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Tengo la siguiente reseña de cliente. ¿Puedes asignarle una calificación entre 1 y 5 estrellas?\nBarato pero poco preciso: Está bien, nada para un trabajo muy perfecto. Recordad ponerle aguarrás al cristal antes de cortar, os hará todo más fácil. (Category: industrial_supplies)",
+    "classification_text": "Barato pero poco preciso: Está bien, nada para un trabajo muy perfecto. Recordad ponerle aguarrás al cristal antes de cortar, os hará todo más fácil. (Category: industrial_supplies)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nRegular: Juego a Pc y compré este ratón porque tenía uno inalámbrico también de Amazon que iba al revés la ruedecita de subir y bajar, a este le pasa exacatamente lo mismo. Es muy cómodo y cumple su función pero tiene el mismo problema que mi anterior ratón, la rueda está al revés o algo. (Category: pc)",
+    "classification_text": "Regular: Juego a Pc y compré este ratón porque tenía uno inalámbrico también de Amazon que iba al revés la ruedecita de subir y bajar, a este le pasa exacatamente lo mismo. Es muy cómodo y cumple su función pero tiene el mismo problema que mi anterior ratón, la rueda está al revés o algo. (Category: pc)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\nSatisfecho: Tiene buen acabado y tejido. Costuras reforzadas. (Category: lawn_and_garden)",
+    "classification_text": "Satisfecho: Tiene buen acabado y tejido. Costuras reforzadas. (Category: lawn_and_garden)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nDecepción: Parecía otra cosa, nada más abrir la caja ya me di cuenta que metí la pata, pequeñas y casi no alumbran (Category: furniture)",
+    "classification_text": "Decepción: Parecía otra cosa, nada más abrir la caja ya me di cuenta que metí la pata, pequeñas y casi no alumbran (Category: furniture)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\nMAGNIFICA COMPRA: Resultado de calidad/precio = espectacular, de hecho he comprado varios colores porque quedan muy bien y son de un material excelente , recomiendo la compra 100% (Category: sports)",
+    "classification_text": "MAGNIFICA COMPRA: Resultado de calidad/precio = espectacular, de hecho he comprado varios colores porque quedan muy bien y son de un material excelente , recomiendo la compra 100% (Category: sports)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\ndevolucion: A día de hoy aún no he recibido mi reembolso de este pedido no recibido. (Category: home)",
+    "classification_text": "devolucion: A día de hoy aún no he recibido mi reembolso de este pedido no recibido. (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nNo comprar: No entra en mi sofa y el vendedor no contesta a mis mensajes (Category: home)",
+    "classification_text": "No comprar: No entra en mi sofa y el vendedor no contesta a mis mensajes (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nUn casco diferente: Es cómodo y bonito pero las gafas son de mala calidad (Category: automotive)",
+    "classification_text": "Un casco diferente: Es cómodo y bonito pero las gafas son de mala calidad (Category: automotive)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\nNo funciona: Como lámpara graciosa tiene su punto, pero mosquitos no atrapa ni uno. Me lo llevé de cámping, lo he probado de noche al fresco, y nada, todas las veces que lo he usado que había mosquitos no ha cogido a ninguno y me han picado, así que nada, milagros a Lurdes (Category: industrial_supplies)",
+    "classification_text": "No funciona: Como lámpara graciosa tiene su punto, pero mosquitos no atrapa ni uno. Me lo llevé de cámping, lo he probado de noche al fresco, y nada, todas las veces que lo he usado que había mosquitos no ha cogido a ninguno y me han picado, así que nada, milagros a Lurdes (Category: industrial_supplies)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Piensa en las calificaciones típicas de Amazon. ¿Cuál (1–5) es la más probable para esta reseña?\nRegular: Lo que no me ha gustado es que vuelca hacia delante con mucha facilidad. Es casi imposible estar encima sin caerte . (Category: toy)",
+    "classification_text": "Regular: Lo que no me ha gustado es que vuelca hacia delante con mucha facilidad. Es casi imposible estar encima sin caerte . (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nMuy chulo: Está bien acabado, tenía un poco de miedo xq había leído que que si acabado era malo, pero yo pedí dos y los dos, me llegaron con un acabado perfecto, y mi niño está encantado de sus estuches diferentes a los de siempre. (Category: kitchen)",
+    "classification_text": "Muy chulo: Está bien acabado, tenía un poco de miedo xq había leído que que si acabado era malo, pero yo pedí dos y los dos, me llegaron con un acabado perfecto, y mi niño está encantado de sus estuches diferentes a los de siempre. (Category: kitchen)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nPitu: La calidad es muy buena, pero el tamaño..... Super pequeñita, no entra ni una libreta tamaño a5, es una pena. (Category: luggage)",
+    "classification_text": "Pitu: La calidad es muy buena, pero el tamaño..... Super pequeñita, no entra ni una libreta tamaño a5, es una pena. (Category: luggage)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Tengo la siguiente reseña de cliente. ¿Puedes asignarle una calificación entre 1 y 5 estrellas?\nNo trae conectores multiples: Me decidí por este pack porque traía conectores para hacer muchas formas distintas (gafas, flores, etc...) pero solo trae conectores de unión simple... Con lo cual solo se pueden hacer pulseras o collares... Que decepción! (Category: toy)",
+    "classification_text": "No trae conectores multiples: Me decidí por este pack porque traía conectores para hacer muchas formas distintas (gafas, flores, etc...) pero solo trae conectores de unión simple... Con lo cual solo se pueden hacer pulseras o collares... Que decepción! (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nPrecioso: Eso muy bonito y tiene buenos detalles (Category: toy)",
+    "classification_text": "Precioso: Eso muy bonito y tiene buenos detalles (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Nuestro sistema necesita saber la calificación por estrellas de esta reseña de producto. Proporciona una puntuación entre 1 y 5:\nDecepcionante: Se adapta bien pero se ve nublado parece que está rallado (Category: wireless)",
+    "classification_text": "Decepcionante: Se adapta bien pero se ve nublado parece que está rallado (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nFuncionando perfectamente sin problemas: La utilizo para la moto y va de maravilla, de momento. Tiene potencia de arranque en una moto de 259 c.c. (Category: automotive)",
+    "classification_text": "Funcionando perfectamente sin problemas: La utilizo para la moto y va de maravilla, de momento. Tiene potencia de arranque en una moto de 259 c.c. (Category: automotive)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: Hola solicito que me devuelvan el dinero y compraré otra: Se pueden comprar las partes por separado? La protección de delante es muy mala. Se ha quedado rayada, pero muy rallada por nada. (Category: pc)",
+    "classification_text": "Hola solicito que me devuelvan el dinero y compraré otra: Se pueden comprar las partes por separado? La protección de delante es muy mala. Se ha quedado rayada, pero muy rallada por nada. (Category: pc)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nCaro y mala caludad: Le han dado una capa de acabado mate, para ocultar grieta y tiene perdida, pero no es visible hasta que le quitas la capa mate. No volveré a comprar a este proveedor. (Category: home)",
+    "classification_text": "Caro y mala caludad: Le han dado una capa de acabado mate, para ocultar grieta y tiene perdida, pero no es visible hasta que le quitas la capa mate. No volveré a comprar a este proveedor. (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Tengo la siguiente reseña de cliente. ¿Puedes asignarle una calificación entre 1 y 5 estrellas?\nEmbalado en bolsa: Es lo esperado, pero al venir en bolsa de amazón el paquete interior del primer embalaje estaba casi destrozado. Espero que pongan remedio próxima vez (Category: kitchen)",
+    "classification_text": "Embalado en bolsa: Es lo esperado, pero al venir en bolsa de amazón el paquete interior del primer embalaje estaba casi destrozado. Espero que pongan remedio próxima vez (Category: kitchen)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nEstá bien pero no me convence: Esta bien pero engancharlo en la funda no es lo más cómodo, hace que la funda se vuelva más incomoda (Category: pc)",
+    "classification_text": "Está bien pero no me convence: Esta bien pero engancharlo en la funda no es lo más cómodo, hace que la funda se vuelva más incomoda (Category: pc)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Lee esta reseña y decide cuántas estrellas de cinco merece:\nmuy buen precio: Muy buen precio y los altavoces han quedado genial (Category: wireless)",
+    "classification_text": "muy buen precio: Muy buen precio y los altavoces han quedado genial (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nMaria: Bien es lo esperado por el precio que tiene.Hace 10 dias q lo tengo y funciona perfectamente.La calidad no es buenisima pero tampoco la cobran (Category: watch)",
+    "classification_text": "Maria: Bien es lo esperado por el precio que tiene.Hace 10 dias q lo tengo y funciona perfectamente.La calidad no es buenisima pero tampoco la cobran (Category: watch)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nBuenísimo: Sigue así, me he leído todos tus libros y ya estoy esperando el siguiente no dejes de escribir . Suerte. (Category: digital_ebook_purchase)",
+    "classification_text": "Buenísimo: Sigue así, me he leído todos tus libros y ya estoy esperando el siguiente no dejes de escribir . Suerte. (Category: digital_ebook_purchase)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nPoner en sitios sin aire: Los tubos son bastante endebles y si hay aire le tienes que quitar la lona por que sino se desmorona la medida es adecuada y la lona resistente (Category: home_improvement)",
+    "classification_text": "Poner en sitios sin aire: Los tubos son bastante endebles y si hay aire le tienes que quitar la lona por que sino se desmorona la medida es adecuada y la lona resistente (Category: home_improvement)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nMala calidad.: De muy mala calidad y además no encaja bien. No recomendable. (Category: wireless)",
+    "classification_text": "Mala calidad.: De muy mala calidad y además no encaja bien. No recomendable. (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Lee esta reseña y decide cuántas estrellas de cinco merece:\nNo muy satisfecha: Lo compré porque habia leido opiniones,me aguanta más el ojo con las lentillas,pero se sigue secando y cuando llevas unas horas te molestan.Me esperaba algo mejor.. (Category: drugstore)",
+    "classification_text": "No muy satisfecha: Lo compré porque habia leido opiniones,me aguanta más el ojo con las lentillas,pero se sigue secando y cuando llevas unas horas te molestan.Me esperaba algo mejor.. (Category: drugstore)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nEncantado: Quería una plancha para bocadillos y bikinis y esta va de fábula. Se calients rápido, se limpia fàcil con papel de cocina y en pocos minutos quedan planchados los bocadillos. (Category: kitchen)",
+    "classification_text": "Encantado: Quería una plancha para bocadillos y bikinis y esta va de fábula. Se calients rápido, se limpia fàcil con papel de cocina y en pocos minutos quedan planchados los bocadillos. (Category: kitchen)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nDefectuosa: Ha venido la pizarra marcada q no se va y no se borra nada bien lo pintado. Es muy ligera y tiene pinta de romperse facilmente. (Category: toy)",
+    "classification_text": "Defectuosa: Ha venido la pizarra marcada q no se va y no se borra nada bien lo pintado. Es muy ligera y tiene pinta de romperse facilmente. (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\nUn fiasco como un churrasco: Tiene muy mala calidad, los tacos no corresponden con el tamaño de la estanteria. Bastante inestable. Por este precio podría haber conseguido algo bastante mejor. (Category: furniture)",
+    "classification_text": "Un fiasco como un churrasco: Tiene muy mala calidad, los tacos no corresponden con el tamaño de la estanteria. Bastante inestable. Por este precio podría haber conseguido algo bastante mejor. (Category: furniture)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Lee esta reseña y decide cuántas estrellas de cinco merece:\n.: satisfecho con la compra, recomendable (Category: pc)",
+    "classification_text": ".: satisfecho con la compra, recomendable (Category: pc)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: No compatible J5: La descripción dice que es compatible con el Samsung Galaxy J5 pero le va pequeño, la pantalla es más grande que el cristal. No es compatible. He solicitado la devolución (Category: wireless)",
+    "classification_text": "No compatible J5: La descripción dice que es compatible con el Samsung Galaxy J5 pero le va pequeño, la pantalla es más grande que el cristal. No es compatible. He solicitado la devolución (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\nEnvy: El envío esta muu bien (Category: musical_instruments)",
+    "classification_text": "Envy: El envío esta muu bien (Category: musical_instruments)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Piensa en las calificaciones típicas de Amazon. ¿Cuál (1–5) es la más probable para esta reseña?\nFunda bien - Cristal mal: El cristal templado no se pega bien en todo el alrededor de la pantalla. La funda bien. (Category: wireless)",
+    "classification_text": "Funda bien - Cristal mal: El cristal templado no se pega bien en todo el alrededor de la pantalla. La funda bien. (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Según la siguiente reseña, ¿qué calificación por estrellas (1–5) corresponde?\nReseña: No me ha gustado la opción: Quería comprar el CD y no el MP3 para descargar ,no pude devolver el producto ya que se cobro instantáneamente.lo tienen mal hecho.era para regalar a una tercera persona y no he podido hacerlo.muy mal (Category: other)",
+    "classification_text": "No me ha gustado la opción: Quería comprar el CD y no el MP3 para descargar ,no pude devolver el producto ya que se cobro instantáneamente.lo tienen mal hecho.era para regalar a una tercera persona y no he podido hacerlo.muy mal (Category: other)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Tengo la siguiente reseña de cliente. ¿Puedes asignarle una calificación entre 1 y 5 estrellas?\nUn 6,5: Está muy chula, aunque un poco resbaladiza. No quiero escribir 13 palabras más porque no me sale de las narices (Category: wireless)",
+    "classification_text": "Un 6,5: Está muy chula, aunque un poco resbaladiza. No quiero escribir 13 palabras más porque no me sale de las narices (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Nuestro sistema necesita saber la calificación por estrellas de esta reseña de producto. Proporciona una puntuación entre 1 y 5:\nPara surface pro: Es pequeña y fina. Se ajusta perfectamente a una Surface pro y algunos papeles o libreta. Para el día a día y los desplazamientos rápidos está muy bien (Category: wireless)",
+    "classification_text": "Para surface pro: Es pequeña y fina. Se ajusta perfectamente a una Surface pro y algunos papeles o libreta. Para el día a día y los desplazamientos rápidos está muy bien (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nBuen producto.: Perfecto, me encanta, por el precio y portes gratis no se puede pedir mas. (Category: home)",
+    "classification_text": "Buen producto.: Perfecto, me encanta, por el precio y portes gratis no se puede pedir mas. (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nExcelente relación calidad-precio: Buena calidad y buen precio. Es un producto con calidad profesional, cómodo de transportar y de fácil montaje. Lo aconsejo . (Category: camera)",
+    "classification_text": "Excelente relación calidad-precio: Buena calidad y buen precio. Es un producto con calidad profesional, cómodo de transportar y de fácil montaje. Lo aconsejo . (Category: camera)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nadaptador: E hecho la devolución de esté adaptador porque no me era compatible y me dicen que me han hecho la devolución del pago a mi tarjeta, a día de hoy aún no lo e recibido en mi banco,por favor resuelvan esté incidente. Un saludo. Eva. (Category: wireless)",
+    "classification_text": "adaptador: E hecho la devolución de esté adaptador porque no me era compatible y me dicen que me han hecho la devolución del pago a mi tarjeta, a día de hoy aún no lo e recibido en mi banco,por favor resuelvan esté incidente. Un saludo. Eva. (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Nuestro sistema necesita saber la calificación por estrellas de esta reseña de producto. Proporciona una puntuación entre 1 y 5:\nMuy caro: El envío muy bien y el cuaderno está bien, pero es excesivamente caro. No se justifica el precio en relación con la competencia (Category: office_product)",
+    "classification_text": "Muy caro: El envío muy bien y el cuaderno está bien, pero es excesivamente caro. No se justifica el precio en relación con la competencia (Category: office_product)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nPiezas con golpes: El producto llego a tiempo y viene bastante completo y bien enbuelto. A pesar de todo esto las dos estrellas se las doy porque en varias pieza venia con golpes y se nota bastante, por lo demas bien (Category: toy)",
+    "classification_text": "Piezas con golpes: El producto llego a tiempo y viene bastante completo y bien enbuelto. A pesar de todo esto las dos estrellas se las doy porque en varias pieza venia con golpes y se nota bastante, por lo demas bien (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nRegular, no protege bien.: El material es bueno, pero la fubda no tiene ese borde extra q protege el mobil cuabdo cae de cara. Se me rompen los cristales templados pq sobresalen. Por lo demas genial tacto y color. (Category: wireless)",
+    "classification_text": "Regular, no protege bien.: El material es bueno, pero la fubda no tiene ese borde extra q protege el mobil cuabdo cae de cara. Se me rompen los cristales templados pq sobresalen. Por lo demas genial tacto y color. (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Lee esta reseña y decide cuántas estrellas de cinco merece:\nDecepcionado: El móvil falla mucho! La batería no dura todo el día El whatsapp algunos días no se puede abrir, parece que estuviera bloqueado y de repente funciona correctamente, pero no es fallo del whatsapp porque en otros teléfono funciona bien (Category: wireless)",
+    "classification_text": "Decepcionado: El móvil falla mucho! La batería no dura todo el día El whatsapp algunos días no se puede abrir, parece que estuviera bloqueado y de repente funciona correctamente, pero no es fallo del whatsapp porque en otros teléfono funciona bien (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nDeja el monte como lo encuentres: Las dos primeras salidas comparé los registros con la app de strava del smartphone y eran iguales. A partir de las tercera salida ha dejado de dar una lectura correcta de la altitud. Lo bueno es al pasarlo a la app strava la altitud se corrige. (Category: sports)",
+    "classification_text": "Deja el monte como lo encuentres: Las dos primeras salidas comparé los registros con la app de strava del smartphone y eran iguales. A partir de las tercera salida ha dejado de dar una lectura correcta de la altitud. Lo bueno es al pasarlo a la app strava la altitud se corrige. (Category: sports)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nBIEN, PERO PUEDE MEJORAR: Esta muy bien para que aprendan a abrochar y desabrochar, pero creo que estaría mucho mejor si cada pieza se pudiera enganchar de alguna forma al tablero...porque si no, es muy complicado que las piezas no se pierdan o se guarden juntas... (Category: toy)",
+    "classification_text": "BIEN, PERO PUEDE MEJORAR: Esta muy bien para que aprendan a abrochar y desabrochar, pero creo que estaría mucho mejor si cada pieza se pudiera enganchar de alguna forma al tablero...porque si no, es muy complicado que las piezas no se pierdan o se guarden juntas... (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: Bonitas!!: De tamaño es perfecta para casi cualquier silla bastante normal y aunque de tela son muy finas . El tacto es agradable y super elásticas . Ideales para cambiar de aspecto cualquier silla quedan como nuevas. (Category: home)",
+    "classification_text": "Bonitas!!: De tamaño es perfecta para casi cualquier silla bastante normal y aunque de tela son muy finas . El tacto es agradable y super elásticas . Ideales para cambiar de aspecto cualquier silla quedan como nuevas. (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nde facil uso, regulable.: simple, de facil uso, regulable. Muy buena iluminacion,bateria duradera,con regulador de intensidad muy practico y ademas pesa poco. Yo recomendé. (Category: home)",
+    "classification_text": "de facil uso, regulable.: simple, de facil uso, regulable. Muy buena iluminacion,bateria duradera,con regulador de intensidad muy practico y ademas pesa poco. Yo recomendé. (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nAnda que...: Si compro un libro me gusta que llegue sin pegotes, ni restos de cola en la portada... el que no envuelve, pobre, no debe tener tiempo ni para visualizar lo que tiene enfrente! Un poquito de porfavor! Y ahora ponéis este comentario de anuncio de Amazon! porfi porfi (Category: book)",
+    "classification_text": "Anda que...: Si compro un libro me gusta que llegue sin pegotes, ni restos de cola en la portada... el que no envuelve, pobre, no debe tener tiempo ni para visualizar lo que tiene enfrente! Un poquito de porfavor! Y ahora ponéis este comentario de anuncio de Amazon! porfi porfi (Category: book)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Nuestro sistema necesita saber la calificación por estrellas de esta reseña de producto. Proporciona una puntuación entre 1 y 5:\nEstafa barritas energéticas: Estafa comparto la misma opinión de los demás usuarios. El pedido decía 15 unidades y trae solo una por pedido. Alucinante!! Estafa en toda regla (Category: drugstore)",
+    "classification_text": "Estafa barritas energéticas: Estafa comparto la misma opinión de los demás usuarios. El pedido decía 15 unidades y trae solo una por pedido. Alucinante!! Estafa en toda regla (Category: drugstore)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Lee esta reseña y decide cuántas estrellas de cinco merece:\nNo llego: Ni ha llegado ni se le espera no confíes en el vendedor y encima no contesta a los emails de vergüenza (Category: office_product)",
+    "classification_text": "No llego: Ni ha llegado ni se le espera no confíes en el vendedor y encima no contesta a los emails de vergüenza (Category: office_product)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nQue llegue: No puedo opinar,porque no me ha llegado (Category: electronics)",
+    "classification_text": "Que llegue: No puedo opinar,porque no me ha llegado (Category: electronics)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nGenial: Son súper cómodos, se ajustan genial y no no estás ni que están! (Category: wireless)",
+    "classification_text": "Genial: Son súper cómodos, se ajustan genial y no no estás ni que están! (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nBien como complemento: Esta bien, pero los milagros no existen, evidentemente, hay que combinarlo con dieta sana y ejercicio, es un complemento. (Category: drugstore)",
+    "classification_text": "Bien como complemento: Esta bien, pero los milagros no existen, evidentemente, hay que combinarlo con dieta sana y ejercicio, es un complemento. (Category: drugstore)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: Buena calidad y diseño: Me parece una muy buena camiseta técnica.Calidad y diseño excelentes (Category: sports)",
+    "classification_text": "Buena calidad y diseño: Me parece una muy buena camiseta técnica.Calidad y diseño excelentes (Category: sports)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nMe gusta el producto: Cumple su función perfectamente (Category: beauty)",
+    "classification_text": "Me gusta el producto: Cumple su función perfectamente (Category: beauty)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nNunca llegó: Nunca llegó, el vendedor solo me dio largas. (Category: shoes)",
+    "classification_text": "Nunca llegó: Nunca llegó, el vendedor solo me dio largas. (Category: shoes)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\nMala calidad: Muy mala calidad, se doblan con nada de fuerza, y no consigues sacar grapas un poco fuertes, no merecen la pena, no volvería a comprar (Category: home_improvement)",
+    "classification_text": "Mala calidad: Muy mala calidad, se doblan con nada de fuerza, y no consigues sacar grapas un poco fuertes, no merecen la pena, no volvería a comprar (Category: home_improvement)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nBaja autonomía de la batería: El reloj está bien. Ubica correctamente al sitio donde se encuentra el niño y el sonido al hacer las llamadas es bueno..pero las dos estrellas vienen pq la configuración no es sencilla y las instrucciones solo vienen en ingles y el principal problema es la autonomía de la batería. Solo es de 6 horas aproximadamente, lo cual es claramente insuficiente. Es el principal problema. (Category: electronics)",
+    "classification_text": "Baja autonomía de la batería: El reloj está bien. Ubica correctamente al sitio donde se encuentra el niño y el sonido al hacer las llamadas es bueno..pero las dos estrellas vienen pq la configuración no es sencilla y las instrucciones solo vienen en ingles y el principal problema es la autonomía de la batería. Solo es de 6 horas aproximadamente, lo cual es claramente insuficiente. Es el principal problema. (Category: electronics)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: No me funciona: A mi personalmente no me funciona y la verdad es q me sienta mal, me da muchos ardores y ganas de vomitar y es como si el estómago se me cerrará y la orina demasiado amarillenta (Category: drugstore)",
+    "classification_text": "No me funciona: A mi personalmente no me funciona y la verdad es q me sienta mal, me da muchos ardores y ganas de vomitar y es como si el estómago se me cerrará y la orina demasiado amarillenta (Category: drugstore)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nPastosa: Demasiado pastoso, por lo que se quedan las pestañas pegajosas. (Category: beauty)",
+    "classification_text": "Pastosa: Demasiado pastoso, por lo que se quedan las pestañas pegajosas. (Category: beauty)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\nGenial: Cumple sus expectativas, se adapta muy bien, aunque personalmente no me gusta mucho la argolla delantera, pero entiendo que es algo que en otros casos pueda ser práctico. (Category: pet_products)",
+    "classification_text": "Genial: Cumple sus expectativas, se adapta muy bien, aunque personalmente no me gusta mucho la argolla delantera, pero entiendo que es algo que en otros casos pueda ser práctico. (Category: pet_products)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nBolsa de regalo disponible sería perfecto: El artículo es estupendo,pero debería tener opción a preparar como regalo o enviar al menos una bolsa. (Category: baby_product)",
+    "classification_text": "Bolsa de regalo disponible sería perfecto: El artículo es estupendo,pero debería tener opción a preparar como regalo o enviar al menos una bolsa. (Category: baby_product)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nBien: Las mias son originales, además vienen con una hoja informativa informando de las que son y no son originales a modo de comparativa (Category: shoes)",
+    "classification_text": "Bien: Las mias son originales, además vienen con una hoja informativa informando de las que son y no son originales a modo de comparativa (Category: shoes)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nBuen libro, los libros de texto tendrían que ser más baratos: Buen libro, los libros de texto tendrían que ser más baratos (Category: book)",
+    "classification_text": "Buen libro, los libros de texto tendrían que ser más baratos: Buen libro, los libros de texto tendrían que ser más baratos (Category: book)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nSeriedad: Devuelto a S/T por avería (Category: lawn_and_garden)",
+    "classification_text": "Seriedad: Devuelto a S/T por avería (Category: lawn_and_garden)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nPerfecto: Muy bien todo perfecto rápido y la mochila muy chula le ha gustado mucho recomendable este vendedor ..... por poner un pero podría ser un poco más grande (Category: luggage)",
+    "classification_text": "Perfecto: Muy bien todo perfecto rápido y la mochila muy chula le ha gustado mucho recomendable este vendedor ..... por poner un pero podría ser un poco más grande (Category: luggage)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nprecio: mas caro el envio que el producto (Category: toy)",
+    "classification_text": "precio: mas caro el envio que el producto (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: Opinión.: Me deja la piel bastante bien pero huele fatal. (Category: beauty)",
+    "classification_text": "Opinión.: Me deja la piel bastante bien pero huele fatal. (Category: beauty)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nCalentito pero muy pequeño: Tamaño excesivamente pequeño. Estira pero para una 38 queda muy apretado. Deberían de poner las medidas en la descripción (Category: apparel)",
+    "classification_text": "Calentito pero muy pequeño: Tamaño excesivamente pequeño. Estira pero para una 38 queda muy apretado. Deberían de poner las medidas en la descripción (Category: apparel)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nMochila excelente: Me gusta su diseño y calidad de la mochila es grande ,fuerte y viene preparada por si quieres añadirle las ruedas.mi hija esta encantada (Category: toy)",
+    "classification_text": "Mochila excelente: Me gusta su diseño y calidad de la mochila es grande ,fuerte y viene preparada por si quieres añadirle las ruedas.mi hija esta encantada (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nPrecio: Cubre bien pero los imanes no son muy fuertes y los enganches se rompen con facilidad (Category: automotive)",
+    "classification_text": "Precio: Cubre bien pero los imanes no son muy fuertes y los enganches se rompen con facilidad (Category: automotive)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\nREGULAR: Fácil uso, la música de oye muy bien, pero las llamadas no te oyen. La batería dura muy poco. (Category: electronics)",
+    "classification_text": "REGULAR: Fácil uso, la música de oye muy bien, pero las llamadas no te oyen. La batería dura muy poco. (Category: electronics)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Lee esta reseña y decide cuántas estrellas de cinco merece:\nProblema resuelto: Compré este portabicis y tuve un problema ya que el agarre a la bola estaba defectuoso. Una lástima porque me gustaba la marca Thule. La empresa MBS Import que me lo vendió entendió el problema y me hizo el reembolso. Un 10 por ellos. (Category: automotive)",
+    "classification_text": "Problema resuelto: Compré este portabicis y tuve un problema ya que el agarre a la bola estaba defectuoso. Una lástima porque me gustaba la marca Thule. La empresa MBS Import que me lo vendió entendió el problema y me hizo el reembolso. Un 10 por ellos. (Category: automotive)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: No creo que repita compra...: El bolígrafo parece de buena calidad, pero no me gusta cómo pinta. Parece que la tinta es demasiado fluida (es gel) y el propio balín evita que la tinta pegue en el papel. Pasa algo parecido a lo que ocurre con los correctores líquidos si se aprieta mucho (aunque la tinta es menos opaca). Y lo he visto más barato (menos de dos euros en tiendas físicas de bellas artes o en centros comerciales... (Category: office_product)",
+    "classification_text": "No creo que repita compra...: El bolígrafo parece de buena calidad, pero no me gusta cómo pinta. Parece que la tinta es demasiado fluida (es gel) y el propio balín evita que la tinta pegue en el papel. Pasa algo parecido a lo que ocurre con los correctores líquidos si se aprieta mucho (aunque la tinta es menos opaca). Y lo he visto más barato (menos de dos euros en tiendas físicas de bellas artes o en centros comerciales... (Category: office_product)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nEstá muy bien: Es un cable más grueso que los que tengo en casa para red. Acabo de instalar mi primer segmento y aún no se su rendimiento, pero promete. Me parece de buena calidad, espero que sea asi. (Category: pc)",
+    "classification_text": "Está muy bien: Es un cable más grueso que los que tengo en casa para red. Acabo de instalar mi primer segmento y aún no se su rendimiento, pero promete. Me parece de buena calidad, espero que sea asi. (Category: pc)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nFunda para ordeandor: Muy buena funda para un ordenador portátil. (Category: pc)",
+    "classification_text": "Funda para ordeandor: Muy buena funda para un ordenador portátil. (Category: pc)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nGafas polarizadas: Están muy bien, la visión también, pero me quedan grandes. (Category: apparel)",
+    "classification_text": "Gafas polarizadas: Están muy bien, la visión también, pero me quedan grandes. (Category: apparel)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nPequeño pero con un diseño muy equilibrado: Es bastante pequeño, pero queda muy bonito. Color uniforme (Category: home)",
+    "classification_text": "Pequeño pero con un diseño muy equilibrado: Es bastante pequeño, pero queda muy bonito. Color uniforme (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nbien: no está mal, se dobla un poquito al cogerlo y hay que tener cuidado para meterlo en el horno., pero bien... (Category: home)",
+    "classification_text": "bien: no está mal, se dobla un poquito al cogerlo y hay que tener cuidado para meterlo en el horno., pero bien... (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Tengo la siguiente reseña de cliente. ¿Puedes asignarle una calificación entre 1 y 5 estrellas?\nbien: Hubo un problema con el envio y me lo solucionaron Bien Buen servicio (Category: baby_product)",
+    "classification_text": "bien: Hubo un problema con el envio y me lo solucionaron Bien Buen servicio (Category: baby_product)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nBuen producto: Aparentemente, muy bien. Solo que cuando viene y lo abres parece que ya venga abierto. Podría venir con dosificador en el tapón para facilitar la tarea. Los resultados los veré más adelante. (Category: lawn_and_garden)",
+    "classification_text": "Buen producto: Aparentemente, muy bien. Solo que cuando viene y lo abres parece que ya venga abierto. Podría venir con dosificador en el tapón para facilitar la tarea. Los resultados los veré más adelante. (Category: lawn_and_garden)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nNo sirve: Se queda todo pegado (Category: home)",
+    "classification_text": "No sirve: Se queda todo pegado (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nNo satisfecho: Me gustaría poder hacer una mejor valoración. No cumplió con las expectativas. (Category: industrial_supplies)",
+    "classification_text": "No satisfecho: Me gustaría poder hacer una mejor valoración. No cumplió con las expectativas. (Category: industrial_supplies)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nRelación Calidad / Precio: Muy buena cámara, sirve como webcam, es muy completa para el precio que tiene, la comparo con alguna y es lo mismo pero más barata, la batería dura mucho, y hace unas fotos y vídeos impresionantes, posee muchos accesorios (Category: wireless)",
+    "classification_text": "Relación Calidad / Precio: Muy buena cámara, sirve como webcam, es muy completa para el precio que tiene, la comparo con alguna y es lo mismo pero más barata, la batería dura mucho, y hace unas fotos y vídeos impresionantes, posee muchos accesorios (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Tengo la siguiente reseña de cliente. ¿Puedes asignarle una calificación entre 1 y 5 estrellas?\nIdeal para regalo rapido: el producto es de buena calidad (la marca ya lo define) asi que hablare sobre el resto el pedido llego un dia antes de la fecha inicial lo esperaba del 13 al 17 creo que era y llego el dia 12 y eso es un +3 tratándose de juguetes y niños, pero.....(siempre hay uno xDD) el embalaje vino magullado y roto aunque el contenido venia completo y sin daños asi que por eso no le doy las 5. (Category: toy)",
+    "classification_text": "Ideal para regalo rapido: el producto es de buena calidad (la marca ya lo define) asi que hablare sobre el resto el pedido llego un dia antes de la fecha inicial lo esperaba del 13 al 17 creo que era y llego el dia 12 y eso es un +3 tratándose de juguetes y niños, pero.....(siempre hay uno xDD) el embalaje vino magullado y roto aunque el contenido venia completo y sin daños asi que por eso no le doy las 5. (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nmalla fitbit: Muy bonita pero incomoda, se engancha a todo. Para practicar deporte 0 (Category: sports)",
+    "classification_text": "malla fitbit: Muy bonita pero incomoda, se engancha a todo. Para practicar deporte 0 (Category: sports)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Tengo la siguiente reseña de cliente. ¿Puedes asignarle una calificación entre 1 y 5 estrellas?\nCepilladora para bricolaje: Para hacer bricolaje, la va bien, e probado y va bien, lo único que ha veces la doble aspiración se le hecha en falta, pero en general la recomiendo (Category: home_improvement)",
+    "classification_text": "Cepilladora para bricolaje: Para hacer bricolaje, la va bien, e probado y va bien, lo único que ha veces la doble aspiración se le hecha en falta, pero en general la recomiendo (Category: home_improvement)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nBonitas: Buena relación calidad precio (Category: home)",
+    "classification_text": "Bonitas: Buena relación calidad precio (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nBonito y práctico: El vote es más grande de lo que parece en la foto. Curiosamente no me caben las brochas grandes pero lo uso para mis brochas de ojos. Me encanta que así están protegidas y además es decorativo. Me gustaría que hubiera otra aún más grande y así metería las brochas largas de rostro. (Category: home)",
+    "classification_text": "Bonito y práctico: El vote es más grande de lo que parece en la foto. Curiosamente no me caben las brochas grandes pero lo uso para mis brochas de ojos. Me encanta que así están protegidas y además es decorativo. Me gustaría que hubiera otra aún más grande y así metería las brochas largas de rostro. (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: Resistencia de imán y calidad: Buena calidad y aceptable precio, cuantos más cantidades salen más barato, muy recomendable. (Category: home)",
+    "classification_text": "Resistencia de imán y calidad: Buena calidad y aceptable precio, cuantos más cantidades salen más barato, muy recomendable. (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nSara: Con el primer uso la batería duró bastante, pero con la siguiente carga empezó a durar cada vez menos hasta que se apagaba al poco tiempo. He acabado devolviéndola. Puede ser que concretamente la mía estuviera mal, porque tengo otra de otro vendedor y no me ha dado este problema. (Category: home)",
+    "classification_text": "Sara: Con el primer uso la batería duró bastante, pero con la siguiente carga empezó a durar cada vez menos hasta que se apagaba al poco tiempo. He acabado devolviéndola. Puede ser que concretamente la mía estuviera mal, porque tengo otra de otro vendedor y no me ha dado este problema. (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\nBIEN PERO CARO: PARA LA CALIDAD DEL DISFRAZ ME HA PARECIDO MUY CARO. LA TELA ES MALA COMO DE DISFRAZ DE LOS CHINOS. LA CARETA EN CAMBIO ESTÁ BIEN (Category: toy)",
+    "classification_text": "BIEN PERO CARO: PARA LA CALIDAD DEL DISFRAZ ME HA PARECIDO MUY CARO. LA TELA ES MALA COMO DE DISFRAZ DE LOS CHINOS. LA CARETA EN CAMBIO ESTÁ BIEN (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\nNo aconsejo comprar este movil: No aconsejo comprar este móvil, tiene menos de 6 meses y ya empieza a fallar se reinicia cada dos por tres (Category: wireless)",
+    "classification_text": "No aconsejo comprar este movil: No aconsejo comprar este móvil, tiene menos de 6 meses y ya empieza a fallar se reinicia cada dos por tres (Category: wireless)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nNo elegir en pluma transparente para se vea este color: Quería poner la tinta en una pluma transparente, por eso elegí este color, y parece azul marino. En la escritura si és este color (Category: office_product)",
+    "classification_text": "No elegir en pluma transparente para se vea este color: Quería poner la tinta en una pluma transparente, por eso elegí este color, y parece azul marino. En la escritura si és este color (Category: office_product)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\nEl día más inesperado te llega una segunda oportunidad: Me ha encantado! La interacción entre los personajes, como tratan un tema tan delicado como el abuso infantil. El amor y la valentía todo lo pueden (Category: digital_ebook_purchase)",
+    "classification_text": "El día más inesperado te llega una segunda oportunidad: Me ha encantado! La interacción entre los personajes, como tratan un tema tan delicado como el abuso infantil. El amor y la valentía todo lo pueden (Category: digital_ebook_purchase)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Nuestro sistema necesita saber la calificación por estrellas de esta reseña de producto. Proporciona una puntuación entre 1 y 5:\nDecepcionada totalmente: Solo lleva la funda nórdica , jamas me he comprado una que no lleva la funda de almohada , estoy decepcionada (Category: home)",
+    "classification_text": "Decepcionada totalmente: Solo lleva la funda nórdica , jamas me he comprado una que no lleva la funda de almohada , estoy decepcionada (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\nPara una persona: Genial para tortillas de una persona No pes nada (Category: home)",
+    "classification_text": "Para una persona: Genial para tortillas de una persona No pes nada (Category: home)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Según la siguiente reseña, ¿qué calificación por estrellas (1–5) corresponde?\nReseña: buen producto, según lo esperado: además de los que adquieres, tuvieron el detalle de incluir otros modelos. Precio muy atractivo, en comparación con tiendas físicas dónde lo había visto. Es un accesorio discreto y que permite tener organizados los cables sin presionarlos. (Category: electronics)",
+    "classification_text": "buen producto, según lo esperado: además de los que adquieres, tuvieron el detalle de incluir otros modelos. Precio muy atractivo, en comparación con tiendas físicas dónde lo había visto. Es un accesorio discreto y que permite tener organizados los cables sin presionarlos. (Category: electronics)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nCumple las funciones: El envío llegó perfecto y en el tiempo indicado, después de un mes de uso va perfecto. Es para utilizar en periodos pequeños de tiempo, máximo 20 minutos. Pero es suficiente para uso doméstico no profesional (Category: home_improvement)",
+    "classification_text": "Cumple las funciones: El envío llegó perfecto y en el tiempo indicado, después de un mes de uso va perfecto. Es para utilizar en periodos pequeños de tiempo, máximo 20 minutos. Pero es suficiente para uso doméstico no profesional (Category: home_improvement)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nInteresante: Muy buenos ejemplos.Se lee muy bien. (Category: digital_ebook_purchase)",
+    "classification_text": "Interesante: Muy buenos ejemplos.Se lee muy bien. (Category: digital_ebook_purchase)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Piensa en las calificaciones típicas de Amazon. ¿Cuál (1–5) es la más probable para esta reseña?\nTenacilla para ondas gruesas: lo estaba usando a 180º y cuando llevaba unos 8 segundos empezó a oler a pelo quemado....quizás me haya tocado a mi el defectuoso, o no sea adecuado para mi pelo. Lo he devuelto sin problema. (Category: beauty)",
+    "classification_text": "Tenacilla para ondas gruesas: lo estaba usando a 180º y cuando llevaba unos 8 segundos empezó a oler a pelo quemado....quizás me haya tocado a mi el defectuoso, o no sea adecuado para mi pelo. Lo he devuelto sin problema. (Category: beauty)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nSuficiente: Bastante bien. Algo basico, pero no se puede esperar mucho por su precio (Category: toy)",
+    "classification_text": "Suficiente: Bastante bien. Algo basico, pero no se puede esperar mucho por su precio (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Imagina que esta es una reseña de Amazon. ¿Cuál es la calificación más probable sobre 5?\nCalidad no muy buena: Le doy esa valoración porque parecía buena y en unos día apareció una raja en un lateral (Category: pet_products)",
+    "classification_text": "Calidad no muy buena: Le doy esa valoración porque parecía buena y en unos día apareció una raja en un lateral (Category: pet_products)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nReclamación: No encuentro donde hacer reclamación , me han cobrado por este producto casi 27 euros cuando yo realicé el pedido en una oferta flash por 21 además ha llegado un dia de retraso.solicito la devolución de la diferencia cobrada de más. (Category: pc)",
+    "classification_text": "Reclamación: No encuentro donde hacer reclamación , me han cobrado por este producto casi 27 euros cuando yo realicé el pedido en una oferta flash por 21 además ha llegado un dia de retraso.solicito la devolución de la diferencia cobrada de más. (Category: pc)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nGrandes: El producto y la marca en si son estupendas, el problema es que pedí un número 41 que es el que usa mi mujer y le viene súper grande, por lo menos en este modelo no corresponde el tallaje al estándar, así que el que quiera comprarlo que lo tenga en cuenta y pida mínimo un número menos. (Category: shoes)",
+    "classification_text": "Grandes: El producto y la marca en si son estupendas, el problema es que pedí un número 41 que es el que usa mi mujer y le viene súper grande, por lo menos en este modelo no corresponde el tallaje al estándar, así que el que quiera comprarlo que lo tenga en cuenta y pida mínimo un número menos. (Category: shoes)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nBuena calidad: Pero no sirve para mi modelo de microondas (Category: kitchen)",
+    "classification_text": "Buena calidad: Pero no sirve para mi modelo de microondas (Category: kitchen)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nFigurita de Disney Infinity: Por lo que es el servicio del envío de Amazon, impecable. El problema es que no funciona en el juego de mi hijo. (Category: video_games)",
+    "classification_text": "Figurita de Disney Infinity: Por lo que es el servicio del envío de Amazon, impecable. El problema es que no funciona en el juego de mi hijo. (Category: video_games)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nBaby instrumentos: Producto etiquetado para mayores de 3 años.Embalado en bolsa de plastico,cerrada con carton con letras en chino.No lo he probado (Category: toy)",
+    "classification_text": "Baby instrumentos: Producto etiquetado para mayores de 3 años.Embalado en bolsa de plastico,cerrada con carton con letras en chino.No lo he probado (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nBiquini: La parte de abajo queda algo grande (Category: apparel)",
+    "classification_text": "Biquini: La parte de abajo queda algo grande (Category: apparel)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: Una libro de autoayuda: Muy interesante de momento no lo he terminado (Category: digital_ebook_purchase)",
+    "classification_text": "Una libro de autoayuda: Muy interesante de momento no lo he terminado (Category: digital_ebook_purchase)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nBah: El de exteriores no funciona bien (Category: other)",
+    "classification_text": "Bah: El de exteriores no funciona bien (Category: other)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\nAlgo incómodos: Su sonido es bueno pero la diadema es muy incómoda y no me ha gustado en ese aspecto. Es buena marca pero me ha defraudado ese aspecto. (Category: electronics)",
+    "classification_text": "Algo incómodos: Su sonido es bueno pero la diadema es muy incómoda y no me ha gustado en ese aspecto. Es buena marca pero me ha defraudado ese aspecto. (Category: electronics)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Si fueras el cliente que escribió esta reseña, ¿cuántas estrellas le darías?\ndevolución iniciada pero no realizada. El producto se devolvió y se llevó al punto Amazón: Este producto se devolvió en el punto de recogida y aparece como no devuelto o como devolución iniciada (Category: kitchen)",
+    "classification_text": "devolución iniciada pero no realizada. El producto se devolvió y se llevó al punto Amazón: Este producto se devolvió en el punto de recogida y aparece como no devuelto o como devolución iniciada (Category: kitchen)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: Producto estupendo, me llegó enseguida: Producto estupendo, me llegó enseguida (Category: baby_product)",
+    "classification_text": "Producto estupendo, me llegó enseguida: Producto estupendo, me llegó enseguida (Category: baby_product)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nDecepción: No hace nada de espuma (Category: beauty)",
+    "classification_text": "Decepción: No hace nada de espuma (Category: beauty)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nNo sale el agua fluidamente: Cuesta que salga el agua.. Tiene un sistema un pico complicado para que salga el agua a chorro (Category: sports)",
+    "classification_text": "No sale el agua fluidamente: Cuesta que salga el agua.. Tiene un sistema un pico complicado para que salga el agua a chorro (Category: sports)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Valora objetivamente esta reseña en una escala de 1 a 5 estrellas:\nCalidad media-baja: Tiene defectos de calidad, como un pequeño golpe y una rebaba que sobresale. (Category: electronics)",
+    "classification_text": "Calidad media-baja: Tiene defectos de calidad, como un pequeño golpe y una rebaba que sobresale. (Category: electronics)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: Buen dron: El dron es pequeño y práctico, pero me esperaba algo más de calidad en los materiales. Aún así es muy buena compra. (Category: toy)",
+    "classification_text": "Buen dron: El dron es pequeño y práctico, pero me esperaba algo más de calidad en los materiales. Aún así es muy buena compra. (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Clasifica esta reseña en una de las siguientes categorías: 1 estrella, 2 estrellas, 3 estrellas, 4 estrellas, 5 estrellas.\nSe ajusta muy bien: Muy sencilla pero se ajusta muy bien al capazo y queda bonita. Es un azul muy clarito y queda bien (Category: baby_product)",
+    "classification_text": "Se ajusta muy bien: Muy sencilla pero se ajusta muy bien al capazo y queda bonita. Es un azul muy clarito y queda bien (Category: baby_product)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "P: ¿Cuántas estrellas asignarías a esta reseña?\nR:\nReseña: Perfecta, es ideal para 1 ninfa o 2 agapornis: Para 1 ninfa es perfecta, tiene espacio y es especial para aves mas grandes que un periquito o un canario. La puerta es bastante grande, cuidado porque al abrirla se puede escapar... Muy comoda y no pesa, es bastante ligera. (Category: pet_products)",
+    "classification_text": "Perfecta, es ideal para 1 ninfa o 2 agapornis: Para 1 ninfa es perfecta, tiene espacio y es especial para aves mas grandes que un periquito o un canario. La puerta es bastante grande, cuidado porque al abrirla se puede escapar... Muy comoda y no pesa, es bastante ligera. (Category: pet_products)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Tengo la siguiente reseña de cliente. ¿Puedes asignarle una calificación entre 1 y 5 estrellas?\nEntrega: No puedo opinar del producto. No me llego en su fecha de entrega aun. (Category: other)",
+    "classification_text": "Entrega: No puedo opinar del producto. No me llego en su fecha de entrega aun. (Category: other)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Sin explicación, proporciona la calificación por estrellas (1–5) que coincide con esta reseña:\nNo esta mal, pero es un poco bajo: Si tienes una estatura media se queda un poco bajo (Category: sports)",
+    "classification_text": "No esta mal, pero es un poco bajo: Si tienes una estatura media se queda un poco bajo (Category: sports)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Resume esta reseña en una calificación de 1 (peor) a 5 (mejor):\nMuy sencillas: Son de mala calidad,no vale la pena.Se desgastan muy fácilmente. El material empleado es muy sencillo. Es mejor comprar menos piezas y de mejor calidad. (Category: home_improvement)",
+    "classification_text": "Muy sencillas: Son de mala calidad,no vale la pena.Se desgastan muy fácilmente. El material empleado es muy sencillo. Es mejor comprar menos piezas y de mejor calidad. (Category: home_improvement)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "En una escala de 1 a 5 estrellas, donde 1 es terrible y 5 es excelente, ¿qué puntuación encaja con esta reseña?\nProblemas en transmisión de datos: Baja Calidad, tanto el micro usb como el adaptador lighting dan problemas y cortes de datos al conectarlo con Android auto o Apple carplay, sólo valen si es para cargarlo. (Category: electronics)",
+    "classification_text": "Problemas en transmisión de datos: Baja Calidad, tanto el micro usb como el adaptador lighting dan problemas y cortes de datos al conectarlo con Android auto o Apple carplay, sólo valen si es para cargarlo. (Category: electronics)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Determina la posible calificación por estrellas que daría el autor de la siguiente reseña:\nMuy bonito: Es muy bueno y muy bonito (Category: toy)",
+    "classification_text": "Muy bonito: Es muy bueno y muy bonito (Category: toy)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Convierte el sentimiento de esta reseña en una calificación de 1 a 5 estrellas:\nAuch: Era un regalo y no llegue a recibirlo (Category: lawn_and_garden)",
+    "classification_text": "Auch: Era un regalo y no llegue a recibirlo (Category: lawn_and_garden)",
+    "language": "es",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  }
+]

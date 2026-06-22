@@ -1,0 +1,1362 @@
+[
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nMangelware: Leider gleich nach 10 min spielen ist die Scheibe zerbrochen. Keine gute Qualität und ich kann es nicht weiter empfehlen. (Category: automotive)",
+    "classification_text": "Mangelware: Leider gleich nach 10 min spielen ist die Scheibe zerbrochen. Keine gute Qualität und ich kann es nicht weiter empfehlen. (Category: automotive)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Lies diese Rezension und entscheide, wie viele von fünf Sternen sie verdient:\nklasse produkt: wirklich äußerst praktisch auch für skateboards. Mein Griptape ist dadurch nie dreckig. allerdings empfehle ich das draußen zu machen, da man viele Rückstände auf dem boden findet (Category: home_improvement)",
+    "classification_text": "klasse produkt: wirklich äußerst praktisch auch für skateboards. Mein Griptape ist dadurch nie dreckig. allerdings empfehle ich das draußen zu machen, da man viele Rückstände auf dem boden findet (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Naja: Sind super verarbeiten aber durch die Handschuhe zieht es einfach durch deshalb nichts für den Winter oder wenn es kälter ist (Category: sports)",
+    "classification_text": "Naja: Sind super verarbeiten aber durch die Handschuhe zieht es einfach durch deshalb nichts für den Winter oder wenn es kälter ist (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\nEmpfehlung: Für den Preis eine mega schöne Sandale! Gut verarbeitet und sehr schöne Farben. Ein Stern abzug, weil das Gummi etwas locker an meinen Fuß sitzt. Kommt aber sicherlich auch auf den Fuß an. Kann ich nur empfehlen! (Category: shoes)",
+    "classification_text": "Empfehlung: Für den Preis eine mega schöne Sandale! Gut verarbeitet und sehr schöne Farben. Ein Stern abzug, weil das Gummi etwas locker an meinen Fuß sitzt. Kommt aber sicherlich auch auf den Fuß an. Kann ich nur empfehlen! (Category: shoes)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\nFür den Preis ok: Ich habe mir den Tisch für meine kleine Mansarde angeschafft und dafür ist er echt gut geeignet. Einschränkungen aus meiner Sicht: das Furnier wirkt echt billig (ich weiss, der Tisch ist billig) und der Zusammenbau ist ohne Schrauber kaum zu machen. Aber wenn er mal steht ist er echt ok. (Category: furniture)",
+    "classification_text": "Für den Preis ok: Ich habe mir den Tisch für meine kleine Mansarde angeschafft und dafür ist er echt gut geeignet. Einschränkungen aus meiner Sicht: das Furnier wirkt echt billig (ich weiss, der Tisch ist billig) und der Zusammenbau ist ohne Schrauber kaum zu machen. Aber wenn er mal steht ist er echt ok. (Category: furniture)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Fehlende Sticker trüben den Spaß: Das Buch ist soweit gut. Aber auch in diesem Fall fehlen 2 von den 3 gekauften Stickerbögen. Ärgerlich. Sollten diese nachgeliefert werden können, wird die Bewertung angepasst. (Category: book)",
+    "classification_text": "Fehlende Sticker trüben den Spaß: Das Buch ist soweit gut. Aber auch in diesem Fall fehlen 2 von den 3 gekauften Stickerbögen. Ärgerlich. Sollten diese nachgeliefert werden können, wird die Bewertung angepasst. (Category: book)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nKeine lange Haltbarkeit: Macht auf den ersten Blick einen guten Eindruck und funktioniert auch einwandfrei, hat bei mir jedoch nach zwei Wochen täglicher Nutzung den Geist aufgegeben.. (Category: electronics)",
+    "classification_text": "Keine lange Haltbarkeit: Macht auf den ersten Blick einen guten Eindruck und funktioniert auch einwandfrei, hat bei mir jedoch nach zwei Wochen täglicher Nutzung den Geist aufgegeben.. (Category: electronics)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\ngut: beschenkte fand es toll (Category: book)",
+    "classification_text": "gut: beschenkte fand es toll (Category: book)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Bequem für Ballerina: Soweit alles ok nur dass eine Socke mt fehlproduktion ankam also der Stoff stand ab an der naht vorne. Silikon hält nicht immer (Category: apparel)",
+    "classification_text": "Bequem für Ballerina: Soweit alles ok nur dass eine Socke mt fehlproduktion ankam also der Stoff stand ab an der naht vorne. Silikon hält nicht immer (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\nNur zu empfehlen: Fütter dieses und das Lamm und reis meinem rudel nun seit einem Jahr . Sie sind dick und satt davon und lieben es. Und das beste und erstaunlichste es gibt super Stuhlgang . Die Sorte hier schmeckt meinen am besten da es etwas fettiger erscheint (Category: pet_products)",
+    "classification_text": "Nur zu empfehlen: Fütter dieses und das Lamm und reis meinem rudel nun seit einem Jahr . Sie sind dick und satt davon und lieben es. Und das beste und erstaunlichste es gibt super Stuhlgang . Die Sorte hier schmeckt meinen am besten da es etwas fettiger erscheint (Category: pet_products)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Fasse diese Rezension in eine Sternebewertung von 1 (schlecht) bis 5 (sehr gut) zusammen:\nGroße Liebe!: Zuerst, nach dem unkomplizierten Aufbau, haben wir gedacht, dass da nie eine Katze reingeht, weil der Einstieg sehr niedrig ist und die Katzen nur geduckt rein können. Aber mittlerweile haben wir einen zweiten gekauft. Unsere Katzen lieben diese Teile einfach! Haben Handtücher reingelegt, damit es schön weich ist. (Category: pet_products)",
+    "classification_text": "Große Liebe!: Zuerst, nach dem unkomplizierten Aufbau, haben wir gedacht, dass da nie eine Katze reingeht, weil der Einstieg sehr niedrig ist und die Katzen nur geduckt rein können. Aber mittlerweile haben wir einen zweiten gekauft. Unsere Katzen lieben diese Teile einfach! Haben Handtücher reingelegt, damit es schön weich ist. (Category: pet_products)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nQualität: Schaut nach guter Qualität aus. Ob das wirklich dann so ist, muss man abwarten wenn die Bleche mal älter sind (Category: lawn_and_garden)",
+    "classification_text": "Qualität: Schaut nach guter Qualität aus. Ob das wirklich dann so ist, muss man abwarten wenn die Bleche mal älter sind (Category: lawn_and_garden)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Auf einer Skala von 1 bis 5 Sternen – 1 = miserabel, 5 = ausgezeichnet – welche Bewertung passt zu dieser Rezension?\nOzongenerator ohne Anschlußkabel: Da ich kein Netzkabel dabei habe und ein Kontakt zum Versender nicht herzustellen ist, gebe ich die schlecht möglichste Bewertung ab, dabei spielt es keine Rolle, ob ich mir irgendwo ein Kabel besorgen könnte ! Ohne Kabel keine Benutzung also schlechte Bewertung ! (Category: industrial_supplies)",
+    "classification_text": "Ozongenerator ohne Anschlußkabel: Da ich kein Netzkabel dabei habe und ein Kontakt zum Versender nicht herzustellen ist, gebe ich die schlecht möglichste Bewertung ab, dabei spielt es keine Rolle, ob ich mir irgendwo ein Kabel besorgen könnte ! Ohne Kabel keine Benutzung also schlechte Bewertung ! (Category: industrial_supplies)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Lies diese Rezension und entscheide, wie viele von fünf Sternen sie verdient:\nFeuerwehrauto: Da unser kleiner Mann Feuerwehr und Autos liebt, hatten wir uns dazu entschlossen dieses Produkt zu kaufen. Leider waren wir sehr enttäuscht, da man für diesen Preis doch bessere Qualität erwarten würde! Sticker total unsauber aufgeklebt und der Sound hört sich auch schrecklich an. So gar nicht Feuerwehr. (Category: toy)",
+    "classification_text": "Feuerwehrauto: Da unser kleiner Mann Feuerwehr und Autos liebt, hatten wir uns dazu entschlossen dieses Produkt zu kaufen. Leider waren wir sehr enttäuscht, da man für diesen Preis doch bessere Qualität erwarten würde! Sticker total unsauber aufgeklebt und der Sound hört sich auch schrecklich an. So gar nicht Feuerwehr. (Category: toy)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Unser System benötigt die Sternebewertung für diese Produktrezension. Bitte gib eine Bewertung zwischen 1 und 5 an:\nDefekt nach einigen wenigen Monaten Benutzung: Nachdem mein V-Moda-Kabel jahrelang gehalten hat und es auch eher um Optik als um nicht mehr vorhandene Funktion ging dieses Kabel gekauft und seit einer Woche Aussetzter und seit gestern MONO da Kabelbruch. Bis dahin hat das Kabel aber gut funktioniert und deshalb auch 2 Sternchen Nur knapp drei Monate Funktion ist einfach zu wenig selbst wenn der Preis relativ gering zum Headset von V-Moda ist. (Category: wireless)",
+    "classification_text": "Defekt nach einigen wenigen Monaten Benutzung: Nachdem mein V-Moda-Kabel jahrelang gehalten hat und es auch eher um Optik als um nicht mehr vorhandene Funktion ging dieses Kabel gekauft und seit einer Woche Aussetzter und seit gestern MONO da Kabelbruch. Bis dahin hat das Kabel aber gut funktioniert und deshalb auch 2 Sternchen Nur knapp drei Monate Funktion ist einfach zu wenig selbst wenn der Preis relativ gering zum Headset von V-Moda ist. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\nNicht wert!: Mein Mann hat mir dieses Armband gekauft. Ich trug dieses Armband ständig kurz nach 2 Tagen. Meine Haut wurde grün und das Metall verfärbte sich. Sehr enttäuscht! (Category: jewelry)",
+    "classification_text": "Nicht wert!: Mein Mann hat mir dieses Armband gekauft. Ich trug dieses Armband ständig kurz nach 2 Tagen. Meine Haut wurde grün und das Metall verfärbte sich. Sehr enttäuscht! (Category: jewelry)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Ich habe folgende Kundenrezension. Kannst du eine Bewertung zwischen 1 und 5 Sternen vergeben?\nGroße Enttäuschung: Bereits am 3. Tag stellt sich das Handy andauernd von allein aus. Bei 47% Akkuladung! Der Akku entläd sich außerdem sehr schnell (wie bei meinem 3 Jahre alten Handy) auch bei geringer Nutzung. Es funktioniert nicht gut bei mobiler Datennutzung. Findet dann \"keine Verbindung\" Und außerdem wird es beängstigend heiß. (Category: wireless)",
+    "classification_text": "Große Enttäuschung: Bereits am 3. Tag stellt sich das Handy andauernd von allein aus. Bei 47% Akkuladung! Der Akku entläd sich außerdem sehr schnell (wie bei meinem 3 Jahre alten Handy) auch bei geringer Nutzung. Es funktioniert nicht gut bei mobiler Datennutzung. Findet dann \"keine Verbindung\" Und außerdem wird es beängstigend heiß. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Ich habe folgende Kundenrezension. Kannst du eine Bewertung zwischen 1 und 5 Sternen vergeben?\n50 Prozent der Klammern sind nicht verwendbar!!: Wollte mit den Wäscheklammern Bilder aufhängen. Etwa die hälfte der Klammern haben qualitative Mängel und sind meist gar nicht mehr zu retten. (Siehe Bilder) Bin richtig enttäuscht.. (Category: kitchen)",
+    "classification_text": "50 Prozent der Klammern sind nicht verwendbar!!: Wollte mit den Wäscheklammern Bilder aufhängen. Etwa die hälfte der Klammern haben qualitative Mängel und sind meist gar nicht mehr zu retten. (Siehe Bilder) Bin richtig enttäuscht.. (Category: kitchen)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Super Kamera: Nach zwei Reinfällen wo die Kameras defekt ankommen habe ich mich für diese IP Kamera entschieden. Die ist wirklich super. Das einrichten ist sehr einfach und die Bildqualität super. Nur die Bewegungserkennung schwächelt etwas aber das Problem haben alle Hersteller. Was sehr gut ist, das man eine SD Karte direkt in die Kamera stecken kann die alles aufzeichnet. 64 GB rechen für gut 2 Wochen nonstop Aufzeichnung und die Videos kann man super einfach über die Smartphone App abrufen. Wenn Ihr euch was Bezahlbares und qualitativ gutes kaufen wollt kann ich diese Kamera nur empfehlen. (Category: home_improvement)",
+    "classification_text": "Super Kamera: Nach zwei Reinfällen wo die Kameras defekt ankommen habe ich mich für diese IP Kamera entschieden. Die ist wirklich super. Das einrichten ist sehr einfach und die Bildqualität super. Nur die Bewegungserkennung schwächelt etwas aber das Problem haben alle Hersteller. Was sehr gut ist, das man eine SD Karte direkt in die Kamera stecken kann die alles aufzeichnet. 64 GB rechen für gut 2 Wochen nonstop Aufzeichnung und die Videos kann man super einfach über die Smartphone App abrufen. Wenn Ihr euch was Bezahlbares und qualitativ gutes kaufen wollt kann ich diese Kamera nur empfehlen. (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nAlles hat gepasst: Preis Leistung ist perfekt. Gute Qualität (Category: sports)",
+    "classification_text": "Alles hat gepasst: Preis Leistung ist perfekt. Gute Qualität (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nKaputt nach 3 Wochen bei sorgsamer Handhabung: Nicht mal 1 Monat später sind die ersten Spannungsrisse zu sehen, das ist nicht akzeptabel, Produkt geht zurück an Amazon... Und dabei ist mir das Gerät mit samt der Hülle nicht ein einziges Mal herunter gefallen, dass diese Hülle eigentlich keinen Schutz bietet sollte eh klar sein, außer eventuell vor Kratzer, dass die Hülle aber durch die angedachte Nutzung einfach zerfällt zieht entsprechend schlechte Bewertungen meinerseits nach sich... (Category: wireless)",
+    "classification_text": "Kaputt nach 3 Wochen bei sorgsamer Handhabung: Nicht mal 1 Monat später sind die ersten Spannungsrisse zu sehen, das ist nicht akzeptabel, Produkt geht zurück an Amazon... Und dabei ist mir das Gerät mit samt der Hülle nicht ein einziges Mal herunter gefallen, dass diese Hülle eigentlich keinen Schutz bietet sollte eh klar sein, außer eventuell vor Kratzer, dass die Hülle aber durch die angedachte Nutzung einfach zerfällt zieht entsprechend schlechte Bewertungen meinerseits nach sich... (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Unser System benötigt die Sternebewertung für diese Produktrezension. Bitte gib eine Bewertung zwischen 1 und 5 an:\nLeider kaputt gegangen viel zu schnell: Ist nach einer Woche kaputt gegangen 😔 fand die Qualität am Anfang gut doch mit der Zeit merkte ich das Gegenteil (Category: wireless)",
+    "classification_text": "Leider kaputt gegangen viel zu schnell: Ist nach einer Woche kaputt gegangen 😔 fand die Qualität am Anfang gut doch mit der Zeit merkte ich das Gegenteil (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\nEher Stuhl statt Liege: Ich persönlich finde den Stuhl sehr bequem würde ihn aber nicht als faltbare Liege oder Gartenliege bezeichnen. Der Stuhl ist Kinderleicht aufstellbar. Um in der Sonne zu chillen ist dieser Stuhl genau das Richtige. Für Senioren absolut nicht zu empfehlen da er sehr niedrig ist und ältere Leute nicht so gut aus dem Stuhl aufstehen können. Die Verarbeitung des Stuhles ist in Ordnung und durch das Alu sehr leicht. Der Stuhl ist eher für kleine und schlanke Leute zu empfehlen. Unsere Kinder fühlen sich auch wohl in dem Stuhl und durch die schnell trocknende Oberfläche setzten sie sich direkt nach dem Poolgang in den Stuhl zum trocknen. (Category: sports)",
+    "classification_text": "Eher Stuhl statt Liege: Ich persönlich finde den Stuhl sehr bequem würde ihn aber nicht als faltbare Liege oder Gartenliege bezeichnen. Der Stuhl ist Kinderleicht aufstellbar. Um in der Sonne zu chillen ist dieser Stuhl genau das Richtige. Für Senioren absolut nicht zu empfehlen da er sehr niedrig ist und ältere Leute nicht so gut aus dem Stuhl aufstehen können. Die Verarbeitung des Stuhles ist in Ordnung und durch das Alu sehr leicht. Der Stuhl ist eher für kleine und schlanke Leute zu empfehlen. Unsere Kinder fühlen sich auch wohl in dem Stuhl und durch die schnell trocknende Oberfläche setzten sie sich direkt nach dem Poolgang in den Stuhl zum trocknen. (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\nTop: problemlose Aktivierung und Installation, Steuerung über Echo-Show nach wenigen Minuten. super Sache und gutes Preis-Leistungs-Verhältnis. (Category: home_improvement)",
+    "classification_text": "Top: problemlose Aktivierung und Installation, Steuerung über Echo-Show nach wenigen Minuten. super Sache und gutes Preis-Leistungs-Verhältnis. (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nGriff Farbe stimmt nicht überein wie abgebildet ansonsten Top: ein Stern weniger da die Farbe vom Griff extrem hellblau ist und nicht so dunkel wie am Bild ansonsten am ersten Blick Top Praxis Test folgt erst (Category: home_improvement)",
+    "classification_text": "Griff Farbe stimmt nicht überein wie abgebildet ansonsten Top: ein Stern weniger da die Farbe vom Griff extrem hellblau ist und nicht so dunkel wie am Bild ansonsten am ersten Blick Top Praxis Test folgt erst (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Unser System benötigt die Sternebewertung für diese Produktrezension. Bitte gib eine Bewertung zwischen 1 und 5 an:\nNaja: Nachdem ich das Bustier nun schon einige Zeit trage, muss ich sagen, dass ich enttäuscht bin. Der Gummi ist ausgeleiert und es lösen sich Fäden. Da gibt es um denselben Preis jede Menge hochwertigere Produkte. Schade, da das Bustier grundsätzlich bequem ist und gut aussieht. (Category: apparel)",
+    "classification_text": "Naja: Nachdem ich das Bustier nun schon einige Zeit trage, muss ich sagen, dass ich enttäuscht bin. Der Gummi ist ausgeleiert und es lösen sich Fäden. Da gibt es um denselben Preis jede Menge hochwertigere Produkte. Schade, da das Bustier grundsätzlich bequem ist und gut aussieht. (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Zerknüllt angekommen: Total zerknüllt angekommen. Bin nicht zufrieden. Kann von dem Kauf, trotzdem es sehr günstig ist, nur abraten. (Category: home)",
+    "classification_text": "Zerknüllt angekommen: Total zerknüllt angekommen. Bin nicht zufrieden. Kann von dem Kauf, trotzdem es sehr günstig ist, nur abraten. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nIntensiver Geruch nach giftigem Plastik: Das Design ist nett, das Gerät sogar kleiner als erwartet und die Leistung ok... ABER selbst nach mehreren Stunden Betrieb gibt es noch immer einen unglaublich starken Geruch nach giftigem Plastik von sich, der Hustenreiz auslöst. Die Wohnung riecht sogar danach, nachdem das Gerät ausgeschaltet wurde. Wird daher zurückgeschickt. (Category: home_improvement)",
+    "classification_text": "Intensiver Geruch nach giftigem Plastik: Das Design ist nett, das Gerät sogar kleiner als erwartet und die Leistung ok... ABER selbst nach mehreren Stunden Betrieb gibt es noch immer einen unglaublich starken Geruch nach giftigem Plastik von sich, der Hustenreiz auslöst. Die Wohnung riecht sogar danach, nachdem das Gerät ausgeschaltet wurde. Wird daher zurückgeschickt. (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\nnichts für mich: mir hat das Spiel überhaupt nicht gefallen...war mir irgendwie zu stressig...aber da hat jeder doch einen anderen geschmack (Category: other)",
+    "classification_text": "nichts für mich: mir hat das Spiel überhaupt nicht gefallen...war mir irgendwie zu stressig...aber da hat jeder doch einen anderen geschmack (Category: other)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Lies diese Rezension und entscheide, wie viele von fünf Sternen sie verdient:\nGanz gut aber...: Update: Der verkäufer, übersendet mir eine neue leuchte, sobald diese getestet ist, werde ich die beurteilung anpassen. Vom kundenservice ist die leuchte 5 sterne wert. Prompter zuvorkommender service. Vetarbeitung und idee sind sehr gut. Die box ist zwar kein stück größer als nötig, was bedeutet das dass gummiband genau gefaltet werden muss,aber nach ein paar versuchen gehts ganz gut. Die licht Ausbeute in beiden varianten ist ganz gut. Nun zum grund für die abzüge der 4 sterne Der akku hält keine 3 tage im ungenutzen zustand. Also montag aufgeladen, als voll,leuchte zusammen gepackt. Freitag licht gebraucht, lampe leer. Das ist extrem schade. Über die laufzeit im betrieb kann ich leider nicht urteilen, konnte ich noch nicht ausprobieren... (Category: home_improvement)",
+    "classification_text": "Ganz gut aber...: Update: Der verkäufer, übersendet mir eine neue leuchte, sobald diese getestet ist, werde ich die beurteilung anpassen. Vom kundenservice ist die leuchte 5 sterne wert. Prompter zuvorkommender service. Vetarbeitung und idee sind sehr gut. Die box ist zwar kein stück größer als nötig, was bedeutet das dass gummiband genau gefaltet werden muss,aber nach ein paar versuchen gehts ganz gut. Die licht Ausbeute in beiden varianten ist ganz gut. Nun zum grund für die abzüge der 4 sterne Der akku hält keine 3 tage im ungenutzen zustand. Also montag aufgeladen, als voll,leuchte zusammen gepackt. Freitag licht gebraucht, lampe leer. Das ist extrem schade. Über die laufzeit im betrieb kann ich leider nicht urteilen, konnte ich noch nicht ausprobieren... (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Auf einer Skala von 1 bis 5 Sternen – 1 = miserabel, 5 = ausgezeichnet – welche Bewertung passt zu dieser Rezension?\nAlles in Ordnung: In Original genauso wie ich es mir vorgestellt habe. Qualität für diesen Preis vollkommen zufriedenstellend. (Category: apparel)",
+    "classification_text": "Alles in Ordnung: In Original genauso wie ich es mir vorgestellt habe. Qualität für diesen Preis vollkommen zufriedenstellend. (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nSmarthome leicht einzurichten: Lampe mit Glitzereffekt durch die hochwertige Schale. Sie gefällt mir noch besser, als bei dem Preis erwartet, war leicht in Smarthome einzubinden und funktioniert seitdem tadellos. (Category: home)",
+    "classification_text": "Smarthome leicht einzurichten: Lampe mit Glitzereffekt durch die hochwertige Schale. Sie gefällt mir noch besser, als bei dem Preis erwartet, war leicht in Smarthome einzubinden und funktioniert seitdem tadellos. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nQualitat: Schlechte Verarbeitung (Category: sports)",
+    "classification_text": "Qualitat: Schlechte Verarbeitung (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nBewährte Qualität: Wie erwartet, perfekt! (Category: lawn_and_garden)",
+    "classification_text": "Bewährte Qualität: Wie erwartet, perfekt! (Category: lawn_and_garden)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Lies diese Rezension und entscheide, wie viele von fünf Sternen sie verdient:\nKeine CD dabei: Super Heft zum Üben, kam aber leider ohne CD. Ich habe reklamiert und bekam ein zweites Heft ohne CD. Habe alles zurückgeschickt und woanders bestellt (gleicher Preis). Und ich finde es lohnt sich: Die \"Vokabel Dusche\" CD ist richtig gut, mein Sohn hört Sie gerne. Sie hat meditative Musik im Hintergrund und er hört die richtige Aussprache. Also: Heft und CD super. Aber lieber dieses Mal nicht bei Amazon bestellen. (Category: book)",
+    "classification_text": "Keine CD dabei: Super Heft zum Üben, kam aber leider ohne CD. Ich habe reklamiert und bekam ein zweites Heft ohne CD. Habe alles zurückgeschickt und woanders bestellt (gleicher Preis). Und ich finde es lohnt sich: Die \"Vokabel Dusche\" CD ist richtig gut, mein Sohn hört Sie gerne. Sie hat meditative Musik im Hintergrund und er hört die richtige Aussprache. Also: Heft und CD super. Aber lieber dieses Mal nicht bei Amazon bestellen. (Category: book)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Fasse diese Rezension in eine Sternebewertung von 1 (schlecht) bis 5 (sehr gut) zusammen:\nPerfect: Tip top funktioniert einwandfrei und vorallem auf Anhieb 6 Sterne geht leider nicht aber müsste man vergeben können (Category: home_improvement)",
+    "classification_text": "Perfect: Tip top funktioniert einwandfrei und vorallem auf Anhieb 6 Sterne geht leider nicht aber müsste man vergeben können (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nWürde ich nicht mehr kaufen schlechte Qualität: Sobald man diese an hat fangen sie an sehr stark zu Fusseln (Category: apparel)",
+    "classification_text": "Würde ich nicht mehr kaufen schlechte Qualität: Sobald man diese an hat fangen sie an sehr stark zu Fusseln (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Naja: Leider enttäuscht da wir dachten, dass es ein Teppich ist, aber leider ein Aufkleber. Effekt ist auch nicht erzielt wie auf dem Bild. (Category: baby_product)",
+    "classification_text": "Naja: Leider enttäuscht da wir dachten, dass es ein Teppich ist, aber leider ein Aufkleber. Effekt ist auch nicht erzielt wie auf dem Bild. (Category: baby_product)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\nBrauche nicht rumlaufen, guter Preis: Immer wieder die gute Erfahrung mit diesem Produkt. Fixe Lieferung (Category: electronics)",
+    "classification_text": "Brauche nicht rumlaufen, guter Preis: Immer wieder die gute Erfahrung mit diesem Produkt. Fixe Lieferung (Category: electronics)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nSchick aber auch nur für die Uhrzeit: Natürlich kann man diese Uhr nicht mit den gängigen Marktführern vergleichen aber ich dachte ich gebe ihr eine Chance. Optisch ist die Uhr wirklich super. Sehr schick Allerdings habe ich die Uhr nach mehrtägigem Test zurück geschickt : - Puls / Herzfrequenzmessung negativ : ich habe mehrere Tests mit einem Blutdruckmessgerät gemacht und war zufällig während meiner Testphase auch beim Arzt zur Blutdruckmessung. Die Abweichungen zur Uhr war sehr hoch - Schlafanalyse: morgens habe ich mich gewundert, wie meine Uhr auf über 10 Stunden Schlaf gekommen ist. Lösung : während ich wach auf der Couch saß, habe ich laut Uhr schon geschlafen - Schrittzähler : auch sehr ungenau - ständige Probleme mit der Verbindung zur App (Category: sports)",
+    "classification_text": "Schick aber auch nur für die Uhrzeit: Natürlich kann man diese Uhr nicht mit den gängigen Marktführern vergleichen aber ich dachte ich gebe ihr eine Chance. Optisch ist die Uhr wirklich super. Sehr schick Allerdings habe ich die Uhr nach mehrtägigem Test zurück geschickt : - Puls / Herzfrequenzmessung negativ : ich habe mehrere Tests mit einem Blutdruckmessgerät gemacht und war zufällig während meiner Testphase auch beim Arzt zur Blutdruckmessung. Die Abweichungen zur Uhr war sehr hoch - Schlafanalyse: morgens habe ich mich gewundert, wie meine Uhr auf über 10 Stunden Schlaf gekommen ist. Lösung : während ich wach auf der Couch saß, habe ich laut Uhr schon geschlafen - Schrittzähler : auch sehr ungenau - ständige Probleme mit der Verbindung zur App (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\nSchlechtes Produkt. Alle Ballons sind nach einer Stunde geplatz.: Sehr schlechtes Produkt. Meine Mutter ist im April 60 geworden und wir wollte den Saal mit den Ballons dekorieren. Nach einer Stunde (aufgeblasen) sind nach und nach alle Ballons geplatz. Wir haben die Ballons nicht zu toll aufgeblasen. Nicht gerade toll wenn darunter ein gedeckter Tisch in einem Hotel steht und alles voll Konfetti liegt. Zum Glück waren die Gäste noch nicht da. (Category: toy)",
+    "classification_text": "Schlechtes Produkt. Alle Ballons sind nach einer Stunde geplatz.: Sehr schlechtes Produkt. Meine Mutter ist im April 60 geworden und wir wollte den Saal mit den Ballons dekorieren. Nach einer Stunde (aufgeblasen) sind nach und nach alle Ballons geplatz. Wir haben die Ballons nicht zu toll aufgeblasen. Nicht gerade toll wenn darunter ein gedeckter Tisch in einem Hotel steht und alles voll Konfetti liegt. Zum Glück waren die Gäste noch nicht da. (Category: toy)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nSehr gutes Erzeugnis: Beste Ware, entspricht voll den Erwartungen (Category: grocery)",
+    "classification_text": "Sehr gutes Erzeugnis: Beste Ware, entspricht voll den Erwartungen (Category: grocery)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\nNicht zu empfehlen: Die Tasche kam rechtzeitig doch leider ist sie total billig verarbeitet. Jedes Emblem löst sich nach bereits wenigen Tagen. Nicht zu empfehlen (Category: luggage)",
+    "classification_text": "Nicht zu empfehlen: Die Tasche kam rechtzeitig doch leider ist sie total billig verarbeitet. Jedes Emblem löst sich nach bereits wenigen Tagen. Nicht zu empfehlen (Category: luggage)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nPants Gr.4: Das erste Paket wunderbar. Mit jedem weiteren Paket (glaube 4) Qualität gesunken. Man kann schon zuschauen wie die ausläuft... Qualität überhaupt nicht vergleichbar mit der die man in einem Drogeriemarkt bekommt. (Category: drugstore)",
+    "classification_text": "Pants Gr.4: Das erste Paket wunderbar. Mit jedem weiteren Paket (glaube 4) Qualität gesunken. Man kann schon zuschauen wie die ausläuft... Qualität überhaupt nicht vergleichbar mit der die man in einem Drogeriemarkt bekommt. (Category: drugstore)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Fasse diese Rezension in eine Sternebewertung von 1 (schlecht) bis 5 (sehr gut) zusammen:\nOhrringe: Die Ohrringe könnten am Stift etwas stabiler sein...man hat ständig Angst,dass er beim nächsten Öffnen abbricht. Ansonsten sehen sie sehr gut aus. (Category: jewelry)",
+    "classification_text": "Ohrringe: Die Ohrringe könnten am Stift etwas stabiler sein...man hat ständig Angst,dass er beim nächsten Öffnen abbricht. Ansonsten sehen sie sehr gut aus. (Category: jewelry)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Ich habe folgende Kundenrezension. Kannst du eine Bewertung zwischen 1 und 5 Sternen vergeben?\nEnttäuscht: Ich hätte gern etwas positives geschrieben, aber leider ist das Produkt bei mir nicht angekommen. Obwohl ich eine Lieferbestätigung per Email erhalten habe. Schade, dass man den Verkäufer nicht kontaktieren kann. (Category: apparel)",
+    "classification_text": "Enttäuscht: Ich hätte gern etwas positives geschrieben, aber leider ist das Produkt bei mir nicht angekommen. Obwohl ich eine Lieferbestätigung per Email erhalten habe. Schade, dass man den Verkäufer nicht kontaktieren kann. (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nLeuchtkraft o.k - aber weder Zoom noch Fokusfunktion: Ich weß nicht ob ich der einzige Käufer mit diesem Problem bin, denn bei meiner Lampe war weder die Zoomfunktion noch der Fokus verstellbar. Man konnte lediglich den Lampenkopf abschrauben. Darunter verbarg sich dann eine Skala zum Zoomen und fokusieren. Aber ohne Lampenkopf völlig sinnlos. Leuchtkraft und SOS Funktion,sowie Stroboskop waren Einwandfrei. Allerdings habe ich sie zurückgeschickt. Ohne wie in der Artikelbeschreibung beschriebene Fokus.-und Zoomfunktion ist sie für mich nicht zu gebrauchen. (Category: home_improvement)",
+    "classification_text": "Leuchtkraft o.k - aber weder Zoom noch Fokusfunktion: Ich weß nicht ob ich der einzige Käufer mit diesem Problem bin, denn bei meiner Lampe war weder die Zoomfunktion noch der Fokus verstellbar. Man konnte lediglich den Lampenkopf abschrauben. Darunter verbarg sich dann eine Skala zum Zoomen und fokusieren. Aber ohne Lampenkopf völlig sinnlos. Leuchtkraft und SOS Funktion,sowie Stroboskop waren Einwandfrei. Allerdings habe ich sie zurückgeschickt. Ohne wie in der Artikelbeschreibung beschriebene Fokus.-und Zoomfunktion ist sie für mich nicht zu gebrauchen. (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Kabel nicht sehr flexibel: Kabel etwas zu steif. (Category: wireless)",
+    "classification_text": "Kabel nicht sehr flexibel: Kabel etwas zu steif. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Fasse diese Rezension in eine Sternebewertung von 1 (schlecht) bis 5 (sehr gut) zusammen:\nNutzloses Ding: Rausgeschmissenes Geld! Ein Stern, weil null nicht gibt. (Category: home)",
+    "classification_text": "Nutzloses Ding: Rausgeschmissenes Geld! Ein Stern, weil null nicht gibt. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\nTop Kabel: Passt und tut zu 100% was es soll, auch in Verbindung mit 3,5mm Adaptern für 2. Kopfhörer. Gegenüber Huawei-Originalware kein Klangverlust. Schnell geliefert, passt in jeden Briefkasten. (Category: electronics)",
+    "classification_text": "Top Kabel: Passt und tut zu 100% was es soll, auch in Verbindung mit 3,5mm Adaptern für 2. Kopfhörer. Gegenüber Huawei-Originalware kein Klangverlust. Schnell geliefert, passt in jeden Briefkasten. (Category: electronics)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Nie mehr kalte Füße: Super bequem, warm und trocken. Fühlen sich nur etwas breit an. Mit ein paar Wollsocken allerdings super. (Category: shoes)",
+    "classification_text": "Nie mehr kalte Füße: Super bequem, warm und trocken. Fühlen sich nur etwas breit an. Mit ein paar Wollsocken allerdings super. (Category: shoes)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nCD Feld: Diese Life rund CD Feld Danke (Category: pc)",
+    "classification_text": "CD Feld: Diese Life rund CD Feld Danke (Category: pc)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\nEine gute Lösung gegen Fliegen und Mücken: Die Größe des Geräts ist in Ordnung. Man kann das Gerät entweder aufhängen oder einfach iWo hinstellen. Es macht überhaupt keine Geräusche und das Ultraviolett hat eine angenehme Beleuchtung. Das Gerät braucht keine Chemikalien oder ähnliches und gibt auch keinen Geruch ab. Es wurde schnell geliefert und preis Leistung stimmt ebenfalls. (Category: lawn_and_garden)",
+    "classification_text": "Eine gute Lösung gegen Fliegen und Mücken: Die Größe des Geräts ist in Ordnung. Man kann das Gerät entweder aufhängen oder einfach iWo hinstellen. Es macht überhaupt keine Geräusche und das Ultraviolett hat eine angenehme Beleuchtung. Das Gerät braucht keine Chemikalien oder ähnliches und gibt auch keinen Geruch ab. Es wurde schnell geliefert und preis Leistung stimmt ebenfalls. (Category: lawn_and_garden)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nSchade: Der Artikel wurde sehr schnell geliefert und die Kinder haben sich sehr gefreut. Das Schwimmbecken sieht gut aus. Allerdings hat sich nach kurzem Gebrauch die Naht an der Unterseite ( wo die Rutsche mit dem Boden verbunden ist) gelöst. Wir haben von Amazon direkt und sehr schnell ein neues Schwimmbecken zugeschickt bekommen. Dieses ist leider wieder nach kurzem Gebrauchen kaputt gegangen. Ich muss nicht beschreiben wie traurig die Kinder waren. Nächstes Jahr suche ich mir eher ein schlichtes Schwimmbecken ohne Schweißnähte. (Category: toy)",
+    "classification_text": "Schade: Der Artikel wurde sehr schnell geliefert und die Kinder haben sich sehr gefreut. Das Schwimmbecken sieht gut aus. Allerdings hat sich nach kurzem Gebrauch die Naht an der Unterseite ( wo die Rutsche mit dem Boden verbunden ist) gelöst. Wir haben von Amazon direkt und sehr schnell ein neues Schwimmbecken zugeschickt bekommen. Dieses ist leider wieder nach kurzem Gebrauchen kaputt gegangen. Ich muss nicht beschreiben wie traurig die Kinder waren. Nächstes Jahr suche ich mir eher ein schlichtes Schwimmbecken ohne Schweißnähte. (Category: toy)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\nGebraucht, schlechter Zustand.: Das Buch ist in keinem guten Zustand. Es ist zerknittert, gelocht, dreckig und überall wurde reingeschrieben oder mit einem Text-Marker markiert.Das das Buch gebraucht ist ist mir klar aber in so einem schlechten Zustand den ich so nicht akzeptieren kann.. Ich empfehle nicht Gebrauch zu kaufen. (Category: book)",
+    "classification_text": "Gebraucht, schlechter Zustand.: Das Buch ist in keinem guten Zustand. Es ist zerknittert, gelocht, dreckig und überall wurde reingeschrieben oder mit einem Text-Marker markiert.Das das Buch gebraucht ist ist mir klar aber in so einem schlechten Zustand den ich so nicht akzeptieren kann.. Ich empfehle nicht Gebrauch zu kaufen. (Category: book)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nSchöne Moltontücher: Sehr ansprechendes Design und Verarbeitung. Ideal für den kleinen Nachwuchs (Category: baby_product)",
+    "classification_text": "Schöne Moltontücher: Sehr ansprechendes Design und Verarbeitung. Ideal für den kleinen Nachwuchs (Category: baby_product)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Auf einer Skala von 1 bis 5 Sternen – 1 = miserabel, 5 = ausgezeichnet – welche Bewertung passt zu dieser Rezension?\nPerfekt: Super schneller Versand , Hammer preis , tolle Qualität . Bin absolut zufrieden 👍🏻 (Category: automotive)",
+    "classification_text": "Perfekt: Super schneller Versand , Hammer preis , tolle Qualität . Bin absolut zufrieden 👍🏻 (Category: automotive)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Schick aber schnell kaputt: Eigentlich eine sehr, sehr hübsche Hülle, die hochwertig aussieht. Jedoch sieht man jeden Fingerabdruck und schon nach 2 Monaten ist der obere Rahmen gebrochen, sodass sich das untere Rahmenteil nun nicht mehr befestigen lässt und die Hülle jetzt in die Tonne muss. Schade ums Geld. (Category: wireless)",
+    "classification_text": "Schick aber schnell kaputt: Eigentlich eine sehr, sehr hübsche Hülle, die hochwertig aussieht. Jedoch sieht man jeden Fingerabdruck und schon nach 2 Monaten ist der obere Rahmen gebrochen, sodass sich das untere Rahmenteil nun nicht mehr befestigen lässt und die Hülle jetzt in die Tonne muss. Schade ums Geld. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nUnangenehmer Geruch: Das Rosenwasser richt unangenehm und nicht nach Rose. Wie abgestanden. Komisch. Auch vertrage ich es nicht. Die Haut bekommt Pickel. Ich kann es leider nicht weiterempfehlen. (Category: beauty)",
+    "classification_text": "Unangenehmer Geruch: Das Rosenwasser richt unangenehm und nicht nach Rose. Wie abgestanden. Komisch. Auch vertrage ich es nicht. Die Haut bekommt Pickel. Ich kann es leider nicht weiterempfehlen. (Category: beauty)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Lies diese Rezension und entscheide, wie viele von fünf Sternen sie verdient:\nVerarbeitung leider nicht wie erwartet...: Wenig im Einsatz, Holz verzogen und Preis überzogen. (Category: baby_product)",
+    "classification_text": "Verarbeitung leider nicht wie erwartet...: Wenig im Einsatz, Holz verzogen und Preis überzogen. (Category: baby_product)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nSchade:(: Ich hab mich so gefreut auf diesen Becher, und dann die Enttäuschung er hat sowas von grausam gerochen und bei jedem schluck Kaffee wurde mir schlecht weil dieser Geschmack und Geruch so penetrant war. Schade von der Qualität super Teil. (Category: home)",
+    "classification_text": "Schade:(: Ich hab mich so gefreut auf diesen Becher, und dann die Enttäuschung er hat sowas von grausam gerochen und bei jedem schluck Kaffee wurde mir schlecht weil dieser Geschmack und Geruch so penetrant war. Schade von der Qualität super Teil. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nAdidas: Sie sind sehr gut und guter stoff (Category: sports)",
+    "classification_text": "Adidas: Sie sind sehr gut und guter stoff (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Klasse: Da lohnt es sich nicht einen Stifthalter selber zu basteln! (Category: pc)",
+    "classification_text": "Klasse: Da lohnt es sich nicht einen Stifthalter selber zu basteln! (Category: pc)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nSchrott: Nicht zu empfehlen Glas hält vllt 1-2 Wochen und die Haftbarkeit lässt zu wünschen übrig Tolle Verpackung mehr aber nicht 🤷🏼‍♂️ (Category: wireless)",
+    "classification_text": "Schrott: Nicht zu empfehlen Glas hält vllt 1-2 Wochen und die Haftbarkeit lässt zu wünschen übrig Tolle Verpackung mehr aber nicht 🤷🏼‍♂️ (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Tolles Gadget!: Diente als Geschenk für meine Mutter, die immer kalte Hände. Super Gadget, die kalten Hände gehören nun der Vergangenheit an. Der Akku hält echt lange und die Temperatur lässt sich sehr hit temperieren. (Category: sports)",
+    "classification_text": "Tolles Gadget!: Diente als Geschenk für meine Mutter, die immer kalte Hände. Super Gadget, die kalten Hände gehören nun der Vergangenheit an. Der Akku hält echt lange und die Temperatur lässt sich sehr hit temperieren. (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Ich habe folgende Kundenrezension. Kannst du eine Bewertung zwischen 1 und 5 Sternen vergeben?\nVogelkäfig: Käfig OK, aber man sollte Käfig-Architekt sein ! Korrekter Aufbau dauert lange, wenn man es gut machen will braucht man Draht + Zangen. Viel Spielzeug, aber keine Trinkbehälter, die wichtig wären ! Letztendlich Für Leute die handwerklich begabt sind. Ein Schwimmbad ist möglich, war nicht dabei. Gut für 4 Wellensittiche, wenn zusätzlich Freiflug gewährt wird. Versand und Abwicklung okay. (Category: pet_products)",
+    "classification_text": "Vogelkäfig: Käfig OK, aber man sollte Käfig-Architekt sein ! Korrekter Aufbau dauert lange, wenn man es gut machen will braucht man Draht + Zangen. Viel Spielzeug, aber keine Trinkbehälter, die wichtig wären ! Letztendlich Für Leute die handwerklich begabt sind. Ein Schwimmbad ist möglich, war nicht dabei. Gut für 4 Wellensittiche, wenn zusätzlich Freiflug gewährt wird. Versand und Abwicklung okay. (Category: pet_products)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\nWare kommt nie an !: Am 15.11 bestellt , bis heute nicht erhalten. Auch nach über 2 Monaten nicht , dass Geld hat man gesehen (Category: beauty)",
+    "classification_text": "Ware kommt nie an !: Am 15.11 bestellt , bis heute nicht erhalten. Auch nach über 2 Monaten nicht , dass Geld hat man gesehen (Category: beauty)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nMan schnarcht trotzdem: Finde es schön das einen geholfen wird wenn das Produkt nicht funktioniert (Category: drugstore)",
+    "classification_text": "Man schnarcht trotzdem: Finde es schön das einen geholfen wird wenn das Produkt nicht funktioniert (Category: drugstore)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Fasse diese Rezension in eine Sternebewertung von 1 (schlecht) bis 5 (sehr gut) zusammen:\nRost...: Bei einem Produkt in der Preisklasse sollte das nicht nach einem Abend passieren. Habe im das Werkstück unter dem Dach stehen lassen, aber der Tau muss rangekommen sein. Auf den Bildern war das Ergebnis am nächsten Tag. Für Zwingen in der Größe und Kraft sind sie ja doch etwas teuerer, da hätte es auch die klassischen Schraubzwingen getan. Sehr ärgerlich. (Category: home_improvement)",
+    "classification_text": "Rost...: Bei einem Produkt in der Preisklasse sollte das nicht nach einem Abend passieren. Habe im das Werkstück unter dem Dach stehen lassen, aber der Tau muss rangekommen sein. Auf den Bildern war das Ergebnis am nächsten Tag. Für Zwingen in der Größe und Kraft sind sie ja doch etwas teuerer, da hätte es auch die klassischen Schraubzwingen getan. Sehr ärgerlich. (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Unser System benötigt die Sternebewertung für diese Produktrezension. Bitte gib eine Bewertung zwischen 1 und 5 an:\nSehr enttäuscht: Bin sehr enttäuscht. Die Pumpe funktioniert nur bei direkter Sonneneinstrahlung. Sobald eine Wolke vor der Sonne ist funktioniert sie schon nicht mehr. Hätte mehr erwartet (Category: home_improvement)",
+    "classification_text": "Sehr enttäuscht: Bin sehr enttäuscht. Die Pumpe funktioniert nur bei direkter Sonneneinstrahlung. Sobald eine Wolke vor der Sonne ist funktioniert sie schon nicht mehr. Hätte mehr erwartet (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\nAdapter für Maus/Tastatur: Produkt hält was es verspricht. Allerdings ist es notwendig den Rechner parallel zur Konsole laufen zu lassen. Konsole und Rechner müssen via Stick und den Kabeln verbunden werden. Anschließend kann man über das dazugehörige Programm ( muss erst über die Hersteller Website heruntergeladen werden und ist nur auf Englisch) die Konsole mit Maus und Tastatur steuern. Diese müssen vorher über das Programm erst eingerichtet werden oder man nimmt eine der Voreinstellungen. Ansonsten funktioniert es aber. Ist halt nur recht aufwendig und zeitraubend. (Category: video_games)",
+    "classification_text": "Adapter für Maus/Tastatur: Produkt hält was es verspricht. Allerdings ist es notwendig den Rechner parallel zur Konsole laufen zu lassen. Konsole und Rechner müssen via Stick und den Kabeln verbunden werden. Anschließend kann man über das dazugehörige Programm ( muss erst über die Hersteller Website heruntergeladen werden und ist nur auf Englisch) die Konsole mit Maus und Tastatur steuern. Diese müssen vorher über das Programm erst eingerichtet werden oder man nimmt eine der Voreinstellungen. Ansonsten funktioniert es aber. Ist halt nur recht aufwendig und zeitraubend. (Category: video_games)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Auf einer Skala von 1 bis 5 Sternen – 1 = miserabel, 5 = ausgezeichnet – welche Bewertung passt zu dieser Rezension?\nLeider etwas laut: Schöner und funktioneller Wasserkocher, leider etwas laut. (Category: home)",
+    "classification_text": "Leider etwas laut: Schöner und funktioneller Wasserkocher, leider etwas laut. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\nNicht zu empfelen: Leider ist das Akku extrem schnell runter. Habe mehrer Akkutypen ausprobiert aber immer das selbe Resultat. Nach 50 Zügen ist Schluss. Ich kann den Akkuträger nicht empfehlen.. .. (Category: drugstore)",
+    "classification_text": "Nicht zu empfelen: Leider ist das Akku extrem schnell runter. Habe mehrer Akkutypen ausprobiert aber immer das selbe Resultat. Nach 50 Zügen ist Schluss. Ich kann den Akkuträger nicht empfehlen.. .. (Category: drugstore)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\nDas Display extrem empfindlich und kaputt: Display kaputt das Geld weg Nicht zu empfehlen (Category: personal_care_appliances)",
+    "classification_text": "Das Display extrem empfindlich und kaputt: Display kaputt das Geld weg Nicht zu empfehlen (Category: personal_care_appliances)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Brauchbar: Funktioniert gut, etwas klapprige Verarbeitung (Category: home_improvement)",
+    "classification_text": "Brauchbar: Funktioniert gut, etwas klapprige Verarbeitung (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Auf einer Skala von 1 bis 5 Sternen – 1 = miserabel, 5 = ausgezeichnet – welche Bewertung passt zu dieser Rezension?\nJk: Für das Geld ist der erste Eindruck ganz ok. Mal sehen was nach dem ersten Einsatz und der ersten Wäsche so übrig bleibt. (Category: apparel)",
+    "classification_text": "Jk: Für das Geld ist der erste Eindruck ganz ok. Mal sehen was nach dem ersten Einsatz und der ersten Wäsche so übrig bleibt. (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\nSehr gut: Leider habe ich meinen alten Transmitter verloren, daher musste rasch ein Ersatz her. Das Gerät passt hervorragend in den Zigarettenanzünder. Es wackelt nicht und sitzt trotzdem nicht zu stramm. Die Kabel sind sehr stabil. Hatte schon ganz andere dünne Drähtchen gesehen. Hier ist da gesamte Teil hochwertig verbaut. Die Verbindung zu meinem Handy funktioniert hervorragend. Gut gelöst ist die Bedienung. Durch das lange Kabel kommen Beifahrer und Fahrer gut an das Bedienfeld heran. Der Preis ist durchaus angemessen und da das Gesamtpaket stimmt, empfehle ich gerne weiter. (Category: wireless)",
+    "classification_text": "Sehr gut: Leider habe ich meinen alten Transmitter verloren, daher musste rasch ein Ersatz her. Das Gerät passt hervorragend in den Zigarettenanzünder. Es wackelt nicht und sitzt trotzdem nicht zu stramm. Die Kabel sind sehr stabil. Hatte schon ganz andere dünne Drähtchen gesehen. Hier ist da gesamte Teil hochwertig verbaut. Die Verbindung zu meinem Handy funktioniert hervorragend. Gut gelöst ist die Bedienung. Durch das lange Kabel kommen Beifahrer und Fahrer gut an das Bedienfeld heran. Der Preis ist durchaus angemessen und da das Gesamtpaket stimmt, empfehle ich gerne weiter. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\nnicht erhalten: leider sind bis heute weder bei mir noch bei Nachbarn die Lieferung der Strasssteine eingegangen (Category: furniture)",
+    "classification_text": "nicht erhalten: leider sind bis heute weder bei mir noch bei Nachbarn die Lieferung der Strasssteine eingegangen (Category: furniture)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: 👍: Einfache Montage und funktioniert einwandfrei. (Category: home)",
+    "classification_text": "👍: Einfache Montage und funktioniert einwandfrei. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Unser System benötigt die Sternebewertung für diese Produktrezension. Bitte gib eine Bewertung zwischen 1 und 5 an:\nProbleme mit Lieferung durch DHL: Habe bis jetzt keine Lieferung durch DHL bekommen (Category: home_improvement)",
+    "classification_text": "Probleme mit Lieferung durch DHL: Habe bis jetzt keine Lieferung durch DHL bekommen (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nWlan led: Problemlos mit Alexa verwendbar (Category: home)",
+    "classification_text": "Wlan led: Problemlos mit Alexa verwendbar (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nNicht geeignet für Liquids: Definitiv nicht zum mischen von Liquids geeignet. Sobald der Mixer auf das Liquid trifft bewegt dieser sich kaum noch. (Category: kitchen)",
+    "classification_text": "Nicht geeignet für Liquids: Definitiv nicht zum mischen von Liquids geeignet. Sobald der Mixer auf das Liquid trifft bewegt dieser sich kaum noch. (Category: kitchen)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Lies diese Rezension und entscheide, wie viele von fünf Sternen sie verdient:\nMacht was es soll: Sind nicht schön aber kann man machen ... für ein kleines Gehäuse mit ein bisschen Glas ist das Lüfter Design was 50 jahre alt ist in Ordnung (Category: pc)",
+    "classification_text": "Macht was es soll: Sind nicht schön aber kann man machen ... für ein kleines Gehäuse mit ein bisschen Glas ist das Lüfter Design was 50 jahre alt ist in Ordnung (Category: pc)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nTruck super, Verpackung leider nicht: Der Bruder RAM ist ein tolles Produkt! Leider war die Verpackung zerdrückt und gerissen sowie die Heckklappe bereits vom Truck heruntergebrochen. Sehr schade! Vor allem weil ich den Truck schon als Geschenk benötige und eine Umtausch zeitlich nicht mehr möglich ist... (Category: toy)",
+    "classification_text": "Truck super, Verpackung leider nicht: Der Bruder RAM ist ein tolles Produkt! Leider war die Verpackung zerdrückt und gerissen sowie die Heckklappe bereits vom Truck heruntergebrochen. Sehr schade! Vor allem weil ich den Truck schon als Geschenk benötige und eine Umtausch zeitlich nicht mehr möglich ist... (Category: toy)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\nPreisgünstig: Die Ohrhörer sehen etwas billig aus und die Qualität ist nicht besonders gut. Aber für solchen Preis was könnte man erwarten. Bin jetzt zufrieden, mal schauen für wie lange (Category: electronics)",
+    "classification_text": "Preisgünstig: Die Ohrhörer sehen etwas billig aus und die Qualität ist nicht besonders gut. Aber für solchen Preis was könnte man erwarten. Bin jetzt zufrieden, mal schauen für wie lange (Category: electronics)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nTop Lupe super helles Licht: Super Lupe habe die als Geschenk für meinen Vater gekauft der nicht mehr so gut sehen kann Er sagt seit langen wieder eine gute Lupe Die LEDs sind auch schön hell (Category: office_product)",
+    "classification_text": "Top Lupe super helles Licht: Super Lupe habe die als Geschenk für meinen Vater gekauft der nicht mehr so gut sehen kann Er sagt seit langen wieder eine gute Lupe Die LEDs sind auch schön hell (Category: office_product)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\nAngenehmes Kissen für unterwegs!: An sich ein echt tolles Ding, tut was es soll, ist sehr gut verarbeitet und auch ohne Überzug angenehm am Gesicht. Den einen Stern Abzug gibts, da es nach einigen malen benutzen nicht mehr komplett dicht ist (aber dicht genug), und da es echt nicht das allerkleinste Kissen ist wenn es ausgelassen ist - aber Komfort kommt hald nicht ohne Nachteil ;) Also gibts von mir hier trotz Schwächen Kaufempfehlung! (Category: sports)",
+    "classification_text": "Angenehmes Kissen für unterwegs!: An sich ein echt tolles Ding, tut was es soll, ist sehr gut verarbeitet und auch ohne Überzug angenehm am Gesicht. Den einen Stern Abzug gibts, da es nach einigen malen benutzen nicht mehr komplett dicht ist (aber dicht genug), und da es echt nicht das allerkleinste Kissen ist wenn es ausgelassen ist - aber Komfort kommt hald nicht ohne Nachteil ;) Also gibts von mir hier trotz Schwächen Kaufempfehlung! (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Tolles Produkt: Ich würde diese Tasche / Schutzhülle sofort wieder kaufen. 1 Stern Abzug gibt es, da die Tasche nach dem Auspacken etwas streng riecht, aber der Geruch verfliegt ziemlich schnell und beeinträchtigt keineswegs die Funktion. (Category: other)",
+    "classification_text": "Tolles Produkt: Ich würde diese Tasche / Schutzhülle sofort wieder kaufen. 1 Stern Abzug gibt es, da die Tasche nach dem Auspacken etwas streng riecht, aber der Geruch verfliegt ziemlich schnell und beeinträchtigt keineswegs die Funktion. (Category: other)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nTut seinen Job LEIDER NICHT MEHR: Erfüllt größtenteils seinen Zweck, Ersatz für ein Orignal Apple Adapter bei weitem aber nicht. Präsentationen in der Schule gut möglich, auch wenn man noch das Stromkabel mitschleppen muss. Update neues IOS funktioniert nun nicht mehr, Upgrade wie vom Verkäufer beschrieben geht nicht Schrott! Garantie ist weg und jetzt funktioniert es nicht mehr. Rausgeschmissenes Geld. NICHT KAUFEN! (Category: wireless)",
+    "classification_text": "Tut seinen Job LEIDER NICHT MEHR: Erfüllt größtenteils seinen Zweck, Ersatz für ein Orignal Apple Adapter bei weitem aber nicht. Präsentationen in der Schule gut möglich, auch wenn man noch das Stromkabel mitschleppen muss. Update neues IOS funktioniert nun nicht mehr, Upgrade wie vom Verkäufer beschrieben geht nicht Schrott! Garantie ist weg und jetzt funktioniert es nicht mehr. Rausgeschmissenes Geld. NICHT KAUFEN! (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Lies diese Rezension und entscheide, wie viele von fünf Sternen sie verdient:\nrevolt Universal Netzteil:...: revolt Universal Netzteil:... sehr sehr billig verarbeitet. Der erste Stecker ist schon direkt beim ersten einstecken abgeknickt. Alles sehr labiel. (Category: home_improvement)",
+    "classification_text": "revolt Universal Netzteil:...: revolt Universal Netzteil:... sehr sehr billig verarbeitet. Der erste Stecker ist schon direkt beim ersten einstecken abgeknickt. Alles sehr labiel. (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\nkomische Passform: ich habe zwei Paare Handschuhe dieser Marke gekauft - beide sind schön verarbeitet und angenehm zu tragen. Bei diesem Paar gibt es Sterneabzug weil die Passform komisch ist - sie sind nicht zu klein, aber passen einfach nicht ordentlich. (Category: apparel)",
+    "classification_text": "komische Passform: ich habe zwei Paare Handschuhe dieser Marke gekauft - beide sind schön verarbeitet und angenehm zu tragen. Bei diesem Paar gibt es Sterneabzug weil die Passform komisch ist - sie sind nicht zu klein, aber passen einfach nicht ordentlich. (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Auf einer Skala von 1 bis 5 Sternen – 1 = miserabel, 5 = ausgezeichnet – welche Bewertung passt zu dieser Rezension?\nJedes billig Produkt ist Besser: Sehr schlechtes Produkt !!! Habe von Bosch mehr erwartet, die Bürste sah nach ca. 2 Stunden lack Entfernung so aus. Das Ding ist den Namen \"BOSCH\" nicht wert. (Category: home_improvement)",
+    "classification_text": "Jedes billig Produkt ist Besser: Sehr schlechtes Produkt !!! Habe von Bosch mehr erwartet, die Bürste sah nach ca. 2 Stunden lack Entfernung so aus. Das Ding ist den Namen \"BOSCH\" nicht wert. (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Großartig: Tolle Hülle, umschließt mein Samsung a5 2018 bis zu den Ecken nach vorne perfekt, sieht dabei auch Edel aus. Meine Handy ist bereits heruntergefallen und die Hülle hat den Sturz glücklicherweise aufgefangen. (Category: wireless)",
+    "classification_text": "Großartig: Tolle Hülle, umschließt mein Samsung a5 2018 bis zu den Ecken nach vorne perfekt, sieht dabei auch Edel aus. Meine Handy ist bereits heruntergefallen und die Hülle hat den Sturz glücklicherweise aufgefangen. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Ich habe folgende Kundenrezension. Kannst du eine Bewertung zwischen 1 und 5 Sternen vergeben?\nNicht wirklich gücklich: Die Folie aufs Tablet zu bekommen ist leider nicht so einfach, bei mir hat es erst mit der zweiten Folie geklappt (was das angeht: gut, dass zwei Folien dabei sind). Vorteile der Folie: + Folie ist robust. + Außerdem gibt es meines Erachtens keine Beeinträchtigung bei der Bedienung mit Fingern oder Apple Pencil. Nachteile: - Die Folie ist nicht passgenau, was meiner Meinung nach ein Unding ist. Die Seiten sind ganz gut, allerdings ist die Folie etwas lang, sodass sie am unteren Rand des iPads etwas blasen wirft, weil sie einfach ein Stückchen über den Display hinausgeht. Immerhin habe ich aber auf dem Display keine Bläschen. Das Loch für den Home-Butten hätte auch etwas großzügiger sein dürfen, zumal man (bedingt durch die angebrachte Lasche an der Folie) diese oben beginnt aufzubringen, wodurch man unten kaum eine Chance, dass die Aussparung unten passgenau über dem Home-Button sitzt. - Zu guter letzt spiegelt das iPad mit Folie deutlich mehr, ich empfinde das schon als etwas störend. Ich sehe aber ein, dass das wahrscheinlich ein Kompromiss ist, den man bei jeder Folie eingehen muss. Insgesamt hätte ich im Nachhinein glaube ich eine andere Folie gekauft oder es ganz ohne Folie probiert. (Category: wireless)",
+    "classification_text": "Nicht wirklich gücklich: Die Folie aufs Tablet zu bekommen ist leider nicht so einfach, bei mir hat es erst mit der zweiten Folie geklappt (was das angeht: gut, dass zwei Folien dabei sind). Vorteile der Folie: + Folie ist robust. + Außerdem gibt es meines Erachtens keine Beeinträchtigung bei der Bedienung mit Fingern oder Apple Pencil. Nachteile: - Die Folie ist nicht passgenau, was meiner Meinung nach ein Unding ist. Die Seiten sind ganz gut, allerdings ist die Folie etwas lang, sodass sie am unteren Rand des iPads etwas blasen wirft, weil sie einfach ein Stückchen über den Display hinausgeht. Immerhin habe ich aber auf dem Display keine Bläschen. Das Loch für den Home-Butten hätte auch etwas großzügiger sein dürfen, zumal man (bedingt durch die angebrachte Lasche an der Folie) diese oben beginnt aufzubringen, wodurch man unten kaum eine Chance, dass die Aussparung unten passgenau über dem Home-Button sitzt. - Zu guter letzt spiegelt das iPad mit Folie deutlich mehr, ich empfinde das schon als etwas störend. Ich sehe aber ein, dass das wahrscheinlich ein Kompromiss ist, den man bei jeder Folie eingehen muss. Insgesamt hätte ich im Nachhinein glaube ich eine andere Folie gekauft oder es ganz ohne Folie probiert. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nZu erst wsr es toll: Eigentlich war ich total zufrieden ...toller Sternen himmel etc. Aber nach zwei mal benutzen für zehn Minuten geht es nicht mehr (Category: baby_product)",
+    "classification_text": "Zu erst wsr es toll: Eigentlich war ich total zufrieden ...toller Sternen himmel etc. Aber nach zwei mal benutzen für zehn Minuten geht es nicht mehr (Category: baby_product)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Fasse diese Rezension in eine Sternebewertung von 1 (schlecht) bis 5 (sehr gut) zusammen:\nSimone Dambor: Aussehn wie abgebildet, sehr dünne Sohle, fallen auch kleiner aus (Category: shoes)",
+    "classification_text": "Simone Dambor: Aussehn wie abgebildet, sehr dünne Sohle, fallen auch kleiner aus (Category: shoes)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nSehr lange Lieferzeiten: Dem Kunden wird nach dem Kauf vorgegaukelt, dass die Ware (laut Sendeverfolgung) verschickt wurde. Somit war die Ware über 10 Tage unterwegs. (Category: electronics)",
+    "classification_text": "Sehr lange Lieferzeiten: Dem Kunden wird nach dem Kauf vorgegaukelt, dass die Ware (laut Sendeverfolgung) verschickt wurde. Somit war die Ware über 10 Tage unterwegs. (Category: electronics)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Auf einer Skala von 1 bis 5 Sternen – 1 = miserabel, 5 = ausgezeichnet – welche Bewertung passt zu dieser Rezension?\nLeider nicht kompatibel mit Hülle: Eigentlich passt dieses Glas sehr gut auf den ersten Blick auch mit spingen Hülle doch nach ein zwei Tagen beginnt sich das Glas zu lösen. Es scheint mir es liegt nur ein 1mm. Da ich die Version case fitted ausgewählt habe bekommt das Produkt nur 2 Sterne. Die Aussparungen für Kamera und infrarot Sensoren waren perfekt. (Category: wireless)",
+    "classification_text": "Leider nicht kompatibel mit Hülle: Eigentlich passt dieses Glas sehr gut auf den ersten Blick auch mit spingen Hülle doch nach ein zwei Tagen beginnt sich das Glas zu lösen. Es scheint mir es liegt nur ein 1mm. Da ich die Version case fitted ausgewählt habe bekommt das Produkt nur 2 Sterne. Die Aussparungen für Kamera und infrarot Sensoren waren perfekt. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\nPerfektes Produkt: Das Produkt ist wie beschrieben. Die Fußmatte ist perfekt für den Winter wenn man von draußen reinkommt und nasse Schuhe hat. Keine chemischen Gerüche beim Auspacken Ware 1a (Category: home_improvement)",
+    "classification_text": "Perfektes Produkt: Das Produkt ist wie beschrieben. Die Fußmatte ist perfekt für den Winter wenn man von draußen reinkommt und nasse Schuhe hat. Keine chemischen Gerüche beim Auspacken Ware 1a (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nSuper: Vielen Dank. Der Versand war sehr schnell und die Samen waren auch fachgerecht verpackt. Was die Keimung betrifft, werde ich berichten, sobald ein Ergebnis zu erkennen ist. Dann gibt es auch den 5 Stern:) (Category: lawn_and_garden)",
+    "classification_text": "Super: Vielen Dank. Der Versand war sehr schnell und die Samen waren auch fachgerecht verpackt. Was die Keimung betrifft, werde ich berichten, sobald ein Ergebnis zu erkennen ist. Dann gibt es auch den 5 Stern:) (Category: lawn_and_garden)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Verspricht viel mehr als sie hält!: Hatte hohe Erwartungen und war mega enttäuscht über eine von Anfang an nur lauwarme Wärmflasche... Verarbeitung ist super, aber eine lauwarme Wärmflasche ist nicht mein Ding! (Category: drugstore)",
+    "classification_text": "Verspricht viel mehr als sie hält!: Hatte hohe Erwartungen und war mega enttäuscht über eine von Anfang an nur lauwarme Wärmflasche... Verarbeitung ist super, aber eine lauwarme Wärmflasche ist nicht mein Ding! (Category: drugstore)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\nImmer wieder gerne: Habe noch nicht damit gearbeitet Sonst alles wie beschrieben (Category: home_improvement)",
+    "classification_text": "Immer wieder gerne: Habe noch nicht damit gearbeitet Sonst alles wie beschrieben (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\nFunktioniert einwandfrei!: Der Ziffernblock ist kabellos. Er wird mittels USB mit dem PC verbunden. Anders als in der beiliegenden Beschreibung benötigt man dazu nur eine Batterie. Er lässt sich hinten ein-/ausschalten und funktioniert einwandfrei! (Category: pc)",
+    "classification_text": "Funktioniert einwandfrei!: Der Ziffernblock ist kabellos. Er wird mittels USB mit dem PC verbunden. Anders als in der beiliegenden Beschreibung benötigt man dazu nur eine Batterie. Er lässt sich hinten ein-/ausschalten und funktioniert einwandfrei! (Category: pc)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\nSchöner Lichtstreifen, empfehlenswert!!!: Viele Varianten der Lichtgestaltung. Genial mit der Fernbedienung. Durch den selbstklebenden Streifen ist die Installation sehr einfach. Würde ich wieder kaufen! Ist ein empfehlenswerter Artikel! (Category: home)",
+    "classification_text": "Schöner Lichtstreifen, empfehlenswert!!!: Viele Varianten der Lichtgestaltung. Genial mit der Fernbedienung. Durch den selbstklebenden Streifen ist die Installation sehr einfach. Würde ich wieder kaufen! Ist ein empfehlenswerter Artikel! (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nSuper Ware, schnelle Lieferung !!! Immer wieder gerne !!!: Die Regenhose ist sehr robust und ist leuchtend rot. Die Träger lassen sich gut verstellen. Die Größe passt auch super! (Category: luggage)",
+    "classification_text": "Super Ware, schnelle Lieferung !!! Immer wieder gerne !!!: Die Regenhose ist sehr robust und ist leuchtend rot. Die Träger lassen sich gut verstellen. Die Größe passt auch super! (Category: luggage)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nGut mit Verbesserungspotenzial: Die Befestigungen bzw. Die Einstellmöglichkeiten sind nicht so gut. Die matte verstellt sich hin und wieder einfach durch den Zustand dass man die Beine drauf legt. Hier muss man selber kreativ werden. Aber im großen und ganzen kann ich die Hängematte empfehlen. Fürs Büro genau richtig. (Category: furniture)",
+    "classification_text": "Gut mit Verbesserungspotenzial: Die Befestigungen bzw. Die Einstellmöglichkeiten sind nicht so gut. Die matte verstellt sich hin und wieder einfach durch den Zustand dass man die Beine drauf legt. Hier muss man selber kreativ werden. Aber im großen und ganzen kann ich die Hängematte empfehlen. Fürs Büro genau richtig. (Category: furniture)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\nNicht zu empfehlen Intensivreiniger: Der Intensivreiniger reinigt nicht so gut wie nicht würde ich nicht empfehlen am liebsten würde ich sogar 0 Sterne geben (Category: drugstore)",
+    "classification_text": "Nicht zu empfehlen Intensivreiniger: Der Intensivreiniger reinigt nicht so gut wie nicht würde ich nicht empfehlen am liebsten würde ich sogar 0 Sterne geben (Category: drugstore)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Unser System benötigt die Sternebewertung für diese Produktrezension. Bitte gib eine Bewertung zwischen 1 und 5 an:\nHundehandtuch: Ich habe 2 kleine Hunde und ich sage Euch, wenn der Hund nass ist, dann ist der Hund auch nass und dann kann man noch so viele High Tech Tücher benutzen. Ich dusche den Hund am Bauch und den Beinen ab nach dem Spazierengehen, da die voller Dreck sind bei uns im Feld und er ist nach dem abtrocknen nicht trockener als wenn ich ein Badehandtuch nehme. Aber die Handtücher sind sehr schön, lassen sich super waschen alles gut. Ich habe echt nicht erwartet, dass der Hund dann trocken ist. Deshalb 4 Sterne, wenn er trocken sein würde vergebe ich nochmal 100 Sterne. (Category: pet_products)",
+    "classification_text": "Hundehandtuch: Ich habe 2 kleine Hunde und ich sage Euch, wenn der Hund nass ist, dann ist der Hund auch nass und dann kann man noch so viele High Tech Tücher benutzen. Ich dusche den Hund am Bauch und den Beinen ab nach dem Spazierengehen, da die voller Dreck sind bei uns im Feld und er ist nach dem abtrocknen nicht trockener als wenn ich ein Badehandtuch nehme. Aber die Handtücher sind sehr schön, lassen sich super waschen alles gut. Ich habe echt nicht erwartet, dass der Hund dann trocken ist. Deshalb 4 Sterne, wenn er trocken sein würde vergebe ich nochmal 100 Sterne. (Category: pet_products)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Schnelle Lieferung // Produkt nicht zu empfehlen: Schnelle Lieferung // Produkt ist leider nicht zu gebrauchen das anbringen ist knifflig und man schafft es nicht die Bläschen raus zu bekommen ... nicht zu empfehlen (Category: wireless)",
+    "classification_text": "Schnelle Lieferung // Produkt nicht zu empfehlen: Schnelle Lieferung // Produkt ist leider nicht zu gebrauchen das anbringen ist knifflig und man schafft es nicht die Bläschen raus zu bekommen ... nicht zu empfehlen (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Auf einer Skala von 1 bis 5 Sternen – 1 = miserabel, 5 = ausgezeichnet – welche Bewertung passt zu dieser Rezension?\nRosa statt blau: Falsche Farbe erhalten (Category: toy)",
+    "classification_text": "Rosa statt blau: Falsche Farbe erhalten (Category: toy)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Unser System benötigt die Sternebewertung für diese Produktrezension. Bitte gib eine Bewertung zwischen 1 und 5 an:\nSchlechter Ventilator: Dieser Ventilator bringt leider gar nichts. Er ist unglaublich laut und surrt komisch, Frischluft gibt es keine. Das ist eigentlich unverschämt \"Klimaanlage\" in die Beschreibung zu schreiben. (Category: home_improvement)",
+    "classification_text": "Schlechter Ventilator: Dieser Ventilator bringt leider gar nichts. Er ist unglaublich laut und surrt komisch, Frischluft gibt es keine. Das ist eigentlich unverschämt \"Klimaanlage\" in die Beschreibung zu schreiben. (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\n😋: Lecker, mehr aber nicht. (Category: grocery)",
+    "classification_text": "😋: Lecker, mehr aber nicht. (Category: grocery)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\nFlasche beschädigt angeliefert: Flasche wurde leider schon mit einem Riss. (Category: automotive)",
+    "classification_text": "Flasche beschädigt angeliefert: Flasche wurde leider schon mit einem Riss. (Category: automotive)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nTop: Alles wie beschrieben! (Category: sports)",
+    "classification_text": "Top: Alles wie beschrieben! (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nGleiter nach 10 Monaten schon kaputt...: Grundsätzlich sieht die Stange schön aus und war auch sehr einfach zu montieren. Als störend empfinden wir aber, dass der Duschschlauch nur rechts der Stange entlang geführt werden kann, weil der Gleiter nicht gedreht werden kann. Zudem ist der Gleiter bzw. dessen Plastikinnenleben nach nur rund 10 Monaten bereits kaputt, was zur Folge hat, dass der Gleiter die Duschbrause nicht mehr fest an der Stange hält und ständig abrutscht. Schade, ich hätte von Grohe Besseres erwartet... (Category: home_improvement)",
+    "classification_text": "Gleiter nach 10 Monaten schon kaputt...: Grundsätzlich sieht die Stange schön aus und war auch sehr einfach zu montieren. Als störend empfinden wir aber, dass der Duschschlauch nur rechts der Stange entlang geführt werden kann, weil der Gleiter nicht gedreht werden kann. Zudem ist der Gleiter bzw. dessen Plastikinnenleben nach nur rund 10 Monaten bereits kaputt, was zur Folge hat, dass der Gleiter die Duschbrause nicht mehr fest an der Stange hält und ständig abrutscht. Schade, ich hätte von Grohe Besseres erwartet... (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\nHabe etwas mehr erwartet: Es war etwas langatmig. Zu viel gequassel, deshalb auch nicht wirklich witzig. Weniger ist oftmals mehr, deshalb nur 3 Sterne. (Category: digital_video_download)",
+    "classification_text": "Habe etwas mehr erwartet: Es war etwas langatmig. Zu viel gequassel, deshalb auch nicht wirklich witzig. Weniger ist oftmals mehr, deshalb nur 3 Sterne. (Category: digital_video_download)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Preis/Leistung gut: Gute Passform, leichte weiße Flecken am unteren Bildrand, Touch funktioniert etwas schlechter als das Original. Preis/Leistung Gut (Category: wireless)",
+    "classification_text": "Preis/Leistung gut: Gute Passform, leichte weiße Flecken am unteren Bildrand, Touch funktioniert etwas schlechter als das Original. Preis/Leistung Gut (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Auf einer Skala von 1 bis 5 Sternen – 1 = miserabel, 5 = ausgezeichnet – welche Bewertung passt zu dieser Rezension?\nTolle Qualität und Haptik: Ein Klasse-Vogel. Die Haptik ist der Knaller. So soft und plüschig habe ich noch kein anderes Stofftier gesehen. Da sie zur Dekoration eines Geschenkes dienten, waren wir auf die Reaktion gespannt: Diese Vögel wurden regelrecht geliebt. Auf jeden Fall empfehlenswert. (Category: toy)",
+    "classification_text": "Tolle Qualität und Haptik: Ein Klasse-Vogel. Die Haptik ist der Knaller. So soft und plüschig habe ich noch kein anderes Stofftier gesehen. Da sie zur Dekoration eines Geschenkes dienten, waren wir auf die Reaktion gespannt: Diese Vögel wurden regelrecht geliebt. Auf jeden Fall empfehlenswert. (Category: toy)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nLöw Quality: Es soll ja ein Fitnesshandschuh sein, leider ging hier am ersten Tag das gummierte Netz ab. (Category: sports)",
+    "classification_text": "Löw Quality: Es soll ja ein Fitnesshandschuh sein, leider ging hier am ersten Tag das gummierte Netz ab. (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Unser System benötigt die Sternebewertung für diese Produktrezension. Bitte gib eine Bewertung zwischen 1 und 5 an:\nSchade: Schlechtes Material sieht total billig aus kann ich niemanden empfehlen bin echt unzufrieden (Category: shoes)",
+    "classification_text": "Schade: Schlechtes Material sieht total billig aus kann ich niemanden empfehlen bin echt unzufrieden (Category: shoes)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Unser System benötigt die Sternebewertung für diese Produktrezension. Bitte gib eine Bewertung zwischen 1 und 5 an:\nTop Gerät, erwartung erfüllt.: Funktioniert einwandfrei wie erwartet. Alles Super!! (Category: pc)",
+    "classification_text": "Top Gerät, erwartung erfüllt.: Funktioniert einwandfrei wie erwartet. Alles Super!! (Category: pc)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\ngut, aber nur für dünner Bücher.: Die Buchstütze ist sehr gut und auch schön. Einen Stern weniger gab es, weil leider dickere Kochbücher keinen Platz haben. (Category: home)",
+    "classification_text": "gut, aber nur für dünner Bücher.: Die Buchstütze ist sehr gut und auch schön. Einen Stern weniger gab es, weil leider dickere Kochbücher keinen Platz haben. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\nDas Ding wird zu schnell zu warm: Rasiert ganz gut, allerdings wird das Gerät ziemlich schnell ganz warm, dann wird’s unangenehm und man muss das Ding erst mal abkühlen lassen. (Category: personal_care_appliances)",
+    "classification_text": "Das Ding wird zu schnell zu warm: Rasiert ganz gut, allerdings wird das Gerät ziemlich schnell ganz warm, dann wird’s unangenehm und man muss das Ding erst mal abkühlen lassen. (Category: personal_care_appliances)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\nTolle Aufnahmen: Guter Film, das Ende hat mich nicht überzeugt. Hätte Potential für eine Serie. (Category: digital_video_download)",
+    "classification_text": "Tolle Aufnahmen: Guter Film, das Ende hat mich nicht überzeugt. Hätte Potential für eine Serie. (Category: digital_video_download)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Ziemlich dünnes Material: Naja ziemlich dünnes Material mal schauen wie lange sie halten!! (Category: home_improvement)",
+    "classification_text": "Ziemlich dünnes Material: Naja ziemlich dünnes Material mal schauen wie lange sie halten!! (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nVerwirrende Geschichte: Es dauerte lange bis ich den Code erhalten habe, bzw. bis dieser funktionierte. (Category: other)",
+    "classification_text": "Verwirrende Geschichte: Es dauerte lange bis ich den Code erhalten habe, bzw. bis dieser funktionierte. (Category: other)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Bin zufrieden: Sehr bequem und gemütlich,engt den Bauch nicht ein. Fein gewebt und recht dünn,fast blickdicht. Vielleicht etwas zu teuer für das,was es ist. Aber sie ist ok. (Category: apparel)",
+    "classification_text": "Bin zufrieden: Sehr bequem und gemütlich,engt den Bauch nicht ein. Fein gewebt und recht dünn,fast blickdicht. Vielleicht etwas zu teuer für das,was es ist. Aber sie ist ok. (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Idee gut aber Ergebnis schlecht: Habe die Kamera bestellt, weil sie gut ins Bremslicht integriert ist. Die Steckverbindungen sind in Ordnung, aber die Stromkabel sind wirklich nicht gut. Habe die Kamera zum Glück nur montiert, ohne das Kabel gleich ordentlich hinter die Verkleidung zu legen, um zu testen wie die Bildqualität ist. Naja was soll ich sagen... Man sieht zwar etwas aber nicht sein eigenen Fahrzeugheck. Da frage ich mir, wozu die Kamera da ist! I.d.R. benutzt man solche Kameras um, aus wirklich engen Parklücken rauszukommen oder beim Ankuppeln des Anhängers. Für mich absolut nutzlos! Wieder zurückgeschickt. (Category: wireless)",
+    "classification_text": "Idee gut aber Ergebnis schlecht: Habe die Kamera bestellt, weil sie gut ins Bremslicht integriert ist. Die Steckverbindungen sind in Ordnung, aber die Stromkabel sind wirklich nicht gut. Habe die Kamera zum Glück nur montiert, ohne das Kabel gleich ordentlich hinter die Verkleidung zu legen, um zu testen wie die Bildqualität ist. Naja was soll ich sagen... Man sieht zwar etwas aber nicht sein eigenen Fahrzeugheck. Da frage ich mir, wozu die Kamera da ist! I.d.R. benutzt man solche Kameras um, aus wirklich engen Parklücken rauszukommen oder beim Ankuppeln des Anhängers. Für mich absolut nutzlos! Wieder zurückgeschickt. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nSuper Einkauf: Funktioniert super ist ein wenig groß und schwer aber dafür hat sie genug Power. Reicht für mindestens 3 Handy Ladungen (Category: pc)",
+    "classification_text": "Super Einkauf: Funktioniert super ist ein wenig groß und schwer aber dafür hat sie genug Power. Reicht für mindestens 3 Handy Ladungen (Category: pc)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nEtwas besonderes: Für den gelegentlichen Gebrauch sehr angenehm. Für täglich etwas zu kräftig. Meine Frau mag es auf jeden Fall. (Category: drugstore)",
+    "classification_text": "Etwas besonderes: Für den gelegentlichen Gebrauch sehr angenehm. Für täglich etwas zu kräftig. Meine Frau mag es auf jeden Fall. (Category: drugstore)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\nTop!: Gutes Popcorn-Kino mit tollen Effekten. Arthur spielt seine Rolle klasse! Guter Film mit viel Action und coolen Sprüchen! Kann man sich ohne sorgen angucken. (Category: digital_video_download)",
+    "classification_text": "Top!: Gutes Popcorn-Kino mit tollen Effekten. Arthur spielt seine Rolle klasse! Guter Film mit viel Action und coolen Sprüchen! Kann man sich ohne sorgen angucken. (Category: digital_video_download)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nPrima Laufsocken: Endlich habe ich mal das Material gefunden, das super bequem sich anfühlt und meine Füsse fühlen sich wohl :-) (Category: apparel)",
+    "classification_text": "Prima Laufsocken: Endlich habe ich mal das Material gefunden, das super bequem sich anfühlt und meine Füsse fühlen sich wohl :-) (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\nZu groß: Als S/M bestellt. Fällt leider groß aus. Qualität ist eine 3. aber was will man für diesen Preis erwarten...... ok (Category: apparel)",
+    "classification_text": "Zu groß: Als S/M bestellt. Fällt leider groß aus. Qualität ist eine 3. aber was will man für diesen Preis erwarten...... ok (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Fasse diese Rezension in eine Sternebewertung von 1 (schlecht) bis 5 (sehr gut) zusammen:\nEinfach aber Zweckmäßig: Ist einfach aufgebaut wie auch in den Bildern dargestellt, hatte bei der Lieferung keine Mängel und ist ausreichend. Schnelle Lieferung von Amazon. (Category: furniture)",
+    "classification_text": "Einfach aber Zweckmäßig: Ist einfach aufgebaut wie auch in den Bildern dargestellt, hatte bei der Lieferung keine Mängel und ist ausreichend. Schnelle Lieferung von Amazon. (Category: furniture)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\nBillig in jeder Hinsicht: Sehr billig verarbeitet (Category: toy)",
+    "classification_text": "Billig in jeder Hinsicht: Sehr billig verarbeitet (Category: toy)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Allgemein für den Preis gut: Für den Preis gut jedoch passform der stifte nocht 100% und mein Chromrand war schon leicht beschädigt! (Category: automotive)",
+    "classification_text": "Allgemein für den Preis gut: Für den Preis gut jedoch passform der stifte nocht 100% und mein Chromrand war schon leicht beschädigt! (Category: automotive)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\ntoller Sortimentskasten: Ein toller Metall Sortimentskasten von guter Qualität. Preis Leistung ist top. (Category: automotive)",
+    "classification_text": "toller Sortimentskasten: Ein toller Metall Sortimentskasten von guter Qualität. Preis Leistung ist top. (Category: automotive)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Begeisterung: Der Tisch ist super schön, sehr natürlicher Look und absolut originell. Ich habe 2 bestellt und beide haben Risse/kleine Löcher. Aber das stört mich absolut nicht, und hab bis her nur Komplimente dafür bekommen. ein schönes Schnäppchen (Category: furniture)",
+    "classification_text": "Begeisterung: Der Tisch ist super schön, sehr natürlicher Look und absolut originell. Ich habe 2 bestellt und beide haben Risse/kleine Löcher. Aber das stört mich absolut nicht, und hab bis her nur Komplimente dafür bekommen. ein schönes Schnäppchen (Category: furniture)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nNicht wirklich Dual Sim: Ich habe dieses Handy aufgrund der positiven Bewertungen gekauft und durch Empfehlungen von Freunden die ebenfalls schon ein Huawei haben. An sich ein schönes Handy. Für meine Sicht aber absolut kein Dual Sim Handy da im Grunde nur eins möglich ist, nämlich: Entweder 1 x Sim und 1 x Nano SD oder 2 x Sim. Es exisitiert kein zusätzlicher Speicherkartenplatz, deswegen ging das Handy zurück da ich unbedingt 2 Simkarten brauche mit zusätzlicher Speicherkarte und das bieten mir die bislang immer genutzten Samsung Geräte, deswegen bleibe ich auch nach wie vor bei Samsung. (Category: wireless)",
+    "classification_text": "Nicht wirklich Dual Sim: Ich habe dieses Handy aufgrund der positiven Bewertungen gekauft und durch Empfehlungen von Freunden die ebenfalls schon ein Huawei haben. An sich ein schönes Handy. Für meine Sicht aber absolut kein Dual Sim Handy da im Grunde nur eins möglich ist, nämlich: Entweder 1 x Sim und 1 x Nano SD oder 2 x Sim. Es exisitiert kein zusätzlicher Speicherkartenplatz, deswegen ging das Handy zurück da ich unbedingt 2 Simkarten brauche mit zusätzlicher Speicherkarte und das bieten mir die bislang immer genutzten Samsung Geräte, deswegen bleibe ich auch nach wie vor bei Samsung. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Ganz zufrieden: Steine etwas schwer zu legen. (Category: home)",
+    "classification_text": "Ganz zufrieden: Steine etwas schwer zu legen. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\nArtikel gut und wie beschrieben: Artikel wurde wie bestätigt geliefert. Die Matratzenschoner sind gut aufzulegen und machen eine guten Eindruck. wie die Wertigkeit der Matratzenschoner sind wird sich dann beweisen müssen. (Category: home)",
+    "classification_text": "Artikel gut und wie beschrieben: Artikel wurde wie bestätigt geliefert. Die Matratzenschoner sind gut aufzulegen und machen eine guten Eindruck. wie die Wertigkeit der Matratzenschoner sind wird sich dann beweisen müssen. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Fasse diese Rezension in eine Sternebewertung von 1 (schlecht) bis 5 (sehr gut) zusammen:\nAlles in Ordnung: Artikel kam sehr schnell und unbeschädigt an. Das Design sieht einfach aber elegant aus und die Installation erfolgt auch ohne die Anleitung. Die Türklingel funktioniert einwandfrei mit genügende Lautstärke wie beschrieben und erfüllt alle Erwartungen. Alles in allem ist das ein gutes Produkt zu einem fairen Preis. (Category: home_improvement)",
+    "classification_text": "Alles in Ordnung: Artikel kam sehr schnell und unbeschädigt an. Das Design sieht einfach aber elegant aus und die Installation erfolgt auch ohne die Anleitung. Die Türklingel funktioniert einwandfrei mit genügende Lautstärke wie beschrieben und erfüllt alle Erwartungen. Alles in allem ist das ein gutes Produkt zu einem fairen Preis. (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\nGutes Panzerglas.Einfache Montage: Ich habe das Panzerglas heute erhalten. Das Installieren ging sehr einfach.Was mich positiv stimmt, ist dass es tatsächlich nicht komplett bis nach unten rechts und links am Display abschließt. Das hat den Grund dass ich vorher ein Panzerglas hatte was das ganze Display abdeckt, aber jedes Mal durch die Hüllen hochgehoben worden ist und somit jedesmal Staub unter dem Display war. Ob das natürlich in den nächsten Tagen positiv bleibt wird sich rausstellen. (Category: wireless)",
+    "classification_text": "Gutes Panzerglas.Einfache Montage: Ich habe das Panzerglas heute erhalten. Das Installieren ging sehr einfach.Was mich positiv stimmt, ist dass es tatsächlich nicht komplett bis nach unten rechts und links am Display abschließt. Das hat den Grund dass ich vorher ein Panzerglas hatte was das ganze Display abdeckt, aber jedes Mal durch die Hüllen hochgehoben worden ist und somit jedesmal Staub unter dem Display war. Ob das natürlich in den nächsten Tagen positiv bleibt wird sich rausstellen. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\nLeider schnell kaputt: Ich hab die bestellt weil die nicht so auffällig sind. Leider gehen die aber sehr schnell kaputt. Wir haben es an unserem esstisch und gartentisch genutzt aber wie gesagt gehen die schnell kaputt (Category: home)",
+    "classification_text": "Leider schnell kaputt: Ich hab die bestellt weil die nicht so auffällig sind. Leider gehen die aber sehr schnell kaputt. Wir haben es an unserem esstisch und gartentisch genutzt aber wie gesagt gehen die schnell kaputt (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nViel zu klein: Corsage selbst ist in Ordnung, qualitätsmäßig nicht unbedingt top, aber okay. Nur leider viel zu klein. Ich trage normalerweise M, hier hätte ich vermutlich XXL benötigt. Der Rock ist sehr viel kürzer, als die Abbildung suggeriert. (Category: apparel)",
+    "classification_text": "Viel zu klein: Corsage selbst ist in Ordnung, qualitätsmäßig nicht unbedingt top, aber okay. Nur leider viel zu klein. Ich trage normalerweise M, hier hätte ich vermutlich XXL benötigt. Der Rock ist sehr viel kürzer, als die Abbildung suggeriert. (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Ohne Erklärung: Gib die passende Sternebewertung (1–5) für diese Rezension an:\nLeider hat keine der Röhren funktioniert: Röhren in die Lampe gesteckt, nix tat sich. Beim Test jeder Röhre einzeln habe ich dann festgestellt, dass wirklich gar keine der 4 funktioniert. Rücksendung und Erstattung über Amazon problemlos. (Category: beauty)",
+    "classification_text": "Leider hat keine der Röhren funktioniert: Röhren in die Lampe gesteckt, nix tat sich. Beim Test jeder Röhre einzeln habe ich dann festgestellt, dass wirklich gar keine der 4 funktioniert. Rücksendung und Erstattung über Amazon problemlos. (Category: beauty)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Ich habe folgende Kundenrezension. Kannst du eine Bewertung zwischen 1 und 5 Sternen vergeben?\nGutes Produkt!: Super Produkt! Einziger leicht negativer Punkt ist, dass sich die Blitzschuh-Abdeckung mit Dosenlibelle auf meine Kamera (Sony a6000) nicht ganz aufschieben lässt, da eine Einkerbung auf einer Seite fehlt. Aber das stellt für mich kein großes Problem dar. (Category: electronics)",
+    "classification_text": "Gutes Produkt!: Super Produkt! Einziger leicht negativer Punkt ist, dass sich die Blitzschuh-Abdeckung mit Dosenlibelle auf meine Kamera (Sony a6000) nicht ganz aufschieben lässt, da eine Einkerbung auf einer Seite fehlt. Aber das stellt für mich kein großes Problem dar. (Category: electronics)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nToll!!!: Super um dreckige Wände wieder weiß zu bekommen... Statt neu zu streichen, einfach mal zu diesem Schwamm greifen ☺️ (Category: drugstore)",
+    "classification_text": "Toll!!!: Super um dreckige Wände wieder weiß zu bekommen... Statt neu zu streichen, einfach mal zu diesem Schwamm greifen ☺️ (Category: drugstore)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Lies diese Rezension und entscheide, wie viele von fünf Sternen sie verdient:\nQualitativ genauso wie billiges Drogerie Produkt: Viel zu teuer, qualitativ genauso wie die billigen Netze in der Drogerie. Hat leider nur einen Monat gehalten. Keine Kaufempfehlung. (Category: home_improvement)",
+    "classification_text": "Qualitativ genauso wie billiges Drogerie Produkt: Viel zu teuer, qualitativ genauso wie die billigen Netze in der Drogerie. Hat leider nur einen Monat gehalten. Keine Kaufempfehlung. (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nPerfekt für ausgiebige Play doo Nachmittage: Kam in einer tollen Tasche die immer wieder verwendbar ist, somit fliegt das Zeug auch nicht rum! Wir nutzen es für ausgiebige play doo Sitzungen und es gibt jetzt endlich genug formen und Werkzeug um mit der Knete zu spielen 😊 Super 😊 (Category: toy)",
+    "classification_text": "Perfekt für ausgiebige Play doo Nachmittage: Kam in einer tollen Tasche die immer wieder verwendbar ist, somit fliegt das Zeug auch nicht rum! Wir nutzen es für ausgiebige play doo Sitzungen und es gibt jetzt endlich genug formen und Werkzeug um mit der Knete zu spielen 😊 Super 😊 (Category: toy)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nLack schon ab.: Leider war bei meinem Regal schon der Lack etwas ab, als es ankam. Die Qualität ist nicht so gut.. Aussehen würde es aber super. (Category: home)",
+    "classification_text": "Lack schon ab.: Leider war bei meinem Regal schon der Lack etwas ab, als es ankam. Die Qualität ist nicht so gut.. Aussehen würde es aber super. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "F: Wie viele Sterne würdest du dieser Rezension geben?\nA:\nRezension: Zu klein: In xl immer noch zu klein. Zwei Nummern größer sollte man bestellen. Und die Brüste sollten nicht groß sein. Wenig halt für diese. (Category: apparel)",
+    "classification_text": "Zu klein: In xl immer noch zu klein. Zwei Nummern größer sollte man bestellen. Und die Brüste sollten nicht groß sein. Wenig halt für diese. (Category: apparel)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nGuter Schutz: Da ich keine Klapphülle oder eine Tasche für das Telefon haben wollte aber einen guten Schutz, habe ich mich für diese Hülle entschieden. Wenn die vordere Seite drauf ist, ist es etwas schwieriger das Handy zu bedienen. Man kann normal touchen, nur leider ist das etwas schwerer und man muss genau drauf tippen. Die Hülle bietet einen super Schutz. Im Büro oder zu Hause nehme ich die vordere Seite einfach ab. Was ich nicht so gut finde, sind die Punkte auf der Hülle. Der Desktop ist so viel dunkler. (Category: other)",
+    "classification_text": "Guter Schutz: Da ich keine Klapphülle oder eine Tasche für das Telefon haben wollte aber einen guten Schutz, habe ich mich für diese Hülle entschieden. Wenn die vordere Seite drauf ist, ist es etwas schwieriger das Handy zu bedienen. Man kann normal touchen, nur leider ist das etwas schwerer und man muss genau drauf tippen. Die Hülle bietet einen super Schutz. Im Büro oder zu Hause nehme ich die vordere Seite einfach ab. Was ich nicht so gut finde, sind die Punkte auf der Hülle. Der Desktop ist so viel dunkler. (Category: other)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Lies diese Rezension und entscheide, wie viele von fünf Sternen sie verdient:\nKlasse Film: Super Schauspieler, alle in Höchstform und packende Geschichte. (Category: other)",
+    "classification_text": "Klasse Film: Super Schauspieler, alle in Höchstform und packende Geschichte. (Category: other)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Lies diese Rezension und entscheide, wie viele von fünf Sternen sie verdient:\nlanganhaltend ist es nicht: das stimmt einfach nicht. Der Duft ist nicht lang anhaltend. Er ist noch nicht einmal durchschnittlich. Wird nicht mehr gekauft. (Category: home)",
+    "classification_text": "langanhaltend ist es nicht: das stimmt einfach nicht. Der Duft ist nicht lang anhaltend. Er ist noch nicht einmal durchschnittlich. Wird nicht mehr gekauft. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Stell dir vor, dies ist eine Amazon-Rezension. Welche Sternebewertung von 5 ist am wahrscheinlichsten?\nUnzufrieden: Dieses Produkt hat zu wenig Farbe und Geschmack. Bei einem anderen Anbieter auch Bio gekauft und dort bessere Qualität bekommen. (Category: grocery)",
+    "classification_text": "Unzufrieden: Dieses Produkt hat zu wenig Farbe und Geschmack. Bei einem anderen Anbieter auch Bio gekauft und dort bessere Qualität bekommen. (Category: grocery)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Bestimme die voraussichtliche Sternebewertung, die der Rezensent für den folgenden Text vergeben würde:\nHochwertige Leinwand, hohe Auflösung: Die Leinwand wurde sehr schnell geliefert und hat eine hohe Qualität und Auflösung. Der Rahmen ist stabil und hochwertig verarbeitet. Das Bild bekommt einen besonderen Platz, ich bin mehr als zufrieden. (Category: furniture)",
+    "classification_text": "Hochwertige Leinwand, hohe Auflösung: Die Leinwand wurde sehr schnell geliefert und hat eine hohe Qualität und Auflösung. Der Rahmen ist stabil und hochwertig verarbeitet. Das Bild bekommt einen besonderen Platz, ich bin mehr als zufrieden. (Category: furniture)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Wenn du der Kunde wärst, der diese Rezension geschrieben hat, wie viele Sterne würdest du vergeben?\nQualität ?: Qualität lässt leider zu wünschen übrig. Hält maximal 3 Monate und auch wenn es nur ein oder zweimal im Monat benutzt wird, dann hält es unerklärlicherweise die Luft von heute auf morgen nicht mehr. Bin jetzt auf die teuere Variante ausgewichen. Mal sehen. (Category: sports)",
+    "classification_text": "Qualität ?: Qualität lässt leider zu wünschen übrig. Hält maximal 3 Monate und auch wenn es nur ein oder zweimal im Monat benutzt wird, dann hält es unerklärlicherweise die Luft von heute auf morgen nicht mehr. Bin jetzt auf die teuere Variante ausgewichen. Mal sehen. (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Wandle die Stimmung dieser Rezension in eine Bewertung von 1 bis 5 Sternen um:\nFlackern und summen: Die dimmbaren Lampen flackern leider und wurden deshalb zurückgesendet. Wenn die Lampen gedimmt werden, ist ein störendes Summen zu hören. (Category: home)",
+    "classification_text": "Flackern und summen: Die dimmbaren Lampen flackern leider und wurden deshalb zurückgesendet. Wenn die Lampen gedimmt werden, ist ein störendes Summen zu hören. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nLeider nur 3 Sterne da Kabel sehr dünn und dadurch schnell kaputt geht.: Gute Idee mit der kleinen Solarplatte. Lichterkette sieht auch im dunkeln sehr schön aus. Länge absolut ausreichend. Jedoch ist das Kabel hauch dünn und kann durch mehrmaligen biegen mal schnell brechen. Ich vermute das es nur 1-2 Winter durchhalten wird, dann muss wohl schon das erste mal gelötet werden....wir hatten schon unsere Probleme. (Category: home)",
+    "classification_text": "Leider nur 3 Sterne da Kabel sehr dünn und dadurch schnell kaputt geht.: Gute Idee mit der kleinen Solarplatte. Lichterkette sieht auch im dunkeln sehr schön aus. Länge absolut ausreichend. Jedoch ist das Kabel hauch dünn und kann durch mehrmaligen biegen mal schnell brechen. Ich vermute das es nur 1-2 Winter durchhalten wird, dann muss wohl schon das erste mal gelötet werden....wir hatten schon unsere Probleme. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nDie rutscht immer wieder runter..: Die rutscht immer wieder runter.. (Category: sports)",
+    "classification_text": "Die rutscht immer wieder runter..: Die rutscht immer wieder runter.. (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Auf einer Skala von 1 bis 5 Sternen – 1 = miserabel, 5 = ausgezeichnet – welche Bewertung passt zu dieser Rezension?\nÜberragend!: Der Film ist echt der Hammer! Nichts für schwache Nerven, vor allem wenn man Mutter ist! Spannung pur!! Absolute Empfehlung!! (Category: other)",
+    "classification_text": "Überragend!: Der Film ist echt der Hammer! Nichts für schwache Nerven, vor allem wenn man Mutter ist! Spannung pur!! Absolute Empfehlung!! (Category: other)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Welche Sternebewertung (1–5) sollte anhand der folgenden Rezension vergeben werden?\nRezension: Gute Armbänder: Super Armbänder für das Geld. So kann man der Uhr öfters ein neues Aussehen geben. Auch super beim Sport, da die Armbänder sehr luftig sind. (Category: sports)",
+    "classification_text": "Gute Armbänder: Super Armbänder für das Geld. So kann man der Uhr öfters ein neues Aussehen geben. Auch super beim Sport, da die Armbänder sehr luftig sind. (Category: sports)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Unser System benötigt die Sternebewertung für diese Produktrezension. Bitte gib eine Bewertung zwischen 1 und 5 an:\nSpannend: Gute psychologische Studie, spannend inszeniert. Ich habe das Buch wieder mal in einem Rutsch gelesen. Wieder mal ein toller Krimi! (Category: digital_ebook_purchase)",
+    "classification_text": "Spannend: Gute psychologische Studie, spannend inszeniert. Ich habe das Buch wieder mal in einem Rutsch gelesen. Wieder mal ein toller Krimi! (Category: digital_ebook_purchase)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\nWare noch nicht erhalten.: Am 21 Sept. 2019 soll o.g. Ware zugestellt worden sein. Ich habe nichts erhalten. (Category: home_improvement)",
+    "classification_text": "Ware noch nicht erhalten.: Am 21 Sept. 2019 soll o.g. Ware zugestellt worden sein. Ich habe nichts erhalten. (Category: home_improvement)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Denke an typische Amazon-Sternebewertungen. Welche (1–5) würde diese Rezension am ehesten erhalten?\nFür den Preis nicht mehr zu erwarten: Ziemlich klein und daher kaum Bass, maximale Lautstärke beeindruckt auch nicht. Für Musik daher ungeeignet, als Laptop Lautsprecher in Ordnung (Category: electronics)",
+    "classification_text": "Für den Preis nicht mehr zu erwarten: Ziemlich klein und daher kaum Bass, maximale Lautstärke beeindruckt auch nicht. Für Musik daher ungeeignet, als Laptop Lautsprecher in Ordnung (Category: electronics)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Bewerte diese Rezension objektiv auf einer Skala von 1 bis 5 Sternen:\nWasserdicht, aber...: Macht das IPhone 8+ sehr klobig. Leider war die Verarbeitung schlecht so das zu Luftblasen am Homebutton gekommen ist. Bei einer so teuren Hülle darf das nicht passieren. Den zweiten Stern gibt es für die Dichtigkeit. Da hält sie was sie verspricht. Die Hülle ging wegen der Passungenauigkeit zurück. (Category: wireless)",
+    "classification_text": "Wasserdicht, aber...: Macht das IPhone 8+ sehr klobig. Leider war die Verarbeitung schlecht so das zu Luftblasen am Homebutton gekommen ist. Bei einer so teuren Hülle darf das nicht passieren. Den zweiten Stern gibt es für die Dichtigkeit. Da hält sie was sie verspricht. Die Hülle ging wegen der Passungenauigkeit zurück. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nFür den Preis in Ordnung: funktioniert super ! Qualität ebenfalls super das einzige was ich beanstanden muss, der Akku ist extrem schnell leer man sollte es fast schon nach jedem Telefonat wieder erneut laden! Daher ein Stern Abzug. (Category: wireless)",
+    "classification_text": "Für den Preis in Ordnung: funktioniert super ! Qualität ebenfalls super das einzige was ich beanstanden muss, der Akku ist extrem schnell leer man sollte es fast schon nach jedem Telefonat wieder erneut laden! Daher ein Stern Abzug. (Category: wireless)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Fasse diese Rezension in eine Sternebewertung von 1 (schlecht) bis 5 (sehr gut) zusammen:\nViel zu klein: Leider ist dieses Kleid viel zu Klein. Eine Möglichkeit es zurück zusenden gibt es auch nicht, obwohl es beim Kauf angezeigt wurde. Selbst nach langem hin und her schreiben. Ich werde nie wieder dort kaufen. (Category: baby_product)",
+    "classification_text": "Viel zu klein: Leider ist dieses Kleid viel zu Klein. Eine Möglichkeit es zurück zusenden gibt es auch nicht, obwohl es beim Kauf angezeigt wurde. Selbst nach langem hin und her schreiben. Ich werde nie wieder dort kaufen. (Category: baby_product)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Ordne diese Rezension einer der folgenden Kategorien zu: 1-Stern, 2-Sterne, 3-Sterne, 4-Sterne, 5-Sterne.\nZahnstocher: Nach langer Wartezeit endlich da. (Category: home)",
+    "classification_text": "Zahnstocher: Nach langer Wartezeit endlich da. (Category: home)",
+    "language": "de",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  }
+]

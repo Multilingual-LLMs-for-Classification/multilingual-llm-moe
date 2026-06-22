@@ -1,0 +1,1362 @@
+[
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\nWrong size???: It said 5 ft tall, but is like 3ft (Category: lawn_and_garden)",
+    "classification_text": "Wrong size???: It said 5 ft tall, but is like 3ft (Category: lawn_and_garden)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nNicely made product: It is too soon to say whether or not this product will help with my under eye wrinkles, dark circles and bags. But I can say that I like the ease of applying the product onto my face, its smell and and its texture. It seems to have a good formula. Hopefully a few months from now I can say more about its ability to reduce the above-mentioned under eye concerns. (Category: beauty)",
+    "classification_text": "Nicely made product: It is too soon to say whether or not this product will help with my under eye wrinkles, dark circles and bags. But I can say that I like the ease of applying the product onto my face, its smell and and its texture. It seems to have a good formula. Hopefully a few months from now I can say more about its ability to reduce the above-mentioned under eye concerns. (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nTwo Stars: It is not my type of Olive Oil. Very Plain. (Category: grocery)",
+    "classification_text": "Two Stars: It is not my type of Olive Oil. Very Plain. (Category: grocery)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nTwo Stars: this said it came with a storage bag...and there was none in the box (Category: automotive)",
+    "classification_text": "Two Stars: this said it came with a storage bag...and there was none in the box (Category: automotive)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nPoor quality: Missing half the costume and it is too small. (Category: apparel)",
+    "classification_text": "Poor quality: Missing half the costume and it is too small. (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nGood: Sound quality is not that good but I liked (Category: electronics)",
+    "classification_text": "Good: Sound quality is not that good but I liked (Category: electronics)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nGreat quality: Its so soft. I love it (Category: apparel)",
+    "classification_text": "Great quality: Its so soft. I love it (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nOne Star: The rounded railing guards have no grip and will roll/slide on rail. (Category: baby_product)",
+    "classification_text": "One Star: The rounded railing guards have no grip and will roll/slide on rail. (Category: baby_product)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nTerrible durability. Broken after being dropped one time less than 2 weeks after purchase.: I've used a Hydro Flask for years. The first one purchased has worked well and is still working great, a 40oz wide mouth with the old style lid. This is my 3rd purchase, replacing a 20oz standard mouth with the new lid that the bottom was banged up on after a year of hard usage and couldn't sit flat. I dropped this bottle once. A single drop (with a protective silicone base from Hydro Flask attached) bent and cracked a bottom edge, breaking the vacuum and destroying the functionality. I am very disappointed with the durability considering a single 3 foot drop with a full bottle was enough to permanently damage the bottle. (Category: sports)",
+    "classification_text": "Terrible durability. Broken after being dropped one time less than 2 weeks after purchase.: I've used a Hydro Flask for years. The first one purchased has worked well and is still working great, a 40oz wide mouth with the old style lid. This is my 3rd purchase, replacing a 20oz standard mouth with the new lid that the bottom was banged up on after a year of hard usage and couldn't sit flat. I dropped this bottle once. A single drop (with a protective silicone base from Hydro Flask attached) bent and cracked a bottom edge, breaking the vacuum and destroying the functionality. I am very disappointed with the durability considering a single 3 foot drop with a full bottle was enough to permanently damage the bottle. (Category: sports)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Based on the following review, what star rating (1–5) should be given?\nReview: Not for chewers: Not as durable as I would expect from Kong. My dog is a chewer and it didn't last very long. (Category: pet_products)",
+    "classification_text": "Not for chewers: Not as durable as I would expect from Kong. My dog is a chewer and it didn't last very long. (Category: pet_products)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Summarize this review into a star rating from 1 (worst) to 5 (best):\nGood suit: Suit fits good. A little worried about the girls falling out. But we will see how it goes when I wear it on vacation. (Category: apparel)",
+    "classification_text": "Good suit: Suit fits good. A little worried about the girls falling out. But we will see how it goes when I wear it on vacation. (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Rate this review objectively on a 1–5 star scale:\nIt's easy to clean: I liked this booster seat for it has a simple and modern design. It is easy to clean and install. Only con is that the upper seat cannot be fixed to the main seat. It's falling off whenever my girl tries to step down from it, which is little bit annoying and sometimes can be little bit dangerous. Other than that, I like it since it is easy to maintain. (Category: baby_product)",
+    "classification_text": "It's easy to clean: I liked this booster seat for it has a simple and modern design. It is easy to clean and install. Only con is that the upper seat cannot be fixed to the main seat. It's falling off whenever my girl tries to step down from it, which is little bit annoying and sometimes can be little bit dangerous. Other than that, I like it since it is easy to maintain. (Category: baby_product)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nProduct is not charging.: Product is not charging. (Category: sports)",
+    "classification_text": "Product is not charging.: Product is not charging. (Category: sports)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nDisappointed!: Product is overpriced for its appearance.I dont know about quality yet, since I havent utilize it .Was planning to return it ,but Im going out of town and need a portfolio. (Category: office_product)",
+    "classification_text": "Disappointed!: Product is overpriced for its appearance.I dont know about quality yet, since I havent utilize it .Was planning to return it ,but Im going out of town and need a portfolio. (Category: office_product)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nFire: Started on fire the first time I used the vacuum. (Category: drugstore)",
+    "classification_text": "Fire: Started on fire the first time I used the vacuum. (Category: drugstore)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nSimple and Accurate: I purchased the Santamedical Generation 2 pulse oximeter. I found it accurate, simple to use and very effective. I plan to use it regularly. I would give it a 5/5 rating! (Category: drugstore)",
+    "classification_text": "Simple and Accurate: I purchased the Santamedical Generation 2 pulse oximeter. I found it accurate, simple to use and very effective. I plan to use it regularly. I would give it a 5/5 rating! (Category: drugstore)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nCheaper Than a New Shredder: Works exactly as described. Quick and easy way to \"remove\" personal info from mail, documents, etc. Would buy again. (Category: office_product)",
+    "classification_text": "Cheaper Than a New Shredder: Works exactly as described. Quick and easy way to \"remove\" personal info from mail, documents, etc. Would buy again. (Category: office_product)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Convert the sentiment of this review into a 1–5 star rating:\nI have two sets of these and really like them. I play bass and keyboards so sometimes ...: I have two sets of these and really like them. I play bass and keyboards so sometimes I need to let my bass hang behind me to play keys and I've never doubted these locks to hold it up. The only thing to watch for is sometimes the pull-pin will get loose and needs to be checked and finger-tightened periodically. (Category: musical_instruments)",
+    "classification_text": "I have two sets of these and really like them. I play bass and keyboards so sometimes ...: I have two sets of these and really like them. I play bass and keyboards so sometimes I need to let my bass hang behind me to play keys and I've never doubted these locks to hold it up. The only thing to watch for is sometimes the pull-pin will get loose and needs to be checked and finger-tightened periodically. (Category: musical_instruments)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: They freckle after a while: They were great at first. Then one got all spotted and tarnished. Then the other one followed suit. Not recommended unless you don't mind buying new ones every 4 months or so. (Category: automotive)",
+    "classification_text": "They freckle after a while: They were great at first. Then one got all spotted and tarnished. Then the other one followed suit. Not recommended unless you don't mind buying new ones every 4 months or so. (Category: automotive)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nFour Stars: Great quality so far. makes delicious whipped cream! (Category: kitchen)",
+    "classification_text": "Four Stars: Great quality so far. makes delicious whipped cream! (Category: kitchen)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Read this review and decide how many stars out of five it deserves:\nLovely color! The only cons is it only comes ...: Lovely color! The only small complain is it only comes with one heat mode. But this seems the feature for all mini heater. (Category: beauty)",
+    "classification_text": "Lovely color! The only cons is it only comes ...: Lovely color! The only small complain is it only comes with one heat mode. But this seems the feature for all mini heater. (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\nDirections were not very clear: Serves its purpose, but lightweight so must screw into wall to prevent tipping. Directions were not very clear (Category: pet_products)",
+    "classification_text": "Directions were not very clear: Serves its purpose, but lightweight so must screw into wall to prevent tipping. Directions were not very clear (Category: pet_products)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Read this review and decide how many stars out of five it deserves:\nI wasn’t expecting it to be hard-core but it was ...: I wasn’t expecting it to be hard-core but it was very very flimsy fitment was a little bit off it’s literally designed just for show not any actual production (Category: book)",
+    "classification_text": "I wasn’t expecting it to be hard-core but it was ...: I wasn’t expecting it to be hard-core but it was very very flimsy fitment was a little bit off it’s literally designed just for show not any actual production (Category: book)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nShort story.: A fun D.D. Warren short story. The problem with short stories is I always want more. Love Lisa Gardner. Enjoy. (Category: digital_ebook_purchase)",
+    "classification_text": "Short story.: A fun D.D. Warren short story. The problem with short stories is I always want more. Love Lisa Gardner. Enjoy. (Category: digital_ebook_purchase)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nPrice just right!: Like you get three and the price was just right! (Category: wireless)",
+    "classification_text": "Price just right!: Like you get three and the price was just right! (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: Worst mayerial, worst design, worst quality! Don't waste you money on it!: Totally garbage. It broke into 2 parts the second time I used it when I tried to adjust the phone's direction. I checked it carefully, the contact surfaces are smooth, which means it's not really \"broken\" because the two parts were not a whole thing in the first place. Then how were they connected? I touched the inside of the hole where the connecting point is, it turns out they uses a piece of adhesive paper which is not very adhesive! There's no design allowing you to adjust direction at all. To make it worse, now I am not able to remove it from the vent! I'd give it negative star if I could! (Category: wireless)",
+    "classification_text": "Worst mayerial, worst design, worst quality! Don't waste you money on it!: Totally garbage. It broke into 2 parts the second time I used it when I tried to adjust the phone's direction. I checked it carefully, the contact surfaces are smooth, which means it's not really \"broken\" because the two parts were not a whole thing in the first place. Then how were they connected? I touched the inside of the hole where the connecting point is, it turns out they uses a piece of adhesive paper which is not very adhesive! There's no design allowing you to adjust direction at all. To make it worse, now I am not able to remove it from the vent! I'd give it negative star if I could! (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Rate this review objectively on a 1–5 star scale:\nWorse product ever...: This product is a piece of junk do not waste your money. I purchased it in June and its stop working in August, it stop taking charge and would not turn on. I should have send it back when it would not work properly when I first got it. Save you money for a better product! (Category: pc)",
+    "classification_text": "Worse product ever...: This product is a piece of junk do not waste your money. I purchased it in June and its stop working in August, it stop taking charge and would not turn on. I should have send it back when it would not work properly when I first got it. Save you money for a better product! (Category: pc)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nQuickly got a hole: We’ve only used the parachute twice for 2 - 15 minute indoor recesses. It already has a hole. 😭 (Category: sports)",
+    "classification_text": "Quickly got a hole: We’ve only used the parachute twice for 2 - 15 minute indoor recesses. It already has a hole. 😭 (Category: sports)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nThree Stars: Way too large for a technical screw driver (Category: other)",
+    "classification_text": "Three Stars: Way too large for a technical screw driver (Category: other)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Without explanation, provide the star rating (1–5) that matches this review:\nNot the best model: Not very sturdy at all, moving any of the limbs pops them out. (Category: home)",
+    "classification_text": "Not the best model: Not very sturdy at all, moving any of the limbs pops them out. (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nComfortable but does fog despite ventilation slots so useful only for light-duty work: In southeast outside it's impossible to avoid fogging except in dead winter. Even in Arizona it fogged because I used a dust mask too. Light weight and essential eye protection so I'll keep it for carpentry. But it's going to fog if you are exerting yourself. (Category: other)",
+    "classification_text": "Comfortable but does fog despite ventilation slots so useful only for light-duty work: In southeast outside it's impossible to avoid fogging except in dead winter. Even in Arizona it fogged because I used a dust mask too. Light weight and essential eye protection so I'll keep it for carpentry. But it's going to fog if you are exerting yourself. (Category: other)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nMixed feelings, very clinical writing: The protagonist in this book is really flat. Whether he's talking about emotional experiences or the ins and outs of his technical job, he presents the same flat, analytical affect with wooden, overly formal dialogue. At first I thought it might be a specific character choice (maybe he's just one of those people that doesn't exhibit a lot of emotion and has trouble socially relating to others), but as I kept reading I realized ALL the characters are like this. They could be having a conversation about an impending life-threatening invasion as casually as if they were talking about supply-chain logistics. The detail and description didn't have any immediacy to it, everything was described from a very detached, objective point of view even when, presumably, you'd want your reader to feel the same fear, excitement, anger, anxiety, etc. that the characters are feeling. The no-nonsense, overly formal tone of the writing was a very odd juxtaposition with the subject matter (space fantasy with wizards and spells and such). (Category: digital_ebook_purchase)",
+    "classification_text": "Mixed feelings, very clinical writing: The protagonist in this book is really flat. Whether he's talking about emotional experiences or the ins and outs of his technical job, he presents the same flat, analytical affect with wooden, overly formal dialogue. At first I thought it might be a specific character choice (maybe he's just one of those people that doesn't exhibit a lot of emotion and has trouble socially relating to others), but as I kept reading I realized ALL the characters are like this. They could be having a conversation about an impending life-threatening invasion as casually as if they were talking about supply-chain logistics. The detail and description didn't have any immediacy to it, everything was described from a very detached, objective point of view even when, presumably, you'd want your reader to feel the same fear, excitement, anger, anxiety, etc. that the characters are feeling. The no-nonsense, overly formal tone of the writing was a very odd juxtaposition with the subject matter (space fantasy with wizards and spells and such). (Category: digital_ebook_purchase)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Based on the following review, what star rating (1–5) should be given?\nReview: Fun for few times.: We've played this game 3 times and it's already getting boring, think I paid too much for what you get. (Category: toy)",
+    "classification_text": "Fun for few times.: We've played this game 3 times and it's already getting boring, think I paid too much for what you get. (Category: toy)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nMissing Pieces: I was very excited to work on this project, but after two hours of work, I noticed that two pieces were missing. I could not complete it and when I contacted customer service, they informed me that they could not just send me the missing pieces. Very disappointing. :( (Category: toy)",
+    "classification_text": "Missing Pieces: I was very excited to work on this project, but after two hours of work, I noticed that two pieces were missing. I could not complete it and when I contacted customer service, they informed me that they could not just send me the missing pieces. Very disappointing. :( (Category: toy)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nGreat book!: Fantastic book! N.T. Wright sets out to clarify how he thinks the first century Christians would have understood the meaning of the cross. In short, Christians are not just saved for death. They are saved for new life on earth today as well as a new life after death tomorrow. Good reminder to break away from ingrained systems of theology and to, instead, seek to understand the Bible, especially the Gospels, in context to inform one's thinking and theology. (Category: digital_ebook_purchase)",
+    "classification_text": "Great book!: Fantastic book! N.T. Wright sets out to clarify how he thinks the first century Christians would have understood the meaning of the cross. In short, Christians are not just saved for death. They are saved for new life on earth today as well as a new life after death tomorrow. Good reminder to break away from ingrained systems of theology and to, instead, seek to understand the Bible, especially the Gospels, in context to inform one's thinking and theology. (Category: digital_ebook_purchase)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Summarize this review into a star rating from 1 (worst) to 5 (best):\nMissing pieces: Only had four sizes inside. Not ten (Category: beauty)",
+    "classification_text": "Missing pieces: Only had four sizes inside. Not ten (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nJust weird: Took me a long time to read. Often confusing. Sometimes funny. Extremely creative and unique. Everyone that is attracted to that combination should read this book (Category: digital_ebook_purchase)",
+    "classification_text": "Just weird: Took me a long time to read. Often confusing. Sometimes funny. Extremely creative and unique. Everyone that is attracted to that combination should read this book (Category: digital_ebook_purchase)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "I have the following customer review. Can you assign it a rating between 1 and 5 stars?\nRipped after 3 uses: Both pairs ripped after only a couple uses, both in different spots, not on the seams. (Category: apparel)",
+    "classification_text": "Ripped after 3 uses: Both pairs ripped after only a couple uses, both in different spots, not on the seams. (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nVery secured outdoor hooks: I'm glad I saw these hooks instead of the regular open hooks. It's perfect for hanging outdoor lights and it is secured enough to keep the strings in place even when wind is strong. I also use it for my hanging plants and it's very strong and secured. I highly recommend it! (Category: home)",
+    "classification_text": "Very secured outdoor hooks: I'm glad I saw these hooks instead of the regular open hooks. It's perfect for hanging outdoor lights and it is secured enough to keep the strings in place even when wind is strong. I also use it for my hanging plants and it's very strong and secured. I highly recommend it! (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nDidn't work: This simply didn't work. No way. No how. Threw it away. Should not have bought it. This was meant to be a replacement for the one stolen by the neighborhood kids. Now I have a new weather station from another company and can buy replacement parts if necessary. (Category: home)",
+    "classification_text": "Didn't work: This simply didn't work. No way. No how. Threw it away. Should not have bought it. This was meant to be a replacement for the one stolen by the neighborhood kids. Now I have a new weather station from another company and can buy replacement parts if necessary. (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Convert the sentiment of this review into a 1–5 star rating:\nPretty terrible.: The sand paper stays on for a few minutes and then they fall off. Seems like nice grit, but disappointed they don't stay attached. Even with constant pressure to keep the sandpaper attached it doesn't last long. You get what you pay for. (Category: other)",
+    "classification_text": "Pretty terrible.: The sand paper stays on for a few minutes and then they fall off. Seems like nice grit, but disappointed they don't stay attached. Even with constant pressure to keep the sandpaper attached it doesn't last long. You get what you pay for. (Category: other)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nAttractive but not effective: Very attractive feeder but the center does not stay in place. The squirrels are able to move it out of its space. (Category: lawn_and_garden)",
+    "classification_text": "Attractive but not effective: Very attractive feeder but the center does not stay in place. The squirrels are able to move it out of its space. (Category: lawn_and_garden)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Read this review and decide how many stars out of five it deserves:\nproblem: The unit lit up, the collar adjusted, but when I charged it the charge status light did not light up to indicate it was charging then turn off when it was done charging. (Category: pet_products)",
+    "classification_text": "problem: The unit lit up, the collar adjusted, but when I charged it the charge status light did not light up to indicate it was charging then turn off when it was done charging. (Category: pet_products)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\nNot Bad: A decent book. Spends a little too much time on minutiae. (Category: digital_ebook_purchase)",
+    "classification_text": "Not Bad: A decent book. Spends a little too much time on minutiae. (Category: digital_ebook_purchase)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: Good idea. Poor representation of idea: These go way too fast for the cat to play with. Cat is afraid of the thing. Good idea. Poor representation of idea. (Category: pet_products)",
+    "classification_text": "Good idea. Poor representation of idea: These go way too fast for the cat to play with. Cat is afraid of the thing. Good idea. Poor representation of idea. (Category: pet_products)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nNo Extra Staps: The description says this model comes with the extra straps. This is my 2nd one and it does NOT come with the extra straps. (Category: lawn_and_garden)",
+    "classification_text": "No Extra Staps: The description says this model comes with the extra straps. This is my 2nd one and it does NOT come with the extra straps. (Category: lawn_and_garden)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: Meh: Small and kinda cheap, broke within the first week of using. (Category: automotive)",
+    "classification_text": "Meh: Small and kinda cheap, broke within the first week of using. (Category: automotive)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Summarize this review into a star rating from 1 (worst) to 5 (best):\nPacking Cubes: These packing cubes are fantastic. I am amazed at how much you can pack in these cubes. Because we are taking a 15 day cruise, we needed more clothing than usual, so I bought two sets to accommodate everything I wanted to take. I got it all in and the suitcase weight came in lower than the 50 lbs we are allowed. I highly recommend these. I don't know how wrinkled our clothes will be when we reach our destination, but we would have wrinkled clothing anyway. So that's not a serious consideration for me. (Category: luggage)",
+    "classification_text": "Packing Cubes: These packing cubes are fantastic. I am amazed at how much you can pack in these cubes. Because we are taking a 15 day cruise, we needed more clothing than usual, so I bought two sets to accommodate everything I wanted to take. I got it all in and the suitcase weight came in lower than the 50 lbs we are allowed. I highly recommend these. I don't know how wrinkled our clothes will be when we reach our destination, but we would have wrinkled clothing anyway. So that's not a serious consideration for me. (Category: luggage)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nA classic top hat appropriate for a high society social function: The hat projects the image of Elton John, but even though I measured around the crown of my head, it is a little snug. That is due to the fact it is circular, and their is a void in areas where your skull has flat areas (sides of your head). But it looks totally classy, and I will see about some way to either stretch the hat, or reshape it before use. (Category: apparel)",
+    "classification_text": "A classic top hat appropriate for a high society social function: The hat projects the image of Elton John, but even though I measured around the crown of my head, it is a little snug. That is due to the fact it is circular, and their is a void in areas where your skull has flat areas (sides of your head). But it looks totally classy, and I will see about some way to either stretch the hat, or reshape it before use. (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nVery disappointed: I really like this brush , only now after 2 months the rotating brush has quit, very disappointed (Category: beauty)",
+    "classification_text": "Very disappointed: I really like this brush , only now after 2 months the rotating brush has quit, very disappointed (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Convert the sentiment of this review into a 1–5 star rating:\nGood deal but....: Good deal for the price but the stickers I got were nothing that were shown as advertised. Still good for the price. (Category: pc)",
+    "classification_text": "Good deal but....: Good deal for the price but the stickers I got were nothing that were shown as advertised. Still good for the price. (Category: pc)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Rate this review objectively on a 1–5 star scale:\nA practical guide book.: A great read. Educational, informative, and practical. (Category: digital_ebook_purchase)",
+    "classification_text": "A practical guide book.: A great read. Educational, informative, and practical. (Category: digital_ebook_purchase)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Without explanation, provide the star rating (1–5) that matches this review:\nGreat disposable ear buds: I loved these buds. Very comfortable, reliable, and produced great sound. I got them in July and used them at least an hour a day, 6 days a week for 6 months. They held a charge great and I believe I was getting over the advertised eight hours. Unfortunately they have just quit charging. I am ordering another pair because you just can't beat their quality for the price, even if they have to be replaced every six months. (Category: electronics)",
+    "classification_text": "Great disposable ear buds: I loved these buds. Very comfortable, reliable, and produced great sound. I got them in July and used them at least an hour a day, 6 days a week for 6 months. They held a charge great and I believe I was getting over the advertised eight hours. Unfortunately they have just quit charging. I am ordering another pair because you just can't beat their quality for the price, even if they have to be replaced every six months. (Category: electronics)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Read this review and decide how many stars out of five it deserves:\nBattery great just tools could be a lot better: Tools to remove case are weak and the suction cup doesn’t stick good, my screen actually broke because the tools weren’t any good. Now I have to pay $225 for an additional device copay. (Category: wireless)",
+    "classification_text": "Battery great just tools could be a lot better: Tools to remove case are weak and the suction cup doesn’t stick good, my screen actually broke because the tools weren’t any good. Now I have to pay $225 for an additional device copay. (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nToo small: Good quality but get at least 1 size larger (Category: apparel)",
+    "classification_text": "Too small: Good quality but get at least 1 size larger (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Rate this review objectively on a 1–5 star scale:\nDoesn’t last very long: The kids loved this! Unfortunately it got an air leak after only about 2 weeks of play :( (Category: toy)",
+    "classification_text": "Doesn’t last very long: The kids loved this! Unfortunately it got an air leak after only about 2 weeks of play :( (Category: toy)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: Pretty but super flimsy!: Very pretty design. I was looking to replace my cloth placemats because I was honestly tired of washing them! These are VERY thin. I read other reviews that mentioned how thin they were but didn’t think it would bother me so I ordered them anyway. Well, I’m not sure I would have ordered them if someone had mentioned that they are paper thin. No joke they might be thinner than paper! But they look pretty and easy to wipe clean so I’ll see how the durability rates as I put them to use. (Category: home)",
+    "classification_text": "Pretty but super flimsy!: Very pretty design. I was looking to replace my cloth placemats because I was honestly tired of washing them! These are VERY thin. I read other reviews that mentioned how thin they were but didn’t think it would bother me so I ordered them anyway. Well, I’m not sure I would have ordered them if someone had mentioned that they are paper thin. No joke they might be thinner than paper! But they look pretty and easy to wipe clean so I’ll see how the durability rates as I put them to use. (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Without explanation, provide the star rating (1–5) that matches this review:\nNot good: Sorry but it didn't last just a couple of times then it wouldn't ring. In garbage I am upgrading my review because seller sent me a message on how to fix my problem and it is working good now. Something went wrong after moving it to a different plug. (Category: home_improvement)",
+    "classification_text": "Not good: Sorry but it didn't last just a couple of times then it wouldn't ring. In garbage I am upgrading my review because seller sent me a message on how to fix my problem and it is working good now. Something went wrong after moving it to a different plug. (Category: home_improvement)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Convert the sentiment of this review into a 1–5 star rating:\nTerrible product: Terrible product - over priced and pen dried out after 3 uses and unable to use. (Category: beauty)",
+    "classification_text": "Terrible product: Terrible product - over priced and pen dried out after 3 uses and unable to use. (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "I have the following customer review. Can you assign it a rating between 1 and 5 stars?\nOne Star: The product is decorative and doesn’t work for game (Category: toy)",
+    "classification_text": "One Star: The product is decorative and doesn’t work for game (Category: toy)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Convert the sentiment of this review into a 1–5 star rating:\nI was disappointed because it felt like my order was forgot about: I was disappointed because it felt like my order was forgot about. I ordered this with my prime membership to get this very quickly roughly two weeks before Christmas is when the order was placed. I kept following up on the order to see if it had shipped out but then a few days before Christmas I emailed customer service and they shipped it but this was the Friday before Christmas (Monday) which then had the package be delivered late. My 4 year old had the hulk hands on Christmas but regrettably didn't have the hulk mask to complete the attire. I would not recommend this supplier. However, the mask was in good condition and works fine. (Category: toy)",
+    "classification_text": "I was disappointed because it felt like my order was forgot about: I was disappointed because it felt like my order was forgot about. I ordered this with my prime membership to get this very quickly roughly two weeks before Christmas is when the order was placed. I kept following up on the order to see if it had shipped out but then a few days before Christmas I emailed customer service and they shipped it but this was the Friday before Christmas (Monday) which then had the package be delivered late. My 4 year old had the hulk hands on Christmas but regrettably didn't have the hulk mask to complete the attire. I would not recommend this supplier. However, the mask was in good condition and works fine. (Category: toy)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Based on the following review, what star rating (1–5) should be given?\nReview: Great product: Excellent product. Works very well for s10. (Category: wireless)",
+    "classification_text": "Great product: Excellent product. Works very well for s10. (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nFive Stars: It came awesome thanks (Category: video_games)",
+    "classification_text": "Five Stars: It came awesome thanks (Category: video_games)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nReturned to sender - no refund: This delivery required a signature and was ultimately returned to sender. I was not able to get a refund or replacement. I have tried through Amazon and the seller to get a refund or replacement and I am not getting anywhere. I hope this one star review will get someone's attention somewhere because this has been a very frustrating experience. (Category: wireless)",
+    "classification_text": "Returned to sender - no refund: This delivery required a signature and was ultimately returned to sender. I was not able to get a refund or replacement. I have tried through Amazon and the seller to get a refund or replacement and I am not getting anywhere. I hope this one star review will get someone's attention somewhere because this has been a very frustrating experience. (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nTwo Stars: Kick stand is too hard to open. (Category: pc)",
+    "classification_text": "Two Stars: Kick stand is too hard to open. (Category: pc)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Convert the sentiment of this review into a 1–5 star rating:\nVery lifelike: I purchased these as a gift. I am by no means any type of fishing pro, but I must say these are very bright and lifelike. If I were a fish, I'd eat it lol. No but seriously, looking by how its made and the details of each lure, I'm sure these will be a great addition to any fisherman's lure collection. Will update with a review later after the person who receives it as a gift tries it out! (Category: sports)",
+    "classification_text": "Very lifelike: I purchased these as a gift. I am by no means any type of fishing pro, but I must say these are very bright and lifelike. If I were a fish, I'd eat it lol. No but seriously, looking by how its made and the details of each lure, I'm sure these will be a great addition to any fisherman's lure collection. Will update with a review later after the person who receives it as a gift tries it out! (Category: sports)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nGood product: This splitter is working well for our needs. Good picture quality on both screens. Seems to be well made. (Category: electronics)",
+    "classification_text": "Good product: This splitter is working well for our needs. Good picture quality on both screens. Seems to be well made. (Category: electronics)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Rate this review objectively on a 1–5 star scale:\nNot good: stopped working 2 days later! (Category: kitchen)",
+    "classification_text": "Not good: stopped working 2 days later! (Category: kitchen)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\nShorty: Quite a stretch to say this stretches 6.5 feet in a usable way...more like 3 feet without pulling ends out . (Category: wireless)",
+    "classification_text": "Shorty: Quite a stretch to say this stretches 6.5 feet in a usable way...more like 3 feet without pulling ends out . (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nSuper soft and comfy!: I bought this for my niece for Christmas and she loved it! I loved it so much I'm going to buy one for myself too! (Category: home)",
+    "classification_text": "Super soft and comfy!: I bought this for my niece for Christmas and she loved it! I loved it so much I'm going to buy one for myself too! (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nGood price but not durable: This case did not hold up at all. The outer ring quickly separated from the back plate. (Category: wireless)",
+    "classification_text": "Good price but not durable: This case did not hold up at all. The outer ring quickly separated from the back plate. (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "I have the following customer review. Can you assign it a rating between 1 and 5 stars?\nNot supportive: I have larger breasts and this bra doesn’t have much support. It’s not easy to use with one hand. Material is nice (Category: baby_product)",
+    "classification_text": "Not supportive: I have larger breasts and this bra doesn’t have much support. It’s not easy to use with one hand. Material is nice (Category: baby_product)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nEasily Met My Expectations: Bought it to check off bucket list item to build a guitar and learn to play it. Easily assembled. Sounds great to my admittedly tin ear. Highly recommend it. (Category: musical_instruments)",
+    "classification_text": "Easily Met My Expectations: Bought it to check off bucket list item to build a guitar and learn to play it. Easily assembled. Sounds great to my admittedly tin ear. Highly recommend it. (Category: musical_instruments)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nGood product: This brush is very soft and sturdy! Applies my foundation good. My only complaint is that it smells very chemically. (Category: beauty)",
+    "classification_text": "Good product: This brush is very soft and sturdy! Applies my foundation good. My only complaint is that it smells very chemically. (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Read this review and decide how many stars out of five it deserves:\nNot sure for what product its for: It doesn't tell you what item it is for, I have bought allot from Amazon and have a few protection plans (Category: other)",
+    "classification_text": "Not sure for what product its for: It doesn't tell you what item it is for, I have bought allot from Amazon and have a few protection plans (Category: other)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nNew author dazzles with the best plot line in years!: I stumbled across Andrew Watts through a promotional push of his first book in The War Planners series. He has exceeded expectations. This has been the most interesting plot line I have read in years. To date I have read all of his books. For those who are just beginning to read Mr. Watts, I will forego detailing the story, lest I spoil your enjoyment. Yesterday I bought his newest book, Overwhelming Force, Book 5 in the series. I am only 1/2 way through it as I write, but the story line continues on a tear. The book opens with a limited nuclear engagement. The plot is unique, the characters are real. As an avid consumer of mystery/action/thriller novels, I have read every book by Baldacci, DeMille, Child, Flynn, Coes, Berenson, Coben, Woods, Box, Burke, Thor, Berry, White, and others. By the end of the day, I will add Watts to my list. Read The War Planners series. You will like it. (Category: digital_ebook_purchase)",
+    "classification_text": "New author dazzles with the best plot line in years!: I stumbled across Andrew Watts through a promotional push of his first book in The War Planners series. He has exceeded expectations. This has been the most interesting plot line I have read in years. To date I have read all of his books. For those who are just beginning to read Mr. Watts, I will forego detailing the story, lest I spoil your enjoyment. Yesterday I bought his newest book, Overwhelming Force, Book 5 in the series. I am only 1/2 way through it as I write, but the story line continues on a tear. The book opens with a limited nuclear engagement. The plot is unique, the characters are real. As an avid consumer of mystery/action/thriller novels, I have read every book by Baldacci, DeMille, Child, Flynn, Coes, Berenson, Coben, Woods, Box, Burke, Thor, Berry, White, and others. By the end of the day, I will add Watts to my list. Read The War Planners series. You will like it. (Category: digital_ebook_purchase)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nKeys already failing to pop back up 4 days after: I haven't even had it a week and the keys are getting stuck and springing back late. (Category: pc)",
+    "classification_text": "Keys already failing to pop back up 4 days after: I haven't even had it a week and the keys are getting stuck and springing back late. (Category: pc)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Rate this review objectively on a 1–5 star scale:\nI got the game for my husband and it sucks. Pretty much you just click around for the ...: I got the game for my husband and it sucks. Pretty much you just click around for the people to move. You're not actually engaging in anything. (Category: video_games)",
+    "classification_text": "I got the game for my husband and it sucks. Pretty much you just click around for the ...: I got the game for my husband and it sucks. Pretty much you just click around for the people to move. You're not actually engaging in anything. (Category: video_games)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "I have the following customer review. Can you assign it a rating between 1 and 5 stars?\nwell packaged good delivery time: As expected, well packaged good delivery time. (Category: beauty)",
+    "classification_text": "well packaged good delivery time: As expected, well packaged good delivery time. (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: Two Stars: Very had to use with just one hand. (Category: apparel)",
+    "classification_text": "Two Stars: Very had to use with just one hand. (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nLove this wallet!: This is the only wallet I buy... (Category: apparel)",
+    "classification_text": "Love this wallet!: This is the only wallet I buy... (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nLies in the description: Personally I love this shoe rack. However, in the description it says \"easy assembly\" and \"snap together\" well that's a lie lol. It came with screws that you had to use to assemble this thing. We needed a screwdriver/drill to assemble and in the description it says \"no tools needed\". Like I said I love it but ya need tools to assemble this thing. (Category: home)",
+    "classification_text": "Lies in the description: Personally I love this shoe rack. However, in the description it says \"easy assembly\" and \"snap together\" well that's a lie lol. It came with screws that you had to use to assemble this thing. We needed a screwdriver/drill to assemble and in the description it says \"no tools needed\". Like I said I love it but ya need tools to assemble this thing. (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nGlued them to books to make sturdy: Very flimsy and closes easily. I superglued them to a book cover and used the whole thing as a display platform to display framed artwork. (Category: home)",
+    "classification_text": "Glued them to books to make sturdy: Very flimsy and closes easily. I superglued them to a book cover and used the whole thing as a display platform to display framed artwork. (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nKinda works for me: I'm ok with my conditioner bar. It smells great but it doesnt quite \"slick\" my hair like my other conditioner does. Still giving it more tries, will update later (Category: beauty)",
+    "classification_text": "Kinda works for me: I'm ok with my conditioner bar. It smells great but it doesnt quite \"slick\" my hair like my other conditioner does. Still giving it more tries, will update later (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nBetter keep using your Uber stickers: Never installed because didn’t came with the installation brackets or tape, tried with brand new batteries to use it on my dash but didn’t turn on. I tried to return it but the seller says that I was alternating the facts???? (Category: wireless)",
+    "classification_text": "Better keep using your Uber stickers: Never installed because didn’t came with the installation brackets or tape, tried with brand new batteries to use it on my dash but didn’t turn on. I tried to return it but the seller says that I was alternating the facts???? (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nyou cannot change factory code BIG DISAPPOINTMENT: I wish you could change the preset factory code. It arrived while i was at work, my daughters unpacked it and of course memorized the clearly labeled factory code and it states that it cannot be changed, you can add a code but the factory code never resets. (Category: home_improvement)",
+    "classification_text": "you cannot change factory code BIG DISAPPOINTMENT: I wish you could change the preset factory code. It arrived while i was at work, my daughters unpacked it and of course memorized the clearly labeled factory code and it states that it cannot be changed, you can add a code but the factory code never resets. (Category: home_improvement)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\nPump need to charge 5 hours ahead of use: Pump doesn’t work. Charged for 1 day still not work. (Category: other)",
+    "classification_text": "Pump need to charge 5 hours ahead of use: Pump doesn’t work. Charged for 1 day still not work. (Category: other)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Based on the following review, what star rating (1–5) should be given?\nReview: Seems like a fine product: Seems good so far, only had a couple days. Easy enough to install and plenty of water flow through the filter (Category: kitchen)",
+    "classification_text": "Seems like a fine product: Seems good so far, only had a couple days. Easy enough to install and plenty of water flow through the filter (Category: kitchen)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Summarize this review into a star rating from 1 (worst) to 5 (best):\nNot the same: I had previously bough some cleaning towels and I thought I was buying the same thing. My first purchase was double thickness which I liked. The second batch were single thickness which I didn't like. (Category: home)",
+    "classification_text": "Not the same: I had previously bough some cleaning towels and I thought I was buying the same thing. My first purchase was double thickness which I liked. The second batch were single thickness which I didn't like. (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Read this review and decide how many stars out of five it deserves:\nDehumidifier: It works fine but it's really loud and it's on all the time. (Category: home)",
+    "classification_text": "Dehumidifier: It works fine but it's really loud and it's on all the time. (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Without explanation, provide the star rating (1–5) that matches this review:\nLoved it!: This is one of my favorite movies. The characters and their acting was great! It has action and makes you think, and just all around great movie. Ive watched it several times and love it every time! (Category: digital_video_download)",
+    "classification_text": "Loved it!: This is one of my favorite movies. The characters and their acting was great! It has action and makes you think, and just all around great movie. Ive watched it several times and love it every time! (Category: digital_video_download)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nDoesn’t last very long: Bought this in oct 2017; it was kept in a cabinet. Got to use it 1.5 summers until the other day (August 2019) it blew water at the faucet attachment. So it did not hold up at all. (Category: lawn_and_garden)",
+    "classification_text": "Doesn’t last very long: Bought this in oct 2017; it was kept in a cabinet. Got to use it 1.5 summers until the other day (August 2019) it blew water at the faucet attachment. So it did not hold up at all. (Category: lawn_and_garden)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Without explanation, provide the star rating (1–5) that matches this review:\nas he can easily bend the back with his weight: cute and decorative, but back is fairly flimsy. I don't feel safe leaving my son in this chair without my hand close by, as he can easily bend the back with his weight. (Category: toy)",
+    "classification_text": "as he can easily bend the back with his weight: cute and decorative, but back is fairly flimsy. I don't feel safe leaving my son in this chair without my hand close by, as he can easily bend the back with his weight. (Category: toy)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nNot refurbished: Despite being sold as refurbished- battery was barely functional and touch screen chips stopped working within 8 months. (Category: wireless)",
+    "classification_text": "Not refurbished: Despite being sold as refurbished- battery was barely functional and touch screen chips stopped working within 8 months. (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "I have the following customer review. Can you assign it a rating between 1 and 5 stars?\nI wouldn’t buy again: The case is nice and cute but you everyone I talk to on the phone complains that they cannot hear me because the case covers the holes that you speak in to. Also I feel like if you dropped it hard enough the case will fall apart. (Category: wireless)",
+    "classification_text": "I wouldn’t buy again: The case is nice and cute but you everyone I talk to on the phone complains that they cannot hear me because the case covers the holes that you speak in to. Also I feel like if you dropped it hard enough the case will fall apart. (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "I have the following customer review. Can you assign it a rating between 1 and 5 stars?\nYou get what you pay for: There was rust on the tubes right out of the box. While assembly was not difficult, it was time consuming. The umbrella on top looks nice but isn't very functional since it keeps little sun from hitting the user. (Category: furniture)",
+    "classification_text": "You get what you pay for: There was rust on the tubes right out of the box. While assembly was not difficult, it was time consuming. The umbrella on top looks nice but isn't very functional since it keeps little sun from hitting the user. (Category: furniture)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Convert the sentiment of this review into a 1–5 star rating:\nSuper thin cheap material: Super thin cheap material. Does not look like the picture that appears to have some form to it. Looks like a potatoe sack with American flag..straight cut. (Category: apparel)",
+    "classification_text": "Super thin cheap material: Super thin cheap material. Does not look like the picture that appears to have some form to it. Looks like a potatoe sack with American flag..straight cut. (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nDidn't receive my order yet: What happened to my order that supposed to be here today (Category: beauty)",
+    "classification_text": "Didn't receive my order yet: What happened to my order that supposed to be here today (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\nSmells amazing: Smells amazing without being overpowering. It was shipped well with special tape around the cap to prevent leaking. (Category: drugstore)",
+    "classification_text": "Smells amazing: Smells amazing without being overpowering. It was shipped well with special tape around the cap to prevent leaking. (Category: drugstore)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nStay clean while camping.: While backpacking, I still resist the stink rather than embrace it. These are essential for continuing to feel like a human. I just wish that the sheets wouldn’t grip each other so much when trying to pull them from the package. (Category: drugstore)",
+    "classification_text": "Stay clean while camping.: While backpacking, I still resist the stink rather than embrace it. These are essential for continuing to feel like a human. I just wish that the sheets wouldn’t grip each other so much when trying to pull them from the package. (Category: drugstore)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nHeadaches: Did not feel anything but headaches. (Category: drugstore)",
+    "classification_text": "Headaches: Did not feel anything but headaches. (Category: drugstore)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: Wobbles: Although a beautiful display the wire work is uneven and wobbles (Category: kitchen)",
+    "classification_text": "Wobbles: Although a beautiful display the wire work is uneven and wobbles (Category: kitchen)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Read this review and decide how many stars out of five it deserves:\nEnjoy this series: I have read all of them you feel your part of it all. You want to keep seeing what will happen in the family next. (Category: digital_ebook_purchase)",
+    "classification_text": "Enjoy this series: I have read all of them you feel your part of it all. You want to keep seeing what will happen in the family next. (Category: digital_ebook_purchase)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Read this review and decide how many stars out of five it deserves:\nA winner of a slip on: A very comfortable shoe. Good support and it looks good. The sole looks like it should hold up. I especially like the light weight and the ease of getting them on and off. Not use to buying shoes online but this was a real winner.I would recommend this slip on and the speedy delivery. Jim (Category: shoes)",
+    "classification_text": "A winner of a slip on: A very comfortable shoe. Good support and it looks good. The sole looks like it should hold up. I especially like the light weight and the ease of getting them on and off. Not use to buying shoes online but this was a real winner.I would recommend this slip on and the speedy delivery. Jim (Category: shoes)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\nseems to be a good 10 speed chain, have not torqued it heavily yet.: seems to be a good 10 speed chain, have not torqued it heavily yet, but one of the few long link chains. (Category: other)",
+    "classification_text": "seems to be a good 10 speed chain, have not torqued it heavily yet.: seems to be a good 10 speed chain, have not torqued it heavily yet, but one of the few long link chains. (Category: other)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Read this review and decide how many stars out of five it deserves:\nI,m not going to put a 1/2 price knock off in a 50 thousand dollar truck.: You get what you pay for. Package designed to look like original equipment. I will look more carefully next time. (Category: automotive)",
+    "classification_text": "I,m not going to put a 1/2 price knock off in a 50 thousand dollar truck.: You get what you pay for. Package designed to look like original equipment. I will look more carefully next time. (Category: automotive)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nNice addition to the BB family: I have a number of Blender Bottles and love them, but (1) the plastic starts to look a little grungy (even with daily washing) and (2) I want to start getting away from drinking from plastic bottles (any plastic), so I was excited to see this product. I read the other reviews and yes, the sound of the mesh ball is a bit louder but IMO, not terribly so and certainly not when there is liquid inside. It is metal so it will be louder. Also, you should know this is not an insulated container, so it won't keep your water colder any longer than the BB plastic bottles. Also, regarding the snap lid, the first couple of times I really had to press hard to get it to snap shut but after that had no problems and it's tight as a drum! My biggest sticking point is the price. I understand why it's more expensive, but still causes one to look twice, however will probably invest in another, if this one holds up. All in all, it's a nice addition to their collection! (Category: kitchen)",
+    "classification_text": "Nice addition to the BB family: I have a number of Blender Bottles and love them, but (1) the plastic starts to look a little grungy (even with daily washing) and (2) I want to start getting away from drinking from plastic bottles (any plastic), so I was excited to see this product. I read the other reviews and yes, the sound of the mesh ball is a bit louder but IMO, not terribly so and certainly not when there is liquid inside. It is metal so it will be louder. Also, you should know this is not an insulated container, so it won't keep your water colder any longer than the BB plastic bottles. Also, regarding the snap lid, the first couple of times I really had to press hard to get it to snap shut but after that had no problems and it's tight as a drum! My biggest sticking point is the price. I understand why it's more expensive, but still causes one to look twice, however will probably invest in another, if this one holds up. All in all, it's a nice addition to their collection! (Category: kitchen)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nhorrible bread don't waste your money: Just received the bread today and I have to say it was disgusting. I wished I would've read the reviews because I never would've paid $10.00 per loaf.. And I was stuck buying three loads. It was wet and slimy when I opened the bag. But I thought you know what go ahead and toast it to see how it taste. Horrible horrible horrible. And I just found out I cannot send it back so I took $34 and flushed it down the toilet. Do not buy this bread.. (Category: drugstore)",
+    "classification_text": "horrible bread don't waste your money: Just received the bread today and I have to say it was disgusting. I wished I would've read the reviews because I never would've paid $10.00 per loaf.. And I was stuck buying three loads. It was wet and slimy when I opened the bag. But I thought you know what go ahead and toast it to see how it taste. Horrible horrible horrible. And I just found out I cannot send it back so I took $34 and flushed it down the toilet. Do not buy this bread.. (Category: drugstore)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Without explanation, provide the star rating (1–5) that matches this review:\nThree Stars: Missing hose. That is supposed to come with it. (Category: automotive)",
+    "classification_text": "Three Stars: Missing hose. That is supposed to come with it. (Category: automotive)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Summarize this review into a star rating from 1 (worst) to 5 (best):\nNot bad not good: Didn't burn my skin or anything, but not exceptionally good. (Category: beauty)",
+    "classification_text": "Not bad not good: Didn't burn my skin or anything, but not exceptionally good. (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "I have the following customer review. Can you assign it a rating between 1 and 5 stars?\nDye comes off on fingers: I am a college student who purchased this to negate some of the volume of my typing while in class or the library. It made my typing quieter, but turns my nails and fingers blue from the dye, every day. I have had this product on my computer for less than a week and the color is already worn away on the \"C,\" \"N,\" and \"M\" keys and I walk around looking like a smurf. (Category: pc)",
+    "classification_text": "Dye comes off on fingers: I am a college student who purchased this to negate some of the volume of my typing while in class or the library. It made my typing quieter, but turns my nails and fingers blue from the dye, every day. I have had this product on my computer for less than a week and the color is already worn away on the \"C,\" \"N,\" and \"M\" keys and I walk around looking like a smurf. (Category: pc)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nIt really works great: It works great. It goes up to 10 Not 5 because that doesn't work especially for thick fingers. (Category: industrial_supplies)",
+    "classification_text": "It really works great: It works great. It goes up to 10 Not 5 because that doesn't work especially for thick fingers. (Category: industrial_supplies)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nGreat characters, mediocre stories: The first two episodes were great. I enjoyed the start of the new series/doctor/team quite a lot. Since then, though, it's been decidedly bland. I used to eagerly wait for each week's new episode, now I find myself putting it off for days. I do like the new characters, but I just wish they'd encounter interesting storylines rather than this utter mediocrity. I'm not going to write off the show just yet; it's practically a new thing now, first seasons are usually rough, it needs to find its feet. I get that. But I'm not going to get my hopes up too high either. So far, it's been a disappointing new start. (Category: digital_video_download)",
+    "classification_text": "Great characters, mediocre stories: The first two episodes were great. I enjoyed the start of the new series/doctor/team quite a lot. Since then, though, it's been decidedly bland. I used to eagerly wait for each week's new episode, now I find myself putting it off for days. I do like the new characters, but I just wish they'd encounter interesting storylines rather than this utter mediocrity. I'm not going to write off the show just yet; it's practically a new thing now, first seasons are usually rough, it needs to find its feet. I get that. But I'm not going to get my hopes up too high either. So far, it's been a disappointing new start. (Category: digital_video_download)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nHassle free and lightweight.: Very comfortable easy to put on easy to adjust and stays in place no more sliding glasses. (Category: other)",
+    "classification_text": "Hassle free and lightweight.: Very comfortable easy to put on easy to adjust and stays in place no more sliding glasses. (Category: other)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nPretty good headphones with solid audio quality: Pretty good headphones with solid audio quality. I have enjoyed its use for a few months but today one of the left ear speaker just broke on me. I was wondering if I could get a replacement. If anyone could direct me to the warranty department, that would be greatly appreciated. Can provide pics if needed. (Category: wireless)",
+    "classification_text": "Pretty good headphones with solid audio quality: Pretty good headphones with solid audio quality. I have enjoyed its use for a few months but today one of the left ear speaker just broke on me. I was wondering if I could get a replacement. If anyone could direct me to the warranty department, that would be greatly appreciated. Can provide pics if needed. (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Without explanation, provide the star rating (1–5) that matches this review:\nFar from average quality.: Not happy with this product. Cheap Price, Cheaper Quality. (Category: pc)",
+    "classification_text": "Far from average quality.: Not happy with this product. Cheap Price, Cheaper Quality. (Category: pc)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Without explanation, provide the star rating (1–5) that matches this review:\nWould buy again: Super cute and just what I was looking for. (Category: jewelry)",
+    "classification_text": "Would buy again: Super cute and just what I was looking for. (Category: jewelry)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: thin premise stretched out too long: Interesting in bits and pieces but it feels like a somewhat mediocre SNL skit stretched VERY thin to feature length. The actors were good enough given the material that they had to work with (Category: digital_video_download)",
+    "classification_text": "thin premise stretched out too long: Interesting in bits and pieces but it feels like a somewhat mediocre SNL skit stretched VERY thin to feature length. The actors were good enough given the material that they had to work with (Category: digital_video_download)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nComfortable socks: Light weight and comfortable women’s socks. (Category: apparel)",
+    "classification_text": "Comfortable socks: Light weight and comfortable women’s socks. (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nSo adorable for a nursery: These are so adorable! I used them for our elephant themed nursery. I can’t wait to put some succulents in them! (Category: lawn_and_garden)",
+    "classification_text": "So adorable for a nursery: These are so adorable! I used them for our elephant themed nursery. I can’t wait to put some succulents in them! (Category: lawn_and_garden)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nPoor battery life, mediocre sound quality: Battery only lasts for 20 minutes after less than a month of use. The sound quality is OK, but whether I can hear my audio books over the noise of the shower is dependent on the narrator. Very disappointing. (Category: electronics)",
+    "classification_text": "Poor battery life, mediocre sound quality: Battery only lasts for 20 minutes after less than a month of use. The sound quality is OK, but whether I can hear my audio books over the noise of the shower is dependent on the narrator. Very disappointing. (Category: electronics)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nI like these shoes: I like these shoes. They are pretty comfortable. They look Sharp. Deducted a state because the shoes arrived with some minor stains. (Category: shoes)",
+    "classification_text": "I like these shoes: I like these shoes. They are pretty comfortable. They look Sharp. Deducted a state because the shoes arrived with some minor stains. (Category: shoes)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Summarize this review into a star rating from 1 (worst) to 5 (best):\nPerfect: Love these. Got a medium and I'm 5'3 and 130 pounds. (Category: apparel)",
+    "classification_text": "Perfect: Love these. Got a medium and I'm 5'3 and 130 pounds. (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nQuick delivery: Product arrived quickly and as described. Would have liked it to have description/instructions as it was a gift for a camper. (Category: sports)",
+    "classification_text": "Quick delivery: Product arrived quickly and as described. Would have liked it to have description/instructions as it was a gift for a camper. (Category: sports)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nNice dash cam for the price: So far, it's a great little camera. Easy to operate without even looking at the manual. The video card isn't included, but they're cheap enough. (Category: electronics)",
+    "classification_text": "Nice dash cam for the price: So far, it's a great little camera. Easy to operate without even looking at the manual. The video card isn't included, but they're cheap enough. (Category: electronics)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Convert the sentiment of this review into a 1–5 star rating:\nDamaged...: Product came damaged. Shipping box was intact and it appeared to be packaged fine so I imagine the damage occurred prior to packing. One is bent so it doesn’t sit flat on the stove and another has multiple deep scratch marks that have removed the black color. Based on this, I imagine they won’t hold up well so probably not worth the cost. (Category: home_improvement)",
+    "classification_text": "Damaged...: Product came damaged. Shipping box was intact and it appeared to be packaged fine so I imagine the damage occurred prior to packing. One is bent so it doesn’t sit flat on the stove and another has multiple deep scratch marks that have removed the black color. Based on this, I imagine they won’t hold up well so probably not worth the cost. (Category: home_improvement)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nGood thing it isn't expensive because it doesn't do much.: Installed in a Ram 2500 pickup. At most, is maybe 2/3 the length of the factory visor. Straps were too short to reach all the way around, fortunately I had some velcro to extend length. Mine is the grey for daytime use, gives shade but I don't notice any decrease in glare. (Category: automotive)",
+    "classification_text": "Good thing it isn't expensive because it doesn't do much.: Installed in a Ram 2500 pickup. At most, is maybe 2/3 the length of the factory visor. Straps were too short to reach all the way around, fortunately I had some velcro to extend length. Mine is the grey for daytime use, gives shade but I don't notice any decrease in glare. (Category: automotive)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nStill loving it after 2 years!: I bought this 2 years ago and it still feels like new! would highly recommend!!! (Category: home)",
+    "classification_text": "Still loving it after 2 years!: I bought this 2 years ago and it still feels like new! would highly recommend!!! (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Rate this review objectively on a 1–5 star scale:\nFive Stars: Love it and fits as it should be! (Category: apparel)",
+    "classification_text": "Five Stars: Love it and fits as it should be! (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nNot many sunflower seeds in the mix: Not very many sunflower seeds in it - the Kaytee and Pennington brands have more (Category: lawn_and_garden)",
+    "classification_text": "Not many sunflower seeds in the mix: Not very many sunflower seeds in it - the Kaytee and Pennington brands have more (Category: lawn_and_garden)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Convert the sentiment of this review into a 1–5 star rating:\nNever arrived: This item never arrived. It was sent to my previous address and never arrived to me. I am very displeased there is no way to contact the merchant. (Category: apparel)",
+    "classification_text": "Never arrived: This item never arrived. It was sent to my previous address and never arrived to me. I am very displeased there is no way to contact the merchant. (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Read this review and decide how many stars out of five it deserves:\nBargain: Affordable, works well (Category: pc)",
+    "classification_text": "Bargain: Affordable, works well (Category: pc)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Without explanation, provide the star rating (1–5) that matches this review:\nGreat quality food, high protein: My Bengal cat loves loves this food, even if he's not hungry, he hears me pouring he comes a running and chows down (Category: pet_products)",
+    "classification_text": "Great quality food, high protein: My Bengal cat loves loves this food, even if he's not hungry, he hears me pouring he comes a running and chows down (Category: pet_products)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nFun: You can see trough the blind fold only bad thing about it but it comes with a paper blind fold so I just put the paper one under the the pink one (Category: kitchen)",
+    "classification_text": "Fun: You can see trough the blind fold only bad thing about it but it comes with a paper blind fold so I just put the paper one under the the pink one (Category: kitchen)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Rate this review objectively on a 1–5 star scale:\nEhh: Love the durability of the case but I find myself taking the phone out every few days to clean it because dust and stuff still gets between screen and screen protector. (Category: electronics)",
+    "classification_text": "Ehh: Love the durability of the case but I find myself taking the phone out every few days to clean it because dust and stuff still gets between screen and screen protector. (Category: electronics)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nStill gets three stars for pretty good coffee flavor: This candy is advertised as having soft center, it does not. I just finished first of two bags and not one. Still gets three stars for pretty good coffee flavor. (Category: grocery)",
+    "classification_text": "Still gets three stars for pretty good coffee flavor: This candy is advertised as having soft center, it does not. I just finished first of two bags and not one. Still gets three stars for pretty good coffee flavor. (Category: grocery)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nConvenient: This honestly works perfectly and its SUPER convenient! (Category: pc)",
+    "classification_text": "Convenient: This honestly works perfectly and its SUPER convenient! (Category: pc)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nCheck expiration date before you throw out shipping box: They came with an expired date. Couldn’t return because I threw the shipping box away. Be sure to check the date before you dispose of the shipping box. I’m stuck now (Category: grocery)",
+    "classification_text": "Check expiration date before you throw out shipping box: They came with an expired date. Couldn’t return because I threw the shipping box away. Be sure to check the date before you dispose of the shipping box. I’m stuck now (Category: grocery)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\nGood: The color is a little different than it looks online but still nice. My son likes it, I got it for his birthday. (Category: jewelry)",
+    "classification_text": "Good: The color is a little different than it looks online but still nice. My son likes it, I got it for his birthday. (Category: jewelry)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nDoesn’t Work Properly: Bought these two weeks ago. They both are now makeing a loud noise before shutting off. Did not initially do this. Initially, worked quietly and properly. (Category: beauty)",
+    "classification_text": "Doesn’t Work Properly: Bought these two weeks ago. They both are now makeing a loud noise before shutting off. Did not initially do this. Initially, worked quietly and properly. (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Summarize this review into a star rating from 1 (worst) to 5 (best):\nOkay: This was okay. Didn't think it was anything special for the high price. Will not order again. (Category: grocery)",
+    "classification_text": "Okay: This was okay. Didn't think it was anything special for the high price. Will not order again. (Category: grocery)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nGood quality, assemble takes time: I bought this for my closet it is pretty sturdy for clothes! Not the easiest thing to assemble, but not impossible! (Category: furniture)",
+    "classification_text": "Good quality, assemble takes time: I bought this for my closet it is pretty sturdy for clothes! Not the easiest thing to assemble, but not impossible! (Category: furniture)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nWhere the fuck is my mug!!!!!: So upset right now. It’s been more than two months since since I order this stupid mug! I haven’t received my stupid mug. The worst is I can’t even track because the stupid company didn’t put a tracker on it! So wtf!!! (Category: kitchen)",
+    "classification_text": "Where the fuck is my mug!!!!!: So upset right now. It’s been more than two months since since I order this stupid mug! I haven’t received my stupid mug. The worst is I can’t even track because the stupid company didn’t put a tracker on it! So wtf!!! (Category: kitchen)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nCould not get it to spray: The product would not function and surprisingly the return window closed one month after receipt (Category: other)",
+    "classification_text": "Could not get it to spray: The product would not function and surprisingly the return window closed one month after receipt (Category: other)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\nPoor quality: I bought 6 of these LED bulbs last April, they worked great at the beginning but not even a year later only 2 out the the six are still working. These bulbs might be cheaper than other brands but if they last less than a year then they are not worth it in my opinion. I don't expect the last 2 bulbs to last much longer. (Category: home_improvement)",
+    "classification_text": "Poor quality: I bought 6 of these LED bulbs last April, they worked great at the beginning but not even a year later only 2 out the the six are still working. These bulbs might be cheaper than other brands but if they last less than a year then they are not worth it in my opinion. I don't expect the last 2 bulbs to last much longer. (Category: home_improvement)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nFive Stars: Very good discs with beautiful packaging - like original vinyl, but small in size. The recording quality is excellent. (Category: other)",
+    "classification_text": "Five Stars: Very good discs with beautiful packaging - like original vinyl, but small in size. The recording quality is excellent. (Category: other)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nMy daughter can easily pull them off the corners: My daughter who is 9 months old can pull them off the corners.i really had high hopes for this. (Category: baby_product)",
+    "classification_text": "My daughter can easily pull them off the corners: My daughter who is 9 months old can pull them off the corners.i really had high hopes for this. (Category: baby_product)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nFor the money, i really wish it had more versatility. But for what it is, this is probably the best bang for your buck.: Bottom line is it's probably just not for me but after spending 240 bucks and testing it in every way i can think of it gives me a lot to think about. From my experience it does allow pass through charging (so you can charge it and use it to power something else at the same time) which is great but i only had it powering a small fan and it essentially held the same percentage charge without change while plugged into my wall which is an ideal scenario so i can't imagine it powering anything so well with a solar panel. The I/O is pretty decent and well laid out and the digital read out is pretty nice but the downside is that even tho this whole thing is a matte finish plastic the I/O area is all a really SOFT shiny plastic. most electronics come with a protective film barrier you can peel off and really take in the brand new perfect just out of the box view of your new toy then scratch it up yourself over a long period of time, this came out of the box all scratched up and looking like a beat up floor model at some random store within arms reach of little kids who love to destroy things. And upon inspection it is REALLY easy to add more scratches and gouges just with bare fingers and nails. Looking back i wish i would have gone with my gut and just returned it then. Now i spend more time thinking about what i could use it for than ever actually using it. But if all you need is emergency portable charging for phone's, tablets, laptop, fans, etc then sure it's not bad. Honestly i'm having a hard time finding a use for this thing, for normal every day battery emergencies its too big for convenience so you probably won't have it on you anyway, and i just end up using my small 10,000mah battery packs cuz they're pocket size and can be used anywhere like work in a front pocket, desk or locker. for real battery emergencies like car or motorcycle it doesn't help either, even tho i had this thing with me at the time, there's no way to jump start or charge even my tiny motorcycle battery with this model and i was left stranded. for flashlight emergency, i just use a flashlight. if driving i just use car chargers. if i'm too far from an outlet i can get a longer charging cord or power strips or extension cords. if i need to power anything on a more permanent basis with back up there are better options like for cpap machines, computers, fridges, etc. if it's living out of a van you're after then solar panel the roof and make your own battery array.. if it's big camping we just ended up using the RV's generator for everything, for average camping and really need power get a decent whisper quiet gas generator and maybe use this over night to have some silent power if you chronically forget to charge phones during the day, for light camping or even hiking it would probably be pretty good for an all around power source if you don't mind the extra weight. but even for longer motorcycle rides were i would like to use this in a backpack or saddle bag to keep things 100% the i'd be worried about the I/O arrangement on the front, i imagine i'd be snapping off cables pretty often with all the right angle plugs on the front instead of it all being protected behind a trap door like on some models, and the soft plastic across the front will eventually make all the labels unreadable through the haze of scratches. i had hopes for this thing but i've run into a lot of road blocks, it's decent power for the price but basically for any application i can imagine i'd either go much bigger or much smaller. i guess it's pretty nice for what it is, but for what it is i also never use it. It'll probably end up as a surprise gift to a family member and i'll see what they come up with for it. =) (Category: lawn_and_garden)",
+    "classification_text": "For the money, i really wish it had more versatility. But for what it is, this is probably the best bang for your buck.: Bottom line is it's probably just not for me but after spending 240 bucks and testing it in every way i can think of it gives me a lot to think about. From my experience it does allow pass through charging (so you can charge it and use it to power something else at the same time) which is great but i only had it powering a small fan and it essentially held the same percentage charge without change while plugged into my wall which is an ideal scenario so i can't imagine it powering anything so well with a solar panel. The I/O is pretty decent and well laid out and the digital read out is pretty nice but the downside is that even tho this whole thing is a matte finish plastic the I/O area is all a really SOFT shiny plastic. most electronics come with a protective film barrier you can peel off and really take in the brand new perfect just out of the box view of your new toy then scratch it up yourself over a long period of time, this came out of the box all scratched up and looking like a beat up floor model at some random store within arms reach of little kids who love to destroy things. And upon inspection it is REALLY easy to add more scratches and gouges just with bare fingers and nails. Looking back i wish i would have gone with my gut and just returned it then. Now i spend more time thinking about what i could use it for than ever actually using it. But if all you need is emergency portable charging for phone's, tablets, laptop, fans, etc then sure it's not bad. Honestly i'm having a hard time finding a use for this thing, for normal every day battery emergencies its too big for convenience so you probably won't have it on you anyway, and i just end up using my small 10,000mah battery packs cuz they're pocket size and can be used anywhere like work in a front pocket, desk or locker. for real battery emergencies like car or motorcycle it doesn't help either, even tho i had this thing with me at the time, there's no way to jump start or charge even my tiny motorcycle battery with this model and i was left stranded. for flashlight emergency, i just use a flashlight. if driving i just use car chargers. if i'm too far from an outlet i can get a longer charging cord or power strips or extension cords. if i need to power anything on a more permanent basis with back up there are better options like for cpap machines, computers, fridges, etc. if it's living out of a van you're after then solar panel the roof and make your own battery array.. if it's big camping we just ended up using the RV's generator for everything, for average camping and really need power get a decent whisper quiet gas generator and maybe use this over night to have some silent power if you chronically forget to charge phones during the day, for light camping or even hiking it would probably be pretty good for an all around power source if you don't mind the extra weight. but even for longer motorcycle rides were i would like to use this in a backpack or saddle bag to keep things 100% the i'd be worried about the I/O arrangement on the front, i imagine i'd be snapping off cables pretty often with all the right angle plugs on the front instead of it all being protected behind a trap door like on some models, and the soft plastic across the front will eventually make all the labels unreadable through the haze of scratches. i had hopes for this thing but i've run into a lot of road blocks, it's decent power for the price but basically for any application i can imagine i'd either go much bigger or much smaller. i guess it's pretty nice for what it is, but for what it is i also never use it. It'll probably end up as a surprise gift to a family member and i'll see what they come up with for it. =) (Category: lawn_and_garden)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: No duvet ties.: As an overall product, this is nice. It is soft, has a nice color (we got the tan colored one), and serves its purpose as a cover to the duvet. However, the main annoyance is that it doesn’t have ties to attach to the duvet and keep it in place. I don’t know how durable this will be because the fabric is similar to sewing two sheets together; it’s pretty thin. But for now, I like it and will keep it. (Category: home)",
+    "classification_text": "No duvet ties.: As an overall product, this is nice. It is soft, has a nice color (we got the tan colored one), and serves its purpose as a cover to the duvet. However, the main annoyance is that it doesn’t have ties to attach to the duvet and keep it in place. I don’t know how durable this will be because the fabric is similar to sewing two sheets together; it’s pretty thin. But for now, I like it and will keep it. (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nSturdy cable: I purchased this project and hope to find an elaborate cable. I not only get it, but also order it directly. I believe a company will be willing to support this product. I have already recommended it to a friend and bought her one. I was deeply impressed by accidental protection incidents. This is fine, because I took a lot of cables. (Category: wireless)",
+    "classification_text": "Sturdy cable: I purchased this project and hope to find an elaborate cable. I not only get it, but also order it directly. I believe a company will be willing to support this product. I have already recommended it to a friend and bought her one. I was deeply impressed by accidental protection incidents. This is fine, because I took a lot of cables. (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nI've tried other creams with better results...: Maybe I haven't used it long enough; I think I got it a few months back, but I didn't notice a single change in my scar. Mine isn't even a keloid scar. It's just a small port incision that got infected, so it's slightly raised and darker on one end, while the other end is hardly noticeable. I used a different advanced scar gel with faster results, initially. Maybe this stuff works, but it didn't for me. (Category: beauty)",
+    "classification_text": "I've tried other creams with better results...: Maybe I haven't used it long enough; I think I got it a few months back, but I didn't notice a single change in my scar. Mine isn't even a keloid scar. It's just a small port incision that got infected, so it's slightly raised and darker on one end, while the other end is hardly noticeable. I used a different advanced scar gel with faster results, initially. Maybe this stuff works, but it didn't for me. (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nVery disappointed.: Tried every seed and only three produced springs. Very disappointed. (Category: toy)",
+    "classification_text": "Very disappointed.: Tried every seed and only three produced springs. Very disappointed. (Category: toy)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nRubbing heel: I have been worn the tennis twice, for a basketball game and for a brisk walk. I could not finish my walk because the back of the tennis rubbed against my heel too much. It made my exercise very uncomfortable, this is my first Under Amour tennis and it is not a good start. (Category: shoes)",
+    "classification_text": "Rubbing heel: I have been worn the tennis twice, for a basketball game and for a brisk walk. I could not finish my walk because the back of the tennis rubbed against my heel too much. It made my exercise very uncomfortable, this is my first Under Amour tennis and it is not a good start. (Category: shoes)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nPoor: I really liked the pill boxes and they have helped to keep me on track with taking medicine.I like the fact that I can take only certain days with me and not take all 7 days, the room in the boxes are sufficient for multiple pills. However, this pill organizer is really good functionality wise, with one exception. The labels for the day have already started to wear away. This will eventually make the set unusable unless I label with a Sharpie. . (Category: drugstore)",
+    "classification_text": "Poor: I really liked the pill boxes and they have helped to keep me on track with taking medicine.I like the fact that I can take only certain days with me and not take all 7 days, the room in the boxes are sufficient for multiple pills. However, this pill organizer is really good functionality wise, with one exception. The labels for the day have already started to wear away. This will eventually make the set unusable unless I label with a Sharpie. . (Category: drugstore)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: Not for Male Dogs: Good quality but not for male dogs due to rear strap. Straps that go around rear legs will be much better. (Category: pet_products)",
+    "classification_text": "Not for Male Dogs: Good quality but not for male dogs due to rear strap. Straps that go around rear legs will be much better. (Category: pet_products)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Rate this review objectively on a 1–5 star scale:\nTwo Stars: Way to big! Order two sizes smaller (Category: apparel)",
+    "classification_text": "Two Stars: Way to big! Order two sizes smaller (Category: apparel)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nHelped heal from musculoskeletal imbalances: I loved this formula! This helped me while I was healing from musculoskeletal imbalances and helped with tissue regeneration. I took it for a few months during the healing process (Category: drugstore)",
+    "classification_text": "Helped heal from musculoskeletal imbalances: I loved this formula! This helped me while I was healing from musculoskeletal imbalances and helped with tissue regeneration. I took it for a few months during the healing process (Category: drugstore)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "If you were the customer writing this review, how many stars would you give?\nThree Stars: Smaller than expected. (Category: kitchen)",
+    "classification_text": "Three Stars: Smaller than expected. (Category: kitchen)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Our system needs to know the star rating for this product review. Please provide a rating between 1 and 5:\nGarbage battery.: Thought they were great, but after owning them for 4 months, the left ear is all crackly and the battery lasts an entire 30 minutes on a full charge. Absolute garbage. (Category: wireless)",
+    "classification_text": "Garbage battery.: Thought they were great, but after owning them for 4 months, the left ear is all crackly and the battery lasts an entire 30 minutes on a full charge. Absolute garbage. (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\n... have to assemble yourself and it can come apart easily. Legs on these dolls come a apart: You have to assemble yourself and it can come apart easily. Legs on these dolls come a apart. (Category: toy)",
+    "classification_text": "... have to assemble yourself and it can come apart easily. Legs on these dolls come a apart: You have to assemble yourself and it can come apart easily. Legs on these dolls come a apart. (Category: toy)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\nSuper cute!: Bought this for our puppy and we love it! (Category: pet_products)",
+    "classification_text": "Super cute!: Bought this for our puppy and we love it! (Category: pet_products)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "I have the following customer review. Can you assign it a rating between 1 and 5 stars?\nFind another option!: These are not good pecans! Not quite bad enough to throw away, but have that sort of musty taste and are soft in texture compared to other brands. Checked the date: they are supposed to be good through Spring of 2019. Had been buying the Planters brand, which only seem to come in smaller containers, and decided to give these a try . . . won't make that mistake again. (Category: grocery)",
+    "classification_text": "Find another option!: These are not good pecans! Not quite bad enough to throw away, but have that sort of musty taste and are soft in texture compared to other brands. Checked the date: they are supposed to be good through Spring of 2019. Had been buying the Planters brand, which only seem to come in smaller containers, and decided to give these a try . . . won't make that mistake again. (Category: grocery)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Classify this review into one of the following categories: 1-star, 2-star, 3-star, 4-star, 5-star.\nNot quite what I expected: I liked the fit and feel. I really think it has a very sharp look. However, it had already broken through the material in the palm after just three matches. (Category: sports)",
+    "classification_text": "Not quite what I expected: I liked the fit and feel. I really think it has a very sharp look. However, it had already broken through the material in the palm after just three matches. (Category: sports)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Determine the likely star rating given by the reviewer of the following text:\nCute but delicate: It bends easy...not the most sturdiest bangle. It IS hollow. Although, It is a cute bangle and you can stack it up or just wear it alone. Very light does not weigh down your wrist at all. (Category: jewelry)",
+    "classification_text": "Cute but delicate: It bends easy...not the most sturdiest bangle. It IS hollow. Although, It is a cute bangle and you can stack it up or just wear it alone. Very light does not weigh down your wrist at all. (Category: jewelry)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "On a scale of 1 to 5 stars, with 1 being terrible and 5 being excellent, what rating fits this review?\nCan't wait for more: Could not put it down and stayed up all night to finish. Sexy Pirate Reverse Harem goodness. Skipped around a bit in the beginning but I like the story over all. (Category: digital_ebook_purchase)",
+    "classification_text": "Can't wait for more: Could not put it down and stayed up all night to finish. Sexy Pirate Reverse Harem goodness. Skipped around a bit in the beginning but I like the story over all. (Category: digital_ebook_purchase)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Summarize this review into a star rating from 1 (worst) to 5 (best):\nGood product for price: Great product and as described. (Category: home)",
+    "classification_text": "Good product for price: Great product and as described. (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: No tingle!: Regular tingle lotion user. Absolutely no tingle. Disappointed in this lotion. (Category: beauty)",
+    "classification_text": "No tingle!: Regular tingle lotion user. Absolutely no tingle. Disappointed in this lotion. (Category: beauty)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Imagine this is an Amazon review. What is the most likely star rating out of 5?\nInteresting read: Good book.. interesting read. (Category: book)",
+    "classification_text": "Interesting read: Good book.. interesting read. (Category: book)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Q: How many stars would you assign to this review?\nA:\nReview: Not great: Charger port hole and led light hole are not cut in the correct spot (Category: wireless)",
+    "classification_text": "Not great: Charger port hole and led light hole are not cut in the correct spot (Category: wireless)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Think of typical Amazon star ratings. Which one (1–5) would this review most likely receive?\nLove this lantern: This is Meg not her husband. Love this lantern; it is just what I wanted. Will fill the glass container with sea shells. (Category: home)",
+    "classification_text": "Love this lantern: This is Meg not her husband. Love this lantern; it is just what I wanted. Will fill the glass container with sea shells. (Category: home)",
+    "language": "en",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  }
+]

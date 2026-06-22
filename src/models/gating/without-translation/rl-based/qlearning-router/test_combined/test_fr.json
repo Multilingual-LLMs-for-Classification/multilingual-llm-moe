@@ -1,0 +1,1362 @@
+[
+  {
+    "prompt": "Pensez aux notes typiques sur Amazon. Laquelle (1–5) cet avis recevrait-il le plus probablement ?\nPour la photo: Très beau rendu lors des mariages, les couples adorent les effets. Malheureusement il n'existe aucun étui souple ou une housse pour le transport, il détériore les poches de pantalon et fini par tomber et se casser. Le fabricant aurait une idée pour remplacer la boite inutile et volumineuse contre une housse pratique que l'on pourrait accrocher à la ceinture ou la sangle lors des mariages ? (Category: office_product)",
+    "classification_text": "Pour la photo: Très beau rendu lors des mariages, les couples adorent les effets. Malheureusement il n'existe aucun étui souple ou une housse pour le transport, il détériore les poches de pantalon et fini par tomber et se casser. Le fabricant aurait une idée pour remplacer la boite inutile et volumineuse contre une housse pratique que l'on pourrait accrocher à la ceinture ou la sangle lors des mariages ? (Category: office_product)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Si vous étiez le client ayant écrit cet avis, combien d’étoiles donneriez-vous ?\nJoli design: Écouter de la musique (Category: electronics)",
+    "classification_text": "Joli design: Écouter de la musique (Category: electronics)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Produit peinture acrylique: Reçu dans les temps, à voir la l’utilisation là qualité du rendu ! (Category: home)",
+    "classification_text": "Produit peinture acrylique: Reçu dans les temps, à voir la l’utilisation là qualité du rendu ! (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nLe look: Très sympa a porter avec autre gourmette (Category: jewelry)",
+    "classification_text": "Le look: Très sympa a porter avec autre gourmette (Category: jewelry)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Lisez cet avis et décidez combien d’étoiles sur cinq il mérite :\nEnvoi rapide (Prime) et conforme à la description: Tout est dans le titre ... 24h00 en prime !! Produit conforme à la photo , marque Terraillon , bref c est parfait (Category: home)",
+    "classification_text": "Envoi rapide (Prime) et conforme à la description: Tout est dans le titre ... 24h00 en prime !! Produit conforme à la photo , marque Terraillon , bref c est parfait (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nProduit pour dépanner: Bon produit pour dépanner. Malheureusement la base de la brosse se détache si trop de noeuds dans les cheveux. (Category: beauty)",
+    "classification_text": "Produit pour dépanner: Bon produit pour dépanner. Malheureusement la base de la brosse se détache si trop de noeuds dans les cheveux. (Category: beauty)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nSysteme de fixation idéal , bonne finition: Livraison rapide, conforme à la description, il manque une documentation pour obtenir les 5 étoiles. mon épouse est très contente. Bonne Qualitè (Category: watch)",
+    "classification_text": "Systeme de fixation idéal , bonne finition: Livraison rapide, conforme à la description, il manque une documentation pour obtenir les 5 étoiles. mon épouse est très contente. Bonne Qualitè (Category: watch)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\npas mal: Ma 2 ans est ravie, tiroir du bas un peu difficile à ouvrir tout de même mais globalement je recommande! (Category: toy)",
+    "classification_text": "pas mal: Ma 2 ans est ravie, tiroir du bas un peu difficile à ouvrir tout de même mais globalement je recommande! (Category: toy)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\nNotice: Est il possible d'avoir la notice en français ? Celle qui est livrée avec l'appareil est en portugais et je ne parle pas cette langue. (Category: wireless)",
+    "classification_text": "Notice: Est il possible d'avoir la notice en français ? Celle qui est livrée avec l'appareil est en portugais et je ne parle pas cette langue. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\nla perméabilité: variation dimensionnelle trop importante 4.9 ml a la réception 5.3 ml maintenant ?????? bâche vendue comme étant perméable lorsqu'elle est complétement imperméable et donc stock l'eau . pour l'ombrage ras (Category: lawn_and_garden)",
+    "classification_text": "la perméabilité: variation dimensionnelle trop importante 4.9 ml a la réception 5.3 ml maintenant ?????? bâche vendue comme étant perméable lorsqu'elle est complétement imperméable et donc stock l'eau . pour l'ombrage ras (Category: lawn_and_garden)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\nManque vis de fixation: Le produit correspond bien à la description mais sur les quatre vis de fixation une est manquante (Category: automotive)",
+    "classification_text": "Manque vis de fixation: Le produit correspond bien à la description mais sur les quatre vis de fixation une est manquante (Category: automotive)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nPas pratique: Je n'ai pas trouvé ce rouleau agréable, de plus il n'est pas flexible, c'est pas cher , c'est tout ! (Category: sports)",
+    "classification_text": "Pas pratique: Je n'ai pas trouvé ce rouleau agréable, de plus il n'est pas flexible, c'est pas cher , c'est tout ! (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nbon produit mais un petit bruit de fond entre 2 morceaux de musique: bon produit mais un petit bruit de fond quand le son ce coupe, entre 2 morceaux de musique c'est dommage !! (Category: wireless)",
+    "classification_text": "bon produit mais un petit bruit de fond entre 2 morceaux de musique: bon produit mais un petit bruit de fond quand le son ce coupe, entre 2 morceaux de musique c'est dommage !! (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nMoyen: Nappe qui conserve encore ses pliures de transport même plusieurs semaines après, aspect peu fluide donc avec des plis apparents. Dommage (Category: home)",
+    "classification_text": "Moyen: Nappe qui conserve encore ses pliures de transport même plusieurs semaines après, aspect peu fluide donc avec des plis apparents. Dommage (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Sur une échelle de 1 à 5 étoiles, 1 étant très mauvais et 5 excellent, quelle note correspond à cet avis ?\nBien mais petit: Il est conforme à la description mais trop petit à mon gout. Dommage qu'il y est pas plusieurs taille (Category: home)",
+    "classification_text": "Bien mais petit: Il est conforme à la description mais trop petit à mon gout. Dommage qu'il y est pas plusieurs taille (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\nmauvais fonctionnement: url web pour installation ne fonctionne pas aucune solution pour se dépanner attention si vous prenez un abonnement ips sépare même punition j'ai renvoyé l appareil (Category: other)",
+    "classification_text": "mauvais fonctionnement: url web pour installation ne fonctionne pas aucune solution pour se dépanner attention si vous prenez un abonnement ips sépare même punition j'ai renvoyé l appareil (Category: other)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\nNe fonctionne pas sinon pour donner l'heure....: Montre offerte à mon mari, ce jour il est revenu de montagne dans l'arrière pays niçois et sur le parking pour récupérer son véhicule, situé à 1600 mètres d'altitude, la montre, elle, annonçait : 8000 mètres.... je suis dépitée (Category: watch)",
+    "classification_text": "Ne fonctionne pas sinon pour donner l'heure....: Montre offerte à mon mari, ce jour il est revenu de montagne dans l'arrière pays niçois et sur le parking pour récupérer son véhicule, situé à 1600 mètres d'altitude, la montre, elle, annonçait : 8000 mètres.... je suis dépitée (Category: watch)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Lisez cet avis et décidez combien d’étoiles sur cinq il mérite :\nProduit endommagé: Les produits ont fui car les bouchons se sont cassés lors du transport. L'emballage de protection n'était pas assez résistant. (Category: personal_care_appliances)",
+    "classification_text": "Produit endommagé: Les produits ont fui car les bouchons se sont cassés lors du transport. L'emballage de protection n'était pas assez résistant. (Category: personal_care_appliances)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nA marché une semaine: Puis a commencé à avoir des faux contacts allant même jusqu'à reset la Wii de manière intempestive. (La Wii va mieux depuis qu'on a débranché la manette). Par contre, la manette elle ne remarche pas ... (même sur la gamecube à côté). Très déçu (Category: wireless)",
+    "classification_text": "A marché une semaine: Puis a commencé à avoir des faux contacts allant même jusqu'à reset la Wii de manière intempestive. (La Wii va mieux depuis qu'on a débranché la manette). Par contre, la manette elle ne remarche pas ... (même sur la gamecube à côté). Très déçu (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nPiège à fouine: je suis un peu déçue car le piège était cabossé à un endroit, mon mari l'a redressé, une des portes ne fermait pas jusqu'en bas, mon mari y a remédié et il fonctionne correctement, maintenant il ne reste plus qu'à attraper la fouine pour la relâcher dans un endroit loin de la maison (Category: furniture)",
+    "classification_text": "Piège à fouine: je suis un peu déçue car le piège était cabossé à un endroit, mon mari l'a redressé, une des portes ne fermait pas jusqu'en bas, mon mari y a remédié et il fonctionne correctement, maintenant il ne reste plus qu'à attraper la fouine pour la relâcher dans un endroit loin de la maison (Category: furniture)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Si vous étiez le client ayant écrit cet avis, combien d’étoiles donneriez-vous ?\nDéçu: Déçu sa ne ressemble absolument pas à la photo.. joli quand même mais déçu.. (Category: kitchen)",
+    "classification_text": "Déçu: Déçu sa ne ressemble absolument pas à la photo.. joli quand même mais déçu.. (Category: kitchen)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nAspirateur vapeur peu mobile: Je suis déçu de cet article. Je l’utilise pour un cabinet libéral : je dois nettoyer tous les jours mes sols. Le traîneau n’est pas pratique, difficile à tirer, la poignet est cassée . Un fil qui est court pour pouvoir aller dans mes box. (Category: home)",
+    "classification_text": "Aspirateur vapeur peu mobile: Je suis déçu de cet article. Je l’utilise pour un cabinet libéral : je dois nettoyer tous les jours mes sols. Le traîneau n’est pas pratique, difficile à tirer, la poignet est cassée . Un fil qui est court pour pouvoir aller dans mes box. (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\npas terrible: moule mal soudé dans un angle, lorsque je beurre le moule et le met au four avec une préparation, le beurre ayant fondu coule par l'angle mal soudé. Je ne recommande pas ce produit, pas satisfaite de mon achat. (Category: home)",
+    "classification_text": "pas terrible: moule mal soudé dans un angle, lorsque je beurre le moule et le met au four avec une préparation, le beurre ayant fondu coule par l'angle mal soudé. Je ne recommande pas ce produit, pas satisfaite de mon achat. (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Pensez aux notes typiques sur Amazon. Laquelle (1–5) cet avis recevrait-il le plus probablement ?\nEfficace et économique: J'ai acheté ce produit pour la cheminée, déjà, les pelotes restent entières grâce à la cire qui est vraiment présente par rapport à d'autres produits, 1 à 2 pelotes suffisent largement à allumer le feu, livraison rapide, un très bon produit rapport qualité prix top, d'ailleurs, j'en ai acheté un second sac direct, très bien (Category: lawn_and_garden)",
+    "classification_text": "Efficace et économique: J'ai acheté ce produit pour la cheminée, déjà, les pelotes restent entières grâce à la cire qui est vraiment présente par rapport à d'autres produits, 1 à 2 pelotes suffisent largement à allumer le feu, livraison rapide, un très bon produit rapport qualité prix top, d'ailleurs, j'en ai acheté un second sac direct, très bien (Category: lawn_and_garden)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nTaille du verre mal adaptée: Protection très simples à installer, paraît sûre. Cependant, pour mon téléphone Honor 8x, le verre est trop étroit sur les côtés et donc ne couvre pas totalement l'écran tactile. Problème compensé par la protection que le verre offre, à mon avis (Category: wireless)",
+    "classification_text": "Taille du verre mal adaptée: Protection très simples à installer, paraît sûre. Cependant, pour mon téléphone Honor 8x, le verre est trop étroit sur les côtés et donc ne couvre pas totalement l'écran tactile. Problème compensé par la protection que le verre offre, à mon avis (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\ntoujours dans l'attente d'une livraison après 1 mois de commande: A date, je n'ai jamais reçu la commande et je n'arrive pas à l'annuler. Mauvaise expérience chez Amazon, je ne ferai plus d'achat sur ce site (Category: book)",
+    "classification_text": "toujours dans l'attente d'une livraison après 1 mois de commande: A date, je n'ai jamais reçu la commande et je n'arrive pas à l'annuler. Mauvaise expérience chez Amazon, je ne ferai plus d'achat sur ce site (Category: book)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nBoite minuscule...: La pâte est bien magnétique mais attention, la boîte est ridiculement petite (5cm de diamètre environ). J'aurais aimé le savoir avant achat... (Category: toy)",
+    "classification_text": "Boite minuscule...: La pâte est bien magnétique mais attention, la boîte est ridiculement petite (5cm de diamètre environ). J'aurais aimé le savoir avant achat... (Category: toy)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\npare soleil: J'ai acheté ce produit 2 fois a quelques semaines d'intervalle et les produits reçu étaient très différent!! un lot va bien a mes fenêtres voir est même un peu grand le tissus n'est pas tendu et est très opaque et l'autre lot beaucoup moins opaque on dirait du collant et trop petit le tissus est très tendu mais ne va pas jusqu'en bas de la fenêtre et vu qu'il est très fin il s'est déchiré en 3 minutes d'utilisation. Essai fait sur le même véhicule bien entendu!! donc tout dépend du lot sur lequel vous tombez! (Category: home_improvement)",
+    "classification_text": "pare soleil: J'ai acheté ce produit 2 fois a quelques semaines d'intervalle et les produits reçu étaient très différent!! un lot va bien a mes fenêtres voir est même un peu grand le tissus n'est pas tendu et est très opaque et l'autre lot beaucoup moins opaque on dirait du collant et trop petit le tissus est très tendu mais ne va pas jusqu'en bas de la fenêtre et vu qu'il est très fin il s'est déchiré en 3 minutes d'utilisation. Essai fait sur le même véhicule bien entendu!! donc tout dépend du lot sur lequel vous tombez! (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Sur une échelle de 1 à 5 étoiles, 1 étant très mauvais et 5 excellent, quelle note correspond à cet avis ?\nCouleur gris : Effet transparent: Instalation impeccable ! 2 rubans adhésifs un à dent l'autre à poils. De couleur gris mais ne se voit PAS du tout !!! Ça fait transparent c'est vraiment top à ce niveau! Le cuter pour ajuster la moustiquaire est pratique plus facile d'utilisation pour un droitier que pour une gauchere comme moi mais je m'en suis très bien sortie tout de même. À voir si ça tiens dans le temps et au pire si l'année prochaine il faut remettre du ruban adhésif c'est pas grave ;) produit vraiment top ! (Category: home_improvement)",
+    "classification_text": "Couleur gris : Effet transparent: Instalation impeccable ! 2 rubans adhésifs un à dent l'autre à poils. De couleur gris mais ne se voit PAS du tout !!! Ça fait transparent c'est vraiment top à ce niveau! Le cuter pour ajuster la moustiquaire est pratique plus facile d'utilisation pour un droitier que pour une gauchere comme moi mais je m'en suis très bien sortie tout de même. À voir si ça tiens dans le temps et au pire si l'année prochaine il faut remettre du ruban adhésif c'est pas grave ;) produit vraiment top ! (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nma coque: j'ai acheté cette coque pour protéger mon i pad elle est très jolie très colorée j'aime beaucoup (Category: wireless)",
+    "classification_text": "ma coque: j'ai acheté cette coque pour protéger mon i pad elle est très jolie très colorée j'aime beaucoup (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Jadore: 2eme fois que j'achète ce type de pare soleil. Toujours aussi satisfaite ! La pose est simple et l'efficacité est top! Je ne supporte pas la clim et peut rouler sans souci fenêtres ouvertes sans craindre le soleil, le vent (ca coupe le vent de facon significative), ni l'entrée d'insectes/moustiques dans la voiture. Je conseille a tous les parents (Category: baby_product)",
+    "classification_text": "Jadore: 2eme fois que j'achète ce type de pare soleil. Toujours aussi satisfaite ! La pose est simple et l'efficacité est top! Je ne supporte pas la clim et peut rouler sans souci fenêtres ouvertes sans craindre le soleil, le vent (ca coupe le vent de facon significative), ni l'entrée d'insectes/moustiques dans la voiture. Je conseille a tous les parents (Category: baby_product)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nTemoin Lumineux pas adapté: Utilisé pour la recharge de smartphone Ce qui me dérange c'est que le voyant vert reste constamment allumé lorsque le cordon reste branché sur la prise USB (même si le smartphone n' est pas branché sur le cordon) Aussi l'intensité lumineuse du voyant est trop fort (Category: electronics)",
+    "classification_text": "Temoin Lumineux pas adapté: Utilisé pour la recharge de smartphone Ce qui me dérange c'est que le voyant vert reste constamment allumé lorsque le cordon reste branché sur la prise USB (même si le smartphone n' est pas branché sur le cordon) Aussi l'intensité lumineuse du voyant est trop fort (Category: electronics)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Pensez aux notes typiques sur Amazon. Laquelle (1–5) cet avis recevrait-il le plus probablement ?\nRenvoyé car surchauffe.: CHAUFFE BIEN ET EFFICACE. Par-contre ai retourné l'appareil car il y avait surchauffe et les fils ont fondu. (Category: home_improvement)",
+    "classification_text": "Renvoyé car surchauffe.: CHAUFFE BIEN ET EFFICACE. Par-contre ai retourné l'appareil car il y avait surchauffe et les fils ont fondu. (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Roman: Difficultés de style (Category: book)",
+    "classification_text": "Roman: Difficultés de style (Category: book)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Si vous étiez le client ayant écrit cet avis, combien d’étoiles donneriez-vous ?\njamais reçu la commande: jamais reçu la commande ..... (Category: beauty)",
+    "classification_text": "jamais reçu la commande: jamais reçu la commande ..... (Category: beauty)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Chargeur...: Très satisfaite 😊 ... Charge rapide ... Je le recommande 😊 ... (Category: wireless)",
+    "classification_text": "Chargeur...: Très satisfaite 😊 ... Charge rapide ... Je le recommande 😊 ... (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nInvestissez dans une alim 24v 3A, car en 19v c’est pas le top.: Bonjour, Je m’en sers de fer portable. Je suis en train de concevoir un boîtier pour le transporter avec l’alim, les pannes (7) et le tampon de nettoyage. (Category: industrial_supplies)",
+    "classification_text": "Investissez dans une alim 24v 3A, car en 19v c’est pas le top.: Bonjour, Je m’en sers de fer portable. Je suis en train de concevoir un boîtier pour le transporter avec l’alim, les pannes (7) et le tampon de nettoyage. (Category: industrial_supplies)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Notre système doit connaître la note en étoiles de cet avis produit. Donnez une note entre 1 et 5 :\ncoque: Coque épaisse et elle à l'air solide . A voir dans le temps . Elle prend bien le contour et les angles de l'iphone. Je la recommande . (Category: wireless)",
+    "classification_text": "coque: Coque épaisse et elle à l'air solide . A voir dans le temps . Elle prend bien le contour et les angles de l'iphone. Je la recommande . (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\nGarantie 2 ans, durée de vie environ 2 ans également.: Brosse très efficace et bonne autonomie. Brossettes assez difficiles à trouver ailleurs que sur Amazon. Gros problème de fiabilité de ces petits appareils. La mienne a duré un peu plus de deux ans, la garantie est également de deux ans. Probablement pas réparable (cf autres commentaires, demande de caution pour devis etc) Point à considérer étant donné le prix assez élevé de l’appareil. (Category: personal_care_appliances)",
+    "classification_text": "Garantie 2 ans, durée de vie environ 2 ans également.: Brosse très efficace et bonne autonomie. Brossettes assez difficiles à trouver ailleurs que sur Amazon. Gros problème de fiabilité de ces petits appareils. La mienne a duré un peu plus de deux ans, la garantie est également de deux ans. Probablement pas réparable (cf autres commentaires, demande de caution pour devis etc) Point à considérer étant donné le prix assez élevé de l’appareil. (Category: personal_care_appliances)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Grande et lourde: Grande poche de gel idéale pour toutes les douleurs, en la faisant chauffer au micro-ondes (pour ma part) mais aussi en la mettant au congélateur un cours instant. (Category: drugstore)",
+    "classification_text": "Grande et lourde: Grande poche de gel idéale pour toutes les douleurs, en la faisant chauffer au micro-ondes (pour ma part) mais aussi en la mettant au congélateur un cours instant. (Category: drugstore)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nTrès beau bibi noir: Super beau bibi en feutre à porter lors de cérémonies et autres événements chics. Dommage la voilette est mal placée (Category: apparel)",
+    "classification_text": "Très beau bibi noir: Super beau bibi en feutre à porter lors de cérémonies et autres événements chics. Dommage la voilette est mal placée (Category: apparel)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Lisez cet avis et décidez combien d’étoiles sur cinq il mérite :\nTurmeric: Un très bon produit ,3 jours après avoir commencé le traitement,un bien être s est fait sentir. Je le recommande. (Category: drugstore)",
+    "classification_text": "Turmeric: Un très bon produit ,3 jours après avoir commencé le traitement,un bien être s est fait sentir. Je le recommande. (Category: drugstore)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\nQualité de l'écran: Les couleurs de l'écrans sont fades et pas aussi belle qu'avec l'écran d'origine, déçu par apport à ça mais par contre 1080p 60 fps présent (Category: electronics)",
+    "classification_text": "Qualité de l'écran: Les couleurs de l'écrans sont fades et pas aussi belle qu'avec l'écran d'origine, déçu par apport à ça mais par contre 1080p 60 fps présent (Category: electronics)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nproduit conforme: Semblable au produit annoncé. base un peu large pour mettre sur un port étroit ( plusieurs port l'un à côté de l'autre) (Category: wireless)",
+    "classification_text": "produit conforme: Semblable au produit annoncé. base un peu large pour mettre sur un port étroit ( plusieurs port l'un à côté de l'autre) (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Sur une échelle de 1 à 5 étoiles, 1 étant très mauvais et 5 excellent, quelle note correspond à cet avis ?\nprobleme de taille: pas du tout correspondant à la taille commandé ....il était pour moi, il est maintenant a mon fils de 8 ans, attention à la taille (Category: sports)",
+    "classification_text": "probleme de taille: pas du tout correspondant à la taille commandé ....il était pour moi, il est maintenant a mon fils de 8 ans, attention à la taille (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nVerre trempé: Pour protéger mon téléphone (Category: wireless)",
+    "classification_text": "Verre trempé: Pour protéger mon téléphone (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nProbleme avec la télécommande: Bonjour, j'ai commandé récemment un spot pour ma piscine. Lors de l'installation nous nous sommes rendus compte que la télécommande ne fonctionne pas et que par conséquent les différents programmes annoncés ne sont pas respectés. L'éclairage est bleu ou vert clignotant. Nous n'avons pas la possibilité de choisir les programmes. Dans l'attente de votre réponse. Cordialement, (Category: lawn_and_garden)",
+    "classification_text": "Probleme avec la télécommande: Bonjour, j'ai commandé récemment un spot pour ma piscine. Lors de l'installation nous nous sommes rendus compte que la télécommande ne fonctionne pas et que par conséquent les différents programmes annoncés ne sont pas respectés. L'éclairage est bleu ou vert clignotant. Nous n'avons pas la possibilité de choisir les programmes. Dans l'attente de votre réponse. Cordialement, (Category: lawn_and_garden)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\nPas terribles: Pas bon du tout je regrette d'avoir pris ceci donc je déconseille d'en prendre car les goût sont pas là (Category: electronics)",
+    "classification_text": "Pas terribles: Pas bon du tout je regrette d'avoir pris ceci donc je déconseille d'en prendre car les goût sont pas là (Category: electronics)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Pensez aux notes typiques sur Amazon. Laquelle (1–5) cet avis recevrait-il le plus probablement ?\nParfait pour des fonds réussis: J adore elle est grande on peux réaliser une multitude de fond avec peinture encre etc (Category: home)",
+    "classification_text": "Parfait pour des fonds réussis: J adore elle est grande on peux réaliser une multitude de fond avec peinture encre etc (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Lisez cet avis et décidez combien d’étoiles sur cinq il mérite :\nmignon mais un peu ras du poil: un peu tassé, cette descente de lit a mis 3 à 4 jours a devenir plus haute, elle est mignonne un peu petite mais pour le prix je trouve cet achat cohérent, en résumé je conseille (Category: furniture)",
+    "classification_text": "mignon mais un peu ras du poil: un peu tassé, cette descente de lit a mis 3 à 4 jours a devenir plus haute, elle est mignonne un peu petite mais pour le prix je trouve cet achat cohérent, en résumé je conseille (Category: furniture)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nUn peu juste sur les cotés !!: Un peu court de moins d'1 mm sur les cotés de l'écran et un tactile qui devient legerement plus dur .... sinon c'est un bon rapport qualité /prix (Category: wireless)",
+    "classification_text": "Un peu juste sur les cotés !!: Un peu court de moins d'1 mm sur les cotés de l'écran et un tactile qui devient legerement plus dur .... sinon c'est un bon rapport qualité /prix (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nQuelques peu déçu: L’iPhone n’est pas trop mal, bien qu’un peu plus lent que le SE je trouve (normal ou pas?). En revanche pour ce qui est de la livraison, c’est catastrophique, « colis remis en main propre », archi faux... Carton tout cabossé, ainsi que la boîte Apple. Une chance que le téléphone n’est rien. (Category: wireless)",
+    "classification_text": "Quelques peu déçu: L’iPhone n’est pas trop mal, bien qu’un peu plus lent que le SE je trouve (normal ou pas?). En revanche pour ce qui est de la livraison, c’est catastrophique, « colis remis en main propre », archi faux... Carton tout cabossé, ainsi que la boîte Apple. Une chance que le téléphone n’est rien. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\nJ'adore: Je recommande ce produit très pratique On peut l'ajuster comme on le désire (Category: furniture)",
+    "classification_text": "J'adore: Je recommande ce produit très pratique On peut l'ajuster comme on le désire (Category: furniture)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "D’après l’avis ci-dessous, quelle note sur 5 étoiles faut-il attribuer ?\nAvis : Bonne conception mais odeur marquée: Sac très bien conçu et pratique pour un usage 'piscine'. Par contre l'odeur forte de produit chimique au déballage a nécessité de longues séances d'aération en extérieur avant d'oser y mettre des vêtements. (Category: sports)",
+    "classification_text": "Bonne conception mais odeur marquée: Sac très bien conçu et pratique pour un usage 'piscine'. Par contre l'odeur forte de produit chimique au déballage a nécessité de longues séances d'aération en extérieur avant d'oser y mettre des vêtements. (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\nGalère: Reçu aujourd’hui une vrai galère à mettre... déçu de mon achat !!! (Category: beauty)",
+    "classification_text": "Galère: Reçu aujourd’hui une vrai galère à mettre... déçu de mon achat !!! (Category: beauty)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Si vous étiez le client ayant écrit cet avis, combien d’étoiles donneriez-vous ?\nSuper: Très bon rapport qualité/prix et solide (Category: wireless)",
+    "classification_text": "Super: Très bon rapport qualité/prix et solide (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Facile à poser mais difficile d'utiliser l'écran tactile: Livré rapidement bien emballé facile à poser pas de bulles par contre pour l'écran tactile ne répond pas bien il faut appuyer très fort ou plusieurs fois à certains endroits c'est dommage (Category: wireless)",
+    "classification_text": "Facile à poser mais difficile d'utiliser l'écran tactile: Livré rapidement bien emballé facile à poser pas de bulles par contre pour l'écran tactile ne répond pas bien il faut appuyer très fort ou plusieurs fois à certains endroits c'est dommage (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nPlus petit que prévu: Sur la photo on vois une indication de circonférence de 9 pouces. C'est le diamètre à la base, le gland fait en fait 6.5 pouces. Donc la taille indiquée est trompeuse. Sinon produit de bonne qualité (Category: drugstore)",
+    "classification_text": "Plus petit que prévu: Sur la photo on vois une indication de circonférence de 9 pouces. C'est le diamètre à la base, le gland fait en fait 6.5 pouces. Donc la taille indiquée est trompeuse. Sinon produit de bonne qualité (Category: drugstore)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nTrès bon produit.: Très bien, même si un peu lourd. (Category: sports)",
+    "classification_text": "Très bon produit.: Très bien, même si un peu lourd. (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Sur une échelle de 1 à 5 étoiles, 1 étant très mauvais et 5 excellent, quelle note correspond à cet avis ?\nLes roues bloquent.: Je l'ai utilisé pour une séance de microneedling. Les roues bloquent et griffent la peau. Cela m'a fait des traces. Je suis déçue. (Category: beauty)",
+    "classification_text": "Les roues bloquent.: Je l'ai utilisé pour une séance de microneedling. Les roues bloquent et griffent la peau. Cela m'a fait des traces. Je suis déçue. (Category: beauty)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Si vous étiez le client ayant écrit cet avis, combien d’étoiles donneriez-vous ?\nBon achat: Pas mal mais l'élastique qui les tient sur le pouce a tendance à se relâcher. (Category: sports)",
+    "classification_text": "Bon achat: Pas mal mais l'élastique qui les tient sur le pouce a tendance à se relâcher. (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\ndans les poupees lavables: dommage qu elle soit dans les poupées lavable et que ce ne soit pas le cas le corps est n est pas lavable (Category: toy)",
+    "classification_text": "dans les poupees lavables: dommage qu elle soit dans les poupées lavable et que ce ne soit pas le cas le corps est n est pas lavable (Category: toy)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nMauvaise qualité.: Au bout de deux mois d’itilisation à peine, hors service. La lampe se met à clignoter et s’arrete Définitivement !!! (Category: home_improvement)",
+    "classification_text": "Mauvaise qualité.: Au bout de deux mois d’itilisation à peine, hors service. La lampe se met à clignoter et s’arrete Définitivement !!! (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nDéçu malgré la robustesse: Mousquetons de très petites tailles , pouvant être utilisé pour des usages limités , je ne comprend d’ailleurs pas pourquoi il porte le nom « pompier » car ils ne seront clairement pas utile à cette profession ! De plus les mousquetons présentent des défauts comme une fermeture automatique non fonctionnelle , ce qui n’est pas acceptable pour ce produit ( voir photo ) (Category: home_improvement)",
+    "classification_text": "Déçu malgré la robustesse: Mousquetons de très petites tailles , pouvant être utilisé pour des usages limités , je ne comprend d’ailleurs pas pourquoi il porte le nom « pompier » car ils ne seront clairement pas utile à cette profession ! De plus les mousquetons présentent des défauts comme une fermeture automatique non fonctionnelle , ce qui n’est pas acceptable pour ce produit ( voir photo ) (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Usure trop rapide: Utilisé une seule fois pour nettoyer une chaîne de moto, une partie des poils est déjà bien à plat. Je pense qu'après 3 utilisations il ne frottera plus rien. Sinon le premier nettoyage a été efficace avec un bon produit nettoyant pour chaîne. (Category: wireless)",
+    "classification_text": "Usure trop rapide: Utilisé une seule fois pour nettoyer une chaîne de moto, une partie des poils est déjà bien à plat. Je pense qu'après 3 utilisations il ne frottera plus rien. Sinon le premier nettoyage a été efficace avec un bon produit nettoyant pour chaîne. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Notre système doit connaître la note en étoiles de cet avis produit. Donnez une note entre 1 et 5 :\nPrise anglaise: Prendre un adaptateur pour les prises françaises (Category: other)",
+    "classification_text": "Prise anglaise: Prendre un adaptateur pour les prises françaises (Category: other)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nNe surtout pas acheter: Aucun intérêt, plastique de très mauvaise qualité. A chaque passage de rouleau le support se déboîte, on est loin tres loin de l’original. A fuir... (Category: home_improvement)",
+    "classification_text": "Ne surtout pas acheter: Aucun intérêt, plastique de très mauvaise qualité. A chaque passage de rouleau le support se déboîte, on est loin tres loin de l’original. A fuir... (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nExcellente montre: Montre connectée facile à utiliser avec des fonctionnalités intéressantes. Joli choix de cadrans, analyse pertinente du sommeil, etc. (Category: wireless)",
+    "classification_text": "Excellente montre: Montre connectée facile à utiliser avec des fonctionnalités intéressantes. Joli choix de cadrans, analyse pertinente du sommeil, etc. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "D’après l’avis ci-dessous, quelle note sur 5 étoiles faut-il attribuer ?\nAvis : Discrètes et efficaces: Utilisées dans l escalier et dans la baignoire parfaites font leur job et en plus elles sont discrètes et ne se décolent pas (Category: furniture)",
+    "classification_text": "Discrètes et efficaces: Utilisées dans l escalier et dans la baignoire parfaites font leur job et en plus elles sont discrètes et ne se décolent pas (Category: furniture)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nJe ne comprend pas trop: Je voi bien la marque biolane écrit sur les baquets de lingette mais je ne reconnais pas l'odeur de la marque que g l'habitude d'acheter en magasin 🤔 (Category: drugstore)",
+    "classification_text": "Je ne comprend pas trop: Je voi bien la marque biolane écrit sur les baquets de lingette mais je ne reconnais pas l'odeur de la marque que g l'habitude d'acheter en magasin 🤔 (Category: drugstore)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Notre système doit connaître la note en étoiles de cet avis produit. Donnez une note entre 1 et 5 :\nProblème de clavier !: Bonjour, problème clavier est les lettres mélange !!! (Category: wireless)",
+    "classification_text": "Problème de clavier !: Bonjour, problème clavier est les lettres mélange !!! (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nMauvaise qualité: Filet livré avec mailles déchirées - Très faible résistance contrairement au commentaire, tout juste bon pour éviter des feuilles de s'envoler dans la remorque - utilisation pour bois exclue !! Achat fortement regretté . (Category: automotive)",
+    "classification_text": "Mauvaise qualité: Filet livré avec mailles déchirées - Très faible résistance contrairement au commentaire, tout juste bon pour éviter des feuilles de s'envoler dans la remorque - utilisation pour bois exclue !! Achat fortement regretté . (Category: automotive)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nUn peu fragile: fait son job ,mais un peu fragile niveau des connecteurs (Category: automotive)",
+    "classification_text": "Un peu fragile: fait son job ,mais un peu fragile niveau des connecteurs (Category: automotive)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nQualité médiocre !: Fuit de partout au niveau de la tête, plastique bas de gamme. Prendre la version haut de gamme. (Category: lawn_and_garden)",
+    "classification_text": "Qualité médiocre !: Fuit de partout au niveau de la tête, plastique bas de gamme. Prendre la version haut de gamme. (Category: lawn_and_garden)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "D’après l’avis ci-dessous, quelle note sur 5 étoiles faut-il attribuer ?\nAvis : Deconseille: Perso je deconseille !! Toujour pas livre sa fait plus de 1 mois j attent ma commande je trouve sa pitoyable en plus meme pas il sont desole ... (Category: wireless)",
+    "classification_text": "Deconseille: Perso je deconseille !! Toujour pas livre sa fait plus de 1 mois j attent ma commande je trouve sa pitoyable en plus meme pas il sont desole ... (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nChangement de Format.: Acheté une première fois et c'était parfait. Et là c'est la deuxième commande même référence mais , la protection est mois large de 1mm de chaque côté, et la découpe pour l'appareil photo n'est pas comme sur les photos. À voir si ça change quelques choses mais je préfèrerais avant quand même le désigne et tout l'écran mieux protéger. (Category: wireless)",
+    "classification_text": "Changement de Format.: Acheté une première fois et c'était parfait. Et là c'est la deuxième commande même référence mais , la protection est mois large de 1mm de chaque côté, et la découpe pour l'appareil photo n'est pas comme sur les photos. À voir si ça change quelques choses mais je préfèrerais avant quand même le désigne et tout l'écran mieux protéger. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nParfait: J'ai fait confiance à un commentaire laissé par un autre acheteur. Il avait raison la batterie dure plus longtemps que la batterie d'origine. La livraison a été faite dans les temps. Donc rien d'autre à dire que parfait (Category: pc)",
+    "classification_text": "Parfait: J'ai fait confiance à un commentaire laissé par un autre acheteur. Il avait raison la batterie dure plus longtemps que la batterie d'origine. La livraison a été faite dans les temps. Donc rien d'autre à dire que parfait (Category: pc)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nPas pratique pour l'ouverture: Il est beau, il entoure le téléphone, par contre c'est chiant pour l'ouvrir, c'est super fin donc difficile à chopper avec les doigts. C'est pas le plus simple ou le plus efficace. (Category: wireless)",
+    "classification_text": "Pas pratique pour l'ouverture: Il est beau, il entoure le téléphone, par contre c'est chiant pour l'ouvrir, c'est super fin donc difficile à chopper avec les doigts. C'est pas le plus simple ou le plus efficace. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "J’ai l’avis client suivant. Pouvez-vous lui attribuer une note entre 1 et 5 étoiles ?\nProduit moyen: J’ai acheté ce modèle car beaucoup moins cher que la marque compex. Fait le job mais déçu car la zone de conduction électrique est très petite comparée à une électrode compex. (Category: drugstore)",
+    "classification_text": "Produit moyen: J’ai acheté ce modèle car beaucoup moins cher que la marque compex. Fait le job mais déçu car la zone de conduction électrique est très petite comparée à une électrode compex. (Category: drugstore)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "D’après l’avis ci-dessous, quelle note sur 5 étoiles faut-il attribuer ?\nAvis : très maniable: très pratique pour le balayage d'une cour goudronnée (Category: home_improvement)",
+    "classification_text": "très maniable: très pratique pour le balayage d'une cour goudronnée (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "D’après l’avis ci-dessous, quelle note sur 5 étoiles faut-il attribuer ?\nAvis : Bon rapport qualité prix mais le son reste juste passable: Bon rapport qualité prix mais le mois négatif reste la qualité du son sinon facile à installer. Pour ceux qui n'ont pas de Bluetooth sur leur poste cela reste une solution. Par contre le kit main libre est mieux que certains produits bien plus chers. (Category: wireless)",
+    "classification_text": "Bon rapport qualité prix mais le son reste juste passable: Bon rapport qualité prix mais le mois négatif reste la qualité du son sinon facile à installer. Pour ceux qui n'ont pas de Bluetooth sur leur poste cela reste une solution. Par contre le kit main libre est mieux que certains produits bien plus chers. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Sur une échelle de 1 à 5 étoiles, 1 étant très mauvais et 5 excellent, quelle note correspond à cet avis ?\n👍: Légèrement trop lourde mais nickel 😋 (Category: shoes)",
+    "classification_text": "👍: Légèrement trop lourde mais nickel 😋 (Category: shoes)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nBon produit: Produit de très bonne qualité. Pratique avec les différentes intensité. Seul bémol, couleur cherry je m'attendais à du rouge et la couleur est plus rose foncé (Category: home)",
+    "classification_text": "Bon produit: Produit de très bonne qualité. Pratique avec les différentes intensité. Seul bémol, couleur cherry je m'attendais à du rouge et la couleur est plus rose foncé (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "J’ai l’avis client suivant. Pouvez-vous lui attribuer une note entre 1 et 5 étoiles ?\nPetit format: Ma. Fille a bien aimé très bien expliqué (Category: book)",
+    "classification_text": "Petit format: Ma. Fille a bien aimé très bien expliqué (Category: book)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nLimité à 8 appareils, interface buggée, byebye TP-Link: Répéteur acheté afin de connecter une série d'objets connectés (très peu gourmand en bande passante). Le répéteur ne veut plus rien savoir dès qu'il a 8 appareils en wifi. L'interface ne semble pas fonctionner comme il le faut (serveur DHCP qui ne fonctionne pas, impossibilité de voir la liste des appareils connectés au répéteur). Bref, le premier essai TP-Link sera le dernier. (Category: pc)",
+    "classification_text": "Limité à 8 appareils, interface buggée, byebye TP-Link: Répéteur acheté afin de connecter une série d'objets connectés (très peu gourmand en bande passante). Le répéteur ne veut plus rien savoir dès qu'il a 8 appareils en wifi. L'interface ne semble pas fonctionner comme il le faut (serveur DHCP qui ne fonctionne pas, impossibilité de voir la liste des appareils connectés au répéteur). Bref, le premier essai TP-Link sera le dernier. (Category: pc)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nDéception: Ne s allume pas en cas de brouillard ou de température négative. C est pourtant là qu on en a le plus besoin !!!! (Category: home)",
+    "classification_text": "Déception: Ne s allume pas en cas de brouillard ou de température négative. C est pourtant là qu on en a le plus besoin !!!! (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\ndéçu du produit: je voulais brancher un micro pour la prise casque et cela ne fonction pas même avec l'adaptateur Apple ! (Category: electronics)",
+    "classification_text": "déçu du produit: je voulais brancher un micro pour la prise casque et cela ne fonction pas même avec l'adaptateur Apple ! (Category: electronics)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nPas étanche: Universelle oui mais pas du tout étanche l eau passe entre les anneaux du coup gaspillage d eau le temps de faire ma vaisselle j ai du reremplir mon bac d évier 2fois (Category: home_improvement)",
+    "classification_text": "Pas étanche: Universelle oui mais pas du tout étanche l eau passe entre les anneaux du coup gaspillage d eau le temps de faire ma vaisselle j ai du reremplir mon bac d évier 2fois (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nMiraculeux !!!!: Super produit, vraiment efficace et très nourrissant ! Il a sauvé mes cheveux qui étaient brûlés à cause de l'utilisation du fer à lisser à trop haute température. Je le laisse agir 1h minimum sur cheveux humides enroulés d'une serviette éponge 1x par semaine. Dommage que le conditionnement ne soit pas plus grand... (Category: beauty)",
+    "classification_text": "Miraculeux !!!!: Super produit, vraiment efficace et très nourrissant ! Il a sauvé mes cheveux qui étaient brûlés à cause de l'utilisation du fer à lisser à trop haute température. Je le laisse agir 1h minimum sur cheveux humides enroulés d'une serviette éponge 1x par semaine. Dommage que le conditionnement ne soit pas plus grand... (Category: beauty)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nmassage: Je les utilise depuis 10 jours pour masser des cicatrices qui adhèrent. Excellent résultat à ce jour. Je continue. Merci (Category: beauty)",
+    "classification_text": "massage: Je les utilise depuis 10 jours pour masser des cicatrices qui adhèrent. Excellent résultat à ce jour. Je continue. Merci (Category: beauty)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Sur une échelle de 1 à 5 étoiles, 1 étant très mauvais et 5 excellent, quelle note correspond à cet avis ?\nDéçue: Livraison rapide. Mais la guitare est arrivée rayée avec 1 manque de vernis. Même pas d échange possible. Je suis très déçue. (Category: musical_instruments)",
+    "classification_text": "Déçue: Livraison rapide. Mais la guitare est arrivée rayée avec 1 manque de vernis. Même pas d échange possible. Je suis très déçue. (Category: musical_instruments)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Notre système doit connaître la note en étoiles de cet avis produit. Donnez une note entre 1 et 5 :\npas top!: Très déçue par ce portable, assez lourd en mains, mauvaise qualité au niveau du son, quand tu l'ouvres-tu est direct sur une page que tu ne demandes pas! Cherché l'erreur. bon pour les débutants et encore.... (Category: wireless)",
+    "classification_text": "pas top!: Très déçue par ce portable, assez lourd en mains, mauvaise qualité au niveau du son, quand tu l'ouvres-tu est direct sur une page que tu ne demandes pas! Cherché l'erreur. bon pour les débutants et encore.... (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nLivre déchiré: Ce livre est arrivé déchiré. Que peut-on faire ? (Category: book)",
+    "classification_text": "Livre déchiré: Ce livre est arrivé déchiré. Que peut-on faire ? (Category: book)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Notre système doit connaître la note en étoiles de cet avis produit. Donnez une note entre 1 et 5 :\nsuper: pour tous les passionnés de jazz un très bon cd ce n'est pas nat king cole mais presque parfait a recommander (Category: other)",
+    "classification_text": "super: pour tous les passionnés de jazz un très bon cd ce n'est pas nat king cole mais presque parfait a recommander (Category: other)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nAttention à la taille: C'est ma faute mais une taille S est très juste, je souhaite l'offrir à mon petit frère qui n'a pas de grandes mains du tout. Je les ai essayé pour voir et je suis serrée. Heureusement que c'est du tissu, ça se détendra j'espère. Sinon je les trouve bien sachant que c'est juste pour le look du tireur de airsoft (Category: sports)",
+    "classification_text": "Attention à la taille: C'est ma faute mais une taille S est très juste, je souhaite l'offrir à mon petit frère qui n'a pas de grandes mains du tout. Je les ai essayé pour voir et je suis serrée. Heureusement que c'est du tissu, ça se détendra j'espère. Sinon je les trouve bien sachant que c'est juste pour le look du tireur de airsoft (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "D’après l’avis ci-dessous, quelle note sur 5 étoiles faut-il attribuer ?\nAvis : Inutile: Déjà le deuxième adaptateur usb et ne fonctionne toujours pas, câble inutile pour éteindre ou allumer de l’usb. Ne surtout pas acheter (Category: home_improvement)",
+    "classification_text": "Inutile: Déjà le deuxième adaptateur usb et ne fonctionne toujours pas, câble inutile pour éteindre ou allumer de l’usb. Ne surtout pas acheter (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\nDéfaut sur le coté lateral gauche de la chaussure gauche: sur le coté gauche le cerclage de la chaussure me meurtrie le pied. Après plusieurs utilisations il semble que ce probléme s'attenue, mais pour des chaussures de cette marque (peut-être contrefaçon ?) c'est dommage!!!!!!! (Category: shoes)",
+    "classification_text": "Défaut sur le coté lateral gauche de la chaussure gauche: sur le coté gauche le cerclage de la chaussure me meurtrie le pied. Après plusieurs utilisations il semble que ce probléme s'attenue, mais pour des chaussures de cette marque (peut-être contrefaçon ?) c'est dommage!!!!!!! (Category: shoes)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nJe vais porter plainte contre vous: Sérieux Amazon vous avez un problème avec moi déjà vous devez un remboursement et je ne dis rien en plus des autres merdes qui m'ont été envoyé à la place de mes articles cette fois encore vous chercher à me pousser à bout, je demande un vers trempé de Xperia l1 et je reçois celui de jne sais que téléphone merde quoi j'en ai marre y a intérêt à régler ce problème j'ai pas envie de porter plainte contre vous surtout que ça fait un bon moment que je soutient le site quoi... (Category: wireless)",
+    "classification_text": "Je vais porter plainte contre vous: Sérieux Amazon vous avez un problème avec moi déjà vous devez un remboursement et je ne dis rien en plus des autres merdes qui m'ont été envoyé à la place de mes articles cette fois encore vous chercher à me pousser à bout, je demande un vers trempé de Xperia l1 et je reçois celui de jne sais que téléphone merde quoi j'en ai marre y a intérêt à régler ce problème j'ai pas envie de porter plainte contre vous surtout que ça fait un bon moment que je soutient le site quoi... (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nPetit prix mais mauvaise qualité: Tissus trop rigide, tient trop chaud et trop grand. La taille peut se régler mais l'écharpe reste malgré tout trop grande pour un nouveau né. Je l'ai renvoyé tout de suite. Mieux vaut investir dans une écharpe de meilleure qualité. (Category: baby_product)",
+    "classification_text": "Petit prix mais mauvaise qualité: Tissus trop rigide, tient trop chaud et trop grand. La taille peut se régler mais l'écharpe reste malgré tout trop grande pour un nouveau né. Je l'ai renvoyé tout de suite. Mieux vaut investir dans une écharpe de meilleure qualité. (Category: baby_product)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Comme celui d’origine: Pour une pompe à eau de surface (Category: industrial_supplies)",
+    "classification_text": "Comme celui d’origine: Pour une pompe à eau de surface (Category: industrial_supplies)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\nDurabilité de seulement quelques semaines...: Cable à priori satisfaisant jusqu'à ce qu'il cesse de fonctionner correctement après seulement quelques semaines d'utilisation... C'est bien dommage, malgré le Nylon le cable reste fragile. (Category: wireless)",
+    "classification_text": "Durabilité de seulement quelques semaines...: Cable à priori satisfaisant jusqu'à ce qu'il cesse de fonctionner correctement après seulement quelques semaines d'utilisation... C'est bien dommage, malgré le Nylon le cable reste fragile. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nTrès belle pyramide: Très beau produit, fourni en éléments divers. Les dimensions du carton sont impressionnantes ! Beau cadeau pour Noël pour un enfant aimant le monde des pharaons (Category: toy)",
+    "classification_text": "Très belle pyramide: Très beau produit, fourni en éléments divers. Les dimensions du carton sont impressionnantes ! Beau cadeau pour Noël pour un enfant aimant le monde des pharaons (Category: toy)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Pensez aux notes typiques sur Amazon. Laquelle (1–5) cet avis recevrait-il le plus probablement ?\nPas mal: Le gland est un peu trop gros et un peu trop rigide. Sinon le gode en lui même est très mignon, adhère bien et se lave facilement. Le prix est aussi très chouette ;) (Category: personal_care_appliances)",
+    "classification_text": "Pas mal: Le gland est un peu trop gros et un peu trop rigide. Sinon le gode en lui même est très mignon, adhère bien et se lave facilement. Le prix est aussi très chouette ;) (Category: personal_care_appliances)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Notre système doit connaître la note en étoiles de cet avis produit. Donnez une note entre 1 et 5 :\nla manivelle est cassée: initier mes petits enfants à la pêche , (Category: sports)",
+    "classification_text": "la manivelle est cassée: initier mes petits enfants à la pêche , (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "J’ai l’avis client suivant. Pouvez-vous lui attribuer une note entre 1 et 5 étoiles ?\nLimage des joysticks a la base a prevoir: Limage des joysticks a la base a prévoir parce que la base et trop longue au niveaux du joysticks sinon bonne prise au niveaux des doigts (Category: video_games)",
+    "classification_text": "Limage des joysticks a la base a prevoir: Limage des joysticks a la base a prévoir parce que la base et trop longue au niveaux du joysticks sinon bonne prise au niveaux des doigts (Category: video_games)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "D’après l’avis ci-dessous, quelle note sur 5 étoiles faut-il attribuer ?\nAvis : Livré cassé: Livré cassé _ gel dans tout le colis. Mauvais conditionnement. (Category: beauty)",
+    "classification_text": "Livré cassé: Livré cassé _ gel dans tout le colis. Mauvais conditionnement. (Category: beauty)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nCourte durée de vie: Première utilisation et charge sans problème, n'étant pas un gamer assidu, la batterie se décharge à chaque fois par faute d'utilisation. Troisième charge sans problème. Depuis maintenant +/- 3 semaines les voyants LED clignotent en charge mais un fois débranchée rien. Impossible de jouer sauf en laissant la manette en charge ou branchée sur le PC... pour du sans fils c'est pas le top. (Category: video_games)",
+    "classification_text": "Courte durée de vie: Première utilisation et charge sans problème, n'étant pas un gamer assidu, la batterie se décharge à chaque fois par faute d'utilisation. Troisième charge sans problème. Depuis maintenant +/- 3 semaines les voyants LED clignotent en charge mais un fois débranchée rien. Impossible de jouer sauf en laissant la manette en charge ou branchée sur le PC... pour du sans fils c'est pas le top. (Category: video_games)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\nInutile: Cette batterie ne tiens pas plus la charge que celle d'origine, arrivée aux environs de 50% elle me lache. (Category: wireless)",
+    "classification_text": "Inutile: Cette batterie ne tiens pas plus la charge que celle d'origine, arrivée aux environs de 50% elle me lache. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nEfficace: Utilisé pour démonter les pneus de ma voiture, écrous enlevés sans forcer, très efficace. (Category: home_improvement)",
+    "classification_text": "Efficace: Utilisé pour démonter les pneus de ma voiture, écrous enlevés sans forcer, très efficace. (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Notre système doit connaître la note en étoiles de cet avis produit. Donnez une note entre 1 et 5 :\nConforme à la description: Produit parfaitement conforme à la description (Category: watch)",
+    "classification_text": "Conforme à la description: Produit parfaitement conforme à la description (Category: watch)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nSincères condoléances: J'adore! De l'humour de la générosité. La découverte d'une profession on font si mal connu. J'avais adoré le premier , j'ai adoré le deuxième , j'attends avec impatience, pourquoi pas, le troisième. Je recommande vivement (Category: book)",
+    "classification_text": "Sincères condoléances: J'adore! De l'humour de la générosité. La découverte d'une profession on font si mal connu. J'avais adoré le premier , j'ai adoré le deuxième , j'attends avec impatience, pourquoi pas, le troisième. Je recommande vivement (Category: book)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nA tester.: Bon produit , fait son job . Rien n'a signaler.Compatible avec d'autre produits.Pour le prix à tester si vous le souhaitez. (Category: pc)",
+    "classification_text": "A tester.: Bon produit , fait son job . Rien n'a signaler.Compatible avec d'autre produits.Pour le prix à tester si vous le souhaitez. (Category: pc)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nBriquet rechargeable: Le colis a était reçu bien emballé. Le briquet rechargeable est bien fait. En usb ce qui est très pratique. (Category: furniture)",
+    "classification_text": "Briquet rechargeable: Le colis a était reçu bien emballé. Le briquet rechargeable est bien fait. En usb ce qui est très pratique. (Category: furniture)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Bandoulière trop courte: Produit correcte mais les bandoulières du sac pas assez longues pour la mettre sur les épaules (Category: sports)",
+    "classification_text": "Bandoulière trop courte: Produit correcte mais les bandoulières du sac pas assez longues pour la mettre sur les épaules (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : avis sur coulisses: Coulisses pour caissons bas de cuisine . Carcasse métal un peut légé à voir a l'usage . (Category: home_improvement)",
+    "classification_text": "avis sur coulisses: Coulisses pour caissons bas de cuisine . Carcasse métal un peut légé à voir a l'usage . (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "D’après l’avis ci-dessous, quelle note sur 5 étoiles faut-il attribuer ?\nAvis : bonne article: cadeaux pour mon frère article arrivée a temps il en est très contant et tien chaud (Category: apparel)",
+    "classification_text": "bonne article: cadeaux pour mon frère article arrivée a temps il en est très contant et tien chaud (Category: apparel)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nEmploi: la sortie se trouve fort haute et donc, faut penché le samovar pour avoir un maximum de tasses. Et la quantité minimum est fort élevé. (Category: kitchen)",
+    "classification_text": "Emploi: la sortie se trouve fort haute et donc, faut penché le samovar pour avoir un maximum de tasses. Et la quantité minimum est fort élevé. (Category: kitchen)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\nKit pochoir dessin: Cadeau pour les 5 ans de mon fils, il a adoré. (Category: kitchen)",
+    "classification_text": "Kit pochoir dessin: Cadeau pour les 5 ans de mon fils, il a adoré. (Category: kitchen)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nElegant, simple et efficace: Pas ultra sophistiqué avec des rangements de partout, mais suffisant pour un portable, des documents et dossiers, et tous les accessoires alimentation souris .... Dommage que la poche arrière ne ferme pas avec une fermeture éclair mais avec un scratch. Pas rédhibitoire. Élégant gris anthracite qui sort de l'ordinaire. (Category: pc)",
+    "classification_text": "Elegant, simple et efficace: Pas ultra sophistiqué avec des rangements de partout, mais suffisant pour un portable, des documents et dossiers, et tous les accessoires alimentation souris .... Dommage que la poche arrière ne ferme pas avec une fermeture éclair mais avec un scratch. Pas rédhibitoire. Élégant gris anthracite qui sort de l'ordinaire. (Category: pc)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Notre système doit connaître la note en étoiles de cet avis produit. Donnez une note entre 1 et 5 :\nEnceinte portable pour faire suivre la musique partout: Il sort un son impressionnant de cette enceinte. Nous aimons le design. Et le bluetooth c'est génial. Si votre ordi n'est pas bluetooth, il suffit d'acheter une petite clé USB bluetooth. Dans un duplex de 60m2 la connexion passe partout. (Category: wireless)",
+    "classification_text": "Enceinte portable pour faire suivre la musique partout: Il sort un son impressionnant de cette enceinte. Nous aimons le design. Et le bluetooth c'est génial. Si votre ordi n'est pas bluetooth, il suffit d'acheter une petite clé USB bluetooth. Dans un duplex de 60m2 la connexion passe partout. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nexcellent produit: qualité prix imbattable (Category: beauty)",
+    "classification_text": "excellent produit: qualité prix imbattable (Category: beauty)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nIphone hdmi: Ne marche pas Renvoyé... (Category: electronics)",
+    "classification_text": "Iphone hdmi: Ne marche pas Renvoyé... (Category: electronics)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\njamais reçu: produit jamais reçu et je n ai jamais pu me faire rembourse. je vais faire intervenir le service juridique pour me faire rembourser (Category: beauty)",
+    "classification_text": "jamais reçu: produit jamais reçu et je n ai jamais pu me faire rembourse. je vais faire intervenir le service juridique pour me faire rembourser (Category: beauty)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nDecevant: S'est brisé lors de la pause.... Et pourtant j'ai vraiment fait attention... (Category: wireless)",
+    "classification_text": "Decevant: S'est brisé lors de la pause.... Et pourtant j'ai vraiment fait attention... (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nBien: Quelques petits défauts mais rien de bien méchant (Category: toy)",
+    "classification_text": "Bien: Quelques petits défauts mais rien de bien méchant (Category: toy)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Si vous étiez le client ayant écrit cet avis, combien d’étoiles donneriez-vous ?\nCouleur et légèreté: Le téléphone est bien protégé. Une coque transparente et résistante qui protège l’écran! Je suis ravie de cet achat. Je suis assez satisfaite. Bref n'hésitez pas a prendre celle ci. (Category: pc)",
+    "classification_text": "Couleur et légèreté: Le téléphone est bien protégé. Une coque transparente et résistante qui protège l’écran! Je suis ravie de cet achat. Je suis assez satisfaite. Bref n'hésitez pas a prendre celle ci. (Category: pc)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Un des deux ne marche pas.: Un des deux ne marche pas, il ne s'allume pas du tout :-( Quant à l'autre, il s'allume, mais je n'ai pas eu l'occasion de le voir en marche, alors je m'interroge... (Category: home_improvement)",
+    "classification_text": "Un des deux ne marche pas.: Un des deux ne marche pas, il ne s'allume pas du tout :-( Quant à l'autre, il s'allume, mais je n'ai pas eu l'occasion de le voir en marche, alors je m'interroge... (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nTrès déçu...: Après 10 jours d'utilisation je viens de l'enlever de mon Nokia 7 Plus car l'écran n'était plus du tout tactile. Progressivement il a perdu toute sensibilité et j'ai du le retirer car mon smartphone était devenu totalement inutilisable ! (Category: wireless)",
+    "classification_text": "Très déçu...: Après 10 jours d'utilisation je viens de l'enlever de mon Nokia 7 Plus car l'écran n'était plus du tout tactile. Progressivement il a perdu toute sensibilité et j'ai du le retirer car mon smartphone était devenu totalement inutilisable ! (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Appareil défectueux n'a jamais fonctionné: Appareil défectueux n'a jamais fonctionné. Nous n'avons pas pu le faire fonctionné malgré le changement de pile. Nous n'avons pas pu l'offrir. (Category: toy)",
+    "classification_text": "Appareil défectueux n'a jamais fonctionné: Appareil défectueux n'a jamais fonctionné. Nous n'avons pas pu le faire fonctionné malgré le changement de pile. Nous n'avons pas pu l'offrir. (Category: toy)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nClef remise à neuf pour prix intéressant: Ancienne clef remise à neuf avec nouvelle coque. Ça marche. Bon prix (Category: wireless)",
+    "classification_text": "Clef remise à neuf pour prix intéressant: Ancienne clef remise à neuf avec nouvelle coque. Ça marche. Bon prix (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Si vous étiez le client ayant écrit cet avis, combien d’étoiles donneriez-vous ?\nBof: Produit qui ne fonctionne pas, changé plusieurs fois de fenêtre, de position, de hauteur et de mode de support. Rien donc renvoyé. Dommage (Category: wireless)",
+    "classification_text": "Bof: Produit qui ne fonctionne pas, changé plusieurs fois de fenêtre, de position, de hauteur et de mode de support. Rien donc renvoyé. Dommage (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Lisez cet avis et décidez combien d’étoiles sur cinq il mérite :\nSuper: Kit vraiment complet... le pistolet peut très bien servir à un amateur pratiquant.. franchement pas déçu (Category: beauty)",
+    "classification_text": "Super: Kit vraiment complet... le pistolet peut très bien servir à un amateur pratiquant.. franchement pas déçu (Category: beauty)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nParfaite pour les travaux de bureau.: Je cherchais pour ma fille une lampe de bureau que je puisse ranger et transporter facilement. Bien qu’elle ait un bureau dans sa chambre, elle fait toujours ses devoirs sur la table de notre salle à manger; cependant, je trouve que la luminosité est insuffisante dans cet espace, c’est pourquoi j’ai choisi cette lampe. Elle est parfaite! Elle se replie complètement. On choisit la hauteur, l’orientation, la luminosité, la teinte. Elle a 4 touches tactiles à sa base: -l’interrupteur -la teinte -la veilleuse -la minuterie Ainsi qu’un curseur tactile pour l’intensité lumineuse. ++: -un design contemporain, épuré. -une prise USB sur le côté du socle pour charger le portable (la charge s’effectue même si la lampe est éteinte). -une veilleuse est située à l’extrémité du bras. C’est très pratique pour ne pas éblouir son conjoint lorsque que l’on lit le soir. Le confort de lecture est suffisant. En activant la touche minuterie, la lampe reste allumée une heure et s’éteint automatiquement. Bon à savoir: si la lampe n’a pas été débranchée, elle conserve en mémoire vos derniers paramètres. Livrée avec une chiffonnette ainsi qu’un manuel. (Category: home)",
+    "classification_text": "Parfaite pour les travaux de bureau.: Je cherchais pour ma fille une lampe de bureau que je puisse ranger et transporter facilement. Bien qu’elle ait un bureau dans sa chambre, elle fait toujours ses devoirs sur la table de notre salle à manger; cependant, je trouve que la luminosité est insuffisante dans cet espace, c’est pourquoi j’ai choisi cette lampe. Elle est parfaite! Elle se replie complètement. On choisit la hauteur, l’orientation, la luminosité, la teinte. Elle a 4 touches tactiles à sa base: -l’interrupteur -la teinte -la veilleuse -la minuterie Ainsi qu’un curseur tactile pour l’intensité lumineuse. ++: -un design contemporain, épuré. -une prise USB sur le côté du socle pour charger le portable (la charge s’effectue même si la lampe est éteinte). -une veilleuse est située à l’extrémité du bras. C’est très pratique pour ne pas éblouir son conjoint lorsque que l’on lit le soir. Le confort de lecture est suffisant. En activant la touche minuterie, la lampe reste allumée une heure et s’éteint automatiquement. Bon à savoir: si la lampe n’a pas été débranchée, elle conserve en mémoire vos derniers paramètres. Livrée avec une chiffonnette ainsi qu’un manuel. (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Le prix de la montre est très belle: Utilisez-le lorsque vous courez ou nagez, il correspond parfaitement à sa fonction et conserve son temps utile pour le temps de repos, qui ne doit pas être ignoré pour les montres!Enfin, je recommande que ce produit soit totalement conforme aux attentes. (Category: sports)",
+    "classification_text": "Le prix de la montre est très belle: Utilisez-le lorsque vous courez ou nagez, il correspond parfaitement à sa fonction et conserve son temps utile pour le temps de repos, qui ne doit pas être ignoré pour les montres!Enfin, je recommande que ce produit soit totalement conforme aux attentes. (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nExcellent: Très beau et très très bonne qualité. Fait d'un seul bloc, pas de fausse peinture argentée. (Category: home_improvement)",
+    "classification_text": "Excellent: Très beau et très très bonne qualité. Fait d'un seul bloc, pas de fausse peinture argentée. (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Notre système doit connaître la note en étoiles de cet avis produit. Donnez une note entre 1 et 5 :\nGénial: Très agréable à porter même toute une journée. (Category: home)",
+    "classification_text": "Génial: Très agréable à porter même toute une journée. (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nIncompatible avec le P smart+: La largeur de la vitre est plus petite que la taille de l'écran. (Category: wireless)",
+    "classification_text": "Incompatible avec le P smart+: La largeur de la vitre est plus petite que la taille de l'écran. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Lisez cet avis et décidez combien d’étoiles sur cinq il mérite :\nMoyen: Produit qui ne correspond pas a ce que l'hôpital nous propose Donc en comparaison ceux de l'hôpital sont bien meilleurs (Category: baby_product)",
+    "classification_text": "Moyen: Produit qui ne correspond pas a ce que l'hôpital nous propose Donc en comparaison ceux de l'hôpital sont bien meilleurs (Category: baby_product)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\nChienne heureuse, maitres heureux!: Super produit assez gros pour ma chienne de 26 kilos. Ils durent assez longtemps. Ma chienne a l'air ravie! (Category: pet_products)",
+    "classification_text": "Chienne heureuse, maitres heureux!: Super produit assez gros pour ma chienne de 26 kilos. Ils durent assez longtemps. Ma chienne a l'air ravie! (Category: pet_products)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "J’ai l’avis client suivant. Pouvez-vous lui attribuer une note entre 1 et 5 étoiles ?\nDéco: Décoration sur table (Category: home)",
+    "classification_text": "Déco: Décoration sur table (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Pensez aux notes typiques sur Amazon. Laquelle (1–5) cet avis recevrait-il le plus probablement ?\nDVD Inferno: Article correspondant à la présentation. Délai rapide et respecté. Il y a des fois où il faut dire quand cela est bien. Cette fois c'est le cas. A recommander. (Category: other)",
+    "classification_text": "DVD Inferno: Article correspondant à la présentation. Délai rapide et respecté. Il y a des fois où il faut dire quand cela est bien. Cette fois c'est le cas. A recommander. (Category: other)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Notre système doit connaître la note en étoiles de cet avis produit. Donnez une note entre 1 et 5 :\nÉcran LCD: Expédition très rapide comme convenu mais produit pas au top. Se décolle après une semaine. Bouton central pas d empreinte. (Category: wireless)",
+    "classification_text": "Écran LCD: Expédition très rapide comme convenu mais produit pas au top. Se décolle après une semaine. Bouton central pas d empreinte. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "J’ai l’avis client suivant. Pouvez-vous lui attribuer une note entre 1 et 5 étoiles ?\nEnfant ok / bébé inutilisable: Commande de deux: un piur enfant de 7 ans. Ok. Un piur bébé de 7 mois et impossible à utiliser pourtant dans le descriptif c est bien précisé ok pour bébé donc déçue ! Car bébé à la tête / le cou cassé en voiture (Category: baby_product)",
+    "classification_text": "Enfant ok / bébé inutilisable: Commande de deux: un piur enfant de 7 ans. Ok. Un piur bébé de 7 mois et impossible à utiliser pourtant dans le descriptif c est bien précisé ok pour bébé donc déçue ! Car bébé à la tête / le cou cassé en voiture (Category: baby_product)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nTrès bien: Tres bon produit, de très bonne qualité et conforme à la description. Petit bémol : l'emballage est à revoir. Quand je l'ai reçu le carton était à moitié ouvert et écrasé. Pour ce type de matériel, il faudrait un emballage plus solide. (Category: sports)",
+    "classification_text": "Très bien: Tres bon produit, de très bonne qualité et conforme à la description. Petit bémol : l'emballage est à revoir. Quand je l'ai reçu le carton était à moitié ouvert et écrasé. Pour ce type de matériel, il faudrait un emballage plus solide. (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nPas mal mais je n’ai pas noté de réelle différence avec les fixations d’origine: Pas mal mais je n’ai pas noté de réelle différence avec les fixations d’origine (Category: pc)",
+    "classification_text": "Pas mal mais je n’ai pas noté de réelle différence avec les fixations d’origine: Pas mal mais je n’ai pas noté de réelle différence avec les fixations d’origine (Category: pc)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "D’après l’avis ci-dessous, quelle note sur 5 étoiles faut-il attribuer ?\nAvis : Appareil pour se nettoyer le nez: Très bien pour un rinçage des sinus. Très pratique. Prix correct. (Category: drugstore)",
+    "classification_text": "Appareil pour se nettoyer le nez: Très bien pour un rinçage des sinus. Très pratique. Prix correct. (Category: drugstore)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nBon produit: Le montage est simple et amusant. Le Raspberry Pi 3 se loge bien dans ce boitier. J'ai juste un petit espace entre deux couches. Le boitier est très joli et le ventilateur efficace et relativement silencieux même en vitesse maximale. (Category: pc)",
+    "classification_text": "Bon produit: Le montage est simple et amusant. Le Raspberry Pi 3 se loge bien dans ce boitier. J'ai juste un petit espace entre deux couches. Le boitier est très joli et le ventilateur efficace et relativement silencieux même en vitesse maximale. (Category: pc)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Classez cet avis dans l’une des catégories suivantes : 1 étoile, 2 étoiles, 3 étoiles, 4 étoiles, 5 étoiles.\nBien; solidité a confirmer dans le temps: Domage sur la notice pas la langue Français, sinon RAS jusqu'à ce jour. (Category: wireless)",
+    "classification_text": "Bien; solidité a confirmer dans le temps: Domage sur la notice pas la langue Français, sinon RAS jusqu'à ce jour. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Sur une échelle de 1 à 5 étoiles, 1 étant très mauvais et 5 excellent, quelle note correspond à cet avis ?\njamais reçu le produit: jamais reçu le produit. (Category: wireless)",
+    "classification_text": "jamais reçu le produit: jamais reçu le produit. (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "J’ai l’avis client suivant. Pouvez-vous lui attribuer une note entre 1 et 5 étoiles ?\nA refaire sans hésiter: Super casque. Son équilibré et fidèle. Qualité général au rendez vous et super confort même après plusieurs heures sur la tête. (Category: pc)",
+    "classification_text": "A refaire sans hésiter: Super casque. Son équilibré et fidèle. Qualité général au rendez vous et super confort même après plusieurs heures sur la tête. (Category: pc)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\nCa n est pas du cuir: Contrairement à ce qui est écrit ces gans ne sont pas en cuir mais en plastique. Ca se voit quand on les porte, l'aspect est vraiment peu convainquant et au touché c est pire encore. Allergiques s abstenir ! (Category: sports)",
+    "classification_text": "Ca n est pas du cuir: Contrairement à ce qui est écrit ces gans ne sont pas en cuir mais en plastique. Ca se voit quand on les porte, l'aspect est vraiment peu convainquant et au touché c est pire encore. Allergiques s abstenir ! (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Sur une échelle de 1 à 5 étoiles, 1 étant très mauvais et 5 excellent, quelle note correspond à cet avis ?\nmoyen: kit pour débutant plutot bien sauf la brosse (Category: drugstore)",
+    "classification_text": "moyen: kit pour débutant plutot bien sauf la brosse (Category: drugstore)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Évaluez objectivement cet avis sur une échelle de 1 à 5 étoiles :\nMatelas crevé en 5 nuits: J’ai acheté 2 matelas pour mes enfants, en 5 jours, j’ai déjà un matelas HS. Niveau bruit +5 dès qu’un enfant bouge. Je ne recommande pas ce produit. (Category: sports)",
+    "classification_text": "Matelas crevé en 5 nuits: J’ai acheté 2 matelas pour mes enfants, en 5 jours, j’ai déjà un matelas HS. Niveau bruit +5 dès qu’un enfant bouge. Je ne recommande pas ce produit. (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Déterminez la note en étoiles la plus probable donnée par l’auteur de l’avis suivant :\nTop: Grande capacité et plutôt compact. Le rangement pour le casque c'est top (Category: automotive)",
+    "classification_text": "Top: Grande capacité et plutôt compact. Le rangement pour le casque c'est top (Category: automotive)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nsurprenant: Sur le produit en question, je ne suis pas si enthousiaste que les commentaires précédents. L'article fait un peu gadget; il n'y a pas de notice d'emploi ni de mise en garde ( pour les yeux ); la lampe reçue clignote de temps en temps ( j'ai mis des piles neuves ) ;cela n'augure rien de bon sur la durabilité du produit. Et si quelqu'un peut me dire à quoi sert le petit tube en plastique transparent livré avec la lampe...Personnellement, je l'ai achetée pour vérifier l'authenticité d'un collier en ambre ( et c'est bien de l'ambre ) 30 octobre: je complète mon commentaire et rajoute une étoile; l'article clignote beaucoup moins ; je l'ai testé pour les pipis de mes chats et je constate qu'il y a de nombreux marquages qui m'avaient échappé; finalement, l'article fait son travail! (Category: home_improvement)",
+    "classification_text": "surprenant: Sur le produit en question, je ne suis pas si enthousiaste que les commentaires précédents. L'article fait un peu gadget; il n'y a pas de notice d'emploi ni de mise en garde ( pour les yeux ); la lampe reçue clignote de temps en temps ( j'ai mis des piles neuves ) ;cela n'augure rien de bon sur la durabilité du produit. Et si quelqu'un peut me dire à quoi sert le petit tube en plastique transparent livré avec la lampe...Personnellement, je l'ai achetée pour vérifier l'authenticité d'un collier en ambre ( et c'est bien de l'ambre ) 30 octobre: je complète mon commentaire et rajoute une étoile; l'article clignote beaucoup moins ; je l'ai testé pour les pipis de mes chats et je constate qu'il y a de nombreux marquages qui m'avaient échappé; finalement, l'article fait son travail! (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Q : Combien d’étoiles attribueriez-vous à cet avis ?\nR :\nAvis : Protection très visible et facile à installer: La protection de sac est ès visible et facile à installer avec des bandes velcro.. Attention taille un peu juste pour Quechua 20l (Category: sports)",
+    "classification_text": "Protection très visible et facile à installer: La protection de sac est ès visible et facile à installer avec des bandes velcro.. Attention taille un peu juste pour Quechua 20l (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\nTrès bien quoi qu'un peu trop bruyant: Très efficace, seul bémol j'avais acheté cette pompe pour un petit bassin dans un jardin zen et le léger vrombissement de la machine n'est pas vraiment compatible avec... Sans ça j'aurais donné 5/5 (Category: lawn_and_garden)",
+    "classification_text": "Très bien quoi qu'un peu trop bruyant: Très efficace, seul bémol j'avais acheté cette pompe pour un petit bassin dans un jardin zen et le léger vrombissement de la machine n'est pas vraiment compatible avec... Sans ça j'aurais donné 5/5 (Category: lawn_and_garden)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Sur une échelle de 1 à 5 étoiles, 1 étant très mauvais et 5 excellent, quelle note correspond à cet avis ?\nFaux cils magnétiques: Impossible à mettre achat très décevant je ne le recommande pas. (Category: beauty)",
+    "classification_text": "Faux cils magnétiques: Impossible à mettre achat très décevant je ne le recommande pas. (Category: beauty)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\nfacile d'utilisation. intuitif et à recommander. !: conforme à la description. Très intuitif. L'écran est vraiment facil d'utilisation. Les électrodes se posent vraiment aisément et je dois avouer qu'un petit massage de 20min le soir détend vraiment. Tout les modes disponibles permettes une bonne diversités de massage ! je recommande. (Category: sports)",
+    "classification_text": "facile d'utilisation. intuitif et à recommander. !: conforme à la description. Très intuitif. L'écran est vraiment facil d'utilisation. Les électrodes se posent vraiment aisément et je dois avouer qu'un petit massage de 20min le soir détend vraiment. Tout les modes disponibles permettes une bonne diversités de massage ! je recommande. (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "5"
+  },
+  {
+    "prompt": "Si vous étiez le client ayant écrit cet avis, combien d’étoiles donneriez-vous ?\nSmartphone basique sans plus, qualité/prix valable: Acheter pour un fils (Category: wireless)",
+    "classification_text": "Smartphone basique sans plus, qualité/prix valable: Acheter pour un fils (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\nUn éventuel défaut ou autre...: Belle montre, très féminine, d'un bon rapport qualité/prix qui a été connectée a un Samsung S7. 2 problèmes: 1) Lorsque la montre et le téléphone sont \"éloignés de 4 à 6m, le téléphone \"pleure\" sa montre connectée a n'en plus finir. Le pire est que mon épouse s'est retrouvé avec une plaque rouge, comme une brûlure, à l'emplacement de la montre. Ceci est peut-être dû aux rayons utilisés pour prendre les mesures corporelles... Méfiance donc... Nous nous en sommes débarrassés... (Category: home_improvement)",
+    "classification_text": "Un éventuel défaut ou autre...: Belle montre, très féminine, d'un bon rapport qualité/prix qui a été connectée a un Samsung S7. 2 problèmes: 1) Lorsque la montre et le téléphone sont \"éloignés de 4 à 6m, le téléphone \"pleure\" sa montre connectée a n'en plus finir. Le pire est que mon épouse s'est retrouvé avec une plaque rouge, comme une brûlure, à l'emplacement de la montre. Ceci est peut-être dû aux rayons utilisés pour prendre les mesures corporelles... Méfiance donc... Nous nous en sommes débarrassés... (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "J’ai l’avis client suivant. Pouvez-vous lui attribuer une note entre 1 et 5 étoiles ?\nEfficace mais fragile si mal utilisé: Forêts de très bonnes qualité. Un bémol : ils sont équipés d'un centreur, un peu comme les forets à bois. Quand le centreur (environ 4mm de haut) passe à travers une tôle avec trop d'appui et de vitesse, le reste du forêt mord brutalement dans le métal, se plante et casse net. J'en ai cassé trois et tordu un en une trentaine de perçages. Bon matériel si on respecte les vitesses de rotation, un peu fragile pour un usage chantier. (Category: home_improvement)",
+    "classification_text": "Efficace mais fragile si mal utilisé: Forêts de très bonnes qualité. Un bémol : ils sont équipés d'un centreur, un peu comme les forets à bois. Quand le centreur (environ 4mm de haut) passe à travers une tôle avec trop d'appui et de vitesse, le reste du forêt mord brutalement dans le métal, se plante et casse net. J'en ai cassé trois et tordu un en une trentaine de perçages. Bon matériel si on respecte les vitesses de rotation, un peu fragile pour un usage chantier. (Category: home_improvement)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "3"
+  },
+  {
+    "prompt": "Sans explication, indiquez la note en étoiles (1–5) correspondant à cet avis :\nUn peut léger mais il est possible de rajouter du poids: Bon produit conforme au descriptif. (Category: sports)",
+    "classification_text": "Un peut léger mais il est possible de rajouter du poids: Bon produit conforme au descriptif. (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "4"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\nAucun intérêt: J’adore le thé matcha et j’étais impatiente de goûter mais je suis très déçue il n’y a pas grand intérêt. (Category: grocery)",
+    "classification_text": "Aucun intérêt: J’adore le thé matcha et j’étais impatiente de goûter mais je suis très déçue il n’y a pas grand intérêt. (Category: grocery)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Lisez cet avis et décidez combien d’étoiles sur cinq il mérite :\nBon pour une pièce peu utilisée: L'angle d'éclairage est réduit cela se résume avec un éclairage très centralisé et une belle perte sur les côtés. Qualité du produit très moyen. Aucune télécommande. (Category: home)",
+    "classification_text": "Bon pour une pièce peu utilisée: L'angle d'éclairage est réduit cela se résume avec un éclairage très centralisé et une belle perte sur les côtés. Qualité du produit très moyen. Aucune télécommande. (Category: home)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Résumez cet avis en une note de 1 (médiocre) à 5 (excellent) :\narnaque: produit conforme a la description ,mais ne sers a rien aucune notice pour les valeurs annoncées a fuire absolument bonne journée (Category: automotive)",
+    "classification_text": "arnaque: produit conforme a la description ,mais ne sers a rien aucune notice pour les valeurs annoncées a fuire absolument bonne journée (Category: automotive)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Imaginez qu’il s’agit d’un avis Amazon. Quelle note sur 5 est la plus probable ?\nSEMELLE QUI SE DÉCOLLE APRÈS 3 MOIS ...: Belles bottines, qualité du cuir correspond au prix. PAR CONTRE !!! semelle qui se décolle à l'avant et à l'arrière au bout de 3mois, inadmissible pour le prix et seul point noir pour moi ... Je ne rachèterais malheureusement pas alors qu'elles correspondaient parfaitement à ce que je recherchait ... (Category: shoes)",
+    "classification_text": "SEMELLE QUI SE DÉCOLLE APRÈS 3 MOIS ...: Belles bottines, qualité du cuir correspond au prix. PAR CONTRE !!! semelle qui se décolle à l'avant et à l'arrière au bout de 3mois, inadmissible pour le prix et seul point noir pour moi ... Je ne rachèterais malheureusement pas alors qu'elles correspondaient parfaitement à ce que je recherchait ... (Category: shoes)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "2"
+  },
+  {
+    "prompt": "Lisez cet avis et décidez combien d’étoiles sur cinq il mérite :\nAucune efficacité: Produit décevant, aucun soutien constaté à l'utilisation. (Category: sports)",
+    "classification_text": "Aucune efficacité: Produit décevant, aucun soutien constaté à l'utilisation. (Category: sports)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Convertissez le sentiment de cet avis en une note de 1 à 5 étoiles :\nNe marche pas avec mon iPhone 7: Ne fonctionne pas avec mon iPhone 7 Plus neuf .. je l’ai renvoyé et me suis faite rembourser. En revanche remboursement rapide merci pour le sérieux . (Category: pc)",
+    "classification_text": "Ne marche pas avec mon iPhone 7: Ne fonctionne pas avec mon iPhone 7 Plus neuf .. je l’ai renvoyé et me suis faite rembourser. En revanche remboursement rapide merci pour le sérieux . (Category: pc)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  },
+  {
+    "prompt": "Pensez aux notes typiques sur Amazon. Laquelle (1–5) cet avis recevrait-il le plus probablement ?\narticles de médiocre qualité: ces deux articles fonctionnent mal (Category: wireless)",
+    "classification_text": "articles de médiocre qualité: ces deux articles fonctionnent mal (Category: wireless)",
+    "language": "fr",
+    "task": "rating",
+    "domain": "finance",
+    "label": "1"
+  }
+]
